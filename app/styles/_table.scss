@@ -1,0 +1,42 @@
+.wdd-table{
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
+    table{
+        width: 100%;
+        thead {
+            background-color: #233145;
+            color: #ffffff;
+            tr{
+                font-size: 12px;
+                height: 30px;
+                th{
+                    text-align: center;
+                }
+            }
+        }
+        tbody {
+            tr:nth-child(even) {
+                background-color: #f8fbff;
+            }
+            tr{
+                height: 50px;
+                td {
+                    padding: 5px;
+                }
+            }
+        }
+        tfoot {
+            tr {
+                height: 30px;
+                background-color: #233145;
+            }
+        }
+    }
+    .table-footer{
+        width: 100%;
+        background-color: #233145;
+        font-size: 12px;
+        height: 30px;
+    }
+}

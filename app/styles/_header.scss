@@ -1,0 +1,39 @@
+.wdd-primary-header{
+    height: $header-primary-height;
+    background-color: $header-primary-background-color;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
+
+    .wdd-tab {
+        width: $header-primary-tab-width;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: $header-primary-font-size;
+        text-transform: uppercase;
+        color: $header-primary-color;
+
+        .icon {
+            font-size: $header-primart-tab-icon-size;
+            margin-right: $header-primart-tab-icon-margin-right;
+        }
+
+        &.selected {
+            position: relative;
+            font-weight: 500;
+            background-color: $header-primary-tab-background-color;
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: $header-primary-tab-selected-gutter-height;
+                background: $header-primary-tab-selected-gutter-color;
+            }
+        }
+    }
+}

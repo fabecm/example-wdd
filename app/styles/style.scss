@@ -1,0 +1,14 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@import 'variables.scss';
+@import 'button';
+@import 'header';
+@import 'typography';
+@import 'input';
+@import 'table';
+
+@import './gft_icons.css';
+
+body {
+    -webkit-font-smoothing: antialiased;
+}

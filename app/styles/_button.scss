@@ -1,0 +1,88 @@
+.wdd-button {
+    -webkit-appearance: none;
+    min-width: $button-minimun-width;
+    padding: 0 20px;
+    height: $button-height;
+    line-height: $button-height;
+    font-size: $button-font-size;
+    color: $button-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: $button-background-color;
+    position: relative;
+    border: $button-border;
+    border-radius: $button-border-radius;
+    margin: 2px;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: -2px;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: $button-border-radius;
+        z-index: -1;
+        background: linear-gradient($button-gradient-start, $button-gradient-end);
+        box-shadow: $button-box-shadow;
+    }
+
+    &:focus{
+        outline: none;
+    }
+
+    &:hover {
+        background: $button-hover-background-color;
+        &:after {
+            background: linear-gradient($button-hover-gradient-start, $button-hover-gradient-end);
+        }
+    }
+
+    &:active {
+        background: $button-active-background-color;
+        &:after {
+            background: linear-gradient($button-active-gradient-start, $button-active-gradient-end);
+        }
+    }
+
+    &.alt-color{
+        background-color: $button-alt-background-color;
+        color: $button-alt-color;
+        &:after {
+            background: linear-gradient($button-alt-gradient-start, $button-alt-gradient-end);
+        }
+        &:hover {
+            background: $button-alt-hover-background-color;
+            &:after {
+                background: linear-gradient($button-alt-hover-gradient-start, $button-alt-hover-gradient-end);
+            }
+        }
+        &:active {
+            background: $button-alt-active-background-color;
+            &:after {
+                background: linear-gradient($button-alt-active-gradient-start, $button-alt-active-gradient-end);
+            }
+        }
+    }
+
+    &.alert-color{
+        background-color: $button-alert-background-color;
+        color: $button-alert-color;
+        &:after {
+            background: linear-gradient($button-alert-gradient-start, $button-alert-gradient-end);
+        }
+        &:hover {
+            background: $button-alert-hover-background-color;
+            &:after {
+                background: linear-gradient($button-alert-hover-gradient-start, $button-alert-hover-gradient-end);
+            }
+        }
+        &:active {
+            background: $button-alert-active-background-color;
+            &:after {
+                background: linear-gradient($button-alert-active-gradient-start, $button-alert-active-gradient-end);
+            }
+        }
+    }
+}

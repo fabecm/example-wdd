@@ -1,0 +1,59 @@
+// Button Default
+$button-font-size: 12px;
+$button-minimun-width: 100px;
+$button-height: 30px;
+$button-border-radius: 5px;
+$button-border: 0;
+$button-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.4);
+
+// Button Color
+$button-color: #ffffff;
+$button-background-color: #2a74de;
+$button-gradient-start: #588fde;
+$button-gradient-end: #2566c4;
+$button-hover-background-color: #3a8def;
+$button-hover-gradient-start: #588fde;
+$button-hover-gradient-end: #3875cf;
+$button-active-background-color: #2169bf;
+$button-active-gradient-start: #2566c4;
+$button-active-gradient-end: #588fde;
+
+// Button Alternative Color
+$button-alt-background-color: #fafafa;
+$button-alt-color: #2a74de;
+$button-alt-gradient-start: #ffffff;
+$button-alt-gradient-end: #ededed;
+$button-alt-hover-background-color: #ffffff;
+$button-alt-hover-gradient-start: #ffffff;
+$button-alt-hover-gradient-end: #ededed;
+$button-alt-active-background-color: #efefef;
+$button-alt-active-gradient-start: #ededed;
+$button-alt-active-gradient-end: #ffffff;
+
+// Button Alert Color
+$button-alert-background-color: #ff7758;
+$button-alert-color: #ffffff;
+$button-alert-gradient-start: #ff8f76;
+$button-alert-gradient-end: #db664c;
+$button-alert-hover-background-color: #ff9385;
+$button-alert-hover-gradient-start: #ff8f76;
+$button-alert-hover-gradient-end: #d9705b;
+$button-alert-active-background-color: #ed624a;
+$button-alert-active-gradient-start: #db664c;
+$button-alert-active-gradient-end: #ff8f76;
+
+// Header Default
+$header-primary-height: 50px;
+$header-primary-font-size: 16px;
+$header-primary-background-color: #37475f;
+$header-primary-color: #ffffff;
+$header-primart-tab-icon-size: 20px;
+$header-primart-tab-icon-margin-right: 5px;
+$header-primary-tab-width: 250px;
+$header-primary-tab-background-color: #233145;
+$header-primary-tab-selected-gutter-height: 5px;
+$header-primary-tab-selected-gutter-color: #2a74de;
+
+// WBB Select Default
+$custom-select-width: 200px;
+$custom-select-height: 30px;
