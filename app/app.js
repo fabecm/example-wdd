@@ -11,5 +11,5 @@ angular.module('wdd', [
 ]);
 
 angular.bootstrap(document.body, ['wdd'], {
-  //strictDi: true
+  strictDi: true
 });
