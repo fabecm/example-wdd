@@ -28,74 +28,46 @@
     </div>
 </div>
 
-<div class="wdd-table">
+<div class="wdd-table table1">
     <table>
         <thead>
             <tr>
+                <!-- space -->
+                <th></th>
                 <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
+                <th>Data Field</th>
+                <th>Data Source Table</th>
+                <th>Data Source</th>
+                <th>Technical Application</th>
+                <th>Program</th>
+                <th>Data Scadenza</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
+            <tr ng-repeat="obj in vm.dataList">
+                <!-- checkbox -->
+                <td><input type="checkbox"></td>
+                <!-- Workspace -->
+                <td>{{obj.workspace.label}}</td>
+                <!-- Data Field -->
+                <td>{{obj.data_field.label}}</td>
+                <!-- Data Source Table -->
+                <td>{{obj.data_field.label}}</td>
+                <!-- Data Source -->
+                <td>{{obj.data_field.label}}</td>
+                <!-- Technical Application -->
+                <td>{{obj.data_field.label}}</td>
+                <!-- Program -->
+                <td>{{obj.data_field.label}}</td>
+                <!-- Data Scadenza -->
+                <!-- hardcode -->
+                <td>01/02/2018</td>
+                <!-- Data Scadenza -->
+                <td>x</td>
+
             </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
+
         </tbody>
     </table>
     <div class="table-footer"></div>

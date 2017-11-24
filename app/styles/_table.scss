@@ -7,11 +7,13 @@
         thead {
             background-color: #233145;
             color: #ffffff;
-            tr{
+            tr {
                 font-size: 12px;
                 height: 30px;
-                th{
-                    text-align: center;
+                th {
+                    // in design align is left
+                    // text-align: center;
+                    padding: 5px;
                 }
             }
         }
@@ -39,4 +41,38 @@
         font-size: 12px;
         height: 30px;
     }
+}
+
+// temporary, I dont know how to call it better
+.table1 {
+    th, td {
+        border-right: 1px solid red;
+    }
+    // cleaning borders
+    th:nth-of-type(1), td:nth-of-type(1) {
+        border-right: 0;
+    }
+    th:nth-last-child(2), td:nth-last-child(2), th:nth-last-child(1), td:nth-last-child(1) {
+        border-right: 0;
+    }
+
+    td:nth-last-child(1) {
+        background-color: tomato;
+    }
+    td:nth-of-type(1), td:nth-last-child(1) {
+        text-align: center;
+    }
+    th {
+        text-transform: uppercase;
+    }
+
+    ul > li:not(:last-child) a {
+        color: green;
+      }
+      
+    ul > li:not(:last-child) a:hover {
+    color: red;
+    }
+
+
 }
