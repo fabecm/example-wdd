@@ -36,5 +36,27 @@
         top: 0;
         bottom: 0;
         color: #2a74de;
+        pointer-events: none;
+    }
+}
+
+input.wdd-input-text {
+    position: relative;
+    width: $custom-select-width;
+    height: $custom-select-height;
+    border-radius: 5px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #afc2de;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        input {
+            color: #afc2de;
+        }
     }
 }

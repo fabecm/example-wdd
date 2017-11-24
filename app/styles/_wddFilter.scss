@@ -1,0 +1,44 @@
+.filter-section{
+    height: auto;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+
+    .wbb-select, .wdd-input-text {
+        flex: 1;
+        margin: 0 5px;
+    }
+
+    .icon {
+        text-align: center;
+        width: 50px;
+    }
+}
+
+wdd-filter{
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;    
+
+    .filter-section-row{
+        flex: 1;
+        overflow: hidden;
+        &.collapsed {
+            max-height: 44px;
+        }
+    }
+}
+
+.filter-action{
+    width: 175px;
+    position: relative;
+    
+    .filter-action-buttons {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
