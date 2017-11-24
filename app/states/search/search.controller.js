@@ -1,3 +1,7 @@
 export class SearchController {
-    constructor () {}
+    constructor (DataService) {
+        'ngInject';
+
+        DataService.getData();
+    }
 }
