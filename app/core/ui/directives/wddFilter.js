@@ -1,32 +1,48 @@
 import template from './wddFilter.template.html';
 
-export function WddFilter () {
+export function WddFilter ($q, ClassificationService) {
+    'ngInject';
     return {
         scope: {},
         template: template,
         link: (scope) => {
             scope.filtersArray = [];
+            scope.filterSetted = [];
 
-            let initNewObjectFilter = () => {
-                return {
-                    entity: ['A', 'B', 'C'],
-                    attribute: ['1', '2', '3'],
-                    text: 'text'
-                };
+            let getStandardFilter = () => {
+                return $q.all([ClassificationService.getEntity(), ClassificationService.getAttribute()])
+                    .then(data => {
+                        return {
+                            entity: data[0],
+                            attribute: data[1]
+                        };
+                    });
             };
 
-            scope.filtersArray.push(initNewObjectFilter());
+            let initFilter = () => {
+                getStandardFilter().then(res => {
+                    scope.filtersArray = [res];
+                });
+            };
+            initFilter();
 
             scope.addNewFilter = () => {
-                scope.filtersArray.push(initNewObjectFilter());
+                getStandardFilter().then(res => {
+                    scope.filtersArray.push(res);
+                });
             };
 
             scope.removeFilter = (filter) => {
-                if (scope.filtersArray.length === 1) {
-                    return;
-                }
                 let indexElem = scope.filtersArray.indexOf(filter);
-                scope.filtersArray.splice(indexElem, 1);
+                if (scope.filtersArray.length === 1) {
+                    initFilter();
+                    scope.filterSetted.splice(indexElem, 1);
+                } else {
+                    if (indexElem !== -1) {
+                        scope.filtersArray.splice(indexElem, 1);
+                        scope.filterSetted.splice(indexElem, 1);
+                    }
+                }
             };
 
             scope.setFilter = () => {
@@ -35,6 +51,26 @@ export function WddFilter () {
 
             scope.showFilter = () => {
                 scope.isFilterActive = false;
+            };
+
+            scope.updateEntity = (filter, filterSetted) => {
+                if (filterSetted.entity) {
+                    return;
+                }
+
+                ClassificationService.getEntity(filter.attribute).then(res => {
+                    filter.entity = res;
+                });
+            };
+
+            scope.updateAttribute = (filter, filterSetted) => {
+                if (filterSetted.attribute) {
+                    return;
+                }
+
+                ClassificationService.getAttribute(filter.entity).then(res => {
+                    filter.attribute = res;
+                });
             };
         }
     };

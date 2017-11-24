@@ -2,21 +2,20 @@
     <div class="filter-section" ng-repeat="item in filtersArray">
 
         <div class="wbb-select">
-            <select name="entity">
+            <select name="entity" ng-model="filterSetted[$index].entity" ng-change="updateAttribute(item, filterSetted[$index])">
                 <option ng-repeat="opt in item.entity" value="{{ opt }}">{{ opt }}</option>
             </select>
             <i class="icon icon-down-arrow"></i>
         </div>
 
         <div class="wbb-select">
-            <select name="attribute">
+            <select name="attribute" ng-model="filterSetted[$index].attribute" ng-change="updateEntity(item, filterSetted[$index])">
                 <option ng-repeat="opt in item.attribute" value="{{ opt }}">{{ opt }}</option>
             </select>
             <i class="icon icon-down-arrow"></i>
         </div>
 
-        <input class="wdd-input-text" type="text" name="text" />
-
+        <input class="wdd-input-text" ng-model="filterSetted[$index].text" type="text" name="text" />
 
         <button class="wdd-button icon-only" ng-click="removeFilter(item)">
             <i class="icon icon-delete"></i>
