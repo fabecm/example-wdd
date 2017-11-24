@@ -2,7 +2,7 @@ import { stateConfig as SearchConfig } from './search/search.config';
 import { stateConfig as BaseTabConfig } from './baseTabs/baseTabs.config';
 
 export default angular.module('wdd.states', [])
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(($stateProvider, $urlRouterProvider) => {
         $stateProvider
             .state('tab', BaseTabConfig)
             .state('tab.search', SearchConfig);

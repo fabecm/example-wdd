@@ -6,10 +6,10 @@ import core from './core';
 import states from './states';
 
 angular.module('wdd', [
-  core,
-  states
+    core,
+    states
 ]);
 
 angular.bootstrap(document.body, ['wdd'], {
-  strictDi: true
+    strictDi: true
 });

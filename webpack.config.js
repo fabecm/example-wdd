@@ -24,13 +24,15 @@ module.exports = {
         }, {
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
-            use: {
+            use: [{
                 loader: 'babel-loader',
                 options: {
                     presets: ['@babel/preset-env'],
                     plugins: ['angularjs-annotate', 'transform-class-properties']
                 }
-            }
+            }, {
+                loader: 'eslint-loader'
+            }]
         }, {
             test: /\.scss$/,
             use: [{

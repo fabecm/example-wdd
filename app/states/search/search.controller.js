@@ -1,3 +1,3 @@
 export class SearchController {
-    constructor() {};
-};
+    constructor () {}
+}
