@@ -32,22 +32,23 @@
     <table>
         <thead>
             <tr>
-                <!-- space -->
-                <th></th>
                 <th>Workspace</th>
                 <th>Data Field</th>
                 <th>Data Source Table</th>
                 <th>Data Source</th>
                 <th>Technical Application</th>
+                <th>System Owner</th>
                 <th>Program</th>
-                <th>Data Scadenza</th>
-                <th></th>
+                <th>Technical Rule</th>
+                <th>Business Rule</th>
+                <th>Business Data</th>
+                <th>Business Glossary</th>
+                <th>Process Owner</th>
+                <th>Dettaglio</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="obj in vm.dataList">
-                <!-- checkbox -->
-                <td><input type="checkbox"></td>
                 <!-- Workspace -->
                 <td>{{obj.workspace.label}}</td>
                 <!-- Data Field -->
@@ -58,17 +59,40 @@
                 <td>{{obj.data_field.label}}</td>
                 <!-- Technical Application -->
                 <td>{{obj.data_field.label}}</td>
+                <!-- System Owner -->
+                <td>{{obj.system_owner.label}}</td>
                 <!-- Program -->
                 <td>{{obj.data_field.label}}</td>
-                <!-- Data Scadenza -->
-                <!-- hardcode -->
-                <td>01/02/2018</td>
-                <!-- Data Scadenza -->
-                <td>x</td>
+                <!-- Technical Rule -->
+                <td>
+                    <span ng-repeat="obj in obj.tech_rules">
+                        {{obj.label}}<br>
+                    </span>
+                </td>
+
+                <!-- Business Rule -->
+                <td>
+                    <span ng-repeat="obj in obj.business_rules">
+                        {{obj.label}}<br>
+                    </span>
+                </td>
+
+                <!-- Business Data -->
+                <td>{{obj.business_data.label}}</td>
+                <!-- Business Glossary -->
+                <td>{{obj.business_glossary.label}}</td>
+                <!-- Process Owner -->
+                <td>{{obj.process_owner.label}}</td>
+                <!-- Dettaglio -->
+                <td>icons</td>
 
             </tr>
 
         </tbody>
     </table>
-    <div class="table-footer"></div>
+    <div class="table-footer">
+        <ul ng-repeat="obj in vm.pages" class="pagination">
+            <li><a href="">{{obj}}</a></li>
+        </ul>
+    </div>
 </div>

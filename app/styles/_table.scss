@@ -49,29 +49,33 @@
         border-right: 1px solid red;
     }
     // cleaning borders
-    th:nth-of-type(1), td:nth-of-type(1) {
-        border-right: 0;
-    }
-    th:nth-last-child(2), td:nth-last-child(2), th:nth-last-child(1), td:nth-last-child(1) {
-        border-right: 0;
-    }
+    // th:nth-of-type(1), td:nth-of-type(1) {
+    //     border-right: 0;
+    // }
+    // th:nth-last-child(2), td:nth-last-child(2), th:nth-last-child(1), td:nth-last-child(1) {
+    //     border-right: 0;
+    // }
 
     td:nth-last-child(1) {
         background-color: tomato;
     }
-    td:nth-of-type(1), td:nth-last-child(1) {
-        text-align: center;
-    }
+    // td:nth-of-type(1), td:nth-last-child(1) {
+    //     text-align: center;
+    // }
     th {
         text-transform: uppercase;
+        line-height: 1.1;
     }
 
-    ul > li:not(:last-child) a {
-        color: green;
-      }
-      
-    ul > li:not(:last-child) a:hover {
-    color: red;
+    // only for tests
+    th {
+        width: 7%;
+    }
+
+    // first style, need to be coded
+    .pagination {
+        margin: 0;
+
     }
 
 
