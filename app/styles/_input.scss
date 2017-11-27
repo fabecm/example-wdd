@@ -60,3 +60,15 @@ input.wdd-input-text {
         }
     }
 }
+
+.wdd-labeled-input {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin: 5px 0;
+        height: 15px;
+        font-size: 11px;
+        color: #707c8e;
+    }
+}

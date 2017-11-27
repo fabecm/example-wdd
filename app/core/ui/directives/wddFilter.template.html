@@ -1,24 +1,32 @@
 <div class="filter-section-row" ng-class="{'collapsed': isFilterActive}">
     <div class="filter-section" ng-repeat="item in filtersArray">
-
-        <div class="wbb-select">
-            <select name="entity" ng-model="filterSetted[$index].entity" ng-options="opt as opt.label for opt in item.entity" ng-change="updateAttribute(item, filterSetted[$index])">
-                <option value="">Seleziona un'entità</option>
-            </select>
-            <i class="icon icon-down-arrow"></i>
+        
+        <div class="wdd-labeled-input">
+            <label for="entity">Entità</label>
+            <div class="wbb-select">
+                <select name="entity" ng-model="filterSetted[$index].entity" ng-options="opt as opt.label for opt in item.entity" ng-change="updateAttribute(item, filterSetted[$index])">
+                    <option value="">Seleziona un'entità</option>
+                </select>
+                <i class="icon icon-down-arrow"></i>
+            </div>
         </div>
 
-        <div class="wbb-select">
-            <select name="attribute" ng-model="filterSetted[$index].attribute" ng-options="opt as opt.label for opt in item.attribute" ng-change="updateEntity(item, filterSetted[$index])">
-                <option value="">Seleziona un attributo</option>
-            </select>
-            <i class="icon icon-down-arrow"></i>
+        <div class="wdd-labeled-input">
+            <label for="attribute">Attributo</label>
+            <div class="wbb-select">
+                <select name="attribute" ng-model="filterSetted[$index].attribute" ng-options="opt as opt.label for opt in item.attribute" ng-change="updateEntity(item, filterSetted[$index])">
+                    <option value="">Seleziona un attributo</option>
+                </select>
+                <i class="icon icon-down-arrow"></i>
+            </div>
         </div>
 
-        <input class="wdd-input-text" ng-model="filterSetted[$index].text" type="text" name="text" placeholder="Ricerca testuale"
-        />
-
-        <button class="wdd-button icon-only" ng-click="removeFilter(item)">
+        <div class="wdd-labeled-input">
+            <label for="text">Text</label>
+            <input class="wdd-input-text" ng-model="filterSetted[$index].text" type="text" name="text" placeholder="Ricerca testuale" />
+        </div>
+            
+        <button class="wdd-button icon-only align-button" ng-click="removeFilter(item)">
             <i class="icon icon-delete"></i>
         </button>
 
@@ -27,7 +35,7 @@
 
 <div class="filter-action">
     <div class="filter-action-buttons">
-        <button class="wdd-button icon-only" ng-click="addNewFilter()">
+        <button class="wdd-button icon-only align-button" ng-click="addNewFilter()">
             <i class="icon icon-add-filtro"></i>
         </button>
         <button ng-hide="isFilterActive && filtersArray.length > 1" class="wdd-button" ng-click="setFilter()">Attiva filtri</button>
