@@ -1,27 +1,14 @@
 export class ClassificationService {
-    constructor ($http, $q) {
+    constructor ($http) {
         'ngInject';
         this.$http = $http;
-        this.$q = $q;
     }
 
     getEntity (attribute) {
-        let defer = this.$q.defer();
-        if (attribute) {
-            defer.resolve(['D', 'E', 'F']);
-        } else {
-            defer.resolve(['A', 'B', 'C']);
-        }
-        return defer.promise;
+        return this.$http.get(`http://MBCL26001510:8080/edd-serviceWeb/filter/datasource/classification?type=entity&id=${attribute}`);
     }
 
     getAttribute (entity) {
-        let defer = this.$q.defer();
-        if (entity) {
-            defer.resolve(['4', '5', '6']);
-        } else {
-            defer.resolve(['1', '2', '3']);
-        }
-        return defer.promise;
+        return this.$http.get(`http://MBCL26001510:8080/edd-serviceWeb/filter/datasource/classification?type=attribute&id=${entity}`);
     }
 }

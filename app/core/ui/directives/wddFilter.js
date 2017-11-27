@@ -13,10 +13,10 @@ export function WddFilter ($q, ClassificationService) {
 
             let getStandardFilter = () => {
                 return $q.all([ClassificationService.getEntity(), ClassificationService.getAttribute()])
-                    .then(data => {
+                    .then(res => {
                         return {
-                            entity: data[0],
-                            attribute: data[1]
+                            entity: res[0].data,
+                            attribute: res[1].data
                         };
                     });
             };
@@ -71,7 +71,7 @@ export function WddFilter ($q, ClassificationService) {
                 }
 
                 ClassificationService.getEntity(filter.attribute).then(res => {
-                    filter.entity = res;
+                    filter.entity = res.data;
                 });
             };
 
@@ -81,7 +81,7 @@ export function WddFilter ($q, ClassificationService) {
                 }
 
                 ClassificationService.getAttribute(filter.entity).then(res => {
-                    filter.attribute = res;
+                    filter.attribute = res.data;
                 });
             };
         }
