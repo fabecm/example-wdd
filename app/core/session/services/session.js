@@ -12,9 +12,24 @@ export class SessionService {
     }
 
     getApiEntry () {
+        if(Boolean(true) === true) {
+            return getMockedData(this.$q).then(apiEndpoint => {
+                this.apiEntry = apiEndpoint.contextPath;
+            });
+        }
         return this.$http.get('/getConfigurationEndpoint').then(apiEndpoint => {
             this.apiEntry = apiEndpoint.contextPath;
         });
     }
 
+}
+
+function getMockedData ($q) {
+    var deferred = $q.defer();
+
+    deferred.resolve({
+        contextPath: 'http://MBCL26001510:8080/edd-serviceWeb'
+    });
+
+    return deferred.promise;
 }
