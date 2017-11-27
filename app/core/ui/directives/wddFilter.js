@@ -3,7 +3,9 @@ import template from './wddFilter.template.html';
 export function WddFilter ($q, ClassificationService) {
     'ngInject';
     return {
-        scope: {},
+        scope: {
+            appliedFilter: '&'
+        },
         template: template,
         link: (scope) => {
             scope.filtersArray = [];
@@ -46,6 +48,17 @@ export function WddFilter ($q, ClassificationService) {
 
             scope.setFilter = () => {
                 scope.isFilterActive = true;
+
+                let array = {};
+                array.array_filter_text = scope.filterSetted.map((filter) => {
+                    return {
+                        entity_id: filter.entity,
+                        attribute_id: filter.attribute,
+                        text: filter.text
+                    };
+                });
+
+                scope.appliedFilter(array);
             };
 
             scope.showFilter = () => {
