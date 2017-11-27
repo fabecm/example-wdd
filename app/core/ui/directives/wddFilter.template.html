@@ -3,6 +3,7 @@
 
         <div class="wbb-select">
             <select name="entity" ng-model="filterSetted[$index].entity" ng-change="updateAttribute(item, filterSetted[$index])">
+                <option value="">Seleziona un'entità</option>
                 <option ng-repeat="opt in item.entity" value="{{ opt }}">{{ opt }}</option>
             </select>
             <i class="icon icon-down-arrow"></i>
@@ -10,12 +11,13 @@
 
         <div class="wbb-select">
             <select name="attribute" ng-model="filterSetted[$index].attribute" ng-change="updateEntity(item, filterSetted[$index])">
+                <option value="">Seleziona un attributo</option>
                 <option ng-repeat="opt in item.attribute" value="{{ opt }}">{{ opt }}</option>
             </select>
             <i class="icon icon-down-arrow"></i>
         </div>
 
-        <input class="wdd-input-text" ng-model="filterSetted[$index].text" type="text" name="text" />
+        <input class="wdd-input-text" ng-model="filterSetted[$index].text" type="text" name="text" placeholder="Ricerca testuale" />
 
         <button class="wdd-button icon-only" ng-click="removeFilter(item)">
             <i class="icon icon-delete"></i>
@@ -29,7 +31,7 @@
         <button class="wdd-button icon-only" ng-click="addNewFilter()">
             <i class="icon icon-add-filtro"></i>
         </button>
-        <button ng-hide="isFilterActive" class="wdd-button" ng-click="setFilter()">Attiva filtri</button>
-        <button ng-hide="!isFilterActive" class="wdd-button" ng-click="showFilter()"><i class="icon icon-down-arrow"></i>Espandi</button>
+        <button ng-hide="isFilterActive && filtersArray.length > 1" class="wdd-button" ng-click="setFilter()">Attiva filtri</button>
+        <button ng-hide="!isFilterActive || filtersArray.length === 1" class="wdd-button" ng-click="showFilter()"><i class="icon icon-down-arrow"></i>Espandi</button>
     </div>
 </div>

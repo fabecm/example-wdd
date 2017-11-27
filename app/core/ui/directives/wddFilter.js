@@ -27,6 +27,7 @@ export function WddFilter ($q, ClassificationService) {
             initFilter();
 
             scope.addNewFilter = () => {
+                scope.isFilterActive = false;
                 getStandardFilter().then(res => {
                     scope.filtersArray.push(res);
                 });
@@ -38,10 +39,8 @@ export function WddFilter ($q, ClassificationService) {
                     initFilter();
                     scope.filterSetted.splice(indexElem, 1);
                 } else {
-                    if (indexElem !== -1) {
-                        scope.filtersArray.splice(indexElem, 1);
-                        scope.filterSetted.splice(indexElem, 1);
-                    }
+                    scope.filtersArray.splice(indexElem, 1);
+                    scope.filterSetted.splice(indexElem, 1);
                 }
             };
 
