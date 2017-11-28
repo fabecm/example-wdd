@@ -38,7 +38,6 @@ export class SearchController {
         return dataVisiblePage;
     }
     changingPage(obj) {
-        console.log('change');
         this.currentPage = obj;
 
         this.dataList = this.rawData;
@@ -46,7 +45,6 @@ export class SearchController {
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
     changingPageToFirst() {
-        console.log('change');
         this.currentPage = 1;
 
         this.dataList = this.rawData;
@@ -54,7 +52,6 @@ export class SearchController {
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
     changingPageToLast() {
-        console.log('change');
         this.currentPage = this.pages.length;
 
         this.dataList = this.rawData;

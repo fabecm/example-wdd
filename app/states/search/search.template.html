@@ -50,41 +50,41 @@
         <tbody>
             <tr ng-repeat="obj in vm.dataList">
                 <!-- Workspace -->
-                <td>{{obj.workspace.label}}</td>
+                <td><div>{{obj.workspace.label}}</div></td>
                 <!-- Data Field -->
-                <td>{{obj.data_field.label}}</td>
+                <td><div>{{obj.data_field.label}}</div></td>
                 <!-- Data Source Table -->
-                <td>{{obj.data_field.label}}</td>
+                <td><div>{{obj.data_field.label}}</div></td>
                 <!-- Data Source -->
-                <td>{{obj.data_field.label}}</td>
+                <td><div>{{obj.data_field.label}}</div></td>
                 <!-- Technical Application -->
-                <td>{{obj.data_field.label}}</td>
+                <td><div>{{obj.data_field.label}}</div></td>
                 <!-- System Owner -->
-                <td>{{obj.system_owner.label}}</td>
+                <td><div>{{obj.system_owner.label}}</div></td>
                 <!-- Program -->
-                <td>{{obj.data_field.label}}</td>
+                <td><div>{{obj.data_field.label}}</div></td>
                 <!-- Technical Rule -->
                 <td>
-                    <span ng-repeat="obj in obj.tech_rules">
+                    <div ng-repeat="obj in obj.tech_rules">
                         {{obj.label}}
                         <br>
-                    </span>
+                    </div>
                 </td>
 
                 <!-- Business Rule -->
                 <td>
-                    <span ng-repeat="obj in obj.business_rules">
+                    <div ng-repeat="obj in obj.business_rules">
                         {{obj.label}}
                         <br>
-                    </span>
+                    </div>
                 </td>
 
                 <!-- Business Data -->
-                <td>{{obj.business_data.label}}</td>
+                <td><div>{{obj.business_data.label}}</div></td>
                 <!-- Business Glossary -->
-                <td>{{obj.business_glossary.label}}</td>
+                <td><div>{{obj.business_glossary.label}}</div></td>
                 <!-- Process Owner -->
-                <td>{{obj.process_owner.label}}</td>
+                <td><div>{{obj.process_owner.label}}</div></td>
                 <!-- Dettaglio -->
                 <td>
                     <i class="icon-filter"></i>
@@ -119,13 +119,5 @@
 
 
     </div>
-
-    <!-- only for tests -->
-    <button ng-click="count = count + 1" ng-init="count=0">
-        Increment
-    </button>
-    <span>
-        count: {{count}}
-    </span>
 
 </div>

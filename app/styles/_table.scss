@@ -55,6 +55,13 @@
     }
     td {
         border-right: 1px solid #d7dfed;
+        
+        div {
+            width: 95px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
     // cleaning borders
     // th:nth-of-type(1), td:nth-of-type(1) {
