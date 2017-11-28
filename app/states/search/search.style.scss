@@ -1,7 +1,18 @@
-.filter-row{
-    height: 50px;
-    .col-md-4 {
+.search-page {
+    
+    .filter-row{
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        margin-right: 209px;
+        padding: 0 10px;
+
+        .wdd-labeled-input {
+            margin: 0 5px;
+            flex: 1;
+    
+            .wdd-input-text, .wbb-select {
+                width: 80%;
+            }
+        }
     }
 }
