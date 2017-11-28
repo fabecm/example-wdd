@@ -1,14 +1,22 @@
 export class SearchController {
-
+  
     dataList = []; 
     pages = [];
     rawData = [];
     pageSize = 10;
     currentPage = 1;
+    filterBootstrap = {};
+    filterStatus = [{
+        label: 'Tutti'
+    }, {
+        label: 'Bozza'
+    }, {
+        label: 'System Owner'
+    }];
 
-    constructor (DataService) {
+    constructor (DataService, DatasourceService) {
         'ngInject';
-
+        this.datasourceService = DatasourceService;
         DataService.getData()
             .then(searchData => {
                 this.rawData = angular.copy(searchData.data);
@@ -25,6 +33,7 @@ export class SearchController {
         }).catch(err =>{
             console.log(err)
         });
+      this.getBootstrap();
 
     }
 
@@ -57,5 +66,18 @@ export class SearchController {
         this.dataList = this.rawData;
 
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
+    }
+
+    filterChanged (arrayFilter) {
+        console.log(arrayFilter);
+    }
+
+    getBootstrap () {
+        this.datasourceService.getBootstrap().then(res => {
+            this.filterBootstrap = {
+                processOwner: res.process_owner,
+                systemOwner: res.system_owner
+            };
+        });
     }
 }
