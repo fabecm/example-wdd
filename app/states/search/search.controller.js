@@ -1,6 +1,6 @@
 export class SearchController {
-  
-    dataList = []; 
+
+    dataList = [];
     pages = [];
     rawData = [];
     pageSize = 10;
@@ -29,15 +29,13 @@ export class SearchController {
 
                 // create an array of pages to ng-repeat, + 1 for a correct number
                 this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
-                                
-        }).catch(err =>{
-            console.log(err)
-        });
-      this.getBootstrap();
-
+            }).catch(err =>{
+                console.log(err);
+            });
+        this.getBootstrap();
     }
 
-    sliceDataToShow(currentPage, pageSize) {
+    sliceDataToShow (currentPage, pageSize) {
         let startIndex = (Number(currentPage) - 1) * Number(pageSize);
         let endIndex = startIndex + pageSize;
 
@@ -46,21 +44,21 @@ export class SearchController {
 
         return dataVisiblePage;
     }
-    changingPage(obj) {
+    changingPage (obj) {
         this.currentPage = obj;
 
         this.dataList = this.rawData;
 
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
-    changingPageToFirst() {
+    changingPageToFirst () {
         this.currentPage = 1;
 
         this.dataList = this.rawData;
 
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
-    changingPageToLast() {
+    changingPageToLast () {
         this.currentPage = this.pages.length;
 
         this.dataList = this.rawData;
