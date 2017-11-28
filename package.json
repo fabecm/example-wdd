@@ -4,7 +4,7 @@
   "description": "",
   "main": "./app",
   "scripts": {
-    "build": "./node_modules/.bin/webpack",
+    "build": "./node_modules/.bin/webpack --progress --sort-assets-by=chunks --env.mode=build",
     "watch": "./node_modules/.bin/webpack-dev-server --inline --hot"
   },
   "author": "",
@@ -17,19 +17,24 @@
     "babel-plugin-angularjs-annotate": "^0.8.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "bootstrap": "^3.3.7",
+    "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
     "eslint": "^3.19.0",
     "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4"
+    "webpack-dev-server": "^2.9.4",
+    "yargs": "^10.0.3"
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.11",
-    "angular": "^1.6.6"
+    "angular": "^1.6.6",
+    "resolve-url-loader": "^2.2.0"
   }
 }
