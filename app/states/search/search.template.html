@@ -66,14 +66,16 @@
                 <!-- Technical Rule -->
                 <td>
                     <span ng-repeat="obj in obj.tech_rules">
-                        {{obj.label}}<br>
+                        {{obj.label}}
+                        <br>
                     </span>
                 </td>
 
                 <!-- Business Rule -->
                 <td>
                     <span ng-repeat="obj in obj.business_rules">
-                        {{obj.label}}<br>
+                        {{obj.label}}
+                        <br>
                     </span>
                 </td>
 
@@ -84,15 +86,46 @@
                 <!-- Process Owner -->
                 <td>{{obj.process_owner.label}}</td>
                 <!-- Dettaglio -->
-                <td>icons</td>
+                <td>
+                    <i class="icon-filter"></i>
+                    <i class="icon-list"></i>
+                </td>
 
             </tr>
 
         </tbody>
     </table>
     <div class="table-footer">
-        <ul ng-repeat="obj in vm.pages" class="pagination">
-            <li><a href="">{{obj}}</a></li>
+
+        <div class="pagi-text" ng-click="vm.changingPageToFirst()">
+            <a href="">First</a>
+        </div>
+        <ul class="pagination">
+            <!-- <li ng-click="vm.changingPageToFirst()">
+                <a href="">First</a>                
+            </li> -->
+            <li ng-repeat="obj in vm.pages">
+                <!-- <a ng-click="currentPage = {{obj}}">{{obj}}</a> -->
+                <a ng-click="vm.changingPage(obj)">{{obj}}</a>
+            </li>
+            <!-- <li ng-click="vm.changingPageToLast()">
+                <a href="">Last</a> 
+            </li> -->
         </ul>
+        <div class="pagi-text" ng-click="vm.changingPageToLast()">
+            <a href="">Last</a>
+        </div>
+
+
+
     </div>
+
+    <!-- only for tests -->
+    <button ng-click="count = count + 1" ng-init="count=0">
+        Increment
+    </button>
+    <span>
+        count: {{count}}
+    </span>
+
 </div>
