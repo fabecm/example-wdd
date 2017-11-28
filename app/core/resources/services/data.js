@@ -18,7 +18,7 @@ export class DataService {
     }
     
     getData () {
-        // return this.$http.post('http://MBCL26001510:8080/edd-serviceWeb/search/fulltext', this.smth);
+        // return this.$http.post('http://GPLLL0062:8080/edd-serviceWeb/search/fulltext', this.smth);
         // return this.$http.post('http://GPLLL0062:8080/edd-serviceWeb/search/fulltext ', this.smth);
         return this.$http.post('http://GPLLL0162:8080/edd-serviceWeb/search/fulltext ', this.smth);
     }
