@@ -4,4 +4,8 @@ export class SearchController {
 
         DataService.getData();
     }
+
+    filterChanged (arrayFilter) {
+        console.log(arrayFilter);
+    }
 }

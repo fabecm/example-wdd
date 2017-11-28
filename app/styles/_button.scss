@@ -1,7 +1,7 @@
 .wdd-button {
     -webkit-appearance: none;
     min-width: $button-minimun-width;
-    padding: 0 20px;
+    padding: 0 15px;
     height: $button-height;
     line-height: $button-height;
     font-size: $button-font-size;
@@ -83,6 +83,25 @@
             &:after {
                 background: linear-gradient($button-alert-active-gradient-start, $button-alert-active-gradient-end);
             }
+        }
+    }
+
+    &.icon-only {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0);
+        color: $button-alt-color;
+        border-radius: 50%;
+        padding: 0;
+        min-width: auto;
+
+        &:after {
+            background: rgba(0, 0, 0, 0);
+            box-shadow: none;
+        }
+
+        .icon {
+            font-size: 20px;
         }
     }
 }

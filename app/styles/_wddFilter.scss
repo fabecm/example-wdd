@@ -1,0 +1,58 @@
+.filter-section{
+    height: auto;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+
+    .wdd-labeled-input {
+        flex: 1;
+        margin: 0 5px;
+    }
+
+    .icon {
+        text-align: center;
+        width: 50px;
+    }
+}
+
+wdd-filter{
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;    
+
+    .filter-section-row{
+        flex: 1;
+        overflow: hidden;
+        &.collapsed {
+            max-height: 44px;
+        }
+    }
+
+    .wdd-labeled-input {
+        margin: 0 20px;
+
+        .wdd-input-text, .wbb-select {
+            width: 80%;
+        }
+    }
+}
+
+.filter-action{
+    width: 175px;
+    position: relative;
+    
+    .filter-action-buttons {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.wdd-button.align-button {
+    width: 30px;
+    height: 30px;
+    align-self: flex-end;
+}
