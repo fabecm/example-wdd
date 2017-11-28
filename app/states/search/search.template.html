@@ -1,104 +1,103 @@
-<div class="row filter-row">
-    <div class="col-md-4">
-        <div class="wbb-select">
-            <select>
-                <option value="">---</option>
-                <option value="test">Test</option>
-            </select>
-            <i class="icon icon-down-arrow"></i>
+<div class="search-page">
+    <div class="filter-row">
+        <div class="wdd-labeled-input">
+            <label for="processOwner">Process Owner</label>
+            <div class="wbb-select">
+                <select name="processOwner" ng-model="processOwnerChosen" ng-options="opt as opt.label for opt in vm.filterBootstrap.systemOwner.array">
+                </select>
+                <i class="icon icon-down-arrow"></i>
+            </div>
+        </div>
+        <div class="wdd-labeled-input">
+            <label for="systemOwner">System Owner</label>
+            <div class="wbb-select">
+                <select name="systemOwner" ng-model="systemOwnerChosen" ng-options="opt as opt.label for opt in vm.filterBootstrap.processOwner.array">
+                </select>
+                <i class="icon icon-down-arrow"></i>
+            </div>
+        </div>
+        <div class="wdd-labeled-input">
+            <label for="filterStatus">Stato</label>
+            <div class="wbb-select">
+                <select name="filterStatus" ng-model="statusChosen" ng-options="opt as opt.label for opt in vm.filterStatus">
+                </select>
+                <i class="icon icon-down-arrow"></i>
+            </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="wbb-select">
-            <select>
-                <option value="">---</option>
-                <option value="test">Test</option>
-            </select>
-            <i class="icon icon-down-arrow"></i>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="wbb-select">
-            <select>
-                <option value="">---</option>
-                <option value="test">Test</option>
-            </select>
-            <i class="icon icon-down-arrow"></i>
-        </div>
-    </div>
-</div>
 
-<wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
+    <wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
 
-<div class="wdd-table">
-    <table>
-        <thead>
-            <tr>
-                <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
-                <th>Workspace</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-            <tr>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-                <td>Workspace</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="table-footer"></div>
+    <div class="wdd-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Workspace</th>
+                    <th>Workspace</th>
+                    <th>Workspace</th>
+                    <th>Workspace</th>
+                    <th>Workspace</th>
+                    <th>Workspace</th>
+                    <th>Workspace</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                </tr>
+                <tr>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                </tr>
+                <tr>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                </tr>
+                <tr>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                </tr>
+                <tr>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                </tr>
+                <tr>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                    <td>Workspace</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="table-footer"></div>
+    </div>
 </div>
