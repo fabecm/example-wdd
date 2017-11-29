@@ -9,11 +9,6 @@
         flex: 1;
         margin: 0 5px;
     }
-
-    .icon {
-        text-align: center;
-        width: 50px;
-    }
 }
 
 wdd-filter{
@@ -26,7 +21,7 @@ wdd-filter{
         flex: 1;
         overflow: hidden;
         &.collapsed {
-            max-height: 44px;
+            max-height: 55px;
         }
     }
 
