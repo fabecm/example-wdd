@@ -4,7 +4,7 @@
         <div class="wdd-labeled-input">
             <label for="entity">Entità</label>
             <div class="wbb-select">
-                <select name="entity" ng-model="filterSetted[$index].entity" ng-options="opt as opt.label for opt in item.entity" ng-change="updateAttribute(item, filterSetted[$index])">
+                <select name="entity" ng-model="filterSetted[$index].entity" ng-options="opt.id as opt.label for opt in item.entity" ng-change="updateAttribute(item, filterSetted[$index])">
                     <option value="">Seleziona un'entità</option>
                 </select>
                 <i class="icon icon-down-arrow"></i>
@@ -14,7 +14,7 @@
         <div class="wdd-labeled-input">
             <label for="attribute">Attributo</label>
             <div class="wbb-select">
-                <select name="attribute" ng-model="filterSetted[$index].attribute" ng-options="opt as opt.label for opt in item.attribute" ng-change="updateEntity(item, filterSetted[$index])">
+                <select name="attribute" ng-model="filterSetted[$index].attribute" ng-options="opt.id as opt.label for opt in item.attribute" ng-change="updateEntity(item, filterSetted[$index])">
                     <option value="">Seleziona un attributo</option>
                 </select>
                 <i class="icon icon-down-arrow"></i>
