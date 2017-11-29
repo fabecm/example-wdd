@@ -1,0 +1,29 @@
+.data-lineage-page {
+    
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+    .square-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 510px;
+
+        .square {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100px;
+            width: 150px;
+            border: 5px solid #707c8e;
+            border-radius: 15px;
+            margin: 20px 10px;
+        }
+
+        .hide-square {
+            visibility: hidden;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<div class="data-lineage-page">
+    <div class="square-container">
+
+        <div class="square" ng-class="{'hide-square': !box}" ng-repeat="box in vm.lineageBoxes track by $index">
+            <div class="title">
+                <label>{{box.title}}</label>
+            </div>
+            <div class="body">
+                <div ng-if="!box.data.length">
+                    {{box.data.label}}
+                </div>
+                <div ng-if="box.data.length" ng-repeat="item in box.data track by $index" ng-click="box.operation(item.id)">
+                    {{item.label}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
