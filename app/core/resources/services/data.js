@@ -16,10 +16,8 @@ export class DataService {
             ]
         }
     }
-    
-    getData () {
-        // return this.$http.post('http://GPLLL0062:8080/edd-serviceWeb/search/fulltext', this.smth);
-        // return this.$http.post('http://GPLLL0062:8080/edd-serviceWeb/search/fulltext ', this.smth);
-        return this.$http.post('http://GPLLL0162:8080/edd-serviceWeb/search/fulltext ', this.smth);
+
+    getData (params = {}) {
+        return this.$http.post('WDD/search/fulltext ', params);
     }
 }

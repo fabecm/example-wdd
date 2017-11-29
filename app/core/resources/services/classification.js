@@ -5,10 +5,18 @@ export class ClassificationService {
     }
 
     getEntity (attribute) {
-        return this.$http.get(`http://GPLLL0062:8080/edd-serviceWeb/filter/datasource/classification?type=entity&id=${attribute}`);
+        let id = '';
+        if (attribute) {
+            id = `&id=${attribute}`;
+        }
+        return this.$http.get(`WDD/filter/datasource/classification?type=Entity${id}`);
     }
 
     getAttribute (entity) {
-        return this.$http.get(`http://GPLLL0062:8080/edd-serviceWeb/filter/datasource/classification?type=attribute&id=${entity}`);
+        let id = '';
+        if (entity) {
+            id = `&id=${entity}`;
+        }
+        return this.$http.get(`WDD/filter/datasource/classification?type=Attribute${id}`);
     }
 }
