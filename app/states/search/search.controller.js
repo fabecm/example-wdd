@@ -17,33 +17,35 @@ export class SearchController {
     constructor (DataService, DatasourceService) {
         'ngInject';
         this.datasourceService = DatasourceService;
-        DataService.getData()
-            .then(searchData => {
-                this.rawData = angular.copy(searchData.data);
-                this.dataList = searchData.data;
-                console.log(searchData.data);
-                let numPages = Math.ceil(this.dataList.length / this.pageSize);
+        this.dataService = DataService;
 
-                // slice data per current page
-                this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-                // create an array of pages to ng-repeat, + 1 for a correct number
-                this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
-            }).catch(err =>{
-                console.log(err);
-            });
         this.getBootstrap();
+        this.loadData();
+    }
+
+    loadData (params) {
+        this.dataService.getData(params)
+        .then(searchData => {
+            this.rawData = angular.copy(searchData.data.OutputArray);
+            this.dataList = searchData.data.OutputArray;
+            let numPages = Math.ceil(this.dataList.length / this.pageSize);
+
+            // slice data per current page
+            this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
+
+            // create an array of pages to ng-repeat, + 1 for a correct number
+            this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
+        });
     }
 
     sliceDataToShow (currentPage, pageSize) {
         let startIndex = (Number(currentPage) - 1) * Number(pageSize);
         let endIndex = startIndex + pageSize;
-
-        console.log(this.rawData, startIndex, endIndex);
         let dataVisiblePage = this.rawData.slice(startIndex, endIndex);
 
         return dataVisiblePage;
     }
+
     changingPage (obj) {
         this.currentPage = obj;
 
@@ -51,6 +53,7 @@ export class SearchController {
 
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
+
     changingPageToFirst () {
         this.currentPage = 1;
 
@@ -58,6 +61,7 @@ export class SearchController {
 
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
+
     changingPageToLast () {
         this.currentPage = this.pages.length;
 
@@ -67,7 +71,23 @@ export class SearchController {
     }
 
     filterChanged (arrayFilter) {
-        console.log(arrayFilter);
+        let param = {
+            process_owner_id: this.processOwnerChosen.id,
+            system_owner_id: this.systemOwnerChosen.id,
+            status_code: this.statusChosen.label,
+            array_filter_text: arrayFilter
+        };
+
+        this.dataService.getData(param)
+        .then(searchData => {
+            this.rawData = angular.copy(searchData.data.OutputArray);
+            this.dataList = searchData.data.OutputArray;
+            let numPages = Math.ceil(this.dataList.length / this.pageSize);
+
+            this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
+
+            this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
+        });
     }
 
     getBootstrap () {
