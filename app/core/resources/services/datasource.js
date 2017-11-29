@@ -5,6 +5,6 @@ export class DatasourceService {
     }
 
     getBootstrap () {
-        return this.$http.get('http://mbcl26001510:8080/edd-serviceWeb/filter/datasource/bootstrap');
+        return this.$http.get('WDD/filter/datasource/bootstrap');
     }
 }
