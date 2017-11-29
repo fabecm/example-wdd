@@ -28,7 +28,7 @@ function getMockedData ($q) {
     var deferred = $q.defer();
 
     deferred.resolve({
-        contextPath: 'http://mbcl26001510:8080/edd-serviceWeb'
+        contextPath: 'WDD'
     });
 
     return deferred.promise;

@@ -71,12 +71,20 @@ export class SearchController {
     }
 
     filterChanged (arrayFilter) {
-        let param = {
-            process_owner_id: this.processOwnerChosen.id,
-            system_owner_id: this.systemOwnerChosen.id,
-            status_code: this.statusChosen.label,
-            array_filter_text: arrayFilter
-        };
+        let param = {};
+
+        if (this.processOwnerChosen) {
+            param.process_owner_id = this.processOwnerChosen.id;
+        }
+        if (this.systemOwnerChosen) {
+            param.system_owner_id = this.systemOwnerChosen.id;
+        }
+        if (this.statusChosen) {
+            param.status_code = this.statusChosen.label;
+        }
+        if (arrayFilter && arrayFilter.length > 0) {
+            param.arrayFilter = arrayFilter;
+        }
 
         this.dataService.getData(param)
         .then(searchData => {
