@@ -3,6 +3,7 @@ import { ClassificationService } from './services/classification';
 import { UserService } from './services/user';
 import { DatasourceService } from './services/datasource';
 import { LineageService } from './services/lineage';
+import { HttpRequestInterceptor } from './interceptor/httpRequestInterceptor';
 
 export default angular.module('wdd.core.resources', [])
     .service('DataService', DataService)
@@ -10,4 +11,9 @@ export default angular.module('wdd.core.resources', [])
     .service('UserService', UserService)
     .service('DatasourceService', DatasourceService)
     .service('LineageService', LineageService)
+    .factory('httpRequestInterceptor', HttpRequestInterceptor)
+    .config(($httpProvider) => {
+        'ngInject';
+        $httpProvider.interceptors.push('httpRequestInterceptor');
+    })
     .name;
