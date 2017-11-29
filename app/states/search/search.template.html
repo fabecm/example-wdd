@@ -26,78 +26,97 @@
         </div>
     </div>
 
-    <wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
+<wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
+  
+<div class="wdd-table table1">
+    <table>
+        <thead>
+            <tr>
+                <th>Workspace</th>
+                <th>Data Field</th>
+                <th>Data Table</th>
+                <th>Data Source</th>
+                <th>Technical Application</th>
+                <th>System Owner</th>
+                <th>Program</th>
+                <th>Technical Rule</th>
+                <th>Business Rule</th>
+                <th>Business Data</th>
+                <th>Business Glossary</th>
+                <th>Process Owner</th>
+                <th>Dettaglio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="obj in vm.dataList">
+                <!-- Workspace -->
+                <td><div>{{obj.workspace.label}}</div></td>
+                <!-- Data Field -->
+                <td><div>{{obj.data_field.label}}</div></td>
+                <!-- Data Source Table -->
+                <td><div>{{obj.data_field.label}}</div></td>
+                <!-- Data Source -->
+                <td><div>{{obj.data_field.label}}</div></td>
+                <!-- Technical Application -->
+                <td><div>{{obj.data_field.label}}</div></td>
+                <!-- System Owner -->
+                <td><div>{{obj.system_owner.label}}</div></td>
+                <!-- Program -->
+                <td><div>{{obj.data_field.label}}</div></td>
+                <!-- Technical Rule -->
+                <td>
+                    <div ng-repeat="obj in obj.tech_rules">
+                        {{obj.label}}
+                        <br>
+                    </div>
+                </td>
 
-    <div class="wdd-table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Workspace</th>
-                    <th>Workspace</th>
-                    <th>Workspace</th>
-                    <th>Workspace</th>
-                    <th>Workspace</th>
-                    <th>Workspace</th>
-                    <th>Workspace</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                </tr>
-                <tr>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                </tr>
-                <tr>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                </tr>
-                <tr>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                </tr>
-                <tr>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                </tr>
-                <tr>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                    <td>Workspace</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="table-footer"></div>
+                <!-- Business Rule -->
+                <td>
+                    <div ng-repeat="obj in obj.business_rules">
+                        {{obj.label}}
+                        <br>
+                    </div>
+                </td>
+
+                <!-- Business Data -->
+                <td><div>{{obj.business_data.label}}</div></td>
+                <!-- Business Glossary -->
+                <td><div>{{obj.business_glossary.label}}</div></td>
+                <!-- Process Owner -->
+                <td><div>{{obj.process_owner.label}}</div></td>
+                <!-- Dettaglio -->
+                <td>
+                    <i class="icon icon-filter"></i>
+                    <i class="icon icon-workspace-details"></i>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="table-footer">
+
+        <div class="pagi-text" ng-click="vm.changingPageToFirst()">
+            <a href="">First</a>
+        </div>
+        <ul class="pagination">
+            <!-- <li ng-click="vm.changingPageToFirst()">
+                <a href="">First</a>                
+            </li> -->
+            <li ng-repeat="obj in vm.pages">
+                <!-- <a ng-click="currentPage = {{obj}}">{{obj}}</a> -->
+                <a ng-click="vm.changingPage(obj)">{{obj}}</a>
+            </li>
+            <!-- <li ng-click="vm.changingPageToLast()">
+                <a href="">Last</a> 
+            </li> -->
+        </ul>
+        <div class="pagi-text" ng-click="vm.changingPageToLast()">
+            <a href="">Last</a>
+        </div>
+
+
+
     </div>
 </div>

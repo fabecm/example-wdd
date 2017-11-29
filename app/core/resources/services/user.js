@@ -14,7 +14,7 @@ export class UserService {
                 this.user = res.data;
             });
         }
-        return this.$http.get('http://MBCL26001510:8080/edd-serviceWeb/users').then(res => {
+        return this.$http.get('http://GPLLL0062:8080/edd-serviceWeb/users').then(res => {
             this.user = res.data;
         });
     }
