@@ -17,7 +17,7 @@ export class DataService {
         };
     }
 
-    getData () {
-        return this.$http.post('http://mbcl26001510:8080/edd-serviceWeb/search/fulltext ', this.smth);
+    getData (params = {}) {
+        return this.$http.post('WDD/search/fulltext ', params);
     }
 }
