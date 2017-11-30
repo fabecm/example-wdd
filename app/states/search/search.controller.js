@@ -70,7 +70,7 @@ export class SearchController {
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
 
-    filterChanged (arrayFilter) {
+    filterChanged (arrayFilter) {debugger
         let param = {};
 
         if (this.processOwnerChosen) {
@@ -101,8 +101,8 @@ export class SearchController {
     getBootstrap () {
         this.datasourceService.getBootstrap().then(res => {
             this.filterBootstrap = {
-                processOwner: res.process_owner,
-                systemOwner: res.system_owner
+                processOwner: res.data.process_owner,
+                systemOwner: res.data.system_owner
             };
         });
     }

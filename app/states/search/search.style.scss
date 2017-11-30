@@ -13,6 +13,13 @@
             .wdd-input-text, .wbb-select {
                 width: 80%;
             }
+
+            .wbb-select select {
+                width: 80%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         }
     }
 }

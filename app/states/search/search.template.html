@@ -3,7 +3,7 @@
         <div class="wdd-labeled-input">
             <label for="processOwner">Process Owner</label>
             <div class="wbb-select">
-                <select name="processOwner" ng-model="processOwnerChosen" ng-options="opt as opt.label for opt in vm.filterBootstrap.systemOwner.array">
+                <select name="processOwner" ng-model="vm.processOwnerChosen" ng-options="opt as opt.label for opt in vm.filterBootstrap.processOwner">
                 </select>
                 <i class="icon icon-down-arrow"></i>
             </div>
@@ -11,7 +11,7 @@
         <div class="wdd-labeled-input">
             <label for="systemOwner">System Owner</label>
             <div class="wbb-select">
-                <select name="systemOwner" ng-model="systemOwnerChosen" ng-options="opt as opt.label for opt in vm.filterBootstrap.processOwner.array">
+                <select name="systemOwner" ng-model="vm.systemOwnerChosen" ng-options="opt as opt.label for opt in vm.filterBootstrap.systemOwner">
                 </select>
                 <i class="icon icon-down-arrow"></i>
             </div>
@@ -19,7 +19,7 @@
         <div class="wdd-labeled-input">
             <label for="filterStatus">Stato</label>
             <div class="wbb-select">
-                <select name="filterStatus" ng-model="statusChosen" ng-options="opt as opt.label for opt in vm.filterStatus">
+                <select name="filterStatus" ng-model="vm.statusChosen" ng-options="opt as opt.label for opt in vm.filterStatus">
                 </select>
                 <i class="icon icon-down-arrow"></i>
             </div>
