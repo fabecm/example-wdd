@@ -19,6 +19,7 @@ export class DataLineageController {
     getLineageField (termId) {
         this.lineageService.getLineageField(termId).then(res => {
             this.lineageBoxes = Array(9);
+
             this.lineageBoxes[1] = {
                 title: 'Technical Hierarchy',
                 data: res.data.tech_hierarchy,
@@ -28,19 +29,19 @@ export class DataLineageController {
             this.lineageBoxes[3] = {
                 title: 'Technical Rule',
                 data: res.data.tech_rules,
-                operation: this.getLineageRule
+                operation: this.getLineageRule.bind(this)
             };
 
             this.lineageBoxes[4] = {
                 title: 'Data Field',
                 data: res.data.data_field,
-                operation: this.goToDateDetail
+                infoOperation: this.goToDateDetail.bind(this)
             };
 
             this.lineageBoxes[5] = {
                 title: 'Technical Rule',
                 data: res.data.tech_rules,
-                operation: this.getLineageRule
+                operation: this.getLineageRule.bind(this)
             };
 
             this.lineageBoxes[7] = {
@@ -67,7 +68,7 @@ export class DataLineageController {
         });
     }
 
-    getLineageRule (ruleId) {debugger
+    getLineageRule (ruleId) {
         this.lineageService.getLineageRule(ruleId).then(res => {
             this.lineageBoxes = Array(9);
             this.lineageBoxes[1] = {
@@ -78,7 +79,7 @@ export class DataLineageController {
             this.lineageBoxes[3] = {
                 title: 'Data Field',
                 data: res.data.data_field_in,
-                operation: this.getLineageField
+                operation: this.getLineageField.bind(this)
             };
             this.lineageBoxes[4] = {
                 title: 'Technical Rule',
@@ -88,7 +89,7 @@ export class DataLineageController {
             this.lineageBoxes[5] = {
                 title: 'Data Field',
                 data: res.data.data_field_out,
-                operation: this.getLineageField
+                operation: this.getLineageField.bind(this)
             };
             this.lineageBoxes[7] = {
                 title: 'Program',
@@ -96,5 +97,9 @@ export class DataLineageController {
                 operation: null
             };
         });
+    }
+
+    goToDateDetail () {
+
     }
 }

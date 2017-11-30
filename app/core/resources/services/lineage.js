@@ -5,10 +5,10 @@ export class LineageService {
     }
 
     getLineageField (termId) {
-        return this.$http.get(`http://mbcl26001510:8080/edd-serviceWeb/lineage/field/${termId}`);
+        return this.$http.get(`WDD/lineage/field/${termId}`);
     }
 
     getLineageRule (ruleId) {
-        return this.$http.get(`http://mbcl26001510:8080/edd-serviceWeb/lineage/rule/${ruleId}`);
+        return this.$http.get(`WDD/lineage/rule/${ruleId}`);
     }
 }

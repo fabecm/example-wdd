@@ -1,3 +1,7 @@
+$arrowDimension: 1px;
+$arrowLength: 50px;
+$squareBorder: 1px;
+
 .data-lineage-page {
     
     display: flex;
@@ -8,22 +12,173 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        width: 510px;
+        width: 950px;
 
         .square {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            height: 100px;
-            width: 150px;
-            border: 5px solid #707c8e;
+            color: #707c8e;
+            height: 200px;
+            width: calc(33% - #{$squareBorder * 2 + $arrowLength});
+            border: $squareBorder solid #37475f;
             border-radius: 15px;
-            margin: 20px 10px;
+            margin: #{$arrowLength / 2};
+            position: relative;
+
+            .interactive {
+                color: #2a74de;
+                text-decoration: underline;
+                text-decoration-color: #2a74de;
+                cursor: pointer;
+            }
+
+            .icon {
+                color: #2a74de;
+                cursor: pointer;
+            }
+
+            .arrow-bottom {
+                position: absolute;
+                visibility: hidden;
+                bottom: #{($arrowLength + $squareBorder) * -1};
+                right: 50%;
+                height: $arrowLength;
+                background-color: black;
+                width: $arrowDimension;
+            }
+            .arrow-top {
+                position: absolute;
+                visibility: hidden;
+                top: #{($arrowLength + $squareBorder) * -1};
+                right: 50%;
+                height: $arrowLength;
+                background-color: black;
+                width: $arrowDimension;
+            }
+            .arrow-bottom-half {
+                position: absolute;
+                visibility: hidden;
+                bottom: #{($arrowLength / 2 + $squareBorder) * -1};
+                right: 50%;
+                height: #{$arrowLength / 2};
+                background-color: black;
+                width: $arrowDimension;
+            }
+            .arrow-top-half {
+                position: absolute;
+                visibility: hidden;
+                top: #{($arrowLength / 2 + $squareBorder) * -1};
+                right: 50%;
+                height: #{$arrowLength / 2};
+                background-color: black;
+                width: $arrowDimension;
+            }
+            .arrow-left {
+                position: absolute;
+                visibility: hidden;
+                left: #{($arrowLength + $squareBorder) * -1};
+                top: 50%;
+                height: $arrowDimension;
+                background-color: black;
+                width: $arrowLength;
+            }
+            .arrow-right {
+                position: absolute;
+                visibility: hidden;
+                right: #{($arrowLength + $squareBorder) * -1};
+                top: 50%;
+                height: $arrowDimension;
+                background-color: black;
+                width: $arrowLength;
+            }
+
+            .arrow-top-right{
+                position: absolute;
+                visibility: hidden;
+                background-color: black;
+                width: 120%;
+                height: $arrowDimension;
+                top: #{($arrowLength / 2 + $squareBorder) * -1};
+                left: 50%;
+            }
+            .arrow-top-left{
+                position: absolute;
+                visibility: hidden;
+                background-color: black;
+                width: 120%;
+                height: $arrowDimension;
+                top: #{($arrowLength / 2 + $squareBorder) * -1};
+                right: calc(50% + #{$arrowDimension});
+            }
+            .arrow-bottom-right{
+                position: absolute;
+                visibility: hidden;
+                background-color: black;
+                width: 120%;
+                height: $arrowDimension;
+                bottom: #{($arrowLength / 2 + $squareBorder) * -1};
+                left: 50%;
+            }
+            .arrow-bottom-left{
+                position: absolute;
+                visibility: hidden;
+                background-color: black;
+                width: 120%;
+                height: $arrowDimension;
+                bottom: #{($arrowLength / 2 + $squareBorder) * -1};
+                right: calc(50% + #{$arrowDimension});
+            }
+
+            &.box-0{
+                .arrow-bottom-right, .arrow-bottom-half {
+                    visibility: visible;
+                }
+            }
+            &.box-1{
+                .arrow-bottom {
+                    visibility: visible;
+                }
+            }
+            &.box-2{
+                .arrow-bottom-left, .arrow-bottom-half {
+                    visibility: visible;
+                }
+            }
+            &.box-3{
+                .arrow-right {
+                    visibility: visible;
+                }
+            }
+            &.box-5{
+                .arrow-left {
+                    visibility: visible;
+                }
+            }
+            &.box-6{
+                .arrow-top-right, .arrow-top-half {
+                    visibility: visible;
+                }
+            }
+            &.box-7{
+                .arrow-top {
+                    visibility: visible;
+                }
+            }
+            &.box-8{
+                .arrow-top-left, .arrow-top-half {
+                    visibility: visible;
+                }
+            }
+
         }
 
         .hide-square {
             visibility: hidden;
+            .arrow-bottom, .arrow-top, .arrow-left, .arrow-right, .arrow-top-right, .arrow-top-left, .arrow-bottom-right, .arrow-bottom-left, .arrow-bottom-half, .arrow-top-half{
+                visibility: hidden !important;
+            }
         }
     }
 }
