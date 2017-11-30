@@ -1,0 +1,36 @@
+<div class="data-lineage-page">
+    <div class="square-container">
+
+        <div class="square box-{{key}}" ng-class="{'hide-square': !box}" ng-repeat="(key, box) in vm.lineageBoxes track by $index">
+            <div class="title">
+                <label>{{box.title}}</label>
+                <i ng-if="box.infoOperation" class="icon icon-info" ng-click="box.infoOperation()"></i>
+            </div>
+            <div class="body">
+                <div ng-class="{'interactive': box.operation}" ng-if="!box.data.label && box.data.length && !box.data[0]" ng-click="box.operation(item.id)">
+                    {{box}}
+                </div>
+                <div ng-class="{'interactive': box.operation}" ng-if="box.data.label && !box.data.length" ng-click="box.operation(item.id)">
+                    {{box.data.label}}
+                </div>
+                <div ng-class="{'interactive': box.operation}" ng-if="!box.data.label && box.data.length && box.data[0]" ng-repeat="item in box.data track by $index" ng-click="box.operation(item.id)">
+                    {{item.label}}
+                </div>
+            </div>
+
+            <div class="arrow-bottom"></div>
+            <div class="arrow-top"></div>
+            <div class="arrow-left"></div>
+            <div class="arrow-right"></div>
+
+            <div class="arrow-top-right"></div>
+            <div class="arrow-top-left"></div>
+            <div class="arrow-bottom-right"></div>
+            <div class="arrow-bottom-left"></div>
+
+            <div class="arrow-bottom-half"></div>
+            <div class="arrow-top-half"></div>
+        </div>
+
+    </div>
+</div>
