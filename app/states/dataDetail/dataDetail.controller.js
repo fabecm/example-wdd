@@ -1,7 +1,8 @@
 export class DataDetailController {
 
-    constructor () {
-
+    constructor (DetailsService) {
+        'ngInject';
+        this.detailsService = DetailsService;
     }
 
 }
