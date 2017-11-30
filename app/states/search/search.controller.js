@@ -70,7 +70,7 @@ export class SearchController {
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
 
-    filterChanged (arrayFilter) {debugger
+    filterChanged (arrayFilter) {
         let param = {};
 
         if (this.processOwnerChosen) {

@@ -19,6 +19,18 @@
         }
     }
 
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 40px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(to right, rgba(0,0,0,0), white 30%, white);
+        pointer-events: none;
+    }
+
     &.disabled {
         pointer-events: none;
         select {
@@ -37,6 +49,7 @@
         bottom: 0;
         color: #2a74de;
         pointer-events: none;
+        z-index: 1;
     }
 }
 
