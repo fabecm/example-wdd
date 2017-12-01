@@ -23,21 +23,21 @@
         bottom: -2px;
         border-radius: $label-border-radius;
         z-index: -1;
-        background-color: $label-background-trace;
+        background: $label-background-trace;
         box-shadow: $label-box-shadow;
     }
 
     &.complete {
         background-color: $label-complete-background-color;
         &:after {
-            background-color: $label-complete-background-trace;
+            background: $label-complete-background-trace;
         }
     }
 
     &.incomplete {
         background-color: $label-incomplete-background-color;
         &:after {
-            background-color: $label-incomplete-background-trace;
+            background: $label-incomplete-background-trace;
         }
     }
 }

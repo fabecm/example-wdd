@@ -15,15 +15,32 @@
     </div>
 
     <div class="details-container">
-        <div class="detail-container">
+        <div class="detail-container" ng-repeat="detail in vm.listDataDetails track by $index">
             <div class="header">
-                HEADER
+                <div class="header-icon">
+                    <button class="wdd-button icon-only">
+                        <i class="icon icon-down-arrow"></i>
+                    </button>
+                </div>
+                <div class="header-title">
+                    <label class="header-title-elem type-elem">{{detail.label}}</label>
+                    <label class="header-title-elem name-elem">{{detail.label}}</label>
+                </div>
+                <div class="header-label">
+                    <label class="wdd-label complete">{{detail.status}}</label>
+                </div>
             </div>
             <div class="body">
-                BODY
+                <div ng-repeat="attr in detail.attributes | orderBy: 'show_order'">
+                    <att ng-model="attr.default_value" attribute-name="{{attr.attribute_name}}" attribute-type="{{attr.attribute_type}}" frontend-type="{{attr.frontend_type}}"
+                        is-required="{{attr.is_required}}" is-visible="{{attr.is_visible}}" is-editable="{{attr.is_editable}}"
+                        attribute-values="{{attr.default_value}}" domani-value="{{attr.domani_value}}">
+                    </att>
+                </div>
             </div>
             <div class="footer">
-                FOOTER
+                <button class="wdd-button alt-color">ANNULLA MODIFICHE</button>
+                <button class="wdd-button">SALVA MODIFICHE</button>
             </div>
         </div>
     </div>
