@@ -2,12 +2,10 @@ export class DataLineageController {
 
     lineageBoxes = Array(9);
 
-    // Default view: Data Lineage
-    currentView = 0;
-
-    constructor (LineageService) {
+    constructor (LineageService, $state) {
         'ngInject';
         this.lineageService = LineageService;
+        this.$state = $state;
 
         this.initLineage(123);
     }
@@ -35,7 +33,7 @@ export class DataLineageController {
             this.lineageBoxes[4] = {
                 title: 'Data Field',
                 data: res.data.data_field,
-                infoOperation: this.goToDateDetail.bind(this)
+                infoOperation: this.goToDataDetail.bind(this)
             };
 
             this.lineageBoxes[5] = {
@@ -99,7 +97,7 @@ export class DataLineageController {
         });
     }
 
-    goToDateDetail () {
-
+    goToDataDetail (termId) {
+        this.$state.go('data-detail', {id: termId});
     }
 }
