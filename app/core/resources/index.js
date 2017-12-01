@@ -4,6 +4,7 @@ import { UserService } from './services/user';
 import { DatasourceService } from './services/datasource';
 import { LineageService } from './services/lineage';
 import { HttpRequestInterceptor } from './interceptor/httpRequestInterceptor';
+import { WorkspaceService } from './services/workspaceService';
 
 export default angular.module('wdd.core.resources', [])
     .service('DataService', DataService)
@@ -16,4 +17,5 @@ export default angular.module('wdd.core.resources', [])
         'ngInject';
         $httpProvider.interceptors.push('httpRequestInterceptor');
     })
+    .service('WorkspaceService', WorkspaceService)
     .name;
