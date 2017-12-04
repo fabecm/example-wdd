@@ -6,9 +6,10 @@ export class DetailsService {
     }
 
     getDataFieldDetails (termId) {
-        if(Boolean(true) === true) {
-            return getMockedData(this.$q);
-        }
+        // if(Boolean(true) === true) {
+        //     return getMockedData(this.$q);
+        // }
+        termId = 1049809;
         return this.$http.get(`WDD/details/${termId}`);
     }
 }
@@ -57,8 +58,7 @@ function getMockedData ($q) {
                     is_user_attribute: 'N',
                     show_order: 10,
                     show_grid: 'Y',
-                    domain_value:
-            '[\'Critico\',\'Alto\',\'Medio\',\'Basso\',\'Molto\' \'basso\',\'Non specificato\']',
+                    domain_value: ['Critico', 'Alto', 'Medio', 'Basso', 'Molto basso', 'Non specificato'],
                     default_value: 'Medio'
                 },
                 {
@@ -85,7 +85,7 @@ function getMockedData ($q) {
                     show_order: 3,
                     show_grid: 'N',
                     domain_value: '',
-                    default_value: ''
+                    default_value: 'Descriptio lorem ipsum'
                 },
                 {
                     attribute_name: 'Data Length',
@@ -149,22 +149,21 @@ function getMockedData ($q) {
                     is_user_attribute: 'Y',
                     show_order: 8,
                     show_grid: 'Y',
-                    domain_value: '[\'TRUE\',\'FALSE\']',
+                    domain_value: ['TRUE', 'FALSE'],
                     default_value: 'FALSE'
                 },
                 {
                     attribute_name: 'Status',
                     attribute_type: 'VARCHAR(255)',
-                    frontend_type: 'SINGLESELECTLIST',
+                    frontend_type: 'MULTISELECTLIST',
                     is_required: 'Y',
                     is_visible: 'Y',
                     is_editable: 'Y',
                     is_user_attribute: 'N',
                     show_order: 9,
                     show_grid: 'Y',
-                    domain_value:
-            '[Produzione,Modifica,In sospeso,In fase di revisione,Non specificato]',
-                    default_value: 'Modifica'
+                    domain_value: ['Produzione', 'Modifica', 'In sospeso', 'In fase di revisione', 'Non specificato'],
+                    default_value: ['Produzione', 'Modifica']
                 }
             ]
         }

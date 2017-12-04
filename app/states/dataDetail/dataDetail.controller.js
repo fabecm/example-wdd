@@ -12,8 +12,31 @@ export class DataDetailController {
 
     initDataDetails () {
         this.detailsService.getDataFieldDetails(this.$stateParams.id).then(res => {
-            this.listDataDetails = res;
+            this.listDataDetails = res.data;
+            this.visibleDataDetails = res.data.map(data => {
+                data.attributes = data.attributes.map(attribute => {
+                    attribute.origin_value = attribute.default_value;
+                    return attribute;
+                });
+                return data;
+            });
         });
     }
 
+    resetChanges(resetAttribute) {
+        this.resetAttribute = resetAttribute;
+    }
+
+    showAttributeBody (detail) {
+        // this.changeAllDetailStatus(false);
+        detail.isOpened = !detail.isOpened;
+    }
+
+
+    changeAllDetailStatus(shouldOpen) {
+        this.visibleDataDetails.map(t => {
+            t.isOpened = shouldOpen;
+            return t;
+        });
+    }
 }

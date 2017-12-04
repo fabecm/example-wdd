@@ -1,6 +1,48 @@
-<div class="attribute-list">
-    <label>{{attributeName}}</label>
-    <div ng-if="isTextArea">
-        <textarea ng-model="ngModel" ng-disabled="!isEditable"></textarea>
+<div class="attribute-list" ng-if="isVisible === 'Y'">
+
+    <div class="attribute-name" ng-class="{'name-focus-enabled': isFocusEnabled}">
+        {{attributeName}}
+        <div class="file-manage" ng-if="isFile">
+            <label for="attachFile">
+                <i class="icon icon-new"></i>
+            </label>
+            <input id="attachFile" type="file" class="hiddenAttachFile">
+            <i class="icon icon-delete"></i>
+        </div>
+    </div>
+
+    <div class="attribute-value">
+
+        <div ng-if="isTextArea">
+            <textarea class="wdd-textarea" ng-model="model.value" ng-disabled="isEditable === 'N'" ng-focus="setFocusOnAttribute(true)"
+                ng-blur="setFocusOnAttribute(false)"></textarea>
+        </div>
+
+        <div ng-if="isInput">
+            <input class="wdd-input-text" ng-model="model.value" ng-disabled="isEditable === 'N'" ng-focus="setFocusOnAttribute(true)"
+                ng-blur="setFocusOnAttribute(false)" />
+        </div>
+
+        <div ng-if="isRadioButton">
+            <div class="radio" ng-repeat="value in domainValue track by $index">
+                <label>
+                    <input type="radio" name="opt_{{attributeName}}" ng-model="model.value" value="{{value}}" ng-focus="setFocusOnAttribute(true)"
+                        ng-blur="setFocusOnAttribute(false)"> {{value}}
+                </label>
+            </div>
+        </div>
+
+        <div ng-if="isCheckBox">
+            <div class="checkbox" ng-repeat="value in domainValue track by $index">
+                <label>
+                    <input type="checkbox" name="opt_{{attributeName}}" ng-model="checkboxModel[value]" value="{{value}}" ng-focus="setFocusOnAttribute(true)"
+                        ng-blur="setFocusOnAttribute(false)"> {{value}}
+                </label>
+            </div>
+        </div>
+
+        <div ng-if="isFile">
+             
+        </div>
     </div>
 </div>

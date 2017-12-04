@@ -1,3 +1,5 @@
+@import '~styles/variables.scss';
+
 .BaseTabsState{
     height: 100%;
     display: flex;
@@ -5,5 +7,7 @@
     .states-holder{
         flex: 1;
         padding: 20px 50px;
+        // TODO: Fix flex 1 going over parent elem
+        height: calc(100% - #{$header-primary-height});
     }    
 }

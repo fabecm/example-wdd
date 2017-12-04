@@ -15,11 +15,11 @@
     </div>
 
     <div class="details-container">
-        <div class="detail-container" ng-repeat="detail in vm.listDataDetails track by $index">
+        <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="detail in vm.visibleDataDetails track by $index" ng-class="{'active': detail.isOpened}">
             <div class="header">
                 <div class="header-icon">
-                    <button class="wdd-button icon-only">
-                        <i class="icon icon-down-arrow"></i>
+                    <button class="wdd-button icon-only" ng-class="{'alt-color': detail.isOpened}">
+                        <i class="icon" ng-class="{'icon-down-arrow': !detail.isOpened, 'icon-up-arrow': detail.isOpened}" ng-click="vm.showAttributeBody(detail)"></i>
                     </button>
                 </div>
                 <div class="header-title">
@@ -31,15 +31,16 @@
                 </div>
             </div>
             <div class="body">
-                <div ng-repeat="attr in detail.attributes | orderBy: 'show_order'">
-                    <att ng-model="attr.default_value" attribute-name="{{attr.attribute_name}}" attribute-type="{{attr.attribute_type}}" frontend-type="{{attr.frontend_type}}"
+                <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'">
+                    <att ng-model="attr.default_value" attribute-name="attr.name" attribute-type="{{attr.ftype}}" frontend-type="{{attr.frontend_type}}"
                         is-required="{{attr.is_required}}" is-visible="{{attr.is_visible}}" is-editable="{{attr.is_editable}}"
-                        attribute-values="{{attr.default_value}}" domani-value="{{attr.domani_value}}">
+                        attribute-values="{{attr.default_value}}" domain-obj-value="{{ {array: attr.domain_value} }}" origin-obj-value="{{attr.origin_value}}"
+                        reset-attribute="vm.resetChanges(resetFunction)">
                     </att>
                 </div>
             </div>
             <div class="footer">
-                <button class="wdd-button alt-color">ANNULLA MODIFICHE</button>
+                <button class="wdd-button alt-color" ng-click="vm.resetAttribute">ANNULLA MODIFICHE</button>
                 <button class="wdd-button">SALVA MODIFICHE</button>
             </div>
         </div>
