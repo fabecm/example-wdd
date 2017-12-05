@@ -1,0 +1,20 @@
+.wdd-autocomplete {
+
+    position: relative;
+    width: $custom-select-width;
+    height: $custom-select-height;
+
+    i {
+        line-height: $custom-select-height;
+        cursor: pointer;
+        content: '\e806';
+        display: block;
+        position: absolute;
+        right: 5px;
+        font-size: 15px;
+        top: 0;
+        bottom: 0;
+        color: #2a74de;
+        z-index: 1;
+    }
+}
