@@ -1,0 +1,16 @@
+<div class="donut-chart-graph">
+    <canvas id="{{chartId}}"></canvas>
+    <div class="label-chart">
+        <label>{{numLabelChart}} </label>
+        <label ng-hide="hideLabel">Attività</label>
+    </div>
+</div>
+
+<div class="chart-legend-container">
+    <div class="container-block">
+        <div class="chart-legend" ng-style="{color: arrayBackgroundColor[key]}" ng-repeat="(key, legend) in labelArray">
+            <div class="left-block">{{valueArray[key]}}</div>
+            <div class="right-block">{{legend}}</div>
+        </div>
+    </div>
+</div>

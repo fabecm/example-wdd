@@ -1,0 +1,47 @@
+doughnut-chart {
+
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+
+    .donut-chart-graph {
+        position: relative;
+        
+        .label-chart {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+    }
+
+    .chart-legend-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+
+        .chart-legend {
+            display: flex;
+            flex-direction: row;
+            
+            .left-block {
+                width: 50px;
+                text-align: right;
+            }
+            
+            .right-block {
+                padding-left: 20px;
+            }
+        }
+    }
+    
+}
