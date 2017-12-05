@@ -1,0 +1,14 @@
+<div class="donut-chart-graph">
+        <canvas id="{{chartId}}"></canvas>
+        <div class="label-chart">
+            <label>{{numLabelChart}} </label>
+            <label ng-hide="hideLabel">Attività</label>
+        </div>
+    </div>
+    
+    <div class="chart-leggend-container">
+        <div class="chart-leggend" ng-style="{color: arrayBackgroundColor[key]}" ng-repeat="(key, leggend) in labelArray">
+            <div class="left-block">{{valueArray[key]}}</div>
+            <div class="right-block">{{leggend}}</div>
+        </div>
+    </div>
