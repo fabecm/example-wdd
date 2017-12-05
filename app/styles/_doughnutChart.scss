@@ -2,7 +2,7 @@ doughnut-chart {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     // align-items: center;
 
     .donut-chart-graph {
@@ -23,11 +23,13 @@ doughnut-chart {
         }
     }
 
-    .chart-leggend-container {
-
+    .chart-legend-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         margin-top: 20px;
 
-        .chart-leggend {
+        .chart-legend {
             display: flex;
             flex-direction: row;
             
@@ -37,7 +39,6 @@ doughnut-chart {
             }
             
             .right-block {
-                flex: 1;
                 padding-left: 20px;
             }
         }
