@@ -14,6 +14,7 @@ export class DataDetailController {
         this.detailsService.getDataFieldDetails(this.$stateParams.id).then(res => {
             this.listDataDetails = res.data;
             this.visibleDataDetails = res.data.map(data => {
+                data.isOpened = true;
                 data.attributes = data.attributes.map(attribute => {
                     attribute.origin_value = attribute.default_value;
                     return attribute;
@@ -23,7 +24,7 @@ export class DataDetailController {
         });
     }
 
-    resetChanges(resetAttribute) {
+    resetChanges (resetAttribute) {
         this.resetAttribute = resetAttribute;
     }
 
@@ -33,7 +34,7 @@ export class DataDetailController {
     }
 
 
-    changeAllDetailStatus(shouldOpen) {
+    changeAllDetailStatus (shouldOpen) {
         this.visibleDataDetails.map(t => {
             t.isOpened = shouldOpen;
             return t;

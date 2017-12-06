@@ -7,7 +7,7 @@
             <label>Dato 3</label>
         </div>
         <div class="right-side">
-            <button class="wdd-button">
+            <button class="wdd-button" ng-click="vm.changeAllDetailStatus(true)">
                 <i class="icon icon-down-arrow"></i>
                 ESPANDI TUTTO
             </button>
@@ -23,8 +23,8 @@
                     </button>
                 </div>
                 <div class="header-title">
-                    <label class="header-title-elem type-elem">{{detail.label}}</label>
-                    <label class="header-title-elem name-elem">{{detail.label}}</label>
+                    <label class="header-title-elem type-elem">{{detail.term.termtype}}</label>
+                    <label class="header-title-elem name-elem">{{detail.term.name}}</label>
                 </div>
                 <div class="header-label">
                     <label class="wdd-label complete">{{detail.status}}</label>
@@ -32,9 +32,7 @@
             </div>
             <div class="body">
                 <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'">
-                    <att ng-model="attr.default_value" attribute-name="attr.name" attribute-type="{{attr.ftype}}" frontend-type="{{attr.frontend_type}}"
-                        is-required="{{attr.is_required}}" is-visible="{{attr.is_visible}}" is-editable="{{attr.is_editable}}"
-                        attribute-values="{{attr.default_value}}" domain-obj-value="{{ {array: attr.domain_value} }}" origin-obj-value="{{attr.origin_value}}"
+                    <att ng-model="attr.default_value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
                         reset-attribute="vm.resetChanges(resetFunction)">
                     </att>
                 </div>

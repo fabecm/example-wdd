@@ -6,10 +6,10 @@ export class DetailsService {
     }
 
     getDataFieldDetails (termId) {
-        // if(Boolean(true) === true) {
-        //     return getMockedData(this.$q);
-        // }
-        termId = 1049809;
+        if(Boolean(true) === true) {
+            return getMockedData(this.$q);
+        }
+        // termId = 1136820;
         return this.$http.get(`WDD/details/${termId}`);
     }
 }
@@ -17,157 +17,369 @@ export class DetailsService {
 function getMockedData ($q) {
     var deferred = $q.defer();
 
-    deferred.resolve([
-        {
-            label: 'EDG DD - Data Field',
-            status: 'completo',
-            attributes: [
-                {
-                    attribute_name: 'Requirements',
-                    attribute_type: 'VARCHAR(512)',
-                    frontend_type: 'MULTILINETEXT',
-                    is_required: 'N',
-                    is_visible: 'N',
-                    is_editable: 'N',
-                    is_user_attribute: 'N',
-                    show_order: 0,
-                    show_grid: 'N',
-                    domain_value: '',
-                    default_value: ''
+    deferred.resolve({
+        data: [
+            {
+                term: {
+                    termtype: 'DATA_FIELD',
+                    name: 'DD - DF - MOTIVO_STATO_ENTE - R_MONETICA.BD_TSEC67'
                 },
-                {
-                    attribute_name: 'Field',
-                    attribute_type: 'VARCHAR(255)',
-                    frontend_type: 'SINGLELINETEXT',
-                    is_required: 'Y',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'Y',
-                    show_order: 1,
-                    show_grid: 'N',
-                    domain_value: '',
-                    default_value: ''
+                attributes: [
+                    {
+                        name: 'Data Length',
+                        values: [{ ftype: 'SINGLELINETEXT' }],
+                        ftype: 'SINGLELINETEXT',
+                        position: '4'
+                    },
+                    {
+                        name: 'Data Type',
+                        values: [{ ftype: 'SINGLELINETEXT' }],
+                        ftype: 'SINGLELINETEXT',
+                        position: '2'
+                    },
+                    {
+                        name: 'Data Layout',
+                        values: [{ ftype: 'SINGLELINETEXT' }],
+                        ftype: 'SINGLELINETEXT',
+                        position: '5'
+                    },
+                    {
+                        name: 'Data Position',
+                        values: [{ ftype: 'SINGLELINETEXT' }],
+                        ftype: 'SINGLELINETEXT',
+                        position: '6'
+                    },
+                    {
+                        name: 'Field',
+                        values: [{ ftype: 'SINGLELINETEXT' }],
+                        ftype: 'SINGLELINETEXT',
+                        position: '1'
+                    },
+                    {
+                        name: 'Description',
+                        values: [
+                            {
+                                value:
+                        'identifica il motivo dello stato presente sul dispositivo sul processor',
+                                ftype: 'MULTILINETEXT'
+                            }
+                        ],
+                        ftype: 'MULTILINETEXT',
+                        position: '3'
+                    },
+                    {
+                        name: 'Status',
+                        values: [{ value: 'Produzione', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Produzione' },
+                    { label: 'Modifica' },
+                    { label: 'In sospeso' },
+                    { label: 'In fase di revisione' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '9'
+                    },
+                    {
+                        name: 'Master Data',
+                        values: [{ value: 'N', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [{ label: 'TRUE' }, { label: 'FALSE' }],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '8'
+                    },
+                    {
+                        name: 'Importance',
+                        values: [{ value: 'Molto basso', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Critico' },
+                    { label: 'Alto' },
+                    { label: 'Medio' },
+                    { label: 'Basso' },
+                    { label: 'Molto basso' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '10'
+                    },
+                    {
+                        name: 'Full Description',
+                        values: [{ ftype: 'VALUETEXT' }],
+                        ftype: 'VALUETEXT',
+                        position: '7'
+                    }
+                ],
+                status: 'completo'
+            },
+            {
+                term: {
+                    termtype: 'DATA_TABLE',
+                    name: 'DD - DT - BD_TSEC67 - R_MONETICA'
                 },
-                {
-                    attribute_name: 'Importance',
-                    attribute_type: 'VARCHAR(255)',
-                    frontend_type: 'SINGLESELECTLIST',
-                    is_required: 'Y',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'N',
-                    show_order: 10,
-                    show_grid: 'Y',
-                    domain_value: ['Critico', 'Alto', 'Medio', 'Basso', 'Molto basso', 'Non specificato'],
-                    default_value: 'Medio'
+                attributes: [
+                    {
+                        name: 'Description',
+                        values: [
+                            {
+                                value: 'Anagrafica Carte - dispositivo reale Carta Libra',
+                                ftype: 'MULTILINETEXT'
+                            }
+                        ],
+                        ftype: 'MULTILINETEXT',
+                        position: '2'
+                    },
+                    {
+                        name: 'Status',
+                        values: [{ value: 'Produzione', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Produzione' },
+                    { label: 'Modifica' },
+                    { label: 'In sospeso' },
+                    { label: 'In fase di revisione' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '4'
+                    },
+                    {
+                        name: 'Importance',
+                        values: [{ value: 'Molto basso', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Critico' },
+                    { label: 'Alto' },
+                    { label: 'Medio' },
+                    { label: 'Basso' },
+                    { label: 'Molto basso' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '5'
+                    },
+                    {
+                        name: 'Table',
+                        values: [{ ftype: 'SINGLELINETEXT' }],
+                        ftype: 'SINGLELINETEXT',
+                        position: '1'
+                    },
+                    {
+                        name: 'Full Description',
+                        values: [
+                            {
+                                value: 'Anagrafica Carte - dispositivo reale Carta Libra',
+                                ftype: 'VALUETEXT'
+                            }
+                        ],
+                        ftype: 'VALUETEXT',
+                        position: '3'
+                    }
+                ],
+                status: 'completo'
+            },
+            {
+                term: { termtype: 'DATA_SOURCE', name: 'DD - DS - R_MONETICA' },
+                attributes: [
+                    {
+                        name: 'Group Legal Entities',
+                        values: [{ ftype: 'MULTILINETEXT' }],
+                        ftype: 'MULTILINETEXT',
+                        position: '5'
+                    },
+                    {
+                        name: 'Data Source',
+                        values: [{ ftype: 'SINGLELINETEXT' }],
+                        ftype: 'SINGLELINETEXT',
+                        position: '1'
+                    },
+                    {
+                        name: 'Data Source Type',
+                        values: [{ value: 'Database', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Database' },
+                    { label: 'Flow' },
+                    { label: 'Routine' },
+                    { label: 'Web Service' },
+                    { label: 'External File' },
+                    { label: 'Data Entry' },
+                    { label: 'Report' },
+                    { label: 'Other' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '2'
+                    },
+                    {
+                        name: 'Description',
+                        values: [
+                    { value: 'Database monetica - BIGDATA', ftype: 'MULTILINETEXT' }
+                        ],
+                        ftype: 'MULTILINETEXT',
+                        position: '3'
+                    },
+                    {
+                        name: 'Status',
+                        values: [{ value: 'Produzione', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Produzione' },
+                    { label: 'Modifica' },
+                    { label: 'In sospeso' },
+                    { label: 'In fase di revisione' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '6'
+                    },
+                    {
+                        name: 'Importance',
+                        values: [{ value: 'Molto basso', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Critico' },
+                    { label: 'Alto' },
+                    { label: 'Medio' },
+                    { label: 'Basso' },
+                    { label: 'Molto basso' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '7'
+                    },
+                    {
+                        name: 'Full Description',
+                        values: [{ ftype: 'VALUETEXT' }],
+                        ftype: 'VALUETEXT',
+                        position: '4'
+                    }
+                ],
+                status: 'completo'
+            },
+            {
+                term: { termtype: 'TECHNICAL_APPLICATION', name: 'DD - TA - BIG' },
+                attributes: [
+                    {
+                        name: 'Status',
+                        values: [{ value: 'Produzione', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Produzione' },
+                    { label: 'Modifica' },
+                    { label: 'In sospeso' },
+                    { label: 'In fase di revisione' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '3'
+                    },
+                    {
+                        name: 'Importance',
+                        values: [{ value: 'Molto basso', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Critico' },
+                    { label: 'Alto' },
+                    { label: 'Medio' },
+                    { label: 'Basso' },
+                    { label: 'Molto basso' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '4'
+                    },
+                    {
+                        name: 'Full Description',
+                        values: [{ ftype: 'VALUETEXT' }],
+                        ftype: 'VALUETEXT',
+                        position: '2'
+                    },
+                    {
+                        name: 'Description',
+                        values: [
+                    { value: 'BIG DATA E ANALYTICS\r', ftype: 'MULTILINETEXT' }
+                        ],
+                        ftype: 'MULTILINETEXT',
+                        position: '1'
+                    }
+                ],
+                status: 'completo'
+            },
+            {
+                term: {
+                    termtype: 'TECHNICAL_RULE',
+                    name: 'DD - TR - MOTIVO_STATO_ENTE - R_MONETICA.BD_TSEC67'
                 },
-                {
-                    attribute_name: 'Data Type',
-                    attribute_type: 'VARCHAR(255)',
-                    frontend_type: 'SINGLELINETEXT',
-                    is_required: 'Y',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'Y',
-                    show_order: 2,
-                    show_grid: 'N',
-                    domain_value: '',
-                    default_value: ''
-                },
-                {
-                    attribute_name: 'Description',
-                    attribute_type: 'VARCHAR(512)',
-                    frontend_type: 'MULTILINETEXT',
-                    is_required: 'Y',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'N',
-                    show_order: 3,
-                    show_grid: 'N',
-                    domain_value: '',
-                    default_value: 'Descriptio lorem ipsum'
-                },
-                {
-                    attribute_name: 'Data Length',
-                    attribute_type: 'NUMBER',
-                    frontend_type: 'SINGLELINETEXT',
-                    is_required: 'N',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'Y',
-                    show_order: 4,
-                    show_grid: 'N',
-                    domain_value: '',
-                    default_value: ''
-                },
-                {
-                    attribute_name: 'Data Layout',
-                    attribute_type: 'VARCHAR(255)',
-                    frontend_type: 'SINGLELINETEXT',
-                    is_required: 'Y',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'Y',
-                    show_order: 5,
-                    show_grid: 'N',
-                    domain_value: '',
-                    default_value: ''
-                },
-                {
-                    attribute_name: 'Data Position',
-                    attribute_type: 'NUMBER',
-                    frontend_type: 'SINGLELINETEXT',
-                    is_required: 'N',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'Y',
-                    show_order: 6,
-                    show_grid: 'N',
-                    domain_value: '',
-                    default_value: ''
-                },
-                {
-                    attribute_name: 'Full Description',
-                    attribute_type: 'CLOB',
-                    frontend_type: 'VALUETEXT',
-                    is_required: 'N',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'Y',
-                    show_order: 7,
-                    show_grid: 'N',
-                    domain_value: '',
-                    default_value: ''
-                },
-                {
-                    attribute_name: 'Master Data',
-                    attribute_type: 'BOOLEAN',
-                    frontend_type: 'SINGLESELECTLIST',
-                    is_required: 'Y',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'Y',
-                    show_order: 8,
-                    show_grid: 'Y',
-                    domain_value: ['TRUE', 'FALSE'],
-                    default_value: 'FALSE'
-                },
-                {
-                    attribute_name: 'Status',
-                    attribute_type: 'VARCHAR(255)',
-                    frontend_type: 'MULTISELECTLIST',
-                    is_required: 'Y',
-                    is_visible: 'Y',
-                    is_editable: 'Y',
-                    is_user_attribute: 'N',
-                    show_order: 9,
-                    show_grid: 'Y',
-                    domain_value: ['Produzione', 'Modifica', 'In sospeso', 'In fase di revisione', 'Non specificato'],
-                    default_value: ['Produzione', 'Modifica']
-                }
-            ]
-        }
-    ]);
+                attributes: [
+                    {
+                        name: 'Status',
+                        values: [{ value: 'Produzione', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Produzione' },
+                    { label: 'Modifica' },
+                    { label: 'In sospeso' },
+                    { label: 'In fase di revisione' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '4'
+                    },
+                    {
+                        name: 'Description',
+                        values: [
+                            {
+                                value:
+                        'Regola tecnica implementata per la copia del dato MOTIVO_STATO_ENTE (tabella DSEC.TSEC67)',
+                                ftype: 'MULTILINETEXT'
+                            }
+                        ],
+                        ftype: 'MULTILINETEXT',
+                        position: '1'
+                    },
+                    {
+                        name: 'Importance',
+                        values: [{ value: 'Molto basso', ftype: 'SINGLESELECTLIST' }],
+                        domain_values: [
+                    { label: 'Critico' },
+                    { label: 'Alto' },
+                    { label: 'Medio' },
+                    { label: 'Basso' },
+                    { label: 'Molto basso' },
+                    { label: 'Non specificato' }
+                        ],
+                        ftype: 'SINGLESELECTLIST',
+                        position: '5'
+                    },
+                    {
+                        name: 'Rule',
+                        values: [
+                            {
+                                value:
+                        'Muovi il valore contenuto nel campo MOTIVO_STATO_ENTE (tabella DSEC.TSEC67) nel corrispondente campo di destinazione',
+                                ftype: 'VALUETEXT'
+                            }
+                        ],
+                        ftype: 'VALUETEXT',
+                        position: '2'
+                    },
+                    {
+                        name: 'Data Source field input',
+                        values: [
+                            {
+                                value: 'DD - DF - MOTIVO_STATO_ENTE - DSEC.TSEC67',
+                                ftype: 'MULTILINETEXT'
+                            }
+                        ],
+                        ftype: 'MULTILINETEXT',
+                        position: '5'
+                    },
+                    {
+                        name: 'Data Source field output',
+                        values: [
+                            {
+                                value: 'DD - DF - MOTIVO_STATO_ENTE - R_MONETICA.BD_TSEC67',
+                                ftype: 'MULTILINETEXT'
+                            }
+                        ],
+                        ftype: 'MULTILINETEXT',
+                        position: '6'
+                    }
+                ],
+                status: 'completo'
+            }
+        ]
+    });
 
     return deferred.promise;
 }

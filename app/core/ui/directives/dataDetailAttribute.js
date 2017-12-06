@@ -32,14 +32,16 @@ export function DataDetailAttribute () {
             };
 
             try {
-                scope.domainValue = JSON.parse(scope.domainObjValue).array;
+                if (scope.domainObjValue) {
+                    scope.domainValue = JSON.parse(scope.domainObjValue).array;
+                }
             } catch (error) {
                 console.log(error);
             }
 
-            if (scope.attributeType === 'CLOB') {
-                scope.frontendType = 'CLOB';
-            }
+            // if (scope.attributeType === 'CLOB') {
+            //     scope.frontendType = 'CLOB';
+            // }
 
             switch(scope.frontendType) {
                 case 'MULTILINETEXT':
@@ -61,9 +63,9 @@ export function DataDetailAttribute () {
                 default:
             }
 
-            if (scope.attributeType.indexOf('VARCHAR') === 0) {
-                scope.attributeType = scope.attributeType.match(/\d+/);
-            }
+            // if (scope.attributeType && scope.attributeType.indexOf('VARCHAR') === 0) {
+            //     scope.attributeType = scope.attributeType.match(/\d+/);
+            // }
 
             scope.setFocusOnAttribute = (value) => setFocusOnAttribute(scope, value);
 
