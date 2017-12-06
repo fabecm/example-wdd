@@ -1,4 +1,6 @@
 <div class="search-page">
+    <button class="wdd-button dark">to do list 35</button>   <button class="wdd-button excel pull-right"><i class="icon icon-excel"></i> excel</button>
+    <hr />
     <div class="filter-row">
         <div class="wdd-labeled-input">
             <label for="processOwner">Process Owner</label>
@@ -32,7 +34,7 @@
     <table>
         <thead>
             <tr>
-                <th></th>
+                <th><input type="checkbox"></th>
                 <th>Workspace</th>
                 <th>Data Field</th>
                 <th>Data Source Table</th>
@@ -72,6 +74,12 @@
 
         </tbody>
     </table>
+
+    <div class="under-table">
+        <button class="wdd-button">Non di competenza</button> 
+        <button class="wdd-button">Inoltra per aprovazione</button>
+    </div>
+
     <div class="table-footer">
 
         <div class="pagi-text" ng-click="vm.changingPageToFirst()">

@@ -104,4 +104,25 @@
             font-size: 20px;
         }
     }
+
+    // need to be refactored 
+    &.dark {
+        background: $header-primary-tab-background-color;
+        &:after{
+            background: linear-gradient($header-primary-background-color, $header-primary-tab-background-color);  
+        }
+    }
+    &.excel {
+        background: rgb(255, 255, 255);
+        color: $button-background-color;
+        &:after{
+            background: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.747));  
+        }
+        i:before {
+            font-size: 180%;
+            position: relative;
+            top: 2px;
+        
+        }
+    }
 }
