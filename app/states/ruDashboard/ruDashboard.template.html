@@ -15,4 +15,8 @@
         </div>
     </div>
     <dashboard-filter></dashboard-filter>
+
+    <div>
+        <wdd-table ng-if="vm.workspaceData && vm.headerTable" service-response-obj="{{ {array: vm.workspaceData} }}" header-array-obj="{{ {array: vm.headerTable} }}"></wdd-table>
+    </div>
 </div>

@@ -1,0 +1,10 @@
+<div class="wdd-table">
+    <table>
+        <thead>
+            <th ng-repeat="item in headerArray track by $index">{{item.label}}</th>
+        </thead>
+        <tbody>
+            <tr wdd-row ng-if="data" ng-repeat="data in serviceResponse track by $index" row-data-obj="data" column-obj="headerArray"></tr>
+        </tbody>
+    </table>
+</div>

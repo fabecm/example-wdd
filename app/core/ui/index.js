@@ -4,6 +4,9 @@ import { DoughnutChart } from './directives/doughnutChart';
 import { DashboardFilter } from './directives/dashboardFilter';
 import { WddAutocomplete } from './directives/wddAutocomplete';
 import { WddDatepicker } from './directives/wddDatepicker';
+import { WddCell } from './directives/wddCell';
+import { WddRow } from './directives/wddRow';
+import { WddTable } from './directives/wddTable';
 
 export default angular.module('wdd.core.ui', [])
     .directive('wbbSelect', WbbSelect)
@@ -12,4 +15,7 @@ export default angular.module('wdd.core.ui', [])
     .directive('dashboardFilter', DashboardFilter)
     .directive('wddAutocomplete', WddAutocomplete)
     .directive('wddDatepicker', WddDatepicker)
+    .directive('wddCell', WddCell)
+    .directive('wddRow', WddRow)
+    .directive('wddTable', WddTable)
     .name;
