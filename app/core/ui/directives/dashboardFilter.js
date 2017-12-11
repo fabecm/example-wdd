@@ -43,6 +43,12 @@ export function DashboardFilter () {
             }];
             scope.descriptionSelected = {};
 
+            scope.startDate = 'GG/MM/AAAA';
+            scope.labelStartDate = 'Data inizio';
+
+            scope.endDate = 'GG/MM/AAAA';
+            scope.labelEndDate = 'Data fine';
+
             scope.change = () => {
                 console.log(scope.workspaceSelected);
             };

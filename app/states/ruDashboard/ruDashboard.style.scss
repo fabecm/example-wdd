@@ -11,6 +11,10 @@
             display: flex;
             flex: 1;
             justify-content: flex-end;
+
+            .wdd-button {
+                margin: 2px 5px;
+            }
         }
 
         .left-section {

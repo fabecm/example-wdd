@@ -1,4 +1,21 @@
 .dashboard-filter {
     display: flex;
     flex-direction: row;
+
+    wdd-autocomplete, wdd-datepicker, .wdd-labeled-input, .filter-action {
+        flex: 1;
+        padding: 0 10px;
+    }
+
+    .wdd-labeled-input {
+        .wdd-button.icon-only {
+            height: 25px;
+        }
+    }
+
+    .filter-action {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }

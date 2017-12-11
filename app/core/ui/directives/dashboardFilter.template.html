@@ -1,7 +1,7 @@
 <div class="dashboard-filter">
     <wdd-autocomplete ng-model="workspaceSelected.value" label="{{labelWorkspace}}" placeholder="{{placeholderWorkspace}}" type="{{typeWorkspace}}"
         list-values="workspaceList" ng-change="change()"></wdd-autocomplete>
-        
+
     <wdd-autocomplete ng-model="descriptionSelected.value" label="{{labelDescription}}" placeholder="{{placeholderDescription}}"
         type="{{typeDescription}}" list-values="descriptionList" ng-change="change()"></wdd-autocomplete>
 
@@ -13,5 +13,19 @@
             </select>
             <i class="icon icon-down-arrow"></i>
         </div>
+    </div>
+
+    <wdd-datepicker ng-model="startDate" label="{{labelStartDate}}"></wdd-datepicker>
+
+    <wdd-datepicker ng-model="endDate" label="{{labelEndDate}}"></wdd-datepicker>
+
+    <div class="filter-action">
+        <div class="wdd-button">
+            applica filtri
+        </div>
+        
+        <button class="wdd-button icon-only">
+            <i class="icon icon-reset"></i>
+        </button>
     </div>
 </div>
