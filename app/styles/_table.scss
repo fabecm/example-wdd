@@ -1,8 +1,8 @@
-.wdd-table{
+.wdd-table {
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
-    table{
+    table {
         width: 100%;
         thead {
             background-color: #233145;
@@ -21,7 +21,7 @@
             tr:nth-child(even) {
                 background-color: #f8fbff;
             }
-            tr{
+            tr {
                 height: 50px;
                 td {
                     padding: 5px;
@@ -35,16 +35,14 @@
             }
         }
     }
-    .table-footer{
+    .table-footer {
         width: 100%;
         background-color: #233145;
         font-size: 12px;
         height: 30px;
-
         display: flex;
         align-items: center;
         justify-content: center;
-
     }
 }
 
@@ -55,47 +53,45 @@
     }
     td {
         border-right: 1px solid #d7dfed;
-        
         div {
             width: 95px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
     }
+
+
+    } // cleaning borders
+    // th:nth-of-type(1), td:nth-of-type(1) {
+    //     border-right: 0;
+    // }
+    // th:nth-last-child(2), td:nth-last-child(2), th:nth-last-child(1), td:nth-last-child(1) {
+    //     border-right: 0;
+    // }
 
     td:nth-last-child(1) {
         font-size: 18px;
         text-align: center;
         background-color: #dee8f8;
-        color: #2a74de;
-
-        // style improvisation
+        color: #2a74de; // style improvisation
         border-bottom: 1px solid #d7dfed;
-
-        
-    }
-    // td:nth-of-type(1), td:nth-last-child(1) {
+    } // td:nth-of-type(1), td:nth-last-child(1) {
     //     text-align: center;
     // }
     th {
         text-transform: uppercase;
         line-height: 1.1;
-    }
-
-    // only for tests
+    } // only for tests
     th {
         width: 7%;
-    }
-
-    // first style, need to be coded
+    } // first style, need to be coded
     .pagination {
         margin: 0;
-
-    }
-
-    // bootstrap overwrite
-    .pagination>li>a, .pagination>li>span {
+    } // bootstrap overwrite
+    .pagination>li>a,
+    .pagination>li>span {
         padding: 0px 6px;
         margin: 0 2px;
         border-top-right-radius: 4px;
@@ -103,15 +99,66 @@
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
     }
-
     .pagi-text {
         margin-left: 13px;
         margin-right: 13px;
         text-transform: uppercase;
-        a, a:focus, a:hover {
+        a,
+        a:focus,
+        a:hover {
             color: white;
         }
     }
+}
+
+.to-do-list__table {
+    td:nth-last-child(1) {
+        font-size: 18px;
+        text-align: center;
+        background-color: #d7dfed;
+        color: #2a74de; // style improvisation
+        border-top: 1px solid #93acd0; // for icon position
+        padding: 0;
+    }
+    th:nth-last-child(2) {
+        border-right: 0;
+    }
+    th {
+        border-right: 1px solid #233145;
+        text-transform: uppercase;
+    }
+    td {
+        border-right: 1px solid #d7dfed;
+    }
+    td:nth-of-type(1),
+    th:nth-of-type(1) {
+        border-right: 0;
+        text-align: center;
+    } // for icon position
+    [class^="icon-"]:before,
+    [class*=" icon-"]:before {
+        margin: 0;
+    } // bootstrap overwrite
+    .pagination>li>a,
+    .pagination>li>span {
+        padding: 0px 6px;
+        margin: 0 2px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    .pagi-text {
+        margin-left: 13px;
+        margin-right: 13px;
+        text-transform: uppercase;
+        a,
+        a:focus,
+        a:hover {
+            color: white;
+        }
+    }
+
 
     
 
