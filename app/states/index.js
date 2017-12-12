@@ -14,12 +14,9 @@ export default angular.module('wdd.states', [])
         $stateProvider
             .state('tab', BaseTabConfig)
             .state('tab.search', SearchConfig)
-
             .state('tab.dataLineage', DataLineageConfig)
-            .state('tab.dashboardSO', DashboardSOConfig);
-
+            .state('tab.dashboardSO', DashboardSOConfig)
             .state('tab.toDoList', ToDoListConfig)
-            .state('tab.dataLineage', DataLineageConfig)
             .state('tab.popups', PopupsConfig)
             .state('tab.ruDashboard', RuDashboardConfig);
 
