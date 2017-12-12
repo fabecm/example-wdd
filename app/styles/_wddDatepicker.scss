@@ -1,0 +1,16 @@
+.wdd-datepicker {
+    display: flex;
+    flex-direction: row;
+
+    .wdd-labeled-input {
+        span {
+            margin-top: 5px;
+        }
+    }
+
+    .align-calendar {
+        .wdd-button {
+            margin: 20px 0 0 0;
+        }
+    }
+}
