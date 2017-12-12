@@ -11,7 +11,6 @@ export default angular.module('wdd.states', [])
             .state('tab', BaseTabConfig)
             .state('tab.search', SearchConfig)
             .state('tab.toDoList', ToDoListConfig)
-            .state('tab.dataLineage', DataLineageConfig);
             .state('tab.dataLineage', DataLineageConfig)
             .state('tab.popups', PopupsConfig)
             .state('tab.ruDashboard', RuDashboardConfig);
