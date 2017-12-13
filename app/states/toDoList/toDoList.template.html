@@ -1,5 +1,7 @@
 <div class="search-page">
-    <button class="wdd-button dark">to do list 35</button>   <button class="wdd-button excel pull-right"><i class="icon icon-excel"></i> excel</button>
+    <button class="wdd-button dark">to do list 35</button>
+    <button class="wdd-button excel pull-right">
+        <i class="icon icon-excel"></i> excel</button>
     <hr />
     <div class="filter-row">
         <div class="wdd-labeled-input">
@@ -28,80 +30,86 @@
         </div>
     </div>
 
-<wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
-  
-<div class="wdd-table to-do-list__table">
-    <table>
-        <thead>
-            <tr>
-                <th><input type="checkbox"></th>
-                <th>Workspace</th>
-                <th>Data Field</th>
-                <th>Data Source Table</th>
-                <th>Data Source</th>
-                <th>Technical Application</th>
-                <th>Program</th>
-                <th>Data Scadenza</th>
-                <th></th>
-                <!-- <th>Dettaglio</th> -->
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="obj in vm.dataList">
-                <!-- check box -->
-                <td><div><input type="checkbox"></div></td>
-                <!-- Workspace -->
-                <td><div>{{obj.workspace.label}}</div></td>
-                <!-- Data Field -->
-                <td><div>{{obj.data_field.label}}</div></td>
-                <!-- Data Source Table -->
-                <td><div>{{obj.data_field.label}}</div></td>
-                <!-- Data Source -->
-                <td><div>{{obj.data_field.label}}</div></td>
-                <!-- Technical Application -->
-                <td><div>{{obj.data_field.label}}</div></td>
-                <!-- Program -->
-                <td><div>{{obj.data_field.label}}</div></td>
+    <wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
 
-                <!-- Data scadenza -->
-                <td><div>01/02/2018</div></td>
-                <!-- Dettaglio -->
-                <td>
-                    <i class="icon icon-workspace-details"></i>
-                </td>
+    <!-- <div class="wdd-table to-do-list__table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox">
+                    </th>
+                    <th>Workspace</th>
+                    <th>Data Field</th>
+                    <th>Data Source Table</th>
+                    <th>Data Source</th>
+                    <th>Technical Application</th>
+                    <th>Program</th>
+                    <th>Data Scadenza</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="obj in vm.dataList">
+                    <td>
+                        <div>
+                            <input type="checkbox">
+                        </div>
+                    </td>
+                    <td>
+                        <div>{{obj.workspace.label}}</div>
+                    </td>
+                    <td>
+                        <div>{{obj.data_field.label}}</div>
+                    </td>
+                    <td>
+                        <div>{{obj.data_field.label}}</div>
+                    </td>
+                    <td>
+                        <div>{{obj.data_field.label}}</div>
+                    </td>
+                    <td>
+                        <div>{{obj.data_field.label}}</div>
+                    </td>
+                    <td>
+                        <div>{{obj.data_field.label}}</div>
+                    </td>
 
-            </tr>
+                    <td>
+                        <div>01/02/2018</div>
+                    </td>
+                    <td>
+                        <i class="icon icon-workspace-details"></i>
+                    </td>
 
-        </tbody>
-    </table>
+                </tr>
 
-    <div class="under-table">
-        <button class="wdd-button">Non di competenza</button> 
-        <button class="wdd-button">Inoltra per aprovazione</button>
-    </div>
+            </tbody>
+        </table>
 
-    <div class="table-footer">
-
-        <div class="pagi-text" ng-click="vm.changingPageToFirst()">
-            <a href="">First</a>
-        </div>
-        <ul class="pagination">
-            <!-- <li ng-click="vm.changingPageToFirst()">
-                <a href="">First</a>                
-            </li> -->
-            <li ng-repeat="obj in vm.pages">
-                <!-- <a ng-click="currentPage = {{obj}}">{{obj}}</a> -->
-                <a ng-click="vm.changingPage(obj)">{{obj}}</a>
-            </li>
-            <!-- <li ng-click="vm.changingPageToLast()">
-                <a href="">Last</a> 
-            </li> -->
-        </ul>
-        <div class="pagi-text" ng-click="vm.changingPageToLast()">
-            <a href="">Last</a>
+        <div class="under-table">
+            <button class="wdd-button">Non di competenza</button>
+            <button class="wdd-button">Inoltra per aprovazione</button>
         </div>
 
+        <div class="table-footer">
 
+            <div class="pagi-text" ng-click="vm.changingPageToFirst()">
+                <a href="">First</a>
+            </div>
+            <ul class="pagination">
+                <li ng-repeat="obj in vm.pages">
+                    <a ng-click="vm.changingPage(obj)">{{obj}}</a>
+                </li>
+            </ul>
+            <div class="pagi-text" ng-click="vm.changingPageToLast()">
+                <a href="">Last</a>
+            </div>
+        </div>
+    </div> -->
 
-    </div>
+    <wdd-table ng-if="vm.rawData && vm.headerTable" service-response-obj="{{ {array: vm.rawData} }}" header-array-obj="{{ {array: vm.headerTable} }}"
+        pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
+        is-checked-bool="{{ {boolean: true} }}" has-secondary-label="Non di competenza" has-primary-label="Inoltra per approvazione"></wdd-table>
+
 </div>

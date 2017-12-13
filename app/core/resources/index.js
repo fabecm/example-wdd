@@ -6,6 +6,7 @@ import { LineageService } from './services/lineage';
 import { HttpRequestInterceptor } from './interceptor/httpRequestInterceptor';
 import { WorkspaceService } from './services/workspaceService';
 import { FilterWorkspace } from './services/filterWorkspace';
+import { SearchWorkspaceService } from './services/searchWorkspace';
 
 
 export default angular.module('wdd.core.resources', [])
@@ -15,6 +16,7 @@ export default angular.module('wdd.core.resources', [])
     .service('DatasourceService', DatasourceService)
     .service('LineageService', LineageService)
     .service('FilterWorkspace', FilterWorkspace)
+    .service('SearchWorkspaceService', SearchWorkspaceService)
     .factory('httpRequestInterceptor', HttpRequestInterceptor)
     .config(($httpProvider) => {
         'ngInject';

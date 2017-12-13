@@ -9,10 +9,16 @@
                 nuovo workspace
             </button>
             <button class="wdd-button alt-color">
-                <i class="icon icon-excel"></i>                
+                <i class="icon icon-excel"></i>
                 excel
             </button>
         </div>
     </div>
     <dashboard-filter></dashboard-filter>
+
+    <div>
+        <wdd-table ng-if="vm.workspaceData && vm.headerTable" service-response-obj="{{ {array: vm.workspaceData} }}" header-array-obj="{{ {array: vm.headerTable} }}"
+            pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}"
+            header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}" is-child-checked-bool="true" has-info-btn="true" path-primary-navigation="tab.dataDetail"></wdd-table>
+    </div>
 </div>
