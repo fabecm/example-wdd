@@ -5,6 +5,8 @@ import { stateConfig as DashboardSOConfig } from './dashboardSO/dashboardSO.conf
 import { stateConfig as ToDoListConfig } from './toDoList/toDoList.config';
 import { stateConfig as PopupsConfig } from './popups/popups.config';
 import { stateConfig as RuDashboardConfig } from './ruDashboard/ruDashboard.config';
+import { stateConfig as ApprovalRequestsConfig } from './approvalRequests/approvalRequests.config';
+import { stateConfig as AutomaticEventsConfig } from './automaticEvents/automaticEvents.config';
 
 
 export default angular.module('wdd.states', [])
@@ -16,6 +18,8 @@ export default angular.module('wdd.states', [])
             .state('tab.dashboardSO', DashboardSOConfig)
             .state('tab.toDoList', ToDoListConfig)
             .state('tab.popups', PopupsConfig)
+            .state('tab.approvalRequests', ApprovalRequestsConfig)
+            .state('tab.automaticEvents', AutomaticEventsConfig)
             .state('tab.ruDashboard', RuDashboardConfig);
 
 
