@@ -1,1 +1,25 @@
-<td wdd-cell ng-repeat="c in columnObj track by $index" cell="rowDataObj[c.value]"></td>
+<td ng-if="action">
+    <div ng-if="rowCollapse">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[0])">
+            <i class="icon icon-down-arrow"></i>
+        </button>
+    </div>
+    <div ng-if="rowChecked">
+        <input type="checkbox">
+    </div>
+</td>
+
+<td wdd-cell ng-repeat="c in column track by $index" cell="rowData[c.value]"></td>
+
+<td ng-if="hasIcon">
+    <div ng-if="hasInfoBtn">
+        <button class="wdd-button icon-only">
+            <i class="icon icon-info"></i>
+        </button>
+    </div>
+    <div ng-if="hasPrimaryNavigationBtn">
+        <button class="wdd-button icon-only">
+            <i class="icon icon-workspace-details"></i>
+        </button>
+    </div>
+</td>

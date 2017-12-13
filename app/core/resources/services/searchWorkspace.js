@@ -37,7 +37,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 0
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -59,7 +87,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 1
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -81,7 +137,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 2
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -103,7 +187,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 3
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -125,7 +237,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 4
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -147,7 +287,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 5
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -169,7 +337,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 6
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -191,7 +387,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 7
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -213,7 +437,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 8
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -235,7 +487,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 9
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -257,7 +537,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 10
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -279,7 +587,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 11
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -301,7 +637,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 12
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -323,7 +687,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 13
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -345,7 +737,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 14
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -367,7 +787,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 15
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -389,7 +837,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 16
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -411,7 +887,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 17
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -433,7 +937,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 18
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -455,7 +987,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 19
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             },
             {
                 workspace: {
@@ -477,7 +1037,35 @@ function getData () {
                 state: {
                     label: 'test systemOwner',
                     match: 20
-                }
+                },
+                data_fields: [{
+                    data_field: {
+                        id: 1,
+                        label: 'Dato1'
+                    },
+                    data_table: {label: 'Table1'},
+                    data_source: {label: 'Data source1'},
+                    tech_appl: {label: 'Tech appl1'},
+                    system_owner: {label: 'System ownerA'}
+                }, {
+                    data_field: {
+                        id: 2,
+                        label: 'Dato2'
+                    },
+                    data_table: {label: 'Table2'},
+                    data_source: {label: 'Data source2'},
+                    tech_appl: {label: 'Tech appl2'},
+                    system_owner: {label: 'System ownerB'}
+                }, {
+                    data_field: {
+                        id: 3,
+                        label: 'Dato3'
+                    },
+                    data_table: {label: 'Table3'},
+                    data_source: {label: 'Data source3'},
+                    tech_appl: {label: 'Tech appl3'},
+                    system_owner: {label: 'System ownerC'}
+                }]
             }
         ]
     };

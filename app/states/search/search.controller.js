@@ -11,7 +11,7 @@ export class SearchController {
     }, {
         label: 'Bozza'
     }, {
-        label: 'System Owner'
+        label: 'Produzione'
     }];
 
     constructor (DataService, DatasourceService) {

@@ -1,5 +1,9 @@
 export class RuDashboardController {
 
+    tablePagination = true;
+    tablePageSize = 10;
+    tableExpandable = true;
+
     constructor (SearchWorkspaceService, $q) {
         'ngInject';
         this.searchWorkspaceService = SearchWorkspaceService;
@@ -13,7 +17,9 @@ export class RuDashboardController {
             this.workspaceData = res.outputArray;
             getHeader(this.$q).then(headerRes => {
                 this.headerTable = headerRes;
-                console.log(this.workspaceData, this.headerTable);
+            });
+            getHeaderExpandable(this.$q).then(headerExpRes => {
+                this.headerTableExpandable = headerExpRes;
             });
         });
     }
@@ -36,6 +42,27 @@ function getHeader ($q) {
     }, {
         label: 'Stato',
         value: 'state'
+    }]);
+    return defer.promise;
+}
+
+function getHeaderExpandable ($q) {
+    let defer = $q.defer();
+    defer.resolve([{
+        label: 'Data field',
+        value: 'data_field'
+    }, {
+        label: 'Data source table',
+        value: 'data_table'
+    }, {
+        label: 'Data source',
+        value: 'data_source'
+    }, {
+        label: 'Technical application',
+        value: 'tech_appl'
+    }, {
+        label: 'System owner',
+        value: 'system_owner'
     }]);
     return defer.promise;
 }
