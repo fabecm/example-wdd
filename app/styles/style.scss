@@ -13,6 +13,15 @@
 @import 'dashboardFilter';
 @import 'wddDatepicker';
 
+@import 'label';
+@import 'dataDetailAttribute';
+
+html {
+    height: 100%;
+}
 body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     -webkit-font-smoothing: antialiased;
 }

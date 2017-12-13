@@ -1,4 +1,4 @@
-export class ApprovalRequests {
+export class ApprovalRequestsController {
 
     dataList = [];
     pages = [];
@@ -12,6 +12,32 @@ export class ApprovalRequests {
         label: 'Bozza'
     }, {
         label: 'System Owner'
+    }];
+
+    tablePagination = true;
+    tablePageSize = 10;
+
+    headerTable = [{
+        label: 'Workspace',
+        value: 'workspace'
+    }, {
+        label: 'Data field',
+        value: 'data_field'
+    }, {
+        label: 'Descrizione Data Field',
+        value: 'data_table'
+    }, {
+        label: 'Data Source Table',
+        value: 'data_source_table'
+    }, {
+        label: 'Technical application',
+        value: 'tech_application'
+    }, {
+        label: 'System owner',
+        value: 'system_owner'
+    }, {
+        label: 'Data Scadenza',
+        value: 'data_scadenza'
     }];
 
     constructor (DataService, DatasourceService) {

@@ -1,5 +1,5 @@
-<div class="search-page">
-    <button class="wdd-button dark">Richieste approvazione</button>   
+<div class="approval-request">
+    <button class="wdd-button dark">Richieste approvazione</button>
     <button class="wdd-button excel pull-right">
         <i class="icon icon-excel"></i> excel
     </button>
@@ -34,80 +34,9 @@
         </div>
     </div>
 
-<wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
-  
-<div class="wdd-table to-do-list__table">
-    <table>
-        <thead>
-            <tr>
-                <th><input type="checkbox"></th>
-                <th>Workspace</th>
-                <th>Data Field</th>
-                <th>Descrizione Data Field</th>
-                <th>Data Source Table</th>
-                <th>Technical Application</th>
-                <th>System Owner</th>
-                <th>Data Scadenza</th>
-                <th></th>
-                <!-- <th>Dettaglio</th> -->
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="obj in vm.dataList">
-                <!-- check box -->
-                <td><div><input type="checkbox"></div></td>
-                <!-- Workspace -->
-                <td><div>{{obj.workspace.label}}</div></td>
-                <!-- Data Field -->
-                <td><div>{{obj.data_field.label}}</div></td>
-                <!-- Data Source Table -->
-                <td><div>{{obj.data_field.label}}</div></td>
-                <!-- Data Source -->
-                <td><div>{{obj.data_field.label}}</div></td>
-                <!-- Technical Application -->
-                <td><div>{{obj.data_field.label}}</div></td>
-                <!-- Program -->
-                <td><div>{{obj.data_field.label}}</div></td>
+    <wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
 
-                <!-- Data scadenza -->
-                <td><div>01/02/2018</div></td>
-                <!-- Dettaglio -->
-                <td>
-                    <i class="icon icon-workspace-details"></i>
-                </td>
-
-            </tr>
-
-        </tbody>
-    </table>
-
-    <div class="under-table">
-        <button class="wdd-button">Approva</button> 
-        <button class="wdd-button">Rifiuta</button>
-    </div>
-
-    <div class="table-footer">
-
-        <div class="pagi-text" ng-click="vm.changingPageToFirst()">
-            <a href="">First</a>
-        </div>
-        <ul class="pagination">
-            <!-- <li ng-click="vm.changingPageToFirst()">
-                <a href="">First</a>                
-            </li> -->
-            <li ng-repeat="obj in vm.pages">
-                <!-- <a ng-click="currentPage = {{obj}}">{{obj}}</a> -->
-                <a ng-click="vm.changingPage(obj)">{{obj}}</a>
-            </li>
-            <!-- <li ng-click="vm.changingPageToLast()">
-                <a href="">Last</a> 
-            </li> -->
-        </ul>
-        <div class="pagi-text" ng-click="vm.changingPageToLast()">
-            <a href="">Last</a>
-        </div>
-
-
-
-    </div>
+    <wdd-table ng-if="vm.rawData && vm.headerTable" service-response-obj="{{ {array: vm.rawData} }}" header-array-obj="{{ {array: vm.headerTable} }}"
+    pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
+    path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" has-secondary-label="Rifiuta"></wdd-table>
 </div>

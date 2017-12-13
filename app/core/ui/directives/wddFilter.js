@@ -66,13 +66,13 @@ export function WddFilter ($q, ClassificationService) {
             };
 
             scope.updateEntity = (filter, filterSetted) => {
-                ClassificationService.getEntity(filterSetted.attribute.id).then(res => {
+                ClassificationService.getEntity(filterSetted.attribute).then(res => {
                     filter.entity = res.data;
                 });
             };
 
             scope.updateAttribute = (filter, filterSetted) => {
-                ClassificationService.getAttribute(filterSetted.entity.id).then(res => {
+                ClassificationService.getAttribute(filterSetted.entity).then(res => {
                     filter.attribute = res.data;
                 });
             };

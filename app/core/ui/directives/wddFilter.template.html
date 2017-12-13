@@ -39,7 +39,7 @@
             <i class="icon icon-add-filtro"></i>
         </button>
         <button ng-hide="isFilterActive && filtersArray.length > 1" class="wdd-button" ng-click="setFilter()">Attiva filtri</button>
-        <button ng-hide="!isFilterActive || filtersArray.length === 1" class="wdd-button" ng-click="showFilter()">
+        <button ng-hide="!isFilterActive || filtersArray.length <= 1" class="wdd-button" ng-click="showFilter()">
             <i class="icon icon-down-arrow"></i>Espandi</button>
     </div>
 </div>

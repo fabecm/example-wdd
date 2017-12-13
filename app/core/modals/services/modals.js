@@ -1,10 +1,10 @@
 import { NewWorkspaceController } from '../templates/newWorkspace';
-import NewWorkspaceTemplate from '../templates/newWorkspace.template.html'
+import NewWorkspaceTemplate from '../templates/newWorkspace.template.html';
 import { ModificationWorkspaceController } from '../templates/modificationWorkspace';
-import ModificationWorkspaceTemplate from '../templates/modificationWorkspace.template.html'
+import ModificationWorkspaceTemplate from '../templates/modificationWorkspace.template.html';
 
 import { NewWorkspaceRequestsController } from '../templates/newWorkspaceRequests';
-import NewWorkspaceRequestsTemplate from '../templates/newWorkspaceRequests.template.html'
+import NewWorkspaceRequestsTemplate from '../templates/newWorkspaceRequests.template.html';
 
 export class ModalService {
     constructor ($uibModal) {
@@ -12,7 +12,7 @@ export class ModalService {
         this.$uibModal = $uibModal;
     }
 
-    openNewWorkspaceModal() {
+    openNewWorkspaceModal () {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -25,7 +25,7 @@ export class ModalService {
         modalInstance.result.then();
     }
 
-    openModificationWorkspace() {
+    openModificationWorkspace () {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -38,7 +38,7 @@ export class ModalService {
         modalInstance.result.then();
     }
 
-    openNewWorkspaceRequests() {
+    openNewWorkspaceRequests () {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',

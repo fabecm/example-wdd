@@ -1,5 +1,6 @@
 .wdd-primary-header{
     height: $header-primary-height;
+    min-height: $header-primary-height;
     background-color: $header-primary-background-color;
     display: flex;
     flex-direction: row;

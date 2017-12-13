@@ -1,4 +1,4 @@
-export class AutomaticEvents {
+export class AutomaticEventsController {
 
     dataList = [];
     pages = [];
@@ -12,6 +12,39 @@ export class AutomaticEvents {
         label: 'Bozza'
     }, {
         label: 'System Owner'
+    }];
+
+    tablePagination = true;
+    tablePageSize = 10;
+
+    headerTable = [{
+        label: 'Workspace',
+        value: 'workspace'
+    }, {
+        label: 'Data field',
+        value: 'data_field'
+    }, {
+        label: 'Data Source Table',
+        value: 'data_source_table'
+    }
+    , {
+        label: 'Data Source',
+        value: 'data_source'
+    }, {
+        label: 'Technical application',
+        value: 'tech_application'
+    }, {
+        label: 'Program',
+        value: 'program'
+    }, {
+        label: 'System owner',
+        value: 'system_owner'
+    }, {
+        label: 'Data Evento',
+        value: 'data_event'
+    }, {
+        label: 'Evento',
+        value: 'event'
     }];
 
     constructor (DataService, DatasourceService) {

@@ -9,6 +9,7 @@ export class DataLineageController {
         'ngInject';
         this.$state = $state;
         this.lineageService = LineageService;
+        this.$state = $state;
 
         this.initLineage(1136820);
     }

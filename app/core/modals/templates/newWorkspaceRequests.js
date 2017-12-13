@@ -1,5 +1,5 @@
 export class NewWorkspaceRequests {
-    constructor() {
+    constructor () {
 
     }
 }

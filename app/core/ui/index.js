@@ -4,6 +4,7 @@ import { WddFilter } from './directives/wddFilter';
 import { TestDirectiveComponent } from './directives/testDirectiveComponent';
 import { DashboardTable } from './directives/dashboardTable';
 
+import { DataDetailAttribute } from './directives/dataDetailAttribute';
 import { DoughnutChart } from './directives/doughnutChart';
 import { DashboardFilter } from './directives/dashboardFilter';
 import { WddAutocomplete } from './directives/wddAutocomplete';
@@ -16,6 +17,7 @@ import { WddTable } from './directives/wddTable';
 export default angular.module('wdd.core.ui', [])
     .directive('wbbSelect', WbbSelect)
     .directive('wddFilter', WddFilter)
+    .directive('att', DataDetailAttribute)
 
     .directive('testDirectiveComponent', TestDirectiveComponent)
     .directive('dashboardTable', DashboardTable)

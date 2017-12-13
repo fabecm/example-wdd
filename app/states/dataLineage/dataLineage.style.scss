@@ -12,7 +12,8 @@ $squareBorder: 1px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        width: 950px;
+        width: 100%;
+        height: 100%;
 
         .square {
             display: flex;
@@ -22,16 +23,27 @@ $squareBorder: 1px;
             color: #707c8e;
             height: 200px;
             width: calc(33% - #{$squareBorder * 2 + $arrowLength});
+            height: calc(33% - #{$squareBorder * 2 + $arrowLength});
             border: $squareBorder solid #37475f;
             border-radius: 15px;
             margin: #{$arrowLength / 2};
             position: relative;
+
+            .body {
+                overflow-y: auto;
+            }
 
             .interactive {
                 color: #2a74de;
                 text-decoration: underline;
                 text-decoration-color: #2a74de;
                 cursor: pointer;
+                width: 95%;
+                height: 30px;
+                line-height: 30px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .icon {
