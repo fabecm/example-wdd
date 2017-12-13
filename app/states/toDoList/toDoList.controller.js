@@ -1,4 +1,4 @@
-export class SearchController {
+export class ToDoListController {
 
     dataList = [];
     pages = [];
@@ -11,7 +11,7 @@ export class SearchController {
     }, {
         label: 'Bozza'
     }, {
-        label: 'Produzione'
+        label: 'System Owner'
     }];
 
     constructor (DataService, DatasourceService) {
@@ -48,19 +48,25 @@ export class SearchController {
 
     changingPage (obj) {
         this.currentPage = obj;
+
         this.dataList = this.rawData;
+
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
 
     changingPageToFirst () {
         this.currentPage = 1;
+
         this.dataList = this.rawData;
+
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
 
     changingPageToLast () {
         this.currentPage = this.pages.length;
+
         this.dataList = this.rawData;
+
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
 
