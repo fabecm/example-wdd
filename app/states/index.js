@@ -9,6 +9,7 @@ import { stateConfig as RuDashboardConfig } from './ruDashboard/ruDashboard.conf
 import { stateConfig as ApprovalRequestsConfig } from './approvalRequests/approvalRequests.config';
 import { stateConfig as AutomaticEventsConfig } from './automaticEvents/automaticEvents.config';
 import { stateConfig as InitiativeCensusesConfig } from './initiativeCensuses/initiativeCensuses.config';
+import { stateConfig as DocumentationRequestsConfig } from './documentationRequests/documentationRequests.config';
 
 export default angular.module('wdd.states', [])
     .config(($stateProvider, $urlRouterProvider) => {
@@ -23,6 +24,7 @@ export default angular.module('wdd.states', [])
             .state('tab.approvalRequests', ApprovalRequestsConfig)
             .state('tab.automaticEvents', AutomaticEventsConfig)
             .state('tab.initiativeCensuses', InitiativeCensusesConfig)
+            .state('tab.documentationRequests', DocumentationRequestsConfig)
             .state('tab.ruDashboard', RuDashboardConfig);
 
 
