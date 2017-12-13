@@ -26,6 +26,6 @@ export default angular.module('wdd.states', [])
             .state('tab.ruDashboard', RuDashboardConfig);
 
 
-        $urlRouterProvider.otherwise(SearchConfig.url);
+        $urlRouterProvider.otherwise(DashboardSOConfig.url);
     })
     .name;
