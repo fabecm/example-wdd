@@ -10,7 +10,8 @@ $squareBorder: 1px;
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
-        height: 100%;
+        overflow: hidden;
+        height: calc(100% - 25px);
 
         .square {
             display: flex;
