@@ -11,8 +11,7 @@ export function DashboardTable (WorkspaceService) {
         link: (scope) => {
             WorkspaceService.getData().then(res => {
                 scope.dataList = res;
-            })
+            });
         }
     };
 }
-

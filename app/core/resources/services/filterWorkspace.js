@@ -1,8 +1,9 @@
 export class FilterWorkspace {
-    constructor ($http, $q) {
+    constructor ($http, $q, $log) {
         'ngInject';
         this.$http = $http;
         this.$q = $q;
+        this.$log = $log;
     }
 
     updateList (type, stringSearched) {
@@ -17,12 +18,12 @@ export class FilterWorkspace {
     }
 
     getWorkspace (stringSearched) {
-        console.log(stringSearched);
+        this.$log.debug(stringSearched);
         return getMockedWorkspace(this.$q);
     }
 
     getDescription (stringSearched) {
-        console.log(stringSearched);
+        this.$log.debug(stringSearched);
         return getMockedDescription(this.$q);
     }
 }

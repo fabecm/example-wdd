@@ -17,6 +17,6 @@ export class WorkspaceService {
 
     getData () {
         // return this.$http.post('http://GPLLL0062:8080/edd-serviceWeb/search/workspace?pageNumber=0&pageLength=0 ', this.smth);
-        return this.$http.post('http://10.238.9.61:8080/edd-serviceWeb/search/workspace?pageNumber=0&pageLength=0 ', this.smth);
+        return this.$http.post('WDD/search/workspace?pageNumber=0&pageLength=0 ', this.smth);
     }
 }
