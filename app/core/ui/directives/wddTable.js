@@ -159,7 +159,7 @@ function initTable (scope) {
         scope.pageSize = 10;
     }
 
-    if(scope.pagination && scope.pageSize && scope.pageSize > 0) {
+    if(scope.serviceResponse && scope.serviceResponse.length && scope.pagination && scope.pageSize && scope.pageSize > 0) {
         let numPages = Math.ceil(scope.serviceResponse.length / scope.pageSize);
         scope.serviceResponse = scope.sliceDataToShow();
         scope.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
