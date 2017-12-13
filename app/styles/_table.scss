@@ -1,124 +1,318 @@
-.wdd-table{
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
-    table{
-        width: 100%;
-        thead {
-            background-color: #233145;
-            color: #ffffff;
-            tr {
-                font-size: 12px;
-                height: 30px;
-                th {
-                    // in design align is left
-                    // text-align: center;
-                    padding: 5px;
-                }
-            }
+.wdd-table {
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
+  table {
+    width: 100%;
+
+    &.expandable-table {
+      tbody {
+        tr:nth-child(4n - 3) {
+          background-color: #f8fbff;
         }
-        tbody {
-            tr:nth-child(even) {
-                background-color: #f8fbff;
-            }
-            tr{
-                height: 50px;
-                td {
-                    padding: 5px;
-                }
-            }
-        }
-        tfoot {
-            tr {
-                height: 30px;
-                background-color: #233145;
-            }
-        }
+      }
     }
-    .table-footer{
-        width: 100%;
-        background-color: #233145;
+
+    thead {
+      background-color: #233145;
+      color: #ffffff;
+      tr {
         font-size: 12px;
+        text-transform: uppercase;
         height: 30px;
+        th {
+          // in design align is left
+          // text-align: center;
+          padding: 5px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
+          &.hasOneIcon {
+            width: 30px;
+          }
+          &.hasTwoIcon {
+            width: 60px;
+          }
+        }
+      }
     }
+    tbody {
+      tr:nth-child(even) {
+        background-color: #f8fbff;
+      }
+      tr {
+        height: 50px;
+        td {
+          padding: 5px;
+
+          &.expandable-container {
+            padding: 0px;
+          }
+
+          .table-cell {
+              width: 80px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+          }
+        }
+
+        &.collapse {
+          height: 0px;
+        }
+
+        &.base-row {
+          .icon-container {
+            position: relative;
+
+            .wdd-button {
+              margin: 2px;
+            }
+
+            .col-primary-navigation {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: 0;
+              width: 30px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: #d7dfed;
+            }
+
+            .col-secondary-navigation {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: 30px;
+              width: 30px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+    tfoot {
+      tr {
+        height: 30px;
+        background-color: #233145;
+      }
+    }
+  }
+
+  &.child-table {
+    box-shadow: none;
+    border-radius: 0px;
+    table {
+      thead {
+        tr {
+          background-color: #afc2de !important;
+          color: #000000;
+          text-transform: uppercase;
+        }
+      }
+      tbody {
+        tr {
+          background-color: #dee8f8 !important;
+
+          .col-primary-navigation {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dee8f8 !important;
+          }
+
+          .col-secondary-navigation {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dee8f8 !important;
+          }
+        }
+      }
+    }
+
+    .table-footer {
+      background-color: #afc2de;
+      color: #ffffff;
+    }
+  }
+
+  .table-footer {
+    width: 100%;
+    background-color: #233145;
+    font-size: 12px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    margin: 0;
+  } // bootstrap overwrite
+  .pagination > li > a,
+  .pagination > li > span {
+    padding: 0px 6px;
+    margin: 0 2px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .pagi-text {
+    margin-left: 13px;
+    margin-right: 13px;
+    text-transform: uppercase;
+    a,
+    a:focus,
+    a:hover {
+      color: white;
+    }
+  }
 }
 
 // temporary, I dont know how to call it better
 .table1 {
-    th {
-        border-right: 1px solid #37475f;
+  th {
+    border-right: 1px solid #37475f;
+  }
+  td {
+    border-right: 1px solid #d7dfed;
+    div {
+      width: 95px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    td {
-        border-right: 1px solid #d7dfed;
-        
-        div {
-            width: 95px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+  }
+
+  // cleaning borders
+  // th:nth-of-type(1), td:nth-of-type(1) {
+  //     border-right: 0;
+  // }
+  // th:nth-last-child(2), td:nth-last-child(2), th:nth-last-child(1), td:nth-last-child(1) {
+  //     border-right: 0;
+  // }
+
+  td:nth-last-child(1) {
+    font-size: 18px;
+    text-align: center;
+    background-color: #dee8f8;
+    color: #2a74de; // style improvisation
+    border-bottom: 1px solid #d7dfed;
+  } // td:nth-of-type(1), td:nth-last-child(1) {
+  //     text-align: center;
+  // }
+  th {
+    text-transform: uppercase;
+    line-height: 1.1;
+  } // only for tests
+  th {
+    width: 7%;
+  } // first style, need to be coded
+  .pagination {
+    margin: 0;
+  } // bootstrap overwrite
+  .pagination > li > a,
+  .pagination > li > span {
+    padding: 0px 6px;
+    margin: 0 2px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .pagi-text {
+    margin-left: 13px;
+    margin-right: 13px;
+    text-transform: uppercase;
+    a,
+    a:focus,
+    a:hover {
+      color: white;
     }
-    // cleaning borders
-    // th:nth-of-type(1), td:nth-of-type(1) {
-    //     border-right: 0;
-    // }
-    // th:nth-last-child(2), td:nth-last-child(2), th:nth-last-child(1), td:nth-last-child(1) {
-    //     border-right: 0;
-    // }
+  }
+}
 
-    td:nth-last-child(1) {
-        font-size: 18px;
-        text-align: center;
-        background-color: #dee8f8;
-        color: #2a74de;
-
-        // style improvisation
-        border-bottom: 1px solid #d7dfed;
-
-        
+.to-do-list__table {
+  td:nth-last-child(1) {
+    font-size: 18px;
+    text-align: center;
+    background-color: #d7dfed;
+    color: #2a74de; // style improvisation
+    border-top: 1px solid #93acd0; // for icon position
+    padding: 0;
+  }
+  th:nth-last-child(2) {
+    border-right: 0;
+  }
+  th {
+    border-right: 1px solid #233145;
+    text-transform: uppercase;
+  }
+  td {
+    border-right: 1px solid #d7dfed;
+  }
+  td:nth-of-type(1),
+  th:nth-of-type(1) {
+    border-right: 0;
+    text-align: center;
+  } // for icon position
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    margin: 0;
+  } // bootstrap overwrite
+  .pagination > li > a,
+  .pagination > li > span {
+    padding: 0px 6px;
+    margin: 0 2px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .pagi-text {
+    margin-left: 13px;
+    margin-right: 13px;
+    text-transform: uppercase;
+    a,
+    a:focus,
+    a:hover {
+      color: white;
     }
-    // td:nth-of-type(1), td:nth-last-child(1) {
-    //     text-align: center;
-    // }
-    th {
-        text-transform: uppercase;
-        line-height: 1.1;
-    }
+  }
+}
 
-    // only for tests
-    th {
-        width: 7%;
-    }
+.dashboard-table {
+  width: 100%;
+  margin-bottom: 20px;
+  th,
+  td {
+    border: 1px solid #d7dfed;
+    padding: 6px 8px;
+  }
 
-    // first style, need to be coded
-    .pagination {
-        margin: 0;
-
-    }
-
-    // bootstrap overwrite
-    .pagination>li>a, .pagination>li>span {
-        padding: 0px 6px;
-        margin: 0 2px;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-    }
-
-    .pagi-text {
-        margin-left: 13px;
-        margin-right: 13px;
-        text-transform: uppercase;
-        a, a:focus, a:hover {
-            color: white;
-        }
-    }
-
-
+  th,
+  caption {
+    background-color: tomato;
+    color: white;
+  }
+  caption {
+    text-align: center;
+    font-size: 20px;
+  }
 }

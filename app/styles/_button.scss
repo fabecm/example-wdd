@@ -13,7 +13,6 @@
     border: $button-border;
     border-radius: $button-border-radius;
     margin: 2px;
-
     &:after {
         content: '';
         display: block;
@@ -27,26 +26,22 @@
         background: linear-gradient($button-gradient-start, $button-gradient-end);
         box-shadow: $button-box-shadow;
     }
-
-    &:focus{
+    &:focus {
         outline: none;
     }
-
     &:hover {
         background: $button-hover-background-color;
         &:after {
             background: linear-gradient($button-hover-gradient-start, $button-hover-gradient-end);
         }
     }
-
     &:active {
         background: $button-active-background-color;
         &:after {
             background: linear-gradient($button-active-gradient-start, $button-active-gradient-end);
         }
     }
-
-    &.alt-color{
+    &.alt-color {
         background-color: $button-alt-background-color;
         color: $button-alt-color;
         &:after {
@@ -65,8 +60,7 @@
             }
         }
     }
-
-    &.alert-color{
+    &.alert-color {
         background-color: $button-alert-background-color;
         color: $button-alert-color;
         &:after {
@@ -85,7 +79,6 @@
             }
         }
     }
-
     &.icon-only {
         width: 30px;
         height: 30px;
@@ -94,14 +87,34 @@
         border-radius: 50%;
         padding: 0;
         min-width: auto;
-
         &:after {
             background: rgba(0, 0, 0, 0);
             box-shadow: none;
         }
-
         .icon {
             font-size: 20px;
         }
+    } // need to be refactored
+    &.dark {
+        background: $header-primary-tab-background-color;
+        &:after {
+            background: linear-gradient($header-primary-background-color, $header-primary-tab-background-color);
+        }
     }
+    &.excel {
+        background: rgb(255, 255, 255);
+        color: $button-background-color;
+        &:after {
+            background: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.747));
+        }
+        i:before {
+            font-size: 180%;
+            position: relative;
+            top: 2px;
+        }
+    }
+} 
+// good for a while
+.wdd-button.excel {
+    margin-left: 20px;
 }

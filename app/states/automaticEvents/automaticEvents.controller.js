@@ -1,4 +1,4 @@
-export class SearchController {
+export class AutomaticEvents {
 
     dataList = [];
     pages = [];
@@ -11,48 +11,7 @@ export class SearchController {
     }, {
         label: 'Bozza'
     }, {
-        label: 'Produzione'
-    }];
-
-    tablePagination = true;
-    tablePageSize = 10;
-
-    headerTable = [{
-        label: 'Workspace',
-        value: 'workspace'
-    }, {
-        label: 'Data field',
-        value: 'data_field'
-    }, {
-        label: 'Data table',
-        value: 'data_table'
-    }, {
-        label: 'Data source',
-        value: 'data_source'
-    }, {
-        label: 'Technical application',
-        value: 'tech_application'
-    }, {
-        label: 'System owner',
-        value: 'system_owner'
-    }, {
-        label: 'Program',
-        value: 'program'
-    }, {
-        label: 'Technical Rule',
-        value: 'tech_rules'
-    }, {
-        label: 'Business Rule',
-        value: 'business_rules'
-    }, {
-        label: 'Business Data',
-        value: 'business_data'
-    }, {
-        label: 'Business Glossary',
-        value: 'business_glossary'
-    }, {
-        label: 'Process Owner',
-        value: 'process_owner'
+        label: 'System Owner'
     }];
 
     constructor (DataService, DatasourceService) {
@@ -89,19 +48,25 @@ export class SearchController {
 
     changingPage (obj) {
         this.currentPage = obj;
+
         this.dataList = this.rawData;
+
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
 
     changingPageToFirst () {
         this.currentPage = 1;
+
         this.dataList = this.rawData;
+
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
 
     changingPageToLast () {
         this.currentPage = this.pages.length;
+
         this.dataList = this.rawData;
+
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
 

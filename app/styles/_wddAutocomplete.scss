@@ -1,0 +1,48 @@
+.wdd-autocomplete {
+
+    position: relative;
+    width: $custom-select-width;
+    height: $custom-select-height;
+
+    .wdd-input-text {
+        padding-right: 25px;
+    }
+
+    i {
+        margin-top: 25px;
+        line-height: $custom-select-height;
+        cursor: pointer;
+        content: '\e806';
+        display: block;
+        position: absolute;
+        right: 5px;
+        font-size: 15px;
+        top: 0;
+        bottom: 0;
+        color: #2a74de;
+        z-index: 1;
+    }
+
+    .container-list-values {
+        width: 300px;
+        border: 1px solid #afc2de;
+        background-color: #ffffff;
+
+        &.hide-container {
+            overflow: hidden;
+            max-height: 0px;
+            border: 0px;
+        }
+
+        .option-value {
+
+            cursor: pointer;
+
+            &:hover {
+                background-color: #2a74de;
+                color: #ffffff;
+            }
+
+        }
+    }
+}
