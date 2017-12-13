@@ -1,4 +1,4 @@
-export class InitiativeCensuses {
+export class InitiativeCensusesController {
 
     dataList = [];
     pages = [];
@@ -33,8 +33,8 @@ export class InitiativeCensuses {
         label: 'Technical application',
         value: 'tech_application'
     }, {
-        label: 'System owner',
-        value: 'system_owner'
+        label: 'Program',
+        value: 'program'
     }, {
         label: 'Data scadenza',
         value: 'data_scadenza'
