@@ -8,7 +8,7 @@ import { stateConfig as PopupsConfig } from './popups/popups.config';
 import { stateConfig as RuDashboardConfig } from './ruDashboard/ruDashboard.config';
 import { stateConfig as ApprovalRequestsConfig } from './approvalRequests/approvalRequests.config';
 import { stateConfig as AutomaticEventsConfig } from './automaticEvents/automaticEvents.config';
-
+import { stateConfig as InitiativeCensusesConfig } from './initiativeCensuses/initiativeCensuses.config';
 
 export default angular.module('wdd.states', [])
     .config(($stateProvider, $urlRouterProvider) => {
@@ -22,6 +22,7 @@ export default angular.module('wdd.states', [])
             .state('tab.popups', PopupsConfig)
             .state('tab.approvalRequests', ApprovalRequestsConfig)
             .state('tab.automaticEvents', AutomaticEventsConfig)
+            .state('tab.initiativeCensuses', InitiativeCensusesConfig)
             .state('tab.ruDashboard', RuDashboardConfig);
 
 

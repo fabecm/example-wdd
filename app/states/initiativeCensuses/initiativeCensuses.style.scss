@@ -1,0 +1,34 @@
+.search-page {
+    
+    .filter-row{
+        display: flex;
+        flex-direction: row;
+        margin-right: 209px;
+        padding: 0 10px;
+
+        .wdd-labeled-input {
+            margin: 0 5px;
+            flex: 1;
+    
+            .wdd-input-text, .wbb-select {
+                width: 80%;
+            }
+        }
+    }
+
+    .under-table {
+        background-color: #eceef3;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:first-child { 
+            margin-right: 20px;
+        }
+    }
+    button:first-child { 
+        margin-right: 20px;
+    }
+
+
+}
