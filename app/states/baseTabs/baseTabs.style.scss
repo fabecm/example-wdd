@@ -9,5 +9,6 @@
         padding: 20px 50px;
         // TODO: Fix flex 1 going over parent elem
         height: calc(100% - #{$header-primary-height});
+        overflow-y: auto;
     }    
 }

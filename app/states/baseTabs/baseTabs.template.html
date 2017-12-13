@@ -1,10 +1,10 @@
 <div class="BaseTabsState">
     <div class="wdd-primary-header">
-        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 0}" ng-click="vm.selectedTab = 0">
+        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 0}" ng-click="vm.selectedTab = 0;vm.goTo('tab.dashboardSO')">
             <i class="icon icon-dashboard"></i>
             <span>Dashboard</span>
         </div>
-        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 1}" ng-click="vm.selectedTab = 1">
+        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 1}" ng-click="vm.selectedTab = 1;vm.goTo('tab.search')">
             <i class="icon icon-ricerca"></i>
             <span>Ricerca</span>
         </div>

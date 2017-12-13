@@ -18,10 +18,8 @@ export default angular.module('wdd.core.ui', [])
     .directive('wbbSelect', WbbSelect)
     .directive('wddFilter', WddFilter)
     .directive('att', DataDetailAttribute)
-
     .directive('testDirectiveComponent', TestDirectiveComponent)
     .directive('dashboardTable', DashboardTable)
-
     .directive('doughnutChart', DoughnutChart)
     .directive('dashboardFilter', DashboardFilter)
     .directive('wddAutocomplete', WddAutocomplete)

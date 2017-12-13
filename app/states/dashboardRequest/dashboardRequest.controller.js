@@ -1,15 +1,19 @@
-export class DashboardSOController {
+export class DashboardRequestController {
 
     dataList = [];
 
     chartValues = [{
-        label: 'To do list',
+        label: 'Richieste documentazione',
         value: 1,
-        color: '#0097D9'
+        color: '#007284'
     }, {
-        label: 'Censiti di iniziativa',
+        label: 'Richieste approvazione',
         value: 1,
-        color: '#F2BE00'
+        color: '#0097d9'
+    }, {
+        label: 'Eventi automatici',
+        value: 1,
+        color: '#df5356'
     }];
     constructor (WorkspaceService) {
         'ngInject';
