@@ -1,4 +1,5 @@
 <div class="data-lineage-page">
+    <button class="wdd-button alt-color" ng-click="vm.back()">TORNA INDIETRO</button>
     <div class="square-container">
 
         <div class="square box-{{key}}" ng-class="{'hide-square': !box}" ng-repeat="(key, box) in vm.lineageBoxes track by $index">

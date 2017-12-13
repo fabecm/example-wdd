@@ -33,6 +33,9 @@ export class DataDetailController {
         detail.isOpened = !detail.isOpened;
     }
 
+    back () {
+        window.history.back();
+    }
 
     changeAllDetailStatus (shouldOpen) {
         this.visibleDataDetails.map(t => {

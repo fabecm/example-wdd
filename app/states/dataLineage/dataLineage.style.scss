@@ -3,10 +3,7 @@ $arrowLength: 50px;
 $squareBorder: 1px;
 
 .data-lineage-page {
-    
-    display: flex;
-    justify-content: center;
-    height: 100%;
+    height: calc(100% - 25px);
 
     .square-container {
         display: flex;

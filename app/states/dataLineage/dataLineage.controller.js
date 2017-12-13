@@ -122,7 +122,11 @@ export class DataLineageController {
         });
     }
 
+    back () {
+        window.history.back();
+    }
+
     goToDataDetail (termId) {
-        this.$state.go('data-detail', {id: termId});
+        this.$state.go('tab.dataDetail', {id: termId});
     }
 }
