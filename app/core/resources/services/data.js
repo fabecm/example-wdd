@@ -32,6 +32,34 @@ function getMockData () {
                         label: 'test technical rule 44',
                         match: 0
                     },
+                    data_fields: [{
+                        data_field: {
+                            id: 1,
+                            label: 'Dato1'
+                        },
+                        data_table: {label: 'Table1'},
+                        data_source: {label: 'Data source1'},
+                        tech_appl: {label: 'Tech appl1'},
+                        system_owner: {label: 'System ownerA'}
+                    }, {
+                        data_field: {
+                            id: 2,
+                            label: 'Dato2'
+                        },
+                        data_table: {label: 'Table2'},
+                        data_source: {label: 'Data source2'},
+                        tech_appl: {label: 'Tech appl2'},
+                        system_owner: {label: 'System ownerB'}
+                    }, {
+                        data_field: {
+                            id: 3,
+                            label: 'Dato3'
+                        },
+                        data_table: {label: 'Table3'},
+                        data_source: {label: 'Data source3'},
+                        tech_appl: {label: 'Tech appl3'},
+                        system_owner: {label: 'System ownerC'}
+                    }],
                     data_table: {
                         label: 'test dataTable',
                         match: 0

@@ -1,4 +1,4 @@
-export class DocumentationRequests {
+export class DocumentationRequestsController {
 
     dataList = [];
     pages = [];
@@ -16,29 +16,44 @@ export class DocumentationRequests {
 
     tablePagination = true;
     tablePageSize = 10;
+    tableExpandable = true;
 
     headerTable = [{
         label: 'Workspace',
         value: 'workspace'
     }, {
+        label: 'Descrizione',
+        value: 'description'
+    }, {
+        label: 'Data source table',
+        value: 'data_table'
+    }, {
+        label: 'Data inizio',
+        value: 'start_date'
+    }, {
+        label: 'Data fine',
+        value: 'end_date'
+    }, {
+        label: 'Stato',
+        value: 'state'
+    }];
+
+    headerTableExpandable = [{
         label: 'Data field',
         value: 'data_field'
     }, {
-        label: 'Data source table',
+        label: 'Data table',
         value: 'data_table'
     }, {
         label: 'Data source',
         value: 'data_source'
     }, {
         label: 'Technical application',
-        value: 'tech_application'
+        value: 'tech_appl'
     }, {
         label: 'System owner',
         value: 'system_owner'
-    }, {
-        label: 'Data scadenza',
-        value: 'data_scadenza'
-    }];
+    }]
 
     constructor (DataService, DatasourceService) {
         'ngInject';
