@@ -1,5 +1,5 @@
 <div class="wdd-table" ng-if="serviceResponse" ng-class="{'child-table': isChild}">
-    <table>
+    <table ng-class="{'expandable-table': expandable}">
         <thead>
             <th ng-if="expandable || isChecked">
                 <div ng-if="isChecked">
@@ -9,24 +9,29 @@
             <th ng-repeat="item in headerArray track by $index">
                 {{item.label}}
             </th>
-            <th ng-if="hasIcon"></th>
+            <th ng-if="hasIcon" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2}"></th>
         </thead>
         <tbody>
 
-            <tr wdd-row ng-if="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data" column="headerArray"
+            <tr class="base-row" wdd-row ng-if="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data" column="headerArray"
                 action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable" has-info-btn="info"
-                has-primary-navigation-btn="primaryNavigation"></tr>
+                has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"></tr>
 
             <tr ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse}">
                 <td class="expandable-container" colspan="{{childCollspan()}}">
                     <wdd-table service-response-obj="{{ {array: data.data_fields} }}" header-array-obj="{{ {array: headerArrayExpandable} }}"
                         pagination-bool="{{ {boolean: pagination} }}" page-size-num="{{ {number: pageSize} }}" is-child="true"
-                        is-checked-bool="{{ {boolean: isChildChecked} }}" has-primary-navigation-btn="true"></wdd-table>
+                        is-checked-bool="{{ {boolean: isChildChecked} }}" has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}"></wdd-table>
                 </td>
             </tr>
 
         </tbody>
     </table>
+
+    <div class="under-table" ng-if="hasUnderTable">
+        <button class="wdd-button" ng-if="hasSecondaryLabel">{{hasSecondaryLabel}}</button>
+        <button class="wdd-button" ng-if="hasPrimaryLabel">{{hasPrimaryLabel}}</button>
+    </div>
 
     <div ng-if="pagination" class="table-footer">
         <div class="pagi-text" ng-click="changingPageToFirst()">

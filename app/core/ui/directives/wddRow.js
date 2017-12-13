@@ -23,7 +23,9 @@ export function WddRow () {
                 scope.hasIcon = true;
             }
 
-            scope.arrayAction = ['collapse', 'checked', 'info'];
+            console.log(scope.rowData);
+
+            scope.arrayAction = ['collapse', 'checked', 'info', 'primaryNavigation', 'secondaryNavigation'];
             // scope.modelloModel = {};
 
             scope.doAction = (act) => {

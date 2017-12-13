@@ -14,6 +14,47 @@ export class SearchController {
         label: 'Produzione'
     }];
 
+    tablePagination = true;
+    tablePageSize = 10;
+
+    headerTable = [{
+        label: 'Workspace',
+        value: 'workspace'
+    }, {
+        label: 'Data field',
+        value: 'data_field'
+    }, {
+        label: 'Data table',
+        value: 'data_table'
+    }, {
+        label: 'Data source',
+        value: 'data_source'
+    }, {
+        label: 'Technical application',
+        value: 'tech_application'
+    }, {
+        label: 'System owner',
+        value: 'system_owner'
+    }, {
+        label: 'Program',
+        value: 'program'
+    }, {
+        label: 'Technical Rule',
+        value: 'tech_rules'
+    }, {
+        label: 'Business Rule',
+        value: 'business_rules'
+    }, {
+        label: 'Business Data',
+        value: 'business_data'
+    }, {
+        label: 'Business Glossary',
+        value: 'business_glossary'
+    }, {
+        label: 'Process Owner',
+        value: 'process_owner'
+    }];
+
     constructor (DataService, DatasourceService) {
         'ngInject';
         this.datasourceService = DatasourceService;

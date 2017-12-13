@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($timeout) {
+export function WddTable ($timeout, $state) {
     'ngInject';
     return {
         scope: {
@@ -14,8 +14,12 @@ export function WddTable ($timeout) {
             isChild: '@',
             isCheckedBool: '@',
             hasPrimaryNavigationBtn: '@',
+            pathPrimaryNavigation: '@',
+            pathSecondaryNavigation: '@',
             hasSecondaryNavigationBtn: '@',
-            hasInfoBtn: '@'
+            hasInfoBtn: '@',
+            hasPrimaryLabel: '@',
+            hasSecondaryLabel: '@'
         },
         template: template,
         link: (scope) => {
@@ -25,6 +29,12 @@ export function WddTable ($timeout) {
 
             if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn) {
                 scope.hasIcon = true;
+            }
+
+            scope.iconNumber = Number(!!scope.hasPrimaryNavigationBtn) + Number(!!scope.hasSecondaryNavigationBtn);
+
+            if (scope.hasPrimaryLabel || scope.hasSecondaryLabel) {
+                scope.hasUnderTable = true;
             }
 
             scope.sliceDataToShow = () => {
@@ -125,6 +135,10 @@ export function WddTable ($timeout) {
             scope.rowAction = (row) => {
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
+                } else if (row.action === 'primaryNavigation') {
+                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id});
+                } else if (row.action === 'secondaryNavigation') {
+                    $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id});
                 }
             };
         }

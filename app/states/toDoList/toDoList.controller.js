@@ -14,6 +14,32 @@ export class ToDoListController {
         label: 'System Owner'
     }];
 
+    tablePagination = true;
+    tablePageSize = 10;
+
+    headerTable = [{
+        label: 'Workspace',
+        value: 'workspace'
+    }, {
+        label: 'Data field',
+        value: 'data_field'
+    }, {
+        label: 'Data source table',
+        value: 'data_table'
+    }, {
+        label: 'Data source',
+        value: 'data_source'
+    }, {
+        label: 'Technical application',
+        value: 'tech_application'
+    }, {
+        label: 'System owner',
+        value: 'system_owner'
+    }, {
+        label: 'Data scadenza',
+        value: 'data_scadenza'
+    }];
+
     constructor (DataService, DatasourceService) {
         'ngInject';
         this.datasourceService = DatasourceService;
