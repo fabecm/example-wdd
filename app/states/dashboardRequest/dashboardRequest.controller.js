@@ -5,15 +5,18 @@ export class DashboardRequestController {
     chartValues = [{
         label: 'Richieste documentazione',
         value: 1,
-        color: '#007284'
+        color: '#007284',
+        childPage: 'tab.documentationRequests'
     }, {
         label: 'Richieste approvazione',
         value: 1,
-        color: '#0097d9'
+        color: '#0097d9',
+        childPage: 'tab.approvalRequests'
     }, {
         label: 'Eventi automatici',
         value: 1,
-        color: '#df5356'
+        color: '#df5356',
+        childPage: 'tab.automaticEvents'
     }];
     constructor (WorkspaceService) {
         'ngInject';

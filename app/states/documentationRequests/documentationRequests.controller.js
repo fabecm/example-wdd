@@ -55,13 +55,20 @@ export class DocumentationRequestsController {
         value: 'system_owner'
     }]
 
-    constructor (DataService, DatasourceService) {
+    constructor (DataService, DatasourceService, $state) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
+        this.$state = $state;
 
         this.getBootstrap();
         this.loadData();
+    }
+
+    changeChild () {
+        if (this.pageChild) {
+            this.$state.go(this.pageChild);
+        }
     }
 
     loadData (params) {
