@@ -10,23 +10,28 @@ $header-data-detail: 50px;
     .detail-row{
         display: flex;
         flex-direction: row;
-        padding-bottom: 30px;
+        padding-bottom: 10px;
         padding-top: 10px;
 
         .left-side, .right-side {
-            flex-grow: 1;
+            // flex-grow: 1;
         }
 
         .right-side {
             display: flex;
             justify-content: flex-end;
+
+            .spacingRight {
+                margin-right: 20px;
+            }
         }
 
         .center {
             display: flex;
             flex-grow: 3;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
+            padding: 0 20px;
         }
     }
 
@@ -120,6 +125,45 @@ $header-data-detail: 50px;
                 .wdd-button {
                     margin-right: 20px;
                 }
+            }
+        }
+    }
+}
+
+.process-list-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    .dots-holder {
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .process-list-dot{
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-bottom: 10px;
+        padding-top: 5px;
+
+        label {
+            margin: 0;
+        }
+
+        .test-dot{
+            width: 20px;
+            height: 20px;
+            background: rgb(176, 195, 221);
+            border-radius: 50%;
+            margin-top: 10px;
+
+            &.enabled{
+                background: rgb(109, 165, 49);
             }
         }
     }

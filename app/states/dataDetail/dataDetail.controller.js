@@ -2,6 +2,26 @@ export class DataDetailController {
 
     listDataDetails = [];
 
+    processes = [{
+        label: 'Step 1',
+        enabled: true
+    }, {
+        label: 'Step 2',
+        enabled: true
+    }, {
+        label: 'Step 3',
+        enabled: true
+    }, {
+        label: 'Step 4',
+        enabled: true
+    }, {
+        label: 'Step 5',
+        enabled: false
+    }, {
+        label: 'Step 6',
+        enabled: false
+    }]
+
     constructor (DetailsService, $stateParams) {
         'ngInject';
         this.detailsService = DetailsService;
