@@ -49,6 +49,9 @@ function getHeader ($q) {
     }, {
         label: 'Stato',
         value: 'state'
+    }, {
+        label: 'Avanzamento',
+        value: 'step'
     }]);
     return defer.promise;
 }
@@ -59,7 +62,7 @@ function getHeaderExpandable ($q) {
         label: 'Data field',
         value: 'data_field'
     }, {
-        label: 'Data source table',
+        label: 'Data table',
         value: 'data_table'
     }, {
         label: 'Data source',

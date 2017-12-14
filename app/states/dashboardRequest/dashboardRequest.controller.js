@@ -3,12 +3,12 @@ export class DashboardRequestController {
     dataList = [];
 
     chartValues = [{
-        label: 'Richieste documentazione',
+        label: 'Richieste di documentazione',
         value: 0,
         color: '#007284',
         childPage: 'tab.documentationRequests'
     }, {
-        label: 'Richieste approvazione',
+        label: 'Richieste di approvazione',
         value: 0,
         color: '#0097d9',
         childPage: 'tab.approvalRequests'
