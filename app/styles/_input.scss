@@ -51,6 +51,27 @@
         pointer-events: none;
         z-index: 1;
     }
+
+    &.select-child {
+        width: 250px;
+        background: #233145;
+        color: #ffffff;
+        display: inline-block;
+
+        option {
+            color: #233145;
+            background: #ffffff;
+            border: 1px solid #233145;
+        }
+
+        i {
+            background-color: #233145;
+            color: #ffffff;
+        }
+        &:after {
+            background: #233145;
+        }
+    }
 }
 
 input.wdd-input-text {
