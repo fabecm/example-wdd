@@ -49,7 +49,7 @@
           }
 
           .table-cell {
-              width: 80px;
+              width: 150px;
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
@@ -184,6 +184,10 @@
       color: white;
     }
   }
+}
+
+.tooltip-test {
+  width: 150px;
 }
 
 // temporary, I dont know how to call it better
