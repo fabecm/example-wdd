@@ -5,11 +5,13 @@ export class DashboardSOController {
     chartValues = [{
         label: 'To do list',
         value: 1,
-        color: '#0097D9'
+        color: '#0097D9',
+        childPage: 'tab.toDoList'
     }, {
         label: 'Censiti di iniziativa',
         value: 1,
-        color: '#F2BE00'
+        color: '#F2BE00',
+        childPage: 'tab.initiativeCensuses'
     }];
     constructor (WorkspaceService) {
         'ngInject';
