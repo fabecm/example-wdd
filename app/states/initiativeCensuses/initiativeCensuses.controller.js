@@ -11,7 +11,7 @@ export class InitiativeCensusesController {
     }, {
         label: 'Bozza'
     }, {
-        label: 'System Owner'
+        label: 'Produzione'
     }];
 
     tablePagination = true;

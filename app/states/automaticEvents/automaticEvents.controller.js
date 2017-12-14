@@ -11,7 +11,7 @@ export class AutomaticEventsController {
     }, {
         label: 'Bozza'
     }, {
-        label: 'System Owner'
+        label: 'Produzione'
     }];
 
     tablePagination = true;

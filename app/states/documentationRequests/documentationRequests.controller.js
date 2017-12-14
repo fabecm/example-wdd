@@ -11,7 +11,7 @@ export class DocumentationRequestsController {
     }, {
         label: 'Bozza'
     }, {
-        label: 'System Owner'
+        label: 'Produzione'
     }];
 
     tablePagination = true;

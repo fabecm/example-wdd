@@ -11,7 +11,7 @@ export class ApprovalRequestsController {
     }, {
         label: 'Bozza'
     }, {
-        label: 'System Owner'
+        label: 'Produzione'
     }];
 
     tablePagination = true;
