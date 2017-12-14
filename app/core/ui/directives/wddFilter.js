@@ -46,6 +46,13 @@ export function WddFilter ($q, ClassificationService) {
                 }
             };
 
+            scope.checkTextTyped = () => {
+                let filtered = scope.filterSetted.filter(fil => {
+                    return fil.text && (fil.text.length > 2);
+                });
+                return scope.filterSetted.length > 0 && filtered.length === scope.filterSetted.length;
+            };
+
             scope.setFilter = () => {
                 scope.isFilterActive = true;
 

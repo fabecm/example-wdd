@@ -19,7 +19,8 @@ export function WddTable ($timeout, $state) {
             hasSecondaryNavigationBtn: '@',
             hasInfoBtn: '@',
             hasPrimaryLabel: '@',
-            hasSecondaryLabel: '@'
+            hasSecondaryLabel: '@',
+            hasCreationBtn: '@'
         },
         template: template,
         link: (scope) => {
@@ -27,7 +28,7 @@ export function WddTable ($timeout, $state) {
             scope.rawData = [];
             scope.currentPage = 1;
 
-            if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn) {
+            if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreationBtn) {
                 scope.hasIcon = true;
             }
 
@@ -78,6 +79,9 @@ export function WddTable ($timeout, $state) {
                 }
                 if (scope.hasInfoBtn) {
                     scope.info = JSON.parse(scope.hasInfoBtn);
+                }
+                if (scope.hasCreationBtn) {
+                    scope.hasCreation = JSON.parse(scope.hasCreationBtn);
                 }
 
                 initTable(scope);

@@ -11,7 +11,8 @@ export function WddRow () {
             rowCollapse: '=',
             hasPrimaryNavigationBtn: '=',
             hasSecondaryNavigationBtn: '=',
-            hasInfoBtn: '='
+            hasInfoBtn: '=',
+            hasCreation: '='
         },
         template: template,
         link: (scope) => {
@@ -19,7 +20,7 @@ export function WddRow () {
                 scope.action = true;
             }
 
-            if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn) {
+            if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreation) {
                 scope.hasIcon = true;
             }
 

@@ -21,7 +21,7 @@ function getMockedData ($q) {
         data: [
             {
                 term: {
-                    termtype: 'DATA_FIELD',
+                    termtype: 'DATA FIELD',
                     name: 'DD - DF - MOTIVO_STATO_ENTE - R_MONETICA.BD_TSEC67'
                 },
                 attributes: [
@@ -112,7 +112,7 @@ function getMockedData ($q) {
             },
             {
                 term: {
-                    termtype: 'DATA_TABLE',
+                    termtype: 'DATA TABLE',
                     name: 'DD - DT - BD_TSEC67 - R_MONETICA'
                 },
                 attributes: [
@@ -175,7 +175,7 @@ function getMockedData ($q) {
                 status: 'completo'
             },
             {
-                term: { termtype: 'DATA_SOURCE', name: 'DD - DS - R_MONETICA' },
+                term: { termtype: 'DATA SOURCE', name: 'DD - DS - R_MONETICA' },
                 attributes: [
                     {
                         name: 'Group Legal Entities',
@@ -250,7 +250,7 @@ function getMockedData ($q) {
                 status: 'completo'
             },
             {
-                term: { termtype: 'TECHNICAL_APPLICATION', name: 'DD - TA - BIG' },
+                term: { termtype: 'TECHNICAL APPLICATION', name: 'DD - TA - BIG' },
                 attributes: [
                     {
                         name: 'Status',
@@ -298,7 +298,7 @@ function getMockedData ($q) {
             },
             {
                 term: {
-                    termtype: 'TECHNICAL_RULE',
+                    termtype: 'TECHNICAL RULE',
                     name: 'DD - TR - MOTIVO_STATO_ENTE - R_MONETICA.BD_TSEC67'
                 },
                 attributes: [

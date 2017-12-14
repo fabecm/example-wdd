@@ -61,7 +61,7 @@ export class SearchController {
         this.dataService = DataService;
 
         this.getBootstrap();
-        this.loadData();
+        // this.loadData();
     }
 
     loadData (params) {

@@ -4,12 +4,16 @@
             <button class="wdd-button alt-color" ng-click="vm.back()">TORNA INDIETRO</button>
         </div>
         <div class="center">
-            <label>Dato 3</label>
+            <label>{{vm.visibleDataDetails[0].term.name}}</label>
         </div>
         <div class="right-side">
-            <button class="wdd-button" ng-click="vm.changeAllDetailStatus(true)">
-                <i class="icon icon-down-arrow"></i>
+            <button class="wdd-button" ng-click="vm.changeAllDetailStatus(true)" ng-if="vm.checkDetailStatus()">
+                <i class="icon icon-espandi-tutto"></i>
                 ESPANDI TUTTO
+            </button>
+            <button class="wdd-button" ng-click="vm.changeAllDetailStatus(false)" ng-if="!vm.checkDetailStatus()">
+                <i class="icon icon-espandi-tutto"></i>
+                COMPRIMI TUTTO
             </button>
         </div>
     </div>
@@ -18,7 +22,7 @@
         <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="detail in vm.visibleDataDetails track by $index" ng-class="{'active': detail.isOpened}">
             <div class="header">
                 <div class="header-icon">
-                    <button class="wdd-button icon-only" ng-class="{'alt-color': detail.isOpened}">
+                    <button class="wdd-button icon-only has-background" ng-class="{'alt-color': detail.isOpened}">
                         <i class="icon" ng-class="{'icon-down-arrow': !detail.isOpened, 'icon-up-arrow': detail.isOpened}" ng-click="vm.showAttributeBody(detail)"></i>
                     </button>
                 </div>

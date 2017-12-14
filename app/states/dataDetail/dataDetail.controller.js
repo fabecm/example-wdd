@@ -37,6 +37,10 @@ export class DataDetailController {
         window.history.back();
     }
 
+    checkDetailStatus () {
+        return this.visibleDataDetails.filter(e => !e.isOpened).length >= 1;
+    }
+
     changeAllDetailStatus (shouldOpen) {
         this.visibleDataDetails.map(t => {
             t.isOpened = shouldOpen;
