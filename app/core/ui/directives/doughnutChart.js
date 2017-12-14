@@ -2,7 +2,7 @@ import ChartJs from 'chart.js';
 import { random } from 'faker';
 import template from './doughnutChart.template.html';
 
-export function DoughnutChart ($timeout) {
+export function DoughnutChart ($timeout, $state) {
     'ngInject';
 
     return {
@@ -58,6 +58,10 @@ export function DoughnutChart ($timeout) {
                     }
                 });
                 console.log(myChart, labelArray);
+
+                scope.goToChild = (index) => {
+                    $state.go(scope.arrayValues[index].childPage);
+                };
             });
         }
     };

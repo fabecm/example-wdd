@@ -36,10 +36,12 @@ doughnut-chart {
             .left-block {
                 width: 50px;
                 text-align: right;
+                cursor: pointer;
             }
             
             .right-block {
                 padding-left: 20px;
+                cursor: pointer;
             }
         }
     }
