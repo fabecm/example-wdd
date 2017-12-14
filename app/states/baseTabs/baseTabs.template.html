@@ -4,7 +4,15 @@
             <i class="icon icon-dashboard"></i>
             <span>Dashboard</span>
         </div>
-        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 1}" ng-click="vm.selectedTab = 1;vm.goTo('tab.search')">
+        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 1}" ng-click="vm.selectedTab = 1;vm.goTo('tab.dashboardRequest')">
+            <i class="icon icon-dashboard"></i>
+            <span>Dashboard</span>
+        </div>
+        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 2}" ng-click="vm.selectedTab = 2;vm.goTo('')">
+            <i class="icon icon-dashboard"></i>
+            <span>Dashboard</span>
+        </div>
+        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 3}" ng-click="vm.selectedTab = 3;vm.goTo('tab.search')">
             <i class="icon icon-ricerca"></i>
             <span>Ricerca</span>
         </div>
