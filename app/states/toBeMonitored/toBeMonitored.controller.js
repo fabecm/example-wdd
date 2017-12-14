@@ -1,13 +1,14 @@
-export class ToBeMonitored {
+export class ToBeMonitoredController {
 
     tablePagination = true;
     tablePageSize = 10;
     tableExpandable = true;
 
-    constructor (SearchWorkspaceService, $q) {
+    constructor (SearchWorkspaceService, $q, $state) {
         'ngInject';
         this.searchWorkspaceService = SearchWorkspaceService;
         this.$q = $q;
+        this.$state = $state;
 
         this.initRuDashboard();
     }
@@ -22,6 +23,12 @@ export class ToBeMonitored {
                 this.headerTableExpandable = headerExpRes;
             });
         });
+    }
+
+    changeChild () {
+        if (this.pageChild) {
+            this.$state.go(this.pageChild);
+        }
     }
 }
 

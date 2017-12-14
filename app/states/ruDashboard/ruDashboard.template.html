@@ -1,7 +1,13 @@
 <div class="ru-dashboard">
     <div class="button-section">
         <div class="left-section">
-            <button class="wdd-button">richieste document.</button>
+            <div class="wbb-select select-child">
+                <select name="stato" ng-model="vm.pageChild" ng-change="vm.changeChild()">
+                    <option value="tab.toBeMonitored">Attivi</option>
+                    <option value="">Nuovi</option>
+                </select>
+                <i class="icon icon-down-arrow"></i>
+            </div>
         </div>
         <div class="right-section">
             <button class="wdd-button">
@@ -19,6 +25,7 @@
     <div>
         <wdd-table ng-if="vm.workspaceData && vm.headerTable" service-response-obj="{{ {array: vm.workspaceData} }}" header-array-obj="{{ {array: vm.headerTable} }}"
             pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}"
-            header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}" is-child-checked-bool="true" has-creation-btn="true" path-primary-navigation="tab.dataDetail"></wdd-table>
+            header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}" is-child-checked-bool="true" has-creation-btn="true"
+            path-primary-navigation="tab.dataDetail"></wdd-table>
     </div>
 </div>
