@@ -1,27 +1,13 @@
 <div class="dashboardSO">
     <div class="col-xs-6 chart-doghout-dash">
         <doughnut-chart array-values="vm.chartValues"></doughnut-chart>
-        <!-- chart
-
-        <br><br>
-
-        10 To do list
-        <br>
-        2 Censiti di iniziativa -->
-        
     </div>
 
     <div class="col-xs-6">
 
-        <dashboard-table 
-            bgcolor="#0097D9" 
-            title="To do list">
-        </dashboard-table>
+        <dashboard-table bgcolor="#0097D9" title="Richieste di documentazione" table-body="vm.dataList" header-type="dateCentric"></dashboard-table>
 
-        <dashboard-table 
-            bgcolor="#F2BE00" 
-            title="Censiti di iniciativa">
-        </dashboard-table>
+        <dashboard-table bgcolor="#F2BE00" title="Censimenti di iniziativa" table-body="vm.dataList" header-type="dateCentric"></dashboard-table>
 
     </div>
 </div>

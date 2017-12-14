@@ -1,27 +1,21 @@
 <div class="wdd-table dashboard-table">
-    <table>
-        <caption style="background-color:{{bgcolor}};">{{title}}</caption>
-        <tr>
-            <th style="background-color:{{bgcolor}};">Data field
-            </th>
-            <th style="background-color:{{bgcolor}};">Data field description
-            </th>
-            <th style="background-color:{{bgcolor}};">Data source table
-            </th>
-            <th style="background-color:{{bgcolor}};">Data source
-            </th>
-            <th style="background-color:{{bgcolor}};">Technical application
-            </th>
-        </tr>
-        
-        <tr ng-repeat="obj in dataList.data.OutputArray">
-            <td class="">{{obj.data_field.label}}</td>
-            <!-- bad data? -->
-            <td class="">{{obj.data_field.label}}</td>
-            <td class="">{{obj.data_table.label}}</td>
-            <td class="">{{obj.data_source.label}}</td>
-            <td class="">{{obj.tech_application.label}}</td>
-        </tr>
-    </table>
-
+        <table>
+            <caption ng-style="{'background-color' : bgcolor}">
+                {{title}}
+            </caption>
+            <tr>
+                <th ng-style="{'background-color' : bgcolor}" ng-repeat="header in headerArray">
+                    {{ header.label }}
+                </th>
+            </tr>
+            
+            <tr ng-repeat="obj in tableBody">
+                <td class="">{{obj[headerArray[0].value].label}}</td>
+                <td class="">{{obj[headerArray[1].value].label}}</td>
+                <td class="">{{obj[headerArray[2].value].label}}</td>
+                <td class="">{{obj[headerArray[3].value].label}}</td>
+                <td class="">{{obj[headerArray[4].value].label}}</td>
+            </tr>
+        </table>
+    
 </div>

@@ -3,28 +3,28 @@ export class DashboardSOController {
     dataList = [];
 
     chartValues = [{
-        label: 'To do list',
-        value: 1,
+        label: 'Richieste di documentazione',
+        value: 0,
         color: '#0097D9',
         childPage: 'tab.toDoList'
     }, {
-        label: 'Censiti di iniziativa',
-        value: 1,
+        label: 'Censimenti di iniziativa',
+        value: 0,
         color: '#F2BE00',
         childPage: 'tab.initiativeCensuses'
     }];
     constructor (WorkspaceService) {
         'ngInject';
-        this.dashboardService = WorkspaceService;
+        this.workspaceService = WorkspaceService;
         this.getData();
     }
+
     getData () {
-        this.dashboardService.getData()
+        this.workspaceService.getData('dataCentrico')
         .then(searchData => {
             this.dataList = searchData.data.OutputArray;
-            console.log(this.dataList);
-        }).catch(err => {
-            console.log(err);
+            this.chartValues[0].value = this.dataList.length;
+            this.chartValues[1].value = this.dataList.length;
         });
     }
 }

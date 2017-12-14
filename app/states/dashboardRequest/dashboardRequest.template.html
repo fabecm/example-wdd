@@ -1,32 +1,15 @@
 <div class="dashboardRequest">
     <div class="col-xs-6 chart-doghout-dash">
         <doughnut-chart array-values="vm.chartValues"></doughnut-chart>
-        <!-- chart
-
-        <br><br>
-
-        10 To do list
-        <br>
-        2 Censiti di iniziativa -->
-        
     </div>
 
     <div class="col-xs-6">
 
-        <dashboard-table 
-            bgcolor="#007284" 
-            title="Richieste documentazione">
-        </dashboard-table>
+        <dashboard-table bgcolor="#007284" title="Richieste di documentazione" table-body="vm.dataList" header-type="workspaceCentric"></dashboard-table>
 
-        <dashboard-table 
-            bgcolor="#0097d9" 
-            title="Richieste approvazione">
-        </dashboard-table>
+        <dashboard-table bgcolor="#0097d9" title="Richieste di approvazione" table-body="vm.dataList" header-type="workspaceCentric"></dashboard-table>
 
-        <dashboard-table 
-            bgcolor="#df5356" 
-            title="Eventi automatici">
-        </dashboard-table>
+        <dashboard-table bgcolor="#df5356" title="Eventi automatici" table-body="vm.dataList" header-type="workspaceCentric"></dashboard-table>
 
     </div>
 </div>
