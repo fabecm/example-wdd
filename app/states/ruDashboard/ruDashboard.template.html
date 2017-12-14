@@ -10,10 +10,6 @@
             </div>
         </div>
         <div class="right-section">
-            <button class="wdd-button">
-                <i class="icon icon-new"></i>
-                nuovo workspace
-            </button>
             <button class="wdd-button alt-color">
                 <i class="icon icon-excel"></i>
                 esporta
@@ -26,6 +22,6 @@
         <wdd-table ng-if="vm.workspaceData && vm.headerTable" service-response-obj="{{ {array: vm.workspaceData} }}" header-array-obj="{{ {array: vm.headerTable} }}"
             pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}"
             header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}" is-child-checked-bool="true" has-creation-btn="true"
-            path-primary-navigation="tab.dataDetail"></wdd-table>
+            path-primary-navigation="tab.dataDetail" has-secondary-label="Nuovo workspace"></wdd-table>
     </div>
 </div>
