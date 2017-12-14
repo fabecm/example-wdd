@@ -14,6 +14,23 @@ export class DashboardUserRequestController {
         childPage: 'tab.ruDashboard'
     }];
 
+    workspaces = [{
+        label: 'Workspace 1',
+        requested: 100,
+        censed: 70,
+        perc: 70
+    }, {
+        label: 'Workspace 2',
+        requested: 100,
+        censed: 70,
+        perc: 70
+    }, {
+        label: 'Workspace 3',
+        requested: 100,
+        censed: 70,
+        perc: 70
+    }]
+
     constructor () {
 
     }

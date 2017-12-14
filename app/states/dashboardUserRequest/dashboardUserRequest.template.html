@@ -9,7 +9,25 @@
 
         <dashboard-table bgcolor="#F2BE00" title="Censimenti di iniziativa" table-body="vm.dataList" header-type="dateCentric"></dashboard-table> -->
 
-        
+        <div class="workspace-holder">
+            <h2 class="title">Avanzamento complessivo</h2>
+            <hr />
+            <div class="workspace-list" ng-repeat="workspace in vm.workspaces">
+                <div class="left-block">
+                    {{ workspace.label }}
+                </div>
+                <div class="right-block">
+                    <div class="requested">
+                        <span>{{ workspace.requested }}</span>
+                    </div>
+                    <div class="censed">
+                        <div class="progress-workspace" ng-style="{'width': workspace.perc + '%'}"></div>
+                        <span>{{ workspace.censed }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </div>

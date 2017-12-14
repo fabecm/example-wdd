@@ -7,3 +7,57 @@
         height: 80%;
     }
 }
+
+.workspace-holder{
+    h2.title {
+        font-size: 25px;
+    }
+    .workspace-list{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 90px;
+        span{
+            position: absolute;
+            left: 10px;
+            margin-left: 10px;
+        }
+        .workspace-title{
+    
+        }
+        .left-block {
+            font-size: 20px;
+            width: 30%;
+        }
+        .right-block {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            .requested{
+                position: relative;
+                width: 100%;
+                border-radius: 5px;
+                height: 30px;
+                line-height: 30px;
+                background: rgb(215, 215, 215);
+            }
+            .censed{
+                margin-top: 10px;
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                position: relative;
+                .progress-workspace {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    border-radius: 5px;
+                    background: rgb(109, 180, 222);
+                }
+            }
+        }
+    }
+}
