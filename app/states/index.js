@@ -10,6 +10,7 @@ import { stateConfig as ApprovalRequestsConfig } from './approvalRequests/approv
 import { stateConfig as AutomaticEventsConfig } from './automaticEvents/automaticEvents.config';
 import { stateConfig as InitiativeCensusesConfig } from './initiativeCensuses/initiativeCensuses.config';
 import { stateConfig as DocumentationRequestsConfig } from './documentationRequests/documentationRequests.config';
+import { stateConfig as ToBeMonitoredConfig } from './toBeMonitored/toBeMonitored.config';
 import { stateConfig as DashboardRequestConfig } from './dashboardRequest/dashboardRequest.config';
 
 export default angular.module('wdd.states', [])
@@ -27,8 +28,8 @@ export default angular.module('wdd.states', [])
             .state('tab.initiativeCensuses', InitiativeCensusesConfig)
             .state('tab.documentationRequests', DocumentationRequestsConfig)
             .state('tab.ruDashboard', RuDashboardConfig)
+            .state('tab.toBeMonitored', ToBeMonitoredConfig)
             .state('tab.dashboardRequest', DashboardRequestConfig);
-
 
         $urlRouterProvider.otherwise(DashboardSOConfig.url);
     })
