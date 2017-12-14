@@ -1,32 +1,39 @@
 .wdd-autocomplete {
 
     position: relative;
-    width: $custom-select-width;
+    width: 200px;
     height: $custom-select-height;
 
     .wdd-input-text {
         padding-right: 25px;
+        width: 190px;
     }
 
-    i {
-        margin-top: 25px;
-        line-height: $custom-select-height;
-        cursor: pointer;
-        content: '\e806';
-        display: block;
-        position: absolute;
-        right: 5px;
-        font-size: 15px;
-        top: 0;
-        bottom: 0;
-        color: #2a74de;
-        z-index: 1;
+    .wdd-labeled-input {
+        padding: 0px;
+        
+        i {
+            margin-top: 25px;
+            line-height: $custom-select-height;
+            cursor: pointer;
+            content: '\e806';
+            display: block;
+            position: absolute;
+            right: 12px;
+            font-size: 15px;
+            top: 0;
+            bottom: 0;
+            color: #2a74de;
+            z-index: 1;
+        }
     }
-
+        
     .container-list-values {
-        width: 300px;
+        width: 190px;
         border: 1px solid #afc2de;
         background-color: #ffffff;
+        position: absolute;
+        z-index: 1;
 
         &.hide-container {
             overflow: hidden;

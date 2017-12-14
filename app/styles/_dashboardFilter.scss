@@ -1,15 +1,26 @@
 .dashboard-filter {
     display: flex;
     flex-direction: row;
+    margin-bottom: 15px;
 
-    wdd-autocomplete, wdd-datepicker, .wdd-labeled-input, .filter-action {
+    wdd-autocomplete, .wdd-labeled-input, .filter-action {
+        flex: 1;
+        width: 200px;
+    }
+
+    wdd-datepicker {
         flex: 1;
         padding: 0 10px;
+        width: 180px; 
     }
 
     .wdd-labeled-input {
         .wdd-button.icon-only {
             height: 25px;
+        }
+
+        .wbb-select {
+            width: 200px;
         }
     }
 
@@ -17,5 +28,12 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
+
+        .wdd-button {
+            &.icon-only {
+                margin-left: 25px;
+            }
+        }
     }
 }
