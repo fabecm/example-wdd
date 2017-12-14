@@ -25,13 +25,13 @@ export class DocumentationRequestsController {
         label: 'Descrizione',
         value: 'description'
     }, {
-        label: 'Data source table',
+        label: 'Data Table',
         value: 'data_table'
     }, {
-        label: 'Data inizio',
+        label: 'Data Inizio',
         value: 'start_date'
     }, {
-        label: 'Data fine',
+        label: 'Data Fine',
         value: 'end_date'
     }, {
         label: 'Stato',
@@ -39,19 +39,19 @@ export class DocumentationRequestsController {
     }];
 
     headerTableExpandable = [{
-        label: 'Data field',
+        label: 'Data Field',
         value: 'data_field'
     }, {
-        label: 'Data table',
+        label: 'Data Table',
         value: 'data_table'
     }, {
-        label: 'Data source',
+        label: 'Data Source',
         value: 'data_source'
     }, {
-        label: 'Technical application',
+        label: 'Technical Application',
         value: 'tech_appl'
     }, {
-        label: 'System owner',
+        label: 'System Owner',
         value: 'system_owner'
     }]
 

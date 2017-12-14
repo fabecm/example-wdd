@@ -16,6 +16,7 @@
         text-transform: uppercase;
         color: $header-primary-color;
         cursor: pointer;
+        user-select: none;
 
         .icon {
             font-size: $header-primart-tab-icon-size;

@@ -15,19 +15,19 @@
 
         <div ng-if="isTextArea">
             <textarea class="wdd-textarea" ng-model="model.value" ng-focus="setFocusOnAttribute(true)"
-                ng-blur="setFocusOnAttribute(false)"></textarea>
+                ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()"></textarea>
         </div>
 
         <div ng-if="isInput">
             <input class="wdd-input-text" ng-model="model.value" ng-focus="setFocusOnAttribute(true)"
-                ng-blur="setFocusOnAttribute(false)" />
+                ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()"/>
         </div>
 
         <div ng-if="isRadioButton">
             <div class="radio" ng-repeat="value in domainValue track by $index">
                 <label>
                     <input type="radio" name="opt_{{attributeName}}" ng-model="model.value" value="{{value}}" ng-focus="setFocusOnAttribute(true)"
-                        ng-blur="setFocusOnAttribute(false)"> {{value.label}}
+                        ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()"> {{value.label}}
                 </label>
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="checkbox" ng-repeat="value in domainValue track by $index">
                 <label>
                     <input type="checkbox" name="opt_{{attributeName}}" ng-model="checkboxModel[value]" value="{{value}}" ng-focus="setFocusOnAttribute(true)"
-                        ng-blur="setFocusOnAttribute(false)"> {{value.label}}
+                        ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()"> {{value.label}}
                 </label>
             </div>
         </div>

@@ -21,22 +21,22 @@ export class ToDoListController {
         label: 'Workspace',
         value: 'workspace'
     }, {
-        label: 'Data field',
+        label: 'Data Field',
         value: 'data_field'
     }, {
-        label: 'Data source table',
+        label: 'Data Table',
         value: 'data_table'
     }, {
-        label: 'Data source',
+        label: 'Data Source',
         value: 'data_source'
     }, {
-        label: 'Technical application',
+        label: 'Technical Application',
         value: 'tech_application'
     }, {
-        label: 'System owner',
+        label: 'System Owner',
         value: 'system_owner'
     }, {
-        label: 'Data scadenza',
+        label: 'Data Scadenza',
         value: 'data_scadenza'
     }];
 

@@ -21,19 +21,19 @@ export class ApprovalRequestsController {
         label: 'Workspace',
         value: 'workspace'
     }, {
-        label: 'Data field',
+        label: 'Data Field',
         value: 'data_field'
     }, {
         label: 'Descrizione Data Field',
         value: 'data_table'
     }, {
-        label: 'Data Source Table',
+        label: 'Data Table',
         value: 'data_source_table'
     }, {
-        label: 'Technical application',
+        label: 'Technical Application',
         value: 'tech_application'
     }, {
-        label: 'System owner',
+        label: 'System Owner',
         value: 'system_owner'
     }, {
         label: 'Data Scadenza',

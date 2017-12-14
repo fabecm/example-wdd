@@ -55,8 +55,8 @@
             </div>
             <div class="footer">
                 <button class="wdd-button alt-color">ELIMINA ENTITA'</button>
-                <button class="wdd-button alt-color" ng-click="vm.resetAttribute">ANNULLA MODIFICHE</button>
-                <button class="wdd-button">SALVA MODIFICHE</button>
+                <button class="wdd-button alt-color" ng-disabled="!vm.checkObject(detail.attributes)" ng-click="vm.resetAttribute">ANNULLA MODIFICHE</button>
+                <button class="wdd-button" ng-disabled="!vm.checkObject(detail.attributes)">SALVA MODIFICHE</button>
             </div>
         </div>
     </div>

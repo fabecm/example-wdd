@@ -37,17 +37,17 @@ const headers = {
             value: 'tech_application'
         }, {
             label: 'System Owner',
-            valule: 'system_owner'
+            value: 'system_owner'
         }
     ]
 };
 
 
-export function DashboardTable (WorkspaceService) {
+export function DashboardTable (WorkspaceService, $log) {
     'ngInject';
     return {
         scope: {
-            title: '@',
+            tableTitle: '@',
             bgcolor: '@',
             tableBody: '=',
             headerType: '@'
@@ -55,9 +55,10 @@ export function DashboardTable (WorkspaceService) {
         template: template,
         link: (scope) => {
             scope.headerArray = headers[scope.headerType];
-            WorkspaceService.getData(scope.key).then(res => {
-                scope.dataList = res;
-            });
+            $log.debug(WorkspaceService);
+            // WorkspaceService.getData(scope.key).then(res => {
+            //     scope.dataList = res;
+            // });
         }
     };
 }

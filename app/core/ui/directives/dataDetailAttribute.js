@@ -78,6 +78,11 @@ export function DataDetailAttribute () {
             };
 
             scope.resetAttribute({resetFunction: scope.reset()});
+
+            scope.valueChanged = () => {
+                ngModel.$setViewValue(scope.model.value);
+                ngModel.$render();
+            }
         }
 
     };

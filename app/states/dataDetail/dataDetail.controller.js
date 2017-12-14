@@ -44,6 +44,10 @@ export class DataDetailController {
         });
     }
 
+    checkObject (obj) {
+        return obj.filter(o => o.default_value).length;
+    }
+
     resetChanges (resetAttribute) {
         this.resetAttribute = resetAttribute;
     }

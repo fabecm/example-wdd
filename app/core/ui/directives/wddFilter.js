@@ -50,7 +50,7 @@ export function WddFilter ($q, ClassificationService) {
                 let filtered = scope.filterSetted.filter(fil => {
                     return fil.text && (fil.text.length > 2);
                 });
-                return scope.filterSetted.length > 0 && filtered.length === scope.filterSetted.length;
+                return scope.filtersArray.length > 0 && filtered.length === scope.filtersArray.length;
             };
 
             scope.setFilter = () => {

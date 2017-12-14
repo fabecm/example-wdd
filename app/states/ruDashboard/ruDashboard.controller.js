@@ -56,19 +56,19 @@ function getHeader ($q) {
 function getHeaderExpandable ($q) {
     let defer = $q.defer();
     defer.resolve([{
-        label: 'Data field',
+        label: 'Data Field',
         value: 'data_field'
     }, {
-        label: 'Data source table',
+        label: 'Data Table',
         value: 'data_table'
     }, {
-        label: 'Data source',
+        label: 'Data Source',
         value: 'data_source'
     }, {
-        label: 'Technical application',
+        label: 'Technical Application',
         value: 'tech_appl'
     }, {
-        label: 'System owner',
+        label: 'System Owner',
         value: 'system_owner'
     }]);
     return defer.promise;
