@@ -26,7 +26,7 @@ export function WddRow () {
 
             console.log(scope.rowData);
 
-            scope.arrayAction = ['collapse', 'checked', 'info', 'primaryNavigation', 'secondaryNavigation'];
+            scope.arrayAction = ['collapse', 'checked', 'info', 'primaryNavigation', 'secondaryNavigation', 'creation'];
             // scope.modelloModel = {};
 
             scope.doAction = (act) => {

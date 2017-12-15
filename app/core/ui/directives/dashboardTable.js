@@ -6,7 +6,7 @@ const headers = {
             label: 'Data Field',
             value: 'data_field'
         }, {
-            label: 'Data Field Description',
+            label: 'Descrizione Data Field',
             value: 'data_field_description'
         }, {
             label: 'Data Table',

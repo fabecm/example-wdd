@@ -55,11 +55,12 @@ export class DocumentationRequestsController {
         value: 'system_owner'
     }]
 
-    constructor (DataService, DatasourceService, $state) {
+    constructor (DataService, DatasourceService, $state, ModalService) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
         this.$state = $state;
+        this.modalService = ModalService;
 
         this.getBootstrap();
         this.loadData();
@@ -84,6 +85,10 @@ export class DocumentationRequestsController {
             // create an array of pages to ng-repeat, + 1 for a correct number
             this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
         });
+    }
+
+    createNewWorkspace () {
+        this.modalService.openNewWorkspaceModal();
     }
 
     sliceDataToShow (currentPage, pageSize) {

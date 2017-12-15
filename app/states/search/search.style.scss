@@ -15,4 +15,29 @@
             }
         }
     }
+
+    .tabbed-tables{
+        overflow: hidden;
+        .wdd-table {
+            border-top-left-radius: 0;
+        }
+        .table-tab-holder{
+            width: 500px;
+            height: 30px;
+            min-height: 30px;
+            border-top-left-radius:  5px;
+            border-top-right-radius:  5px;
+            overflow: hidden;
+        }
+        .table-tab{
+            span {
+                text-transform: initial;
+            }
+            &.selected{
+                &:after {
+                    content: none;
+                }
+            }
+        }
+    }
 }

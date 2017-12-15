@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($timeout, $state) {
+export function WddTable ($timeout, $state, ModalService) {
     'ngInject';
     return {
         scope: {
@@ -19,7 +19,9 @@ export function WddTable ($timeout, $state) {
             hasSecondaryNavigationBtn: '@',
             hasInfoBtn: '@',
             hasPrimaryLabel: '@',
+            actionPrimaryLabel: '&',
             hasSecondaryLabel: '@',
+            actionSecondaryLabel: '&',
             hasCreationBtn: '@'
         },
         template: template,
@@ -143,7 +145,21 @@ export function WddTable ($timeout, $state) {
                     $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id});
                 } else if (row.action === 'secondaryNavigation') {
                     $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id});
+                } else if (row.action === 'info') {
+                    // Add the id to send to the modal
+                    ModalService.openModificationWorkspace();
+                } else if (row.action === 'creation') {
+                    // Add the id to send to the modal
+                    ModalService.openNewWorkspaceRequests();
                 }
+            };
+
+            scope.secondaryAction = () => {
+                scope.actionSecondaryLabel();
+            };
+
+            scope.primaryAction = () => {
+                scope.actionPrimaryLabel();
             };
         }
     };

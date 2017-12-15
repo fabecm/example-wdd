@@ -13,7 +13,7 @@
 
 <td class="icon-container" ng-if="hasIcon">
     <div ng-if="hasInfoBtn">
-        <button class="wdd-button icon-only">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[2])">
             <i class="icon icon-info"></i>
         </button>
     </div>
@@ -23,7 +23,7 @@
         </button>
     </div>
     <div class="col-primary-navigation" ng-if="hasCreation">
-        <button class="wdd-button icon-only">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[5])">
             <i class="icon icon-new"></i>
         </button>
     </div>

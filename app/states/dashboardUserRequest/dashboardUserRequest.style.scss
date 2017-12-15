@@ -1,11 +1,93 @@
 .dashboardUserRequest {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 100%;
     
     .chart-doghout-dash{
         height: 80%;
     }
+}
+.progress-overall-holder{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 50px;
+
+    h2 {
+        align-self: flex-start;
+        font-size: 25px;
+    }
+}
+.overall-progress {
+    position: relative;
+    height: 175px;
+    width: 350px;
+    overflow: hidden;
+
+    .holder{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 350px;
+        width: 350px;
+        background: #eceef3;
+    }
+
+    .progress-circle {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        background: linear-gradient(to right, #4CAF50, transparent);
+        clip: rect(175px, 350px, 350px, 0);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .progress-circle-cover{
+        position: absolute;
+        height: 330px;
+        width: 330px;
+        border-radius: 50%;
+        background: #eceef3;
+        clip: rect(0px, 330px, 165px, 0px);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        .label {
+            height: 70%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                font-size: 40px;
+                color: black;
+            }
+        }
+    }
+
+    .progress-circle-base{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: white;
+        clip: rect(175px, 350px, 350px, 0);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
 }
 
 .workspace-holder{

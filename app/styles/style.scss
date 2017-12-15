@@ -27,3 +27,7 @@ body {
 
     background: #eceef3;
 }
+
+input::-ms-clear {
+    display: none;
+}
