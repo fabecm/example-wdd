@@ -54,12 +54,14 @@
                     Utente Richiedente
                 </div>
                 <div class="col-xs-9">
-                    <select name="" id="">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </select>
+                    <wdd-autocomplete 
+                        ng-model="descriptionSelected.value" 
+                        label="{{labelDescription}}" 
+                        placeholder="{{placeholderDescription}}"
+                        type="{{typeDescription}}" 
+                        list-values="descriptionList" 
+                        ng-change="change()">
+                    </wdd-autocomplete>
                 </div>
             </div>
 
