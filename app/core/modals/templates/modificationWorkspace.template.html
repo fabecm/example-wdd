@@ -29,11 +29,11 @@
                 <div class="col-xs-9 row">
                     <div class="col-xs-6 wwd-modal__row__title">
                         Data Inizio
-                        <input type="date">
+                        <wdd-datepicker ng-model="vm.startDate" label="{{vm.labelStartDate}}"></wdd-datepicker>
                     </div>
                     <div class="col-xs-6 wwd-modal__row__title">
                         Data Fine
-                        <input type="date">
+                        <wdd-datepicker ng-model="vm.startDate" label="{{vm.labelStartDate}}"></wdd-datepicker>
                     </div>
 
                 </div>
@@ -54,12 +54,9 @@
                     Utente Richiedente
                 </div>
                 <div class="col-xs-9">
-                    <select name="" id="">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </select>
+                    <wdd-autocomplete ng-model="descriptionSelected.value" label="{{labelDescription}}" placeholder="{{placeholderDescription}}"
+                        type="{{typeDescription}}" list-values="descriptionList" ng-change="change()">
+                    </wdd-autocomplete>
                 </div>
             </div>
 
@@ -78,13 +75,10 @@
 
     </div>
     <div class="wwd-modal__footer">
-        colored buttons are created in other git branch
-        <br>
-        <br>
-        <button class="wdd-button" type="button">Annulla</button>
-        <button class="wdd-button" type="button">Elimina</button>
+        <button class="wdd-button alt-color" type="button">Annulla</button>
+        <button class="wdd-button alert-color" type="button">Elimina</button>
+        <button class="wdd-button alt-color pull-right" type="button">Invia</button>
         <button class="wdd-button pull-right" type="button">Salva</button>
-        <button class="wdd-button pull-right" type="button">Invia</button>
     </div>
 
 </div>

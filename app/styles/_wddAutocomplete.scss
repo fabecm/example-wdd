@@ -25,6 +25,10 @@
             bottom: 0;
             color: #2a74de;
             z-index: 1;
+
+            &.adjust-icon {
+                margin-top: 4px;
+            }
         }
     }
         
