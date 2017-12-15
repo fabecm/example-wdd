@@ -4,11 +4,12 @@ export class RuDashboardController {
     tablePageSize = 10;
     tableExpandable = true;
 
-    constructor (SearchWorkspaceService, $q, $state) {
+    constructor (SearchWorkspaceService, $q, $state, ModalService) {
         'ngInject';
         this.searchWorkspaceService = SearchWorkspaceService;
         this.$q = $q;
         this.$state = $state;
+        this.modalService = ModalService;
 
         this.initRuDashboard();
     }
@@ -29,6 +30,10 @@ export class RuDashboardController {
         if (this.pageChild) {
             this.$state.go(this.pageChild);
         }
+    }
+
+    createNewWorkspace () {
+        this.modalService.openNewWorkspaceModal();
     }
 }
 

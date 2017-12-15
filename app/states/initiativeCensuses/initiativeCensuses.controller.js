@@ -40,11 +40,12 @@ export class InitiativeCensusesController {
         value: 'data_scadenza'
     }];
 
-    constructor (DataService, DatasourceService, $state) {
+    constructor (DataService, DatasourceService, $state, ModalService) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
         this.$state = $state;
+        this.modalService = ModalService;
 
         this.getBootstrap();
         this.loadData();
@@ -69,6 +70,10 @@ export class InitiativeCensusesController {
             // create an array of pages to ng-repeat, + 1 for a correct number
             this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
         });
+    }
+
+    createNewData () {
+        this.modalService.openNewWorkspaceRequests();
     }
 
     sliceDataToShow (currentPage, pageSize) {

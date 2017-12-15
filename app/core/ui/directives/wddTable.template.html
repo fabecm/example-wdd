@@ -29,8 +29,8 @@
     </table>
 
     <div class="under-table" ng-if="hasUnderTable">
-        <button class="wdd-button" ng-if="hasSecondaryLabel">{{hasSecondaryLabel}}</button>
-        <button class="wdd-button" ng-if="hasPrimaryLabel">{{hasPrimaryLabel}}</button>
+        <button class="wdd-button" ng-if="hasSecondaryLabel" ng-click="secondaryAction()">{{hasSecondaryLabel}}</button>
+        <button class="wdd-button" ng-if="hasPrimaryLabel" ng-click="primaryAction()">{{hasPrimaryLabel}}</button>
     </div>
 
     <div ng-if="pagination" class="table-footer">
