@@ -69,26 +69,26 @@
 
             .col-primary-navigation {
               position: absolute;
-              top: 0;
-              bottom: 0;
+              top: 8px;
+              // bottom: 0;
               right: 0;
               width: 30px;
               display: flex;
               align-items: center;
               justify-content: center;
-              background-color: #d7dfed;
+              // background-color: #d7dfed;
             }
 
             .col-secondary-navigation {
               position: absolute;
-              top: 0;
-              bottom: 0;
+              top: 8px;
+              // bottom: 0;
               right: 30px;
               width: 30px;
               display: flex;
               align-items: center;
               justify-content: center;
-              background-color: #ffffff;
+              // background-color: #ffffff;
             }
           }
         }

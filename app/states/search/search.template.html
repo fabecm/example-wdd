@@ -28,7 +28,7 @@
 
     <wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
 
-    <div class="tabbed-tables">
+    <div class="tabbed-tables" ng-if="vm.rawData.length || vm.rawDataEntity.length">
         <div class="table-tab-holder wdd-primary-header">
             <div class="table-tab wdd-tab" ng-class="{'selected': vm.selectedTab == 0}" ng-click="vm.changeTab(0)">
                 <span>Vista Dato</span>
@@ -45,8 +45,7 @@
         <div ng-if="vm.selectedTab == 1">
             <wdd-table ng-if="vm.rawDataEntity && vm.rawDataEntity.length && vm.headerEntityTable" service-response-obj="{{ {array: vm.rawDataEntity} }}"
                 header-array-obj="{{ {array: vm.headerEntityTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
-                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail"
-                has-secondary-navigation-btn="true" path-secondary-navigation="tab.dataLineage"></wdd-table>
+                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" has-secondary-navigation-btn="true"></wdd-table>
         </div>
     </div>
 </div>

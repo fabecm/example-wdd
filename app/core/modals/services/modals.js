@@ -7,7 +7,8 @@ import NewWorkspaceRequestsTemplate from '../templates/newWorkspaceRequests.temp
 
 import { ApprovalModalController } from '../templates/approvalModal';
 import ApprovalModalTemplate from '../templates/approvalModal.template.html';
-
+import DateApproveTemplate from '../templates/dateApprove.template.html';
+import DateRejectTemplate from '../templates/dateReject.template.html';
 
 export class ModalService {
     constructor ($uibModal) {
@@ -59,6 +60,45 @@ export class ModalService {
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             template: ApprovalModalTemplate,
+            controller: ApprovalModalController,
+            controllerAs: 'vm',
+            resolve: {}
+        });
+
+        modalInstance.result.then();
+    }
+
+    openDateApproveModal () {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: DateApproveTemplate,
+            controller: ApprovalModalController,
+            controllerAs: 'vm',
+            resolve: {}
+        });
+
+        modalInstance.result.then();
+    }
+
+    openDateApproveModal () {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: DateApproveTemplate,
+            controller: ApprovalModalController,
+            controllerAs: 'vm',
+            resolve: {}
+        });
+
+        modalInstance.result.then();
+    }
+    
+    openDateRejectModal () {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: DateRejectTemplate,
             controller: ApprovalModalController,
             controllerAs: 'vm',
             resolve: {}
