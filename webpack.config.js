@@ -2,8 +2,10 @@ const packageJSON = require('./package.json');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const PATHS = {
     build: path.join(__dirname, 'target', 'angular-resources')
@@ -24,6 +26,7 @@ module.exports = function(env) {
         };
     }
     const BUILD = env.mode === 'build';
+    console.log(path.join(__dirname, PATHS.build));
     var config = {
         resolve: {
             modules: [
@@ -41,6 +44,20 @@ module.exports = function(env) {
             path: PATHS.build,
             filename: BUILD ? 'js/' + assetFileName + '.js' : '[name].bundle.js',
             chunkFilename: BUILD ? 'js/chunks/' + assetFileName + '.js' : '[name].bundle.js'
+        },
+        devServer: {
+            port: 3002,
+            historyApiFallback: true,
+            contentBase: PATHS.build,
+            allowedHosts: [
+                '*'
+            ],
+            stats: {
+                modules: true,
+                cached: true,
+                colors: true,
+                chunk: true
+            }
         },
         module: {
             rules: [{
@@ -66,37 +83,11 @@ module.exports = function(env) {
                     loader: 'babel-loader',
                     options: {
                         presets: ['@babel/preset-env'],
-                        plugins: ['angularjs-annotate', 'transform-class-properties']
+                        plugins: ['angularjs-annotate', 'transform-class-properties', 'transform-object-assign']
                     }
                 }, {
                     loader: 'eslint-loader'
                 }]
-            }, {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    use: [{
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }, {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }]
-                })
-
-            }, {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    use: [{
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }]
-                })
             }, {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ['file-loader']
@@ -108,15 +99,83 @@ module.exports = function(env) {
             }]
         },
         plugins: [
+            autoprefixer,
             new HtmlWebpackPlugin({
                 template: path.join(srcDirPath, 'index.html'),
                 filename: 'index.html',
                 inject: 'body'
             }),
             new ExtractTextPlugin('style.css'),
-            new CleanWebpackPlugin([PATHS.build], { verbose: false })
+            new CleanWebpackPlugin([PATHS.build], { verbose: false }),
+            new BrowserSyncPlugin({
+                host: 'localhost',
+                port: 3000,
+                ui: {
+                    port: 3001
+                },
+                proxy: 'http://localhost:3002/',
+                // browser: ['google chrome'],
+                open: false,
+                ghostMode: false
+            }, {
+                reload: false
+            })
         ]
     };
+
+    if (BUILD) {
+        config.module.rules.push({
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                use: [{
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                }, {
+                    loader: 'postcss-loader'
+                }, {
+                    loader: 'sass-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                }]
+            })
+
+        }, {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+                use: [{
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                }, {
+                    loader: 'postcss-loader'
+                }]
+            })
+        });
+    } else {
+        config.module.rules.push({
+            test: /\.scss$/,
+            use: [{
+                loader: 'style-loader',
+                options: { sourceMap: true }
+            }, {
+                loader: 'css-loader',
+                options: { sourceMap: true }
+            }, {
+                loader: 'postcss-loader',
+                options: { sourceMap: true }
+            }, {
+                loader: 'sass-loader',
+                options: { sourceMap: true }
+            }]
+        }, {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader', 'postcss-loader']
+        });
+    }
 
     return config;
 };
