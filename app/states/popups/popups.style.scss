@@ -40,6 +40,12 @@
 
             // stupid idea, but for that moment ok / kb
             margin-top: 10px;
+            // /end of stupid idea
+            &--dark {
+                color: #37475F;
+                font-size: 14px;
+                margin-top: 5px;
+            }
         }
     }
 
@@ -121,3 +127,10 @@
 .modal-content {
     border: 0;
 }
+
+
+
+
+// .wdd-datepicker .align-calendar .wdd-button {
+//     margin: 0;
+// }
