@@ -69,9 +69,10 @@
 
             .col-primary-navigation {
               position: absolute;
-              top: 8px;
+              top: 0px;
               // bottom: 0;
               right: 0;
+              height: 50px;
               width: 30px;
               display: flex;
               align-items: center;

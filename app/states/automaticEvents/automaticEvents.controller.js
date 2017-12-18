@@ -47,11 +47,12 @@ export class AutomaticEventsController {
         value: 'event'
     }];
 
-    constructor (DataService, DatasourceService, $state) {
+    constructor (DataService, DatasourceService, $state, ModalService) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
         this.$state = $state;
+        this.modalService = ModalService;
 
         this.getBootstrap();
         this.loadData();
@@ -61,6 +62,10 @@ export class AutomaticEventsController {
         if (this.pageChild) {
             this.$state.go(this.pageChild);
         }
+    }
+
+    approve () {
+        this.modalService.openDateApproveModal();
     }
 
     loadData (params) {
