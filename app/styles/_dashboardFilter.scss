@@ -10,8 +10,8 @@
 
     wdd-datepicker {
         flex: 1;
-        padding: 0 10px;
-        width: 180px; 
+        // padding: 0 10px;
+        width: 160px; 
     }
 
     .wdd-labeled-input {
@@ -27,8 +27,9 @@
     .filter-action {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
+        bottom: 1px;
 
         .wdd-button {
             &.icon-only {

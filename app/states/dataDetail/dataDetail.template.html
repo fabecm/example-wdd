@@ -35,8 +35,8 @@
         <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="detail in vm.visibleDataDetails track by $index" ng-class="{'active': detail.isOpened}">
             <div class="header">
                 <div class="header-icon">
-                    <button class="wdd-button icon-only has-background" ng-class="{'alt-color': detail.isOpened}">
-                        <i class="icon" ng-class="{'icon-down-arrow': !detail.isOpened, 'icon-up-arrow': detail.isOpened}" ng-click="vm.showAttributeBody(detail)"></i>
+                    <button class="wdd-button icon-only has-background" ng-class="{'alt-color': detail.isOpened}" ng-click="vm.showAttributeBody(detail)">
+                        <i class="icon" ng-class="{'icon-down-arrow': !detail.isOpened, 'icon-up-arrow': detail.isOpened}"></i>
                     </button>
                 </div>
                 <div class="header-title">
