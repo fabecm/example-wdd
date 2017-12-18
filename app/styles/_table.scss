@@ -316,6 +316,9 @@
 .dashboard-table {
   width: 100%;
   margin-bottom: 20px;
+  table {
+    table-layout: fixed;
+  }
   th,
   td {
     border: 1px solid #d7dfed;
@@ -335,7 +338,13 @@
 
 .dashboard-table-cell {
   width: 85px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+td.dashboard-table-cell{
+
+  div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

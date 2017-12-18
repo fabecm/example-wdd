@@ -10,8 +10,8 @@
         </tr>
 
         <tr ng-repeat="obj in tableBody">
-            <td ng-repeat="header in headerArray">
-                <div class="dashboard-table-cell" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{obj[header.value].label}}"
+            <td class="dashboard-table-cell" ng-repeat="header in headerArray">
+                <div tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{obj[header.value].label}}"
                     tooltip-enable="false" show-tooltip>
                     {{obj[header.value].label}}
                 </div>
