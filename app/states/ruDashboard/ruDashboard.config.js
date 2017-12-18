@@ -5,6 +5,7 @@ import RuDashboardTemplate from './ruDashboard.template.html';
 export const stateConfig = {
     url: '/ru-dashboard',
     params: {},
+    requiredAuthorization: [],
     template: RuDashboardTemplate,
     controller: RuDashboardController,
     controllerAs: 'vm'
