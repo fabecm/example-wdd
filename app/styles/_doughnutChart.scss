@@ -8,6 +8,9 @@ doughnut-chart {
 
     .donut-chart-graph {
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         
         .label-chart {
             position: absolute;

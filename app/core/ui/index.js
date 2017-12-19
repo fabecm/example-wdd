@@ -14,6 +14,7 @@ import { WddDatepicker } from './directives/wddDatepicker';
 import { WddCell } from './directives/wddCell';
 import { WddRow } from './directives/wddRow';
 import { WddTable } from './directives/wddTable';
+import { wddProgress } from './directives/wddProgress';
 
 
 export default angular.module('wdd.core.ui', [])
@@ -30,4 +31,5 @@ export default angular.module('wdd.core.ui', [])
     .directive('wddCell', WddCell)
     .directive('wddRow', WddRow)
     .directive('wddTable', WddTable)
+    .directive('wddProgress', wddProgress)
     .name;

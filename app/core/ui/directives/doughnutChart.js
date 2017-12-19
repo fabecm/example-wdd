@@ -52,6 +52,8 @@ export function DoughnutChart ($timeout, $state) {
                         }]
                     },
                     options: {
+                        responsive: false,
+                        cutoutPercentage: 65,
                         tooltips: {
                             enabled: false
                         }
