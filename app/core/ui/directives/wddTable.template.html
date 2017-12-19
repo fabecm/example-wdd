@@ -33,9 +33,15 @@
         </tbody>
     </table>
 
-    <div class="under-table" ng-if="hasUnderTable">
-        <button class="wdd-button" ng-if="hasSecondaryLabel" ng-click="secondaryAction()">{{hasSecondaryLabel}}</button>
-        <button class="wdd-button" ng-if="hasPrimaryLabel" ng-click="primaryAction()">{{hasPrimaryLabel}}</button>
+    <div class="under-table">
+        <div class="left-side">
+            <button class="wdd-button icon-only" tooltip-placement="right" tooltip-class="tooltip-test" uib-tooltip="Esporta"
+            tooltip-enable="false" show-tooltip><i class="icon icon-excel"></i></button>
+        </div>
+        <div class="right-side">
+            <button class="wdd-button" ng-if="hasSecondaryLabel" ng-click="secondaryAction()">{{hasSecondaryLabel}}</button>
+            <button class="wdd-button" ng-if="hasPrimaryLabel" ng-click="primaryAction()">{{hasPrimaryLabel}}</button>
+        </div>
     </div>
 
     <div ng-if="pagination" class="table-footer">

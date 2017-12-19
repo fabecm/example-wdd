@@ -13,22 +13,26 @@
 
 <td class="icon-container" ng-if="hasIcon">
     <div ng-if="hasInfoBtn">
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[2])">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[2])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Info"
+        tooltip-enable="false" show-tooltip>
             <i class="icon icon-info"></i>
         </button>
     </div>
     <div class="col-primary-navigation" ng-if="hasPrimaryNavigationBtn">
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[3])">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[3])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Dettaglio Dato"
+        tooltip-enable="false" show-tooltip>
             <i class="icon icon-workspace-details"></i>
         </button>
     </div>
     <div class="col-primary-navigation" ng-if="hasCreation">
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[5])">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[5])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Inserisci Dato"
+        tooltip-enable="false" show-tooltip>
             <i class="icon icon-new"></i>
         </button>
     </div>
     <div class="col-secondary-navigation" ng-if="hasSecondaryNavigationBtn">
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[4])">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[4])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Data Lineage"
+        tooltip-enable="false" show-tooltip>
             <i class="icon icon-lineage"></i>
         </button>
     </div>
