@@ -1,45 +1,80 @@
-<div class="filter-section-row" ng-class="{'collapsed': isFilterActive}">
-    <div class="filter-section" ng-repeat="item in filtersArray">
-        
-        <div class="wdd-labeled-input">
-            <label for="entity">Entità</label>
-            <div class="wbb-select">
-                <select name="entity" ng-model="filterSetted[$index].entity" ng-options="opt.id as opt.label for opt in item.entity" ng-change="updateAttribute(item, filterSetted[$index])">
-                    <option value="">Seleziona un'entità</option>
-                </select>
+<div class="wdd-filter-container">
+    <div class="filter-section-row" ng-class="{'collapsed': isFilterActive}">
+        <div class="collapsed-box" ng-show="isFilterActive">
+            <span>Filtri</span>
+            <button class="wdd-button width-adapt" ng-click="showFilter()">
                 <i class="icon icon-down-arrow"></i>
+                Espandi
+            </button>
+        </div>
+        <div class="filter-row" ng-show="!isFilterActive">
+            <div class="wdd-labeled-input">
+                <label for="processOwner">Process Owner</label>
+                <div class="wbb-select">
+                    <select name="processOwner" ng-model="processOwnerChosen" ng-options="opt as opt.label for opt in filterBootstrap.processOwner">
+                    </select>
+                    <i class="icon icon-down-arrow"></i>
+                </div>
+            </div>
+            <div class="wdd-labeled-input">
+                <label for="systemOwner">System Owner</label>
+                <div class="wbb-select">
+                    <select name="systemOwner" ng-model="systemOwnerChosen" ng-options="opt as opt.label for opt in filterBootstrap.systemOwner">
+                    </select>
+                    <i class="icon icon-down-arrow"></i>
+                </div>
+            </div>
+            <div class="wdd-labeled-input">
+                <label for="filterStatus">Stato</label>
+                <div class="wbb-select">
+                    <select name="filterStatus" ng-model="statusChosen" ng-options="opt as opt.label for opt in filterStatus">
+                    </select>
+                    <i class="icon icon-down-arrow"></i>
+                </div>
             </div>
         </div>
 
-        <div class="wdd-labeled-input">
-            <label for="attribute">Attributo</label>
-            <div class="wbb-select">
-                <select name="attribute" ng-model="filterSetted[$index].attribute" ng-options="opt.id as opt.label for opt in item.attribute" ng-change="updateEntity(item, filterSetted[$index])">
-                    <option value="">Seleziona un attributo</option>
-                </select>
-                <i class="icon icon-down-arrow"></i>
+        <div class="filter-section" ng-repeat="item in filtersArray" ng-show="!isFilterActive">
+            <div class="wdd-labeled-input">
+                <label for="entity">Entità</label>
+                <div class="wbb-select">
+                    <select name="entity" ng-model="filterSetted[$index].entity" ng-options="opt.id as opt.label for opt in item.entity" ng-change="updateAttribute(item, filterSetted[$index])">
+                        <option value="">Seleziona un'entità</option>
+                    </select>
+                    <i class="icon icon-down-arrow"></i>
+                </div>
             </div>
-        </div>
 
-        <div class="wdd-labeled-input">
-            <label for="text">Text</label>
-            <input class="wdd-input-text" ng-model="filterSetted[$index].text" type="text" name="text" placeholder="Ricerca testuale" />
-        </div>
-            
-        <button class="wdd-button icon-only align-button" ng-click="removeFilter(item)">
-            <i class="icon icon-delete"></i>
-        </button>
+            <div class="wdd-labeled-input">
+                <label for="attribute">Attributo</label>
+                <div class="wbb-select">
+                    <select name="attribute" ng-model="filterSetted[$index].attribute" ng-options="opt.id as opt.label for opt in item.attribute"
+                        ng-change="updateEntity(item, filterSetted[$index])">
+                        <option value="">Seleziona un attributo</option>
+                    </select>
+                    <i class="icon icon-down-arrow"></i>
+                </div>
+            </div>
 
+            <div class="wdd-labeled-input">
+                <label for="text">Text</label>
+                <input class="wdd-input-text" ng-model="filterSetted[$index].text" type="text" name="text" placeholder="Ricerca testuale"
+                />
+            </div>
+
+            <button class="wdd-button icon-only align-button" ng-click="removeFilter(item)">
+                <i class="icon icon-delete"></i>
+            </button>
+        </div>
     </div>
-</div>
 
-<div class="filter-action">
-    <div class="filter-action-buttons">
-        <button class="wdd-button icon-only align-button" ng-click="addNewFilter()">
-            <i class="icon icon-add-filtro"></i>
-        </button>
-        <button ng-hide="isFilterActive && filtersArray.length > 1" class="wdd-button" ng-click="setFilter()" ng-disabled="!checkTextTyped()">Ricerca</button>
-        <button ng-hide="!isFilterActive || filtersArray.length <= 1" class="wdd-button" ng-click="showFilter()">
-            <i class="icon icon-down-arrow"></i>Espandi</button>
+    <div class="filter-action" ng-show="!isFilterActive">
+        <div class="filter-action-buttons">
+            <button class="wdd-button icon-only align-button" ng-click="addNewFilter()" ng-disabled="!checkTextTyped()">
+                <i class="icon icon-add-filtro"></i>
+            </button>
+            <button class="wdd-button width-adapt" ng-click="resetFilter()">Pulisci</button>
+            <button class="wdd-button width-adapt" ng-click="setFilter()" ng-disabled="!checkTextTyped()">Ricerca</button>
+        </div>
     </div>
 </div>

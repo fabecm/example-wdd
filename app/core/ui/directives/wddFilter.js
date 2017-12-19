@@ -1,6 +1,6 @@
 import template from './wddFilter.template.html';
 
-export function WddFilter ($q, ClassificationService) {
+export function WddFilter ($q, ClassificationService, DatasourceService) {
     'ngInject';
     return {
         scope: {
@@ -10,6 +10,14 @@ export function WddFilter ($q, ClassificationService) {
         link: (scope) => {
             scope.filtersArray = [];
             scope.filterSetted = [];
+            scope.filterStatus = [{
+                label: 'Tutti'
+            }, {
+                label: 'Bozza'
+            }, {
+                label: 'Produzione'
+            }];
+            scope.filterArrayBase = [];
 
             let getStandardFilter = () => {
                 return $q.all([ClassificationService.getEntity(), ClassificationService.getAttribute()])
@@ -21,10 +29,21 @@ export function WddFilter ($q, ClassificationService) {
                     });
             };
 
+            let getBootstrap = () => {
+                DatasourceService.getBootstrap().then(res => {
+                    scope.filterBootstrap = {
+                        processOwner: res.data.process_owner,
+                        systemOwner: res.data.system_owner
+                    };
+                });
+            };
+
             let initFilter = () => {
                 getStandardFilter().then(res => {
                     scope.filtersArray = [res];
+                    scope.filterArrayBase = [res];
                 });
+                getBootstrap();
             };
             initFilter();
 
@@ -56,6 +75,18 @@ export function WddFilter ($q, ClassificationService) {
             scope.setFilter = () => {
                 scope.isFilterActive = true;
 
+                let param = {};
+
+                if (scope.processOwnerChosen) {
+                    param.process_owner_id = scope.processOwnerChosen.id;
+                }
+                if (scope.systemOwnerChosen) {
+                    param.system_owner_id = scope.systemOwnerChosen.id;
+                }
+                if (scope.statusChosen) {
+                    param.status_code = scope.statusChosen.label;
+                }
+
                 let array = {};
                 array.array_filter_text = scope.filterSetted.map((filter) => {
                     return {
@@ -65,11 +96,22 @@ export function WddFilter ($q, ClassificationService) {
                     };
                 });
 
-                scope.appliedFilter(array);
+                param.arrayFilter = array.array_filter_text;
+
+                console.log(param);
+                scope.appliedFilter(param);
             };
 
             scope.showFilter = () => {
                 scope.isFilterActive = false;
+            };
+
+            scope.resetFilter = () => {
+                scope.processOwnerChosen = {};
+                scope.systemOwnerChosen = {};
+                scope.statusChosen = {};
+                scope.filterSetted = [];
+                scope.filtersArray = scope.filterArrayBase;
             };
 
             scope.updateEntity = (filter, filterSetted) => {

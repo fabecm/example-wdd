@@ -54,7 +54,7 @@ export class AutomaticEventsController {
         this.$state = $state;
         this.modalService = ModalService;
 
-        this.getBootstrap();
+        // this.getBootstrap();
         this.loadData();
     }
 
@@ -115,21 +115,21 @@ export class AutomaticEventsController {
         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
     }
 
-    filterChanged (arrayFilter) {
-        let param = {};
+    filterChanged (param) {
+        // let param = {};
 
-        if (this.processOwnerChosen) {
-            param.process_owner_id = this.processOwnerChosen.id;
-        }
-        if (this.systemOwnerChosen) {
-            param.system_owner_id = this.systemOwnerChosen.id;
-        }
-        if (this.statusChosen) {
-            param.status_code = this.statusChosen.label;
-        }
-        if (arrayFilter && arrayFilter.length > 0) {
-            param.arrayFilter = arrayFilter;
-        }
+        // if (this.processOwnerChosen) {
+        //     param.process_owner_id = this.processOwnerChosen.id;
+        // }
+        // if (this.systemOwnerChosen) {
+        //     param.system_owner_id = this.systemOwnerChosen.id;
+        // }
+        // if (this.statusChosen) {
+        //     param.status_code = this.statusChosen.label;
+        // }
+        // if (arrayFilter && arrayFilter.length > 0) {
+        //     param.arrayFilter = arrayFilter;
+        // }
 
         this.dataService.getData(param)
         .then(searchData => {
@@ -143,12 +143,12 @@ export class AutomaticEventsController {
         });
     }
 
-    getBootstrap () {
-        this.datasourceService.getBootstrap().then(res => {
-            this.filterBootstrap = {
-                processOwner: res.data.process_owner,
-                systemOwner: res.data.system_owner
-            };
-        });
-    }
+    // getBootstrap () {
+    //     this.datasourceService.getBootstrap().then(res => {
+    //         this.filterBootstrap = {
+    //             processOwner: res.data.process_owner,
+    //             systemOwner: res.data.system_owner
+    //         };
+    //     });
+    // }
 }

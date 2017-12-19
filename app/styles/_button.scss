@@ -98,6 +98,16 @@
         .icon {
             font-size: 20px;
         }
+
+        &[disabled="disabled"]{
+            background: rgba(0,0,0,0) !important;
+            color: #b5b4b4 !important;
+            // z-index: 2;
+            &:after {
+                background: rgba(0,0,0,0) !important;
+            }
+        }
+        
     } // need to be refactored
     &.dark {
         background: $header-primary-tab-background-color;
