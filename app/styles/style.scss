@@ -27,6 +27,9 @@ body {
     -webkit-font-smoothing: antialiased;
 
     background: #eceef3;
+
+    overflow-x: scroll;
+    min-width: 1280px;
 }
 
 input::-ms-clear {
