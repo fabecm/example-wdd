@@ -2,6 +2,8 @@ export class DashboardUserRequestController {
 
     dataList = [];
 
+    overallPercentage = '19';
+
     chartValues = [{
         label: 'Attivi',
         value: 10,

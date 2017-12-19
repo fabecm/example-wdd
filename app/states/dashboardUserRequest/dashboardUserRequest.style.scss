@@ -5,7 +5,10 @@
     height: 100%;
     
     .chart-doghout-dash{
-        height: 80%;
+        height: 100%;
+        padding: 9% 0;
+        border-right: 1px solid rgba(#93acd0, 0.5);
+        margin-right: 30px;
     }
 }
 .progress-overall-holder{
@@ -20,6 +23,39 @@
     h2 {
         align-self: flex-start;
         font-size: 25px;
+    }
+    .progress-overall-line{
+        height: 60px;
+        width: 100%;
+        position: relative;
+        border-radius: 5px;
+        background: rgba(#6ba726, .5);
+        .active-overall-line{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background: #6ba726;
+            border-radius: 5px;
+            .overall-number{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                line-height: 60px;
+                font-size: 40px;
+                color: white;
+                font-weight: bold;
+                width: 100px;
+                margin: 0 10px;
+
+                &.over-20{
+                    right: 0;
+                }
+                &.under-20{
+                    right: -120px;
+                }
+            }
+        }
     }
 }
 .overall-progress {
@@ -93,6 +129,7 @@
 .workspace-holder{
     h2.title {
         font-size: 25px;
+        margin-bottom: 20px;
     }
     .workspace-list{
         width: 100%;

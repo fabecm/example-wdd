@@ -1,0 +1,55 @@
+.wdd-progress{
+    height: 90px;
+    margin: 5px 0;
+    .progress-header{
+        margin-bottom: 5px; 
+        .workspace-name{
+
+        }
+        .data-request{
+            text-transform: uppercase;
+            font-size: 80%;
+            font-weight: bold;
+            float: right;
+        }
+    }
+    .progress-line{
+        height: 20px;
+        position: relative;
+        width: 100%;
+        background: #c7d6ee;
+        border-radius: 5px;
+        .active-line{
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: #93acd0;
+            border-radius: 5px;
+            .line-label{
+                width: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                right: calc(-100px / 2);
+                bottom: -40px;
+                z-index: 2;
+                .censuses-number,
+                .censuses-body {
+                    color: #93acd0;
+                    font-weight: bold;
+                }
+                .censuses-number{
+                    font-size: 130%;
+                    line-height: 17px;
+                }
+                .censuses-body {
+                    text-transform: uppercase;
+                    font-size: 80%;
+                }
+            }
+        }
+    }
+}

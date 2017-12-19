@@ -1,15 +1,15 @@
 <div class="dashboardUserRequest">
-    <div class="col-xs-6 chart-doghout-dash">
+    <div class="col-xs-5 chart-doghout-dash">
         <doughnut-chart array-values="vm.chartValues" hide-label="true"></doughnut-chart>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-xs-7">
 
         <!-- <dashboard-table bgcolor="#0097D9" title="Richieste di documentazione" table-body="vm.dataList" header-type="dateCentric"></dashboard-table>
 
         <dashboard-table bgcolor="#F2BE00" title="Censimenti di iniziativa" table-body="vm.dataList" header-type="dateCentric"></dashboard-table> -->
 
-        <div class="progress-overall-holder" ng-if="false">
+        <!-- <div class="progress-overall-holder" ng-if="false">
             <h2 class="title">Avanzamento Workspace</h2>
             <hr />
             <div class="overall-progress">
@@ -41,8 +41,23 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="progress-overall-holder">
+            <h2 class="title">Avanzamento Complessivo</h2>
+            <div class="progress-overall-line">
+                <div class="active-overall-line" ng-style="{'width': vm.overallPercentage + '%'}">
+                    <div class="overall-number" ng-class="{'under-20': vm.overallPercentage < 20, 'over-20': vm.overallPercentage >= 20}">{{vm.overallPercentage}}%</div>
+                </div>
+            </div>
         </div>
 
-
+        <div class="workspace-holder">
+            <h2 class="title">Avanzamento Workspace</h2>
+            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="80"></wdd-progress>
+            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="50"></wdd-progress>
+            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="74"></wdd-progress>
+            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="30"></wdd-progress>
+            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="0"></wdd-progress>
+        </div>
     </div>
 </div>
