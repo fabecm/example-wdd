@@ -9,7 +9,7 @@
     &.expandable-table {
       tbody {
         tr:nth-child(4n - 3) {
-          background-color: #f8fbff;
+          background-color: rgba(#dee8f8, 0.4);
         }
       }
     }
@@ -36,7 +36,7 @@
     }
     tbody {
       tr:nth-child(even) {
-        background-color: #f8fbff;
+        background-color: rgba(#dee8f8, 0.4);
       }
       tr {
         height: 50px;
