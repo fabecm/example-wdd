@@ -13,6 +13,7 @@ export class DashboardSOController {
         color: '#F2BE00',
         childPage: 'tab.initiativeCensuses'
     }];
+
     constructor (WorkspaceService) {
         'ngInject';
         this.workspaceService = WorkspaceService;

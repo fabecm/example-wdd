@@ -5,9 +5,9 @@
 
     <div class="col-xs-7 table-dash">
 
-        <dashboard-table bgcolor="#0097D9" table-title="Richieste di documentazione" table-body="vm.dataList" header-type="dateCentric"></dashboard-table>
+        <dashboard-table bgcolor="#0097D9" table-title="Richieste di documentazione" table-body="vm.dataList" header-type="dateCentric" child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>
 
-        <dashboard-table bgcolor="#F2BE00" table-title="Censimenti di iniziativa" table-body="vm.dataList" header-type="dateCentric"></dashboard-table>
+        <dashboard-table bgcolor="#F2BE00" table-title="Censimenti di iniziativa" table-body="vm.dataList" header-type="dateCentric" child-page="{{vm.chartValues[1].childPage}}"></dashboard-table>
 
     </div>
 </div>
