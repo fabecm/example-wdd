@@ -26,11 +26,19 @@
             pagination-bool="{{ {boolean: vm.tablePagination} }}" 
             page-size-num="{{ {number: vm.tablePageSize} }}" 
             expandable-bool="{{ {boolean: vm.tableExpandable} }}"
-            header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}" 
+            header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
+
             
-            has-creation-btn="true"
+            has-primary-navigation-btn="true"
+            
+
+            
             path-primary-navigation="tab.dataDetail" 
-            has-secondary-label="Nuovo workspace" 
+
+            has-secondary-label="Nuova entità" 
+            has-primary-label="Approva"
+           
+
             action-secondary-label="vm.createNewWorkspace()">
         </wdd-table>
     </div>
