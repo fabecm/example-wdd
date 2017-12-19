@@ -1,20 +1,20 @@
 .search-page {
     
-    .filter-row{
-        display: flex;
-        flex-direction: row;
-        margin-right: 209px;
-        padding: 0 10px;
+    // .filter-row{
+    //     display: flex;
+    //     flex-direction: row;
+    //     margin-right: 209px;
+    //     padding: 0 10px;
 
-        .wdd-labeled-input {
-            margin: 0 5px;
-            flex: 1;
+    //     .wdd-labeled-input {
+    //         margin: 0 5px;
+    //         flex: 1;
     
-            .wdd-input-text, .wbb-select {
-                width: 80%;
-            }
-        }
-    }
+    //         .wdd-input-text, .wbb-select {
+    //             width: 80%;
+    //         }
+    //     }
+    // }
 
     .tabbed-tables{
         overflow: hidden;
@@ -28,14 +28,17 @@
             border-top-left-radius:  5px;
             border-top-right-radius:  5px;
             overflow: hidden;
-        }
-        .table-tab{
-            span {
-                text-transform: initial;
-            }
-            &.selected{
-                &:after {
-                    content: none;
+            background: transparent;
+            .table-tab{
+                background-color: rgba(#233145, .8);
+                span {
+                    text-transform: initial;
+                }
+                &.selected{
+                    background-color: #233145;
+                    &:after {
+                        content: none;
+                    }
                 }
             }
         }

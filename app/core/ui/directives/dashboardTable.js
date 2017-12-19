@@ -43,22 +43,23 @@ const headers = {
 };
 
 
-export function DashboardTable (WorkspaceService, $log) {
+export function DashboardTable (WorkspaceService, $log, $state) {
     'ngInject';
     return {
         scope: {
             tableTitle: '@',
             bgcolor: '@',
             tableBody: '=',
-            headerType: '@'
+            headerType: '@',
+            childPage: '@'
         },
         template: template,
         link: (scope) => {
             scope.headerArray = headers[scope.headerType];
             $log.debug(WorkspaceService);
-            // WorkspaceService.getData(scope.key).then(res => {
-            //     scope.dataList = res;
-            // });
+            scope.goToChildPage = () => {
+                $state.go(scope.childPage);
+            };
         }
     };
 }

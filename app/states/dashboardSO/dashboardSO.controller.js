@@ -10,9 +10,10 @@ export class DashboardSOController {
     }, {
         label: 'Censimenti di iniziativa',
         value: 0,
-        color: '#F2BE00',
+        color: '#00796B',
         childPage: 'tab.initiativeCensuses'
     }];
+
     constructor (WorkspaceService) {
         'ngInject';
         this.workspaceService = WorkspaceService;

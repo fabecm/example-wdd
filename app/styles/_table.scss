@@ -2,13 +2,14 @@
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
   table {
     width: 100%;
 
     &.expandable-table {
       tbody {
         tr:nth-child(4n - 3) {
-          background-color: #f8fbff;
+          background-color: rgba(#dee8f8, 0.4);
         }
       }
     }
@@ -35,14 +36,14 @@
     }
     tbody {
       tr:nth-child(even) {
-        background-color: #f8fbff;
+        background-color: rgba(#dee8f8, 0.4);
       }
       tr {
-        height: 50px;
+        height: 40px;
         background: white;
         td {
           padding: 5px;
-
+          border-right: 1px solid #d7dfed;
           &.expandable-container {
             padding: 0px;
           }
@@ -69,10 +70,10 @@
 
             .col-primary-navigation {
               position: absolute;
-              top: 0px;
+              top: 6px;
               // bottom: 0;
               right: 0;
-              height: 50px;
+              height: 40px;
               width: 30px;
               display: flex;
               align-items: center;
@@ -148,6 +149,31 @@
     .table-footer {
       background-color: #afc2de;
       color: #ffffff;
+    }
+  }
+
+  .under-table {
+    border-top: 1px solid #d7dfed;
+    background-color: #eceef3;
+    height: 35px;
+    &:first-child { 
+      margin-right: 20px;
+    }
+
+    .right-side {
+      float: right;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left-side {
+      float: left;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

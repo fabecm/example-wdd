@@ -7,12 +7,12 @@ export class DashboardUserRequestController {
     chartValues = [{
         label: 'Attivi',
         value: 10,
-        color: '#0097D9',
+        color: '#0288D1',
         childPage: 'tab.toBeMonitored'
     }, {
         label: 'Nuovi',
         value: 2,
-        color: '#F2BE00',
+        color: '#FB8C00',
         childPage: 'tab.ruDashboard'
     }];
 

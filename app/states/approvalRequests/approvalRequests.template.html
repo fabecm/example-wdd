@@ -7,36 +7,6 @@
         </select>
         <i class="icon icon-down-arrow"></i>
     </div>
-    <button class="wdd-button excel pull-right">
-        <i class="icon icon-excel"></i> esporta
-    </button>
-    <hr />
-    <div class="filter-row">
-        <div class="wdd-labeled-input">
-            <label for="processOwner">Process Owner</label>
-            <div class="wbb-select">
-                <select name="processOwner" ng-model="vm.processOwnerChosen" ng-options="opt as opt.label for opt in vm.filterBootstrap.processOwner">
-                </select>
-                <i class="icon icon-down-arrow"></i>
-            </div>
-        </div>
-        <div class="wdd-labeled-input">
-            <label for="systemOwner">System Owner</label>
-            <div class="wbb-select">
-                <select name="systemOwner" ng-model="vm.systemOwnerChosen" ng-options="opt as opt.label for opt in vm.filterBootstrap.systemOwner">
-                </select>
-                <i class="icon icon-down-arrow"></i>
-            </div>
-        </div>
-        <div class="wdd-labeled-input">
-            <label for="filterStatus">Stato</label>
-            <div class="wbb-select">
-                <select name="filterStatus" ng-model="vm.statusChosen" ng-options="opt as opt.label for opt in vm.filterStatus">
-                </select>
-                <i class="icon icon-down-arrow"></i>
-            </div>
-        </div>
-    </div>
 
     <wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
 
