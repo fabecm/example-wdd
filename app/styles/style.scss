@@ -28,8 +28,9 @@ body {
 
     background: #eceef3;
 
-    overflow-x: scroll;
+    min-height: 1024px;
     min-width: 1280px;
+    overflow: scroll;
 }
 
 input::-ms-clear {
