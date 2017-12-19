@@ -13,6 +13,8 @@ import { stateConfig as DocumentationRequestsConfig } from './documentationReque
 import { stateConfig as ToBeMonitoredConfig } from './toBeMonitored/toBeMonitored.config';
 import { stateConfig as DashboardRequestConfig } from './dashboardRequest/dashboardRequest.config';
 import { stateConfig as DashboardUserRequestConfig } from './dashboardUserRequest/dashboardUserRequest.config';
+import { stateConfig as EntityCensusConfig } from './entityCensus/entityCensus.config';
+import { stateConfig as EntityApprovalRequestConfig } from './entityApprovalRequest/entityApprovalRequest.config';
 
 export default angular.module('wdd.states', [])
     .config(($stateProvider, $urlRouterProvider) => {
@@ -31,6 +33,8 @@ export default angular.module('wdd.states', [])
             .state('tab.ruDashboard', RuDashboardConfig)
             .state('tab.toBeMonitored', ToBeMonitoredConfig)
             .state('tab.dashboardRequest', DashboardRequestConfig)
+            .state('tab.entityCensus', EntityCensusConfig)
+            .state('tab.entityApprovalRequest', EntityApprovalRequestConfig)
             .state('tab.dashboardUserRequest', DashboardUserRequestConfig);
 
         $urlRouterProvider.otherwise(DashboardSOConfig.url);
