@@ -338,6 +338,11 @@
 
     border-right: 1px solid #d7dfed;
   }
+  td:last-of-type {
+    border-right: 0;
+  } 
+
+  
   th {
     border: 1px solid #233145;
   }
