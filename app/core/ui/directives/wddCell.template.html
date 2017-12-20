@@ -1,4 +1,5 @@
 <div class="table-cell" ng-repeat="cellValue in parsedCell" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{cellValue.label}}"
     tooltip-enable="false" show-tooltip>
     {{cellValue.label}}
+    <i ng-class="cellValue.icon"></i>
 </div>

@@ -10,7 +10,7 @@
     </div>
 </td>
 
-<td wdd-cell ng-repeat="c in column track by $index" cell="rowData[c.value]" class="has-border"></td>
+<td wdd-cell ng-repeat="c in column track by $index" cell="rowData[c.value]" header="c.value" class="has-border"></td>
 
 <td class="icon-container" ng-if="hasIcon">
     <div ng-if="hasInfoBtn">
