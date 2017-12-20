@@ -5,14 +5,29 @@
         <div class="square box-{{key}}" ng-class="{'hide-square': !box}" ng-repeat="(key, box) in vm.lineageBoxes track by $index">
             <div class="title">
                 <label>{{box.title}}</label>
-                <i ng-if="box.infoOperation" class="icon icon-info" ng-click="box.infoOperation(box.data.id)"></i>
+                <i ng-if="box.infoOperation" class="icon icon-workspace-details" ng-click="box.infoOperation(box.data.id)"></i>
             </div>
             <div class="body">
-                <div ng-class="{'interactive': box.operation}" ng-if="box.data.label && !box.data.length" ng-click="box.operation(item.id)">
+                <div ng-class="{'interactive': box.operation, 'content-bold': box.contentBold}" ng-if="box.data.label && !box.data.length"
+                    ng-click="box.operation(item.id)">
                     {{box.data.label}}
                 </div>
-                <div ng-class="{'interactive': box.operation}" ng-if="!box.data.label && box.data.length && box.data[0]" ng-repeat="item in box.data track by $index" ng-click="box.operation(item.id)">
-                    {{item.label}}
+                <div ng-class="{'interactive': box.operation}" ng-if="!box.data.label && box.data.length && box.data[0]" ng-repeat="item in box.data track by $index"
+                    ng-click="box.operation(item.id)">
+
+                    <div ng-if="!box.showType" ng-class="{'content-bold': box.contentBold}">
+                        {{item.label}}
+                    </div>
+                    <div class="holder-type" ng-if="box.showType">
+                        <label class="label-type">{{item.type}}</label>
+                        <span class="content-bold">{{item.label}}</span>
+                    </div>
+
+                </div>
+
+                <div class="holder-description" ng-if="box.hasDescription">
+                    <span class="description-label" class>Descrizione</span>
+                    <div class="description-box">{{box.data.description}}</div>
                 </div>
             </div>
 

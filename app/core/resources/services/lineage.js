@@ -26,7 +26,10 @@ export class LineageService {
 function getLineageRuleMock () {
     return {
         data: {
-            business_rule: {},
+            business_rule: {
+                label: 'MOTIVO_STATO_ENTE - R_MONETICA.BD_TSEC67',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu...'
+            },
             data_field_in: [
                 {
                     label: 'MOTIVO_STATO_ENTE - DSEC.TSEC67',
@@ -34,7 +37,8 @@ function getLineageRuleMock () {
                 }
             ],
             tech_rules: {
-                label: 'MOTIVO_STATO_ENTE - R_MONETICA.BD_TSEC67'
+                label: 'MOTIVO_STATO_ENTE - R_MONETICA.BD_TSEC67',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu...'
             },
             program: [],
             data_field_out: [
@@ -52,16 +56,20 @@ function getLineageFieldMock () {
         data: {
             tech_hierarchy: [
                 {
-                    label: 'UBIS-BIG DATA & ANALYTICS'
+                    label: 'UBIS-BIG DATA & ANALYTICS',
+                    type: 'SYSTEM OWNER'
                 },
                 {
-                    label: 'BIG'
+                    label: 'BIG',
+                    type: 'TECHNICAL APPLICATION'
                 },
                 {
-                    label: 'R_MONETICA'
+                    label: 'R_MONETICA',
+                    type: 'DATA SOURCE'
                 },
                 {
-                    label: 'BD_TSEC67 - R_MONETICA'
+                    label: 'BD_TSEC67 - R_MONETICA',
+                    type: 'DATA TABLE'
                 }
             ],
             data_field: {
