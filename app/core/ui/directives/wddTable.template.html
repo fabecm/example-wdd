@@ -1,7 +1,8 @@
 <div class="wdd-table" ng-if="serviceResponse" ng-class="{'child-table': isChild}">
     <table ng-class="{'expandable-table': expandable}">
         <thead>
-            <th ng-if="expandable || isChecked">
+            <th ng-if="isChild" class="baseHeaderIconWidth"></th>
+            <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
                 <div ng-if="isChecked">
                     <input type="checkbox">
                 </div>
@@ -9,18 +10,15 @@
             <th ng-repeat="item in headerArray track by $index">
                 {{item.label}}
             </th>
-            <th ng-if="hasIcon" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2}"></th>
+            <th ng-if="hasIcon" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2}"></th>
+            <th ng-if="isChild" class="baseHeaderIconWidth"></th>
         </thead>
         <tbody>
 
-            <tr class="base-row" 
-            wdd-row ng-if="serviceResponse" 
-            ng-repeat-start="data in serviceResponse track by $index" 
-            row-data="data" column="headerArray"
-                action-function="rowAction(rowSelected)" row-key="$index" 
-                row-checked="isChecked" row-collapse="expandable" has-info-btn="info"
-                has-primary-navigation-btn="primaryNavigation" 
-                has-secondary-navigation-btn="secondaryNavigation" has-creation="hasCreation"></tr>
+            <tr class="base-row" wdd-row ng-if="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
+                column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
+                has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
+                has-creation="hasCreation" is-from-child-table="isChild"></tr>
 
             <tr ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse}">
                 <td class="expandable-container" colspan="{{childCollspan()}}">
@@ -33,10 +31,12 @@
         </tbody>
     </table>
 
-    <div class="under-table">
+    <div class="under-table" ng-if="!isChild">
         <div class="left-side">
-            <button class="wdd-button icon-only" tooltip-placement="right" tooltip-class="tooltip-test" uib-tooltip="Esporta"
-            tooltip-enable="false" show-tooltip><i class="icon icon-excel"></i></button>
+            <button class="wdd-button icon-only" tooltip-placement="right" tooltip-class="tooltip-test" uib-tooltip="Esporta" tooltip-enable="false"
+                show-tooltip>
+                <i class="icon icon-excel"></i>
+            </button>
         </div>
         <div class="right-side">
             <button class="wdd-button" ng-if="hasSecondaryLabel" ng-click="secondaryAction()">{{hasSecondaryLabel}}</button>
@@ -60,7 +60,7 @@
         <div class="isChildButton" ng-if="isChild">
             <button class="wdd-button">
                 <i class="icon icon-share"></i>
-                Inoltra selezionati  
+                Inoltra selezionati
             </button>
         </div>
     </div>

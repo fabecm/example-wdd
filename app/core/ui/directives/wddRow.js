@@ -12,7 +12,8 @@ export function WddRow () {
             hasPrimaryNavigationBtn: '=',
             hasSecondaryNavigationBtn: '=',
             hasInfoBtn: '=',
-            hasCreation: '='
+            hasCreation: '=',
+            isFromChildTable: '='
         },
         template: template,
         link: (scope) => {

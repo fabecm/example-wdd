@@ -5,7 +5,7 @@
   cursor: pointer;
   table {
     width: 100%;
-
+    table-layout: fixed;
     &.expandable-table {
       tbody {
         tr:nth-child(4n - 3) {
@@ -24,12 +24,14 @@
           // in design align is left
           // text-align: center;
           padding: 5px;
-
+          &.baseHeaderIconWidth {
+            width: 45px;
+          }
           &.hasOneIcon {
-            width: 30px;
+            width: 30px !important;
           }
           &.hasTwoIcon {
-            width: 60px;
+            width: 60px !important;
           }
         }
       }
@@ -43,10 +45,13 @@
         background: white;
         td {
           padding: 5px;
-          border-right: 1px solid #d7dfed;
           position: relative;
           &.expandable-container {
             padding: 0px;
+          }
+
+          &.has-border{
+            border-right: 1px solid #d7dfed;
           }
 
           .wdd-table-cell{
