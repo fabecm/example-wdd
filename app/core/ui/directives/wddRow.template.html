@@ -1,7 +1,8 @@
+<td class="first-column-child-table" ng-if="isFromChildTable"></td>
 <td ng-if="action">
     <div ng-if="rowCollapse">
         <button class="wdd-button icon-only" ng-click="doAction(arrayAction[0])">
-            <i class="icon icon-down-arrow"></i>
+            <i class="icon" ng-class="{'icon-down-arrow': rowData.workspace.collapse, 'icon-up-arrow': !rowData.workspace.collapse}"></i>
         </button>
     </div>
     <div ng-if="rowChecked">
@@ -9,7 +10,7 @@
     </div>
 </td>
 
-<td wdd-cell ng-repeat="c in column track by $index" cell="rowData[c.value]"></td>
+<td wdd-cell ng-repeat="c in column track by $index" cell="rowData[c.value]" header="c.value" class="has-border"></td>
 
 <td class="icon-container" ng-if="hasIcon">
     <div ng-if="hasInfoBtn">
@@ -37,3 +38,4 @@
         </button>
     </div>
 </td>
+<td ng-if="isFromChildTable"></td>

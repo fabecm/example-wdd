@@ -33,11 +33,11 @@
     }
         
     .container-list-values {
-        width: 190px;
+        min-width: 100%;
         border: 1px solid #afc2de;
         background-color: #ffffff;
         position: absolute;
-        z-index: 1;
+        z-index: 2;
 
         &.hide-container {
             overflow: hidden;
@@ -48,6 +48,10 @@
         .option-value {
 
             cursor: pointer;
+            // border-bottom: 1px solid rgba(#afc2de, .5);
+            font-size: 90%;
+            line-height: 20px;
+            white-space: nowrap;
 
             &:hover {
                 background-color: #2a74de;

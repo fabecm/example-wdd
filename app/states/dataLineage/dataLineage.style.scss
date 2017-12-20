@@ -33,6 +33,38 @@ $squareBorder: 1px;
                 overflow-y: auto;
                 width: 100%;
                 padding: 0 5px 0 5px;
+
+                .content-bold {
+                    font-weight: 700;
+                }
+
+                .holder-type {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 5px;
+
+                    .label-type {
+                        margin-bottom: 0;
+                        font-size: 11px;
+                        font-weight: 100;
+                    }
+                }
+
+                .holder-description {
+                    margin-top: 20px;
+
+                    .description-label {
+
+                    }
+                    .description-box {
+                        padding: 5px;
+                        border: 1px solid;
+                        border-radius: 5px;
+                        max-height: 124px;
+                        overflow: hidden;
+                    }
+
+                }
             }
 
             .interactive {

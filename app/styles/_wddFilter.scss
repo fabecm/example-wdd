@@ -26,16 +26,9 @@
 }
 
 .filter-section{
-    height: auto;
     display: flex;
     flex: 1;
     flex-direction: row;
-    align-items: center;
-    
-    .wdd-labeled-input {
-        flex: 1;
-        margin: 0 5px;
-    }
 }
 
 wdd-filter{
@@ -46,14 +39,34 @@ wdd-filter{
     
     .filter-section-row{
         flex: 1;
-        overflow: hidden;
+        // overflow: hidden;
+
+        wdd-autocomplete{
+            margin: 0 5px;
+            flex: 1;
+            .wdd-autocomplete{
+                width: 80%;
+                input {
+                    width: 100%;
+                }
+            }
+        }
         
         .filter-row{
             display: flex;
             flex-direction: row;
             margin-right: 34px;
-            
-            .wdd-labeled-input {
+            > wdd-autocomplete{
+                margin: 0 5px;
+                flex: 1;
+                .wdd-autocomplete{
+                    width: 80%;
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
+            &>.wdd-labeled-input {
                 margin: 0 5px;
                 flex: 1;
                 
@@ -68,8 +81,9 @@ wdd-filter{
         }
     }
     
-    .wdd-labeled-input {
-        margin: 0 20px;
+    .filter-section>.wdd-labeled-input {
+        margin: 0 5px;
+        flex: 1;
         
         .wdd-input-text, .wbb-select {
             width: 80%;

@@ -26,7 +26,7 @@ export class DataLineageController {
                 this.lineageBoxes[1] = {
                     title: 'Technical Hierarchy',
                     data: res.data.tech_hierarchy,
-                    operation: null
+                    showType: true
                 };
             }
 
@@ -41,6 +41,7 @@ export class DataLineageController {
             this.lineageBoxes[4] = {
                 title: 'Data Field',
                 data: res.data.data_field,
+                contentBold: true,
                 infoOperation: this.goToDataDetail.bind(this)
             };
 
@@ -86,6 +87,7 @@ export class DataLineageController {
                 this.lineageBoxes[1] = {
                     title: 'Business Rule',
                     data: res.data.business_rule,
+                    hasDescription: true,
                     operation: null
                 };
             }
@@ -101,7 +103,9 @@ export class DataLineageController {
             this.lineageBoxes[4] = {
                 title: 'Technical Rule',
                 data: res.data.tech_rules,
-                operation: null
+                contentBold: true,
+                hasDescription: true,
+                infoOperation: this.goToDataDetail.bind(this)
             };
 
             if (res.data.data_field_out.length > 0) {

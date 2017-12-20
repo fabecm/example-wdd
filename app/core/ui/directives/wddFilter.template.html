@@ -8,7 +8,9 @@
             </button>
         </div>
         <div class="filter-row" ng-show="!isFilterActive">
-            <div class="wdd-labeled-input">
+            <wdd-autocomplete ng-model="modelle" label="Process Owner" placeholder="Seleziona" list-values="filterBootstrap.processOwner"></wdd-autocomplete>
+            <wdd-autocomplete ng-model="modellissimi" label="System Owner" placeholder="Seleziona" list-values="filterBootstrap.systemOwner"></wdd-autocomplete>
+            <!-- <div class="wdd-labeled-input">
                 <label for="processOwner">Process Owner</label>
                 <div class="wbb-select">
                     <select name="processOwner" ng-model="processOwnerChosen" ng-options="opt as opt.label for opt in filterBootstrap.processOwner">
@@ -23,7 +25,7 @@
                     </select>
                     <i class="icon icon-down-arrow"></i>
                 </div>
-            </div>
+            </div>  -->
             <div class="wdd-labeled-input">
                 <label for="filterStatus">Stato</label>
                 <div class="wbb-select">
@@ -35,7 +37,10 @@
         </div>
 
         <div class="filter-section" ng-repeat="item in filtersArray" ng-show="!isFilterActive">
-            <div class="wdd-labeled-input">
+            <wdd-autocomplete ng-model="modello" label="Entità" placeholder="Seleziona un'entità" list-values="item.entity"></wdd-autocomplete>
+            <wdd-autocomplete ng-model="modella" label="Attributo" placeholder="Seleziona un attributo" list-values="item.attribute"></wdd-autocomplete>
+            
+            <!-- <div class="wdd-labeled-input">
                 <label for="entity">Entità</label>
                 <div class="wbb-select">
                     <select name="entity" ng-model="filterSetted[$index].entity" ng-options="opt.id as opt.label for opt in item.entity" ng-change="updateAttribute(item, filterSetted[$index])">
@@ -54,7 +59,7 @@
                     </select>
                     <i class="icon icon-down-arrow"></i>
                 </div>
-            </div>
+            </div> -->
 
             <div class="wdd-labeled-input">
                 <label for="text">Text</label>
