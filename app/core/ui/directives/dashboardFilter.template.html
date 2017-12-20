@@ -20,12 +20,14 @@
     <wdd-datepicker ng-model="endDate" label="{{labelEndDate}}"></wdd-datepicker>
 
     <div class="filter-action">
-        <div class="wdd-button">
-            applica filtri
+        <!-- <div class="wdd-button">
+            applica filtri2
         </div>
         
         <button class="wdd-button icon-only">
             <i class="icon icon-reset"></i>
-        </button>
+        </button> -->
+        <button class="wdd-button width-adapt" ng-click="resetFilter()">Pulisci</button>
+        <button class="wdd-button width-adapt" ng-click="setFilter()">Ricerca</button>
     </div>
 </div>
