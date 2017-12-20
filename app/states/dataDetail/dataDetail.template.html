@@ -22,90 +22,22 @@
         </div>
     </div>
 
-    <div class="process-list-holder">
-        <div class="dots-holder">
-            <div class="process-list-dot" ng-repeat="pro in vm.processes">
-                <label>{{ pro.label }}</label>
-                <div class="test-dot" ng-class="{'enabled': pro.enabled}"></div>
-            </div>
-        </div>
-
-
-    </div>
-
-    <br>
-    <br>
     <div class="process-steps">
-        <div class="step">
-            <div class="title">
-                Step 1
-            </div>
-            <div class="bar test12">
-                <div class="dot">
-                    <div class="dot-in-dot">
+        <div class="process-steps__container">
+            <div class="step" ng-repeat="pro in vm.processes" ng-class="{'step--complete': pro.enabled}">
+                <div class="title">
+                    {{ pro.label }}
+                </div>
+                <div class="bar">
+                    <div class="dot">
+                        <div class="dot-in-dot">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="step">
-            <div class="title">
-                Step 2
-            </div>
-            <div class="bar">
-                <div class="dot">
-                    <div class="dot-in-dot">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="step">
-            <div class="title">
-                Step 3
-            </div>
-            <div class="bar">
-                <div class="dot">
-                    <div class="dot-in-dot">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="step">
-            <div class="title">
-                Step 4
-            </div>
-            <div class="bar">
-                <div class="dot">
-                    <div class="dot-in-dot">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="step step--incomplete">
-            <div class="title">
-                Step 5
-            </div>
-            <div class="bar">
-                <div class="dot">
-                    <div class="dot-in-dot">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="step step--incomplete">
-            <div class="title">
-                Step 6
-            </div>
-            <div class="bar">
-                <div class="dot">
-                    <div class="dot-in-dot">
-                    </div>
-                </div>
-            </div>
-        </div>
 
+        </div>
     </div>
-    <br>
-    <br>
 
     <div class="details-container">
         <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="detail in vm.visibleDataDetails track by $index" ng-class="{'active': detail.isOpened}">

@@ -148,40 +148,35 @@ $header-data-detail: 50px;
 }
 
 
-.title :first-child {
-    background-color: red;
-}
-
-.step:first-child {
-    .bar {
-        border-top-left-radius: 25px;
-        border-bottom-left-radius: 25px;
-        background-color: red;
-
-    }
-}
 .process-steps {
-    .step--incomplete {
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    &__container {
+        position: relative;
+        padding: 10px;
+        padding-right: 20px;
+        border-radius: 5px;
+        background-color: rgba(239, 239, 239, 0.5);
+        box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
+    }
+    .step--complete {
         .bar {
-            background-color: #DBD8D1 !important;
+            background-color: #004374 !important;
             .dot {
-                background-color: #DBD8D1 !important;
-                right: 0 !important;
-                
+                background-color: #004374 !important;             
                 .dot-in-dot {
-                    background-color: #FFFF00 !important;
+                    background-color: #00f800 !important;
                 }
             }
         }
-
         &:last-child{
             .bar {
                 border-top-right-radius: 25px;
                 border-bottom-right-radius: 25px; 
             }
         }
-
     }
     .step {
         width: 100px;
@@ -192,7 +187,7 @@ $header-data-detail: 50px;
             padding-bottom: 5px;
 
             font-weight: 700;
-            font-size: 12px;
+            // font-size: 12px;
         }
         &:first-child{
             .bar {
@@ -202,11 +197,11 @@ $header-data-detail: 50px;
         }
         .bar {
             height: 20px;
-            background-color: #004374;
+            background-color: #DBD8D1;
             .dot {
                 width: 20px;
                 height: 20px;
-                background-color: #004374;
+                background-color: #DBD8D1;
                 border-radius: 50%;
                 float: right;
                 position: relative;
@@ -219,7 +214,7 @@ $header-data-detail: 50px;
                 .dot-in-dot {
                     width: 12px;
                     height: 12px;
-                    background-color: #00f800;
+                    background-color: #FFFF00;
                     border-radius: 50%;
                 }
             }
