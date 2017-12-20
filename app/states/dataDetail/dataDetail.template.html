@@ -7,10 +7,6 @@
             <label>{{vm.visibleDataDetails[0].term.name}}</label>
         </div>
         <div class="right-side">
-            <button class="wdd-button spacingRight ">
-                <i class="icon icon-new"></i>
-                NUOVA ENTITA'
-            </button>
             <button class="wdd-button" ng-click="vm.changeAllDetailStatus(true)" ng-if="vm.checkDetailStatus()">
                 <i class="icon icon-espandi-tutto"></i>
                 ESPANDI TUTTO
@@ -35,7 +31,7 @@
         <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="detail in vm.visibleDataDetails track by $index" ng-class="{'active': detail.isOpened}">
             <div class="header">
                 <div class="header-icon">
-                    <button class="wdd-button icon-only has-background" ng-class="{'alt-color': detail.isOpened}" ng-click="vm.showAttributeBody(detail)">
+                    <button class="wdd-button icon-only" ng-click="vm.showAttributeBody(detail)">
                         <i class="icon" ng-class="{'icon-down-arrow': !detail.isOpened, 'icon-up-arrow': detail.isOpened}"></i>
                     </button>
                 </div>
@@ -49,7 +45,8 @@
             </div>
             <div class="body">
                 <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'">
-                    <att ng-model="attr.default_value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}" reset-attribute="vm.resetChanges(resetFunction)">
+                    <att ng-model="attr.default_value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
+                        reset-attribute="vm.resetChanges(resetFunction)">
                     </att>
                 </div>
             </div>
@@ -57,6 +54,21 @@
                 <button class="wdd-button alt-color">ELIMINA ENTITA'</button>
                 <button class="wdd-button alt-color" ng-disabled="!vm.checkObject(detail.attributes)" ng-click="vm.resetAttribute">ANNULLA MODIFICHE</button>
                 <button class="wdd-button" ng-disabled="!vm.checkObject(detail.attributes)">SALVA MODIFICHE</button>
+            </div>
+        </div>
+        <div class="detail-container">
+            <div class="header">
+                <div class="header-icon">
+                    <button class="wdd-button icon-only">
+                        <i class="icon icon-new"></i>
+                    </button>
+                </div>
+                <div class="header-title">
+                    <label class="header-title-elem type-elem">Business Data</label>
+                </div>
+                <div class="header-label">
+                    <label class="wdd-label">Incompleto</label>
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 $button-color: #ffffff;
 $button-background-color: #2a74de;
-$header-data-detail: 50px;
+$header-data-detail: 40px;
 
 .data-detail-page {
     height: 100%;
@@ -69,6 +69,7 @@ $header-data-detail: 50px;
                 height: $header-data-detail;
                 background-color: #afc2de;
                 color: #ffffff;
+                border-bottom: 1px solid #ffffff;
 
                 .header-label {
                     flex-grow: 1;
@@ -122,6 +123,7 @@ $header-data-detail: 50px;
                 background-color: #dee8f8;
                 justify-content: center;
                 align-items: center;
+                border-bottom: 1px solid #ffffff;
 
                 .wdd-button {
                     margin-right: 20px;

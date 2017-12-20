@@ -12,6 +12,9 @@
     border: $label-border;
     border-radius: $label-border-radius;
     margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:after {
         content: '';

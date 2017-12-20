@@ -84,7 +84,7 @@ function getMockedData ($q) {
                         name: 'Master Data',
                         values: [{ value: 'N', ftype: 'SINGLESELECTLIST' }],
                         domain_values: [{ label: 'TRUE' }, { label: 'FALSE' }],
-                        ftype: 'SINGLESELECTLIST',
+                        ftype: 'FLAG',
                         position: '8'
                     },
                     {
@@ -106,6 +106,12 @@ function getMockedData ($q) {
                         values: [{ ftype: 'VALUETEXT' }],
                         ftype: 'VALUETEXT',
                         position: '7'
+                    },
+                    {
+                        name: 'Attach',
+                        ftype: 'FILE',
+                        domainValue: [],
+                        position: '11'
                     }
                 ],
                 status: 'completo'

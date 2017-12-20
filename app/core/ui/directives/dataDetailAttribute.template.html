@@ -6,30 +6,43 @@
             <label for="attachFile">
                 <i class="icon icon-new"></i>
             </label>
-            <input id="attachFile" type="file" class="hiddenAttachFile">
-            <i class="icon icon-delete"></i>
+            <input id="attachFile" type="file" class="hiddenAttachFile" onchange="angular.element(this).scope().fileNameChanged(this.files)">
+            <i class="icon icon-delete" ng-click="removeFile()"></i>
         </div>
     </div>
 
     <div class="attribute-value">
 
         <div ng-if="isTextArea">
-            <textarea class="wdd-textarea" ng-model="model.value" ng-focus="setFocusOnAttribute(true)"
-                ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()"></textarea>
+            <textarea class="wdd-textarea" ng-model="model.value" ng-focus="setFocusOnAttribute(true)" ng-blur="setFocusOnAttribute(false)"
+                ng-change="valueChanged()"></textarea>
         </div>
 
         <div ng-if="isInput">
-            <input class="wdd-input-text" ng-model="model.value" ng-focus="setFocusOnAttribute(true)"
-                ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()"/>
+            <input class="wdd-input-text" ng-model="model.value" ng-focus="setFocusOnAttribute(true)" ng-blur="setFocusOnAttribute(false)"
+                ng-change="valueChanged()" />
         </div>
 
-        <div ng-if="isRadioButton">
+        <div ng-if="isRadioButton" ng-hide="true">
             <div class="radio" ng-repeat="value in domainValue track by $index">
                 <label>
                     <input type="radio" name="opt_{{attributeName}}" ng-model="model.value" value="{{value}}" ng-focus="setFocusOnAttribute(true)"
                         ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()"> {{value.label}}
                 </label>
             </div>
+        </div>
+
+        <div ng-if="isSelect">
+            <div class="wbb-select">
+                <select ng-model="model.value" ng-options="opt as opt.label for opt in domainValue">
+                    <option value=""></option>
+                </select>
+                <i class="icon icon-down-arrow"></i>
+            </div>
+        </div>
+
+        <div ng-if="isFlag">
+            <input type="checkbox" name="" id="">
         </div>
 
         <div ng-if="isCheckBox">
@@ -42,7 +55,11 @@
         </div>
 
         <div ng-if="isFile">
-             
+            <div class="checkbox" ng-repeat="value in fileList track by $index">
+                <label ng-if="!value.removed">
+                    <input type="checkbox" ng-click="changeSelectStatus($index)"> {{value.label}}
+                </label>
+            </div>
         </div>
     </div>
 </div>

@@ -16,7 +16,7 @@ export function DataDetailAttribute () {
             resetAttribute: '&'
         },
         template: template,
-        link: (scope, element, attribute, ngModel) => {
+        link: (scope, element, attribute, ngModel, $log) => {
             scope.domainValue = [];
             scope.model = {};
             scope.isFocusEnabled = false;
@@ -36,7 +36,7 @@ export function DataDetailAttribute () {
                     scope.domainValue = JSON.parse(scope.domainObjValue).array;
                 }
             } catch (error) {
-                console.log(error);
+                $log.debug(error);
             }
 
             // if (scope.attributeType === 'CLOB') {
@@ -53,11 +53,15 @@ export function DataDetailAttribute () {
                     break;
                 case 'SINGLESELECTLIST':
                     scope.isRadioButton = true;
+                    scope.isSelect = true;
                     break;
                 case 'MULTISELECTLIST':
                     scope.isCheckBox = true;
                     break;
-                case 'CLOB':
+                case 'FLAG':
+                    scope.isFlag = true;
+                    break;
+                case 'FILE':
                     scope.isFile = true;
                     break;
                 default:
@@ -79,10 +83,34 @@ export function DataDetailAttribute () {
 
             scope.resetAttribute({resetFunction: scope.reset()});
 
+            scope.fileList = [];
+
+            scope.fileNameChanged = (files) => {
+                let file = {
+                    label: files[0].name,
+                    selected: false,
+                    removed: false
+                };
+                scope.fileList.push(file);
+                scope.$apply();
+            };
+
+            scope.removeFile = () => {
+                angular.forEach(scope.fileList, (file) => {
+                    if (file.selected) {
+                        file.removed = true;
+                    }
+                });
+            };
+
+            scope.changeSelectStatus = (index) => {
+                scope.fileList[index].selected = !scope.fileList[index].selected;
+            };
+
             scope.valueChanged = () => {
                 ngModel.$setViewValue(scope.model.value);
                 ngModel.$render();
-            }
+            };
         }
 
     };

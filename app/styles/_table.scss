@@ -44,12 +44,16 @@
         td {
           padding: 5px;
           border-right: 1px solid #d7dfed;
+          position: relative;
           &.expandable-container {
             padding: 0px;
           }
 
+          .wdd-table-cell{
+            position: relative;
+          }
+
           .table-cell {
-            width: 80px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -119,9 +123,13 @@
         tr {
           background-color: #dee8f8 !important;
 
+          // .first-column-child-table {
+          //   border-right: 0px
+          // }
+
           .col-primary-navigation {
             position: absolute;
-            top: 0;
+            top: 0 !important;
             bottom: 0;
             right: 0;
             width: 30px;
@@ -192,6 +200,7 @@
       top: 0;
       bottom: 0;
       margin: auto;
+      padding-right: 22px;
       .wdd-button{
         margin-right: 0;
       }
