@@ -4,7 +4,7 @@
             <th ng-if="isChild" class="baseHeaderIconWidth"></th>
             <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
                 <div ng-if="isChecked">
-                    <input type="checkbox">
+                    <input type="checkbox" ng-model="isSelectAll.value" ng-change="checkRowsSelection()"/>
                 </div>
             </th>
             <th ng-repeat="item in headerArray track by $index">
