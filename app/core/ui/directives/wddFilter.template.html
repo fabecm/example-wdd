@@ -1,11 +1,16 @@
 <div class="wdd-filter-container">
+    <div class="expandable">
+        <button class="wdd-button icon-only" ng-click="expandableFilter()">
+            <i class="icon icon-espandi-tutto"></i>
+        </button>
+    </div>
     <div class="filter-section-row" ng-class="{'collapsed': isFilterActive}">
         <div class="collapsed-box" ng-show="isFilterActive">
             <span>Filtri</span>
-            <button class="wdd-button width-adapt" ng-click="showFilter()">
+            <!-- <button class="wdd-button width-adapt" ng-click="showFilter()">
                 <i class="icon icon-down-arrow"></i>
                 Espandi
-            </button>
+            </button> -->
         </div>
         <div class="filter-row" ng-show="!isFilterActive">
             <wdd-autocomplete ng-model="modelle" label="Process Owner" placeholder="Seleziona" list-values="filterBootstrap.processOwner"></wdd-autocomplete>

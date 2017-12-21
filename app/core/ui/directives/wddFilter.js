@@ -106,6 +106,10 @@ export function WddFilter ($log, $q, ClassificationService, DatasourceService) {
                 scope.isFilterActive = false;
             };
 
+            scope.expandableFilter = () => {
+                scope.isFilterActive = !scope.isFilterActive;
+            };
+
             scope.resetFilter = () => {
                 scope.processOwnerChosen = {};
                 scope.systemOwnerChosen = {};
