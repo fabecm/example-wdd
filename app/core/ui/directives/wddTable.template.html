@@ -50,7 +50,7 @@
         </div>
         <ul class="pagination">
             <li ng-repeat="obj in pages">
-                <a ng-click="changingPage(obj)">{{obj}}</a>
+                <a ng-class="{'current-page': currentPage === obj}" ng-click="changingPage(obj)">{{obj}}</a>
             </li>
         </ul>
         <div class="pagi-text" ng-click="changingPageToLast()">
