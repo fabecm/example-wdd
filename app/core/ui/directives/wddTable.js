@@ -172,6 +172,20 @@ export function WddTable ($log, $timeout, $state, ModalService) {
                     return row;
                 });
             };
+
+            scope.checkValueChange = () => {
+                let allAreTrue = true;
+                scope.serviceResponse.map(row => {
+                    if (!row.isChecked) {
+                        scope.isSelectAll.value = false;
+                        allAreTrue = false;
+                    }
+                });
+
+                if (allAreTrue) {
+                    scope.isSelectAll.value = true;
+                }
+            };
         }
     };
 }

@@ -18,7 +18,7 @@
             <tr class="base-row" wdd-row ng-if="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
                 column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
                 has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
-                has-creation="hasCreation" is-from-child-table="isChild"></tr>
+                has-creation="hasCreation" is-from-child-table="isChild" check-row="checkValueChange()"></tr>
 
             <tr ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse}">
                 <td class="expandable-container" colspan="{{childCollspan()}}">

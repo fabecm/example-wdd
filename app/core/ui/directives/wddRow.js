@@ -14,7 +14,8 @@ export function WddRow ($log) {
             hasSecondaryNavigationBtn: '=',
             hasInfoBtn: '=',
             hasCreation: '=',
-            isFromChildTable: '='
+            isFromChildTable: '=',
+            checkRow: '&'
         },
         template: template,
         link: (scope) => {
@@ -38,6 +39,10 @@ export function WddRow ($log) {
                 };
 
                 scope.actionFunction({rowSelected: forRow});
+            };
+
+            scope.checkData = () => {
+                scope.checkRow();
             };
         }
     };
