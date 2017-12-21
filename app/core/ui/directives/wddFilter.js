@@ -1,6 +1,6 @@
 import template from './wddFilter.template.html';
 
-export function WddFilter ($q, ClassificationService, DatasourceService) {
+export function WddFilter ($log, $q, ClassificationService, DatasourceService) {
     'ngInject';
     return {
         scope: {
@@ -98,7 +98,7 @@ export function WddFilter ($q, ClassificationService, DatasourceService) {
 
                 param.arrayFilter = array.array_filter_text;
 
-                console.log(param);
+                $log.debug(param);
                 scope.appliedFilter(param);
             };
 

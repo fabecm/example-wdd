@@ -99,7 +99,7 @@ export class SearchController {
         });
     }
 
-    changeTab(tab) {
+    changeTab (tab) {
         this.selectedTab = tab;
     }
 
@@ -258,5 +258,5 @@ function getEntityTable () {
                 }
             ]
         }
-    }
+    };
 }

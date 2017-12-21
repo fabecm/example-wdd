@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($timeout, $state, ModalService) {
+export function WddTable ($log, $timeout, $state, ModalService) {
     'ngInject';
     return {
         scope: {
@@ -88,7 +88,7 @@ export function WddTable ($timeout, $state, ModalService) {
 
                 initTable(scope);
             } catch (error) {
-                console.log(error);
+                $log.debug(error);
             }
 
             scope.childCollspan = () => {

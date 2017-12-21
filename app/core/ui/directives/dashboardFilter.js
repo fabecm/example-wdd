@@ -1,6 +1,7 @@
 import template from './dashboardFilter.template.html';
 
-export function DashboardFilter () {
+export function DashboardFilter ($log) {
+    'ngInject';
     return {
         scope: {
             appliedFilter: '&'
@@ -50,7 +51,7 @@ export function DashboardFilter () {
             scope.labelEndDate = 'Data fine';
 
             scope.change = () => {
-                console.log(scope.workspaceSelected);
+                $log.debug(scope.workspaceSelected);
             };
         }
     };

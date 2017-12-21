@@ -93,7 +93,7 @@ export class ModalService {
 
         modalInstance.result.then();
     }
-    
+
     openDateRejectModal () {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',

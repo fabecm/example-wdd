@@ -1,6 +1,6 @@
 import template from './wddAutocomplete.template.html';
 
-export function WddAutocomplete (FilterWorkspace) {
+export function WddAutocomplete ($log, FilterWorkspace) {
     'ngInject';
     return {
         require: '^ngModel',
@@ -26,7 +26,7 @@ export function WddAutocomplete (FilterWorkspace) {
             };
 
             scope.changedLabel = () => {
-                console.log(scope.model.value);
+                $log.debug(scope.model.value);
                 scope.updateListValue();
             };
 

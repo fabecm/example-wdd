@@ -5,7 +5,7 @@ export class EntityApprovalRequestController {
     tablePageSize = 10;
     tableExpandable = true;
 
-    constructor(SearchWorkspaceService, $q, $state, ModalService) {
+    constructor (SearchWorkspaceService, $q, $state, ModalService) {
         'ngInject';
         this.searchWorkspaceService = SearchWorkspaceService;
         this.$q = $q;
@@ -15,7 +15,7 @@ export class EntityApprovalRequestController {
         this.initRuDashboard();
     }
 
-    initRuDashboard() {
+    initRuDashboard () {
         this.searchWorkspaceService.getWorkspaceRu().then(res => {
             this.workspaceData = res.outputArray;
             getHeader(this.$q).then(headerRes => {
@@ -27,18 +27,18 @@ export class EntityApprovalRequestController {
         });
     }
 
-    changeChild() {
+    changeChild () {
         if (this.pageChild) {
             this.$state.go(this.pageChild);
         }
     }
 
-    createNewWorkspace() {
+    createNewWorkspace () {
         this.modalService.openNewWorkspaceModal();
     }
 }
 
-function getHeader($q) {
+function getHeader ($q) {
     let defer = $q.defer();
     defer.resolve([{
         label: 'Tipo entità',
@@ -56,7 +56,7 @@ function getHeader($q) {
     return defer.promise;
 }
 
-function getHeaderExpandable($q) {
+function getHeaderExpandable ($q) {
     let defer = $q.defer();
     defer.resolve([{
         label: 'Data Field',
