@@ -112,6 +112,11 @@ export function WddFilter ($log, $q, ClassificationService, DatasourceService) {
                 scope.statusChosen = {};
                 scope.filterSetted = [];
                 scope.filtersArray = scope.filterArrayBase;
+
+                scope.modelle = undefined;
+                scope.modellissimi = undefined;
+                scope.modello = undefined;
+                scope.modella = undefined;
             };
 
             scope.updateEntity = (filter, filterSetted) => {
