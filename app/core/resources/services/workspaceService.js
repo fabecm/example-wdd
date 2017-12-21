@@ -119,7 +119,7 @@ function getMockedDataWork () {
                 }
             ]
         }
-    }
+    };
 }
 
 function getMockedData () {

@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($timeout, $state, ModalService) {
+export function WddTable ($log, $timeout, $state, ModalService) {
     'ngInject';
     return {
         scope: {
@@ -29,6 +29,7 @@ export function WddTable ($timeout, $state, ModalService) {
             scope.pages = [];
             scope.rawData = [];
             scope.currentPage = 1;
+            scope.isSelectAll = {};
 
             if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreationBtn) {
                 scope.hasIcon = true;
@@ -45,7 +46,10 @@ export function WddTable ($timeout, $state, ModalService) {
                 let endIndex = startIndex + scope.pageSize;
                 let dataVisiblePage = scope.rawData.slice(startIndex, endIndex);
 
-                return dataVisiblePage;
+                return dataVisiblePage.map(elem => {
+                    elem.isChecked = scope.isSelectAll.value;
+                    return elem;
+                });
             };
 
             try {
@@ -88,7 +92,7 @@ export function WddTable ($timeout, $state, ModalService) {
 
                 initTable(scope);
             } catch (error) {
-                console.log(error);
+                $log.debug(error);
             }
 
             scope.childCollspan = () => {
@@ -161,6 +165,13 @@ export function WddTable ($timeout, $state, ModalService) {
             scope.primaryAction = () => {
                 scope.actionPrimaryLabel();
             };
+
+            scope.checkRowsSelection = () => {
+                scope.serviceResponse = scope.serviceResponse.map(row => {
+                    row.isChecked = scope.isSelectAll.value;
+                    return row;
+                });
+            };
         }
     };
 }
@@ -169,6 +180,7 @@ function initTable (scope) {
     if (scope.expandable) {
         scope.serviceResponse = scope.serviceResponse.map(elem => {
             elem.workspace.collapse = true;
+            elem.isChecked = scope.isSelectAll.value;
             return elem;
         });
     }

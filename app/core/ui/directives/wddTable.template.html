@@ -4,7 +4,7 @@
             <th ng-if="isChild" class="baseHeaderIconWidth"></th>
             <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
                 <div ng-if="isChecked">
-                    <input type="checkbox">
+                    <input type="checkbox" ng-model="isSelectAll.value" ng-change="checkRowsSelection()"/>
                 </div>
             </th>
             <th ng-repeat="item in headerArray track by $index">
@@ -50,7 +50,7 @@
         </div>
         <ul class="pagination">
             <li ng-repeat="obj in pages">
-                <a ng-click="changingPage(obj)">{{obj}}</a>
+                <a ng-class="{'current-page': currentPage === obj}" ng-click="changingPage(obj)">{{obj}}</a>
             </li>
         </ul>
         <div class="pagi-text" ng-click="changingPageToLast()">

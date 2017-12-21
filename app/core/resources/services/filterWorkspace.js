@@ -13,7 +13,7 @@ export class FilterWorkspace {
             case 'description':
                 return this.getDescription(stringSearched);
             default:
-                return this.$q().promise;
+                return this.$q().when([]);
         }
     }
 

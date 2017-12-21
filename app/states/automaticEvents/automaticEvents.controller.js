@@ -26,8 +26,8 @@ export class AutomaticEventsController {
     }, {
         label: 'Data Table',
         value: 'data_source_table'
-    }
-    , {
+    },
+    {
         label: 'Data Source',
         value: 'data_source'
     }, {

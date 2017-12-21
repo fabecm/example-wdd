@@ -48,7 +48,7 @@ function getHeader ($q) {
     }, {
         label: 'Descrizione',
         value: 'start_date'
-    },{
+    }, {
         label: 'Stato',
         value: 'state'
     }]);

@@ -1,6 +1,7 @@
 import template from './wddRow.template.html';
 
-export function WddRow () {
+export function WddRow ($log) {
+    'ngInject';
     return {
         scope: {
             rowData: '=',
@@ -25,7 +26,7 @@ export function WddRow () {
                 scope.hasIcon = true;
             }
 
-            console.log(scope.rowData);
+            $log.debug(scope.rowData);
 
             scope.arrayAction = ['collapse', 'checked', 'info', 'primaryNavigation', 'secondaryNavigation', 'creation'];
             // scope.modelloModel = {};
