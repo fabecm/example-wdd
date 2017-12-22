@@ -17,14 +17,14 @@
         height: 20px;
         position: relative;
         width: 100%;
-        background: #c7d6ee;
+        background: rgba(0, 151, 217, 0.3);
         border-radius: 5px;
         .active-line{
             position: absolute;
             left: 0;
             top: 0;
             bottom: 0;
-            background: #93acd0;
+            background: rgb(0, 151, 217);
             border-radius: 5px;
             .line-label{
                 width: 100px;
@@ -38,7 +38,7 @@
                 z-index: 2;
                 .censuses-number,
                 .censuses-body {
-                    color: #93acd0;
+                    color: rgb(0, 151, 217);
                     font-weight: bold;
                 }
                 .censuses-number{

@@ -9,6 +9,10 @@
         padding: 9% 0;
         border-right: 1px solid rgba(#93acd0, 0.5);
         margin-right: 30px;
+
+        label {
+            font-size: 30px;
+        }
     }
 }
 .progress-overall-holder{
@@ -29,13 +33,13 @@
         width: 100%;
         position: relative;
         border-radius: 5px;
-        background: rgba(#6ba726, .5);
+        background: rgba(0, 114, 132, 0.6);
         .active-overall-line{
             position: absolute;
             top: 0;
             left: 0;
             bottom: 0;
-            background: #6ba726;
+            background: rgb(0, 114, 132);
             border-radius: 5px;
             .overall-number{
                 position: absolute;
