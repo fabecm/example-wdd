@@ -41,7 +41,7 @@
         background-color: rgba(#dee8f8, 0.4);
       }
       tr {
-        height: 40px;
+        height: 35px;
         background: white;
         td {
           padding: 5px;
@@ -70,6 +70,7 @@
         }
 
         &.base-row {
+          height: 35px;
           .icon-container {
             position: relative;
 
@@ -79,10 +80,10 @@
 
             .col-primary-navigation {
               position: absolute;
-              top: 6px;
+              top: 0px;
               // bottom: 0;
               right: 0;
-              height: 40px;
+              height: 35px;
               width: 30px;
               display: flex;
               align-items: center;
@@ -92,7 +93,7 @@
 
             .col-secondary-navigation {
               position: absolute;
-              top: 8px;
+              top: 0px;
               // bottom: 0;
               right: 30px;
               width: 30px;
@@ -364,7 +365,7 @@
   margin-bottom: 20px;
   // important for tests
   tr {
-    height: 42px !important;
+    height: 35px !important;
   }
 
   table {
