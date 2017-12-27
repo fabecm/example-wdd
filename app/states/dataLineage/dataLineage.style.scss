@@ -5,6 +5,15 @@ $squareBorder: 1px;
 .data-lineage-page {
     height: calc(100% - 25px);
 
+    .page-title {
+        margin-bottom: 10px;
+        .wdd-button.dark {
+            cursor: default;
+            text-transform: none;
+            font-size: 13px;
+        }
+    }
+
     .square-container {
         display: flex;
         flex-direction: row;

@@ -6,6 +6,13 @@ $header-data-detail: 40px;
     height: 100%;
     display: flex;
     flex-direction: column;
+    .page-title {
+        .wdd-button.dark {
+            cursor: default;
+            text-transform: none;
+            font-size: 13px;
+        }
+    }
     .detail-row {
         display: flex;
         flex-direction: row;
