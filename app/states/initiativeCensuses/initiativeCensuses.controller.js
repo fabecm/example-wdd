@@ -72,6 +72,10 @@ export class InitiativeCensusesController {
         });
     }
 
+    openGestioneMassiva () {
+        this.modalService.openMassiveManagmentModal();
+    }
+
     createNewData () {
         this.modalService.openNewWorkspaceRequests();
     }
