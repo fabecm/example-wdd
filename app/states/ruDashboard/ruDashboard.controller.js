@@ -32,6 +32,10 @@ export class RuDashboardController {
         }
     }
 
+    openGestioneMassiva () {
+        this.modalService.openMassiveManagmentModal();
+    }
+
     createNewWorkspace () {
         this.modalService.openNewWorkspaceModal();
     }

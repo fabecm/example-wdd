@@ -10,10 +10,26 @@ import ApprovalModalTemplate from '../templates/approvalModal.template.html';
 import DateApproveTemplate from '../templates/dateApprove.template.html';
 import DateRejectTemplate from '../templates/dateReject.template.html';
 
+import { MassiveManagmentModalController } from '../templates/massiveManagmentModal';
+import MassiveManagmentTemplate from '../templates/massiveManagmentModal.template.html';
+
 export class ModalService {
     constructor ($uibModal) {
         'ngInject';
         this.$uibModal = $uibModal;
+    }
+
+    openMassiveManagmentModal () {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: MassiveManagmentTemplate,
+            controller: MassiveManagmentModalController,
+            controllerAs: 'vm',
+            resolve: {}
+        });
+
+        modalInstance.result.then();
     }
 
     openNewWorkspaceModal () {

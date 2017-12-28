@@ -1,0 +1,51 @@
+<div class="wwd-modal">
+    <div class="wwd-modal__title">
+        <div class="" id="modal-title">Gestione massiva</div>
+    </div>
+
+    <div class="wwd-modal__body__container" id="modal-body">
+        <div class="wwd-modal__body">
+            <div class="row wwd-modal__row">
+                <div class="col-xs-12 wwd-modal__row__description">
+                    Per effettuare correttamente il carico massivo delle informazioni, assicurarsi di utilizzare la versione «codice_versione_template»
+                    del template.
+                </div>
+            </div>
+
+            <div class="row wwd-modal__row">
+                <button class="wdd-button alt-color">
+                    <i class="icon icon-excel"></i>
+                    Template
+                </button>
+            </div>
+
+            <div class="row wwd-modal__row">
+                <div class="col-xs-12 wwd-modal__row__description">
+                    Selezionare attraverso il pulsante importa il file che si vuole caricare
+                </div>
+            </div>
+
+            <div class="row wwd-modal__row">
+                <button class="wdd-button alt-color" ng-click="vm.importFile()">
+                    <i class="icon icon-excel"></i>
+                    Importa
+                </button>
+                <input type="file" id="uploadFile" ng-hide="true" onchange="angular.element(this)[0].scope().fileNameChanged(this.files)" />
+            </div>
+
+            <div class="row wwd-modal__row" ng-hide="true">
+                <div class="col-xs-12 wwd-modal__row__description">
+                    Attenzione: verrà caricato il seguente file:
+                </div>
+                <pre>{{ vm.fileToUpload | json }}</pre>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wwd-modal__footer">
+        <button class="wdd-button pull-right" type="button" ng-click="vm.sendFile()">Invia</button>
+        <button class="wdd-button pull-right" type="button">Annulla</button>
+    </div>
+
+</div>
