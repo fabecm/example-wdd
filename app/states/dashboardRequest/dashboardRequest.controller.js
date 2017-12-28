@@ -5,12 +5,12 @@ export class DashboardRequestController {
     chartValues = [{
         label: 'Richieste di documentazione',
         value: 0,
-        color: '#007284',
+        color: '#0097d9',
         childPage: 'tab.documentationRequests'
     }, {
         label: 'Richieste di approvazione',
         value: 0,
-        color: '#0097d9',
+        color: '#007284',
         childPage: 'tab.approvalRequests'
     }, {
         label: 'Eventi automatici',

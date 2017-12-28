@@ -1,13 +1,14 @@
 <div class="dashboardRequest">
     <div class="col-xs-5 chart-doghout-dash">
-        <doughnut-chart array-values="vm.chartValues"></doughnut-chart>
+        <label>Attività in corso</label>
+        <doughnut-chart array-values="vm.chartValues" hide-label="true"></doughnut-chart>
     </div>
 
     <div class="col-xs-7 table-dash">
 
-        <dashboard-table bgcolor="#007284" table-title="Richieste di documentazione" table-body="vm.dataList" header-type="workspaceCentric" child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>
+        <dashboard-table bgcolor="#0097d9" table-title="Richieste di documentazione" table-body="vm.dataList" header-type="workspaceCentric" child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>
 
-        <dashboard-table bgcolor="#0097d9" table-title="Richieste di approvazione" table-body="vm.dataList" header-type="workspaceCentric" child-page="{{vm.chartValues[1].childPage}}"></dashboard-table>
+        <dashboard-table bgcolor="#007284" table-title="Richieste di approvazione" table-body="vm.dataList" header-type="workspaceCentric" child-page="{{vm.chartValues[1].childPage}}"></dashboard-table>
 
         <dashboard-table bgcolor="#df5356" table-title="Eventi automatici" table-body="vm.dataList" header-type="workspaceCentric" child-page="{{vm.chartValues[2].childPage}}"></dashboard-table>
 
