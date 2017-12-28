@@ -14,11 +14,15 @@ doughnut-chart {
         cursor: pointer;
         
         .label-chart {
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
             position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+            top: 65px;
+            // left: 0;
+            // bottom: 0;
+            // right: 0;
             z-index: -1;
             display: flex;
             flex-direction: column;
@@ -27,8 +31,15 @@ doughnut-chart {
             margin-top: 15px;
 
             .numberLabel {
-                font-size: 50px;
+                font-size: 110px;
+                font-weight: 100;
+                // height: 130px;
                 margin-bottom: 0;
+            }
+
+            .activityLabel {
+                font-weight: 700;
+                font-size: 25px;
             }
         }
     }

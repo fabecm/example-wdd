@@ -2,13 +2,13 @@
     <canvas width="400" height="400" id="{{chartId}}"></canvas>
     <div class="label-chart">
         <label class="numberLabel">{{numLabelChart}} </label>
-        <label ng-hide="hideLabel">Attività</label>
+        <label class="activityLabel" ng-hide="hideLabel">Attività</label>
     </div>
 </div>
 
 <div class="chart-legend-container">
     <div class="container-block">
-        <div class="chart-legend" ng-style="{color: arrayBackgroundColor[key]}" ng-repeat="(key, legend) in labelArray" ng-click="goToChild(key)">
+        <div class="chart-legend" ng-style="{color: arrayValues[key].color}" ng-repeat="(key, legend) in labelArray" ng-click="goToChild(key)">
             <div class="left-block">{{valueArray[key]}}</div>
             <div class="right-block">{{legend}}</div>
         </div>
