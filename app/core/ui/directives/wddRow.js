@@ -15,6 +15,7 @@ export function WddRow ($log) {
             hasInfoBtn: '=',
             hasCreation: '=',
             isFromChildTable: '=',
+            isSas: '=',
             checkRow: '&'
         },
         template: template,

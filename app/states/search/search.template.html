@@ -18,7 +18,7 @@
         <div ng-if="vm.selectedTab == 1">
             <wdd-table ng-if="vm.rawDataEntity && vm.rawDataEntity.length && vm.headerEntityTable" service-response-obj="{{ {array: vm.rawDataEntity} }}"
                 header-array-obj="{{ {array: vm.headerEntityTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
-                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" has-secondary-navigation-btn="true"></wdd-table>
+                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" has-secondary-navigation-btn="true" is-to-sas="true"></wdd-table>
         </div>
     </div>
 </div>

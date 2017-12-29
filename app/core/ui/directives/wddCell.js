@@ -1,6 +1,6 @@
 import template from './wddCell.template.html';
 
-export function WddCell ($log) {
+export function WddCell () {
     'ngInject';
     return {
         scope: {
@@ -9,7 +9,6 @@ export function WddCell ($log) {
         },
         template: template,
         link: (scope) => {
-            $log.debug(scope.header);
             if (scope.header === 'business_rules') {
                 scope.parsedCell = [{
                     icon: 'glyphicon glyphicon-ok'

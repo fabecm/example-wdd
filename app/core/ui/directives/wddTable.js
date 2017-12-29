@@ -17,6 +17,7 @@ export function WddTable ($log, $timeout, $state, ModalService) {
             pathPrimaryNavigation: '@',
             pathSecondaryNavigation: '@',
             hasSecondaryNavigationBtn: '@',
+            isToSas: '@',
             hasInfoBtn: '@',
             hasPrimaryLabel: '@',
             actionPrimaryLabel: '&',
