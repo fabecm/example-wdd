@@ -18,18 +18,24 @@ export class DashboardRequestController {
         color: '#df5356',
         childPage: 'tab.automaticEvents'
     }];
-    constructor (WorkspaceService) {
+
+    constructor (DashboardsService) {
         'ngInject';
-        this.workspaceService = WorkspaceService;
-        this.getData();
+        this.dashboardsService = DashboardsService;
+        this.dashboardCall();
     }
-    getData () {
-        this.workspaceService.getData('workspaceCentrico')
-        .then(searchData => {
-            this.dataList = searchData.data.OutputArray;
-            this.chartValues[0].value = this.dataList.length;
-            this.chartValues[1].value = this.dataList.length;
-            this.chartValues[2].value = this.dataList.length;
-        });
+
+    dashboardCall () {
+        this.dashboardsService.dashboardCall('dataquality')
+        .then(getData => { 
+            this.dataList = getData.data.array;
+
+            this.chartValues[0].value = this.dataList[0].value;
+            this.chartValues[1].value = this.dataList[1].value;
+            this.chartValues[2].value = this.dataList[2].value
+
+            // this is for magic in dashboardRequest.template.html ng-if="vm.dataAvailable"
+            this.dataAvailable = true;
+        });       
     }
 }

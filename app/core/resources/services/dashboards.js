@@ -1,4 +1,4 @@
-export class Dashboards {
+export class DashboardsService {
     constructor ($http) {
     // constructor ($http, $q, $log) {
         'ngInject';

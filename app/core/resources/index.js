@@ -9,6 +9,8 @@ import { FilterWorkspace } from './services/filterWorkspace';
 import { SearchWorkspaceService } from './services/searchWorkspace';
 import { DetailsService } from './services/details';
 
+import { DashboardsService } from './services/dashboards';
+
 
 export default angular.module('wdd.core.resources', [])
     .service('DataService', DataService)
@@ -17,6 +19,9 @@ export default angular.module('wdd.core.resources', [])
     .service('DatasourceService', DatasourceService)
     .service('LineageService', LineageService)
     .service('FilterWorkspace', FilterWorkspace)
+
+    .service('DashboardsService', DashboardsService)
+
     .service('SearchWorkspaceService', SearchWorkspaceService)
     .factory('httpRequestInterceptor', HttpRequestInterceptor)
     .service('DetailsService', DetailsService)
