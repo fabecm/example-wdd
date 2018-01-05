@@ -12,6 +12,12 @@ export class DetailsService {
         // termId = 1136820;
         return this.$http.get(`WDD/details/${termId}`);
     }
+
+    getWorkspaceIdDetails () {
+        // workspaceId = 1;
+        // return this.$http.get(`WDD/details/workspace/${workspaceId}`);
+        return this.$http.get(`WDD/details/workspace/3`);
+    }
 }
 
 function getMockedData ($q) {

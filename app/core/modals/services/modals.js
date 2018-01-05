@@ -1,6 +1,6 @@
 import { NewWorkspaceController } from '../templates/newWorkspace';
 import NewWorkspaceTemplate from '../templates/newWorkspace.template.html';
-import { ModificationWorkspaceController } from '../templates/modificationWorkspace';
+import { ModificationWorkspace } from '../templates/modificationWorkspace';
 import ModificationWorkspaceTemplate from '../templates/modificationWorkspace.template.html';
 import { NewWorkspaceRequestsController } from '../templates/newWorkspaceRequests';
 import NewWorkspaceRequestsTemplate from '../templates/newWorkspaceRequests.template.html';
@@ -14,9 +14,10 @@ import { MassiveManagmentModalController } from '../templates/massiveManagmentMo
 import MassiveManagmentTemplate from '../templates/massiveManagmentModal.template.html';
 
 export class ModalService {
-    constructor ($uibModal) {
+    constructor ($uibModal, $rootScope) {
         'ngInject';
         this.$uibModal = $uibModal;
+        this.$rootScope = $rootScope;
     }
 
     openMassiveManagmentModal () {
@@ -29,7 +30,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openNewWorkspaceModal () {
@@ -42,7 +43,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openModificationWorkspace () {
@@ -50,12 +51,15 @@ export class ModalService {
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             template: ModificationWorkspaceTemplate,
-            controller: ModificationWorkspaceController,
+            controller: ModificationWorkspace,
             controllerAs: 'vm',
+            scope: angular.extend(this.$rootScope, {
+                test: 'parentScope'
+            }),
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openNewWorkspaceRequests () {
@@ -68,7 +72,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openApprovalModal () {
@@ -81,7 +85,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openDateApproveModal () {
@@ -94,7 +98,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openDateApproveModal () {
@@ -107,7 +111,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openDateRejectModal () {
@@ -120,6 +124,6 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 }

@@ -19,23 +19,44 @@ export class DashboardRequestController {
         childPage: 'tab.automaticEvents'
     }];
 
-    constructor (DashboardsService) {
+    constructor(DashboardsService) {
         'ngInject';
         this.dashboardsService = DashboardsService;
         this.dashboardCall();
     }
 
-    dashboardCall () {
+    dashboardCall() {
         this.dashboardsService.dashboardCall('dataquality')
-        .then(getData => { 
-            this.dataList = getData.data.array;
+            .then(getData => {
+                this.dataList = getData.data.array;
 
-            this.chartValues[0].value = this.dataList[0].value;
-            this.chartValues[1].value = this.dataList[1].value;
-            this.chartValues[2].value = this.dataList[2].value
+                this.chartValues[0].value = this.dataList[0].value;
+                this.chartValues[1].value = this.dataList[1].value;
+                this.chartValues[2].value = this.dataList[2].value;
 
-            // this is for magic in dashboardRequest.template.html ng-if="vm.dataAvailable"
-            this.dataAvailable = true;
-        });       
+                // this is for magic in dashboardRequest.template.html ng-if="vm.dataAvailable"
+                this.dataAvailable = true;
+            });
     }
+
+
+
+
+    // constructor (WorkspaceService) {
+    //     'ngInject';
+    //     this.workspaceService = WorkspaceService;
+    //     this.getData();
+    // }
+
+    // getData () {
+    //     this.workspaceService.getData('workspaceCentrico')
+    //     .then(searchData => {
+    //         this.dataList = searchData.data.OutputArray;
+    //         this.chartValues[0].value = 99;
+    //         this.chartValues[1].value = this.dataList.length;
+    //         this.chartValues[2].value = this.dataList.length;
+    //     });
+    // }
+
+
 }
