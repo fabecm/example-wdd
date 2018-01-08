@@ -80,8 +80,15 @@
         }
     }
     &.icon-only {
-        width: 30px;
-        height: 30px;
+        // fix 24
+        // width: 30px;
+        // height: 30px;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         background-color: rgba(0, 0, 0, 0);
         color: $button-alt-color;
         border-radius: 50%;
