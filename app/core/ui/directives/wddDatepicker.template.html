@@ -1,13 +1,13 @@
 <div class="wdd-datepicker">
     <div class="wdd-labeled-input">
         <label>{{label}}</label>
-        <span uib-datepicker-popup="{{format}}" ng-model="model.date" is-open="popup.opened" datepicker-options="options" show-button-bar="false">
-            {{model.date | date:format}}
+        <span class="wbb-datepicker__container-date" uib-datepicker-popup="{{format}}" ng-model="model.date" is-open="popup.opened" datepicker-options="options" show-button-bar="false">
+            <div class="wbb-datepicker__container-date__date">{{model.date | date:format}}</div>
         </span>
     </div>
     <div class="align-calendar">
         <button class="wdd-button icon-only" ng-click="openDatepicker()">
-            <i class="icon icon-calendar"></i>
+            <i class="icon icon-calendar wbb-datepicker__container-icon"></i>
         </button>
     </div>
 </div>
