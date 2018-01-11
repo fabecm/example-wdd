@@ -69,7 +69,11 @@ export class DashboardUserRequestController {
                 totalConsed += Number(this.workspaceList[i].censed);
             }
 
-            this.overallPercentage = totalRequested / totalConsed * 100;
+            if (totalConsed !== 0) {
+                this.overallPercentage = totalRequested / totalConsed * 100;
+            } else {
+                this.overallPercentage = 0;
+            }
 
             // this.workspaceList = this.workspaceList.splice(0, 5);
         });

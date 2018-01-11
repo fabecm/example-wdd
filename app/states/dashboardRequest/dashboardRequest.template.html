@@ -6,11 +6,17 @@
 
     <div class="col-xs-7 table-dash">
 
-        <dashboard-table bgcolor="#0097d9" table-title="Richieste di documentazione" table-body="vm.dataList" header-type="workspaceCentric" child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>
+        <dashboard-table ng-if="vm.tableRichiesteDocumentazione" bgcolor="#0097d9" table-title="Richieste di documentazione" table-body="vm.tableRichiesteDocumentazione"
+            header-type="vm.headerRichiestaDocumentazione" child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>
 
-        <dashboard-table bgcolor="#007284" table-title="Richieste di approvazione" table-body="vm.dataList" header-type="workspaceCentric" child-page="{{vm.chartValues[1].childPage}}"></dashboard-table>
+        <dashboard-table bgcolor="#007284" table-title="Richieste di approvazione" table-body="vm.dataList" header-type="vm.headerApprovalRequest"
+            child-page="{{vm.chartValues[1].childPage}}"></dashboard-table>
 
-        <dashboard-table bgcolor="#df5356" table-title="Eventi automatici" table-body="vm.dataList" header-type="workspaceCentric" child-page="{{vm.chartValues[2].childPage}}"></dashboard-table>
+        <dashboard-table bgcolor="#df5356" table-title="Eventi automatici" table-body="vm.dataList" header-type="vm.headerAutomaticEvents"
+            child-page="{{vm.chartValues[2].childPage}}"></dashboard-table>
+
+        <!-- <dashboard-table bgcolor="#FB8C00" table-title="Richieste di approvazione entità" table-body="vm.dataList" header-type="workspaceCentric"
+            child-page="{{vm.chartValues[3].childPage}}"></dashboard-table> -->
 
     </div>
 </div>
