@@ -210,7 +210,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                     scope.hasCreation = JSON.parse(scope.hasCreationBtn);
                 }
 
-                if (scope.isChild) {
+                if (scope.isChild && scope.serviceResponse[0]) {
                     const startRes = scope.serviceResponse[0];
                     scope.serviceResponse = [];
                     for (let i = 0; i < Array(25).length; i++) {
