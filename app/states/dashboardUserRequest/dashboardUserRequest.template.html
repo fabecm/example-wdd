@@ -1,7 +1,7 @@
 <div class="dashboardUserRequest">
     <div class="col-xs-5 chart-doghout-dash">
         <h2 class="title">Workspace</h2>
-        <doughnut-chart array-values="vm.chartValues" hide-label="true"></doughnut-chart>
+        <doughnut-chart ng-if="vm.dataAvailable" array-values="vm.chartValues" hide-label="true"></doughnut-chart>
     </div>
 
     <div class="col-xs-7">
@@ -54,11 +54,10 @@
 
         <div class="workspace-holder">
             <h2 class="title">Avanzamento Workspace</h2>
-            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="80"></wdd-progress>
-            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="50"></wdd-progress>
-            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="74"></wdd-progress>
-            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="30"></wdd-progress>
-            <wdd-progress workspace-name="Workspace Name" request-data="100" censuses-data="0"></wdd-progress>
+            <div class="list-holder">
+                <wdd-progress ng-repeat="workspaceData in vm.workspaceList" workspace-name="{{ workspaceData.label }}" request-data="{{ workspaceData.requested }}"
+                    censuses-data="{{ workspaceData.censed }}"></wdd-progress>
+            </div>
         </div>
     </div>
 </div>

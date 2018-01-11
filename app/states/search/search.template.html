@@ -1,24 +1,26 @@
 <div class="search-page">
-    <wdd-filter applied-filter="vm.filterChanged(array_filter_text)"></wdd-filter>
+    <wdd-filter applied-filter="vm.filterChanged(filterApplied)"></wdd-filter>
 
-    <div class="tabbed-tables" ng-if="vm.rawData.length || vm.rawDataEntity.length">
-        <div class="table-tab-holder wdd-primary-header">
+    <div class="tabbed-tables">
+        <div class="table-tab-holder wdd-primary-header" ng-style="{ 'width': vm.showEntityView ? '500px': '250px' }">
             <div class="table-tab wdd-tab" ng-class="{'selected': vm.selectedTab == 0}" ng-click="vm.changeTab(0)">
                 <span>Vista Dato</span>
             </div>
-            <div class="table-tab wdd-tab" ng-class="{'selected': vm.selectedTab == 1}" ng-click="vm.changeTab(1)">
+            <div class="table-tab wdd-tab" ng-class="{'selected': vm.selectedTab == 1}" ng-click="vm.changeTab(1)" ng-show="vm.showEntityView">
                 <span>Vista Entità</span>
             </div>
         </div>
-        <div ng-if="vm.selectedTab == 0">
-            <wdd-table ng-if="vm.rawData && vm.rawData.length && vm.headerTable" service-response-obj="{{ {array: vm.rawData} }}" header-array-obj="{{ {array: vm.headerTable} }}"
-                pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
-                path-primary-navigation="tab.dataDetail" has-secondary-navigation-btn="true" path-secondary-navigation="tab.dataLineage"></wdd-table>
+        <!-- <pre>{{ vm.reloadTableData }}</pre> -->
+        <div ng-show="vm.selectedTab == 0 && vm.showTab">
+            <wdd-table reload-data="vm.reloadTableData" table-key="searchPage" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
+                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail"
+                has-secondary-navigation-btn="true" path-secondary-navigation="tab.dataLineage"></wdd-table>
         </div>
-        <div ng-if="vm.selectedTab == 1">
+        <div ng-show="vm.selectedTab == 1 && vm.showTab">
             <wdd-table ng-if="vm.rawDataEntity && vm.rawDataEntity.length && vm.headerEntityTable" service-response-obj="{{ {array: vm.rawDataEntity} }}"
                 header-array-obj="{{ {array: vm.headerEntityTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
-                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" has-secondary-navigation-btn="true" is-to-sas="true"></wdd-table>
+                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" has-secondary-navigation-btn="true"
+                is-to-sas="true"></wdd-table>
         </div>
     </div>
 </div>

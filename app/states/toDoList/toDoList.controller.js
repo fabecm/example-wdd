@@ -43,14 +43,15 @@ export class ToDoListController {
         value: 'data_scadenza'
     }];
 
-    constructor (DataService, DatasourceService, $state) {
+    constructor (DataService, DatasourceService, $state, $timeout) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
         this.$state = $state;
+        this.$timeout = $timeout;
 
         // this.getBootstrap();
-        this.loadData();
+        // this.loadData();
     }
 
     changeChild () {
@@ -59,78 +60,84 @@ export class ToDoListController {
         }
     }
 
-    loadData (params) {
-        this.dataService.getData(params)
-        .then(searchData => {
-            this.rawData = angular.copy(searchData.data.OutputArray);
-            this.dataList = searchData.data.OutputArray;
-            let numPages = Math.ceil(this.dataList.length / this.pageSize);
-
-            // slice data per current page
-            this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-            // create an array of pages to ng-repeat, + 1 for a correct number
-            this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
+    initToDoList () {
+        this.$timeout(() => {
+            this.reloadTableData({});
         });
     }
 
-    sliceDataToShow (currentPage, pageSize) {
-        let startIndex = (Number(currentPage) - 1) * Number(pageSize);
-        let endIndex = startIndex + pageSize;
-        let dataVisiblePage = this.rawData.slice(startIndex, endIndex);
+    // loadData (params) {
+    //     this.dataService.getData(params)
+    //     .then(searchData => {
+    //         this.rawData = angular.copy(searchData.data.OutputArray);
+    //         this.dataList = searchData.data.OutputArray;
+    //         let numPages = Math.ceil(this.dataList.length / this.pageSize);
 
-        return dataVisiblePage;
-    }
+    //         // slice data per current page
+    //         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
 
-    changingPage (obj) {
-        this.currentPage = obj;
+    //         // create an array of pages to ng-repeat, + 1 for a correct number
+    //         this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
+    //     });
+    // }
 
-        this.dataList = this.rawData;
+    // sliceDataToShow (currentPage, pageSize) {
+    //     let startIndex = (Number(currentPage) - 1) * Number(pageSize);
+    //     let endIndex = startIndex + pageSize;
+    //     let dataVisiblePage = this.rawData.slice(startIndex, endIndex);
 
-        this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-    }
+    //     return dataVisiblePage;
+    // }
 
-    changingPageToFirst () {
-        this.currentPage = 1;
+    // changingPage (obj) {
+    //     this.currentPage = obj;
 
-        this.dataList = this.rawData;
+    //     this.dataList = this.rawData;
 
-        this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-    }
+    //     this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
+    // }
 
-    changingPageToLast () {
-        this.currentPage = this.pages.length;
+    // changingPageToFirst () {
+    //     this.currentPage = 1;
 
-        this.dataList = this.rawData;
+    //     this.dataList = this.rawData;
 
-        this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-    }
+    //     this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
+    // }
 
-    filterChanged (param) {
-        // let param = {};
+    // changingPageToLast () {
+    //     this.currentPage = this.pages.length;
 
-        // if (this.processOwnerChosen) {
-        //     param.process_owner_id = this.processOwnerChosen.id;
-        // }
-        // if (this.systemOwnerChosen) {
-        //     param.system_owner_id = this.systemOwnerChosen.id;
-        // }
-        // if (this.statusChosen) {
-        //     param.status_code = this.statusChosen.label;
-        // }
-        // if (arrayFilter && arrayFilter.length > 0) {
-        //     param.arrayFilter = arrayFilter;
-        // }
+    //     this.dataList = this.rawData;
 
-        this.dataService.getData(param)
-        .then(searchData => {
-            this.rawData = angular.copy(searchData.data.OutputArray);
-            this.dataList = searchData.data.OutputArray;
-            let numPages = Math.ceil(this.dataList.length / this.pageSize);
+    //     this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
+    // }
 
-            this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
+    filterChanged (arrayFilter) {
+        let param = {};
+        param.resetPage = true;
 
-            this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
+        if (arrayFilter.process_owner_id) {
+            param.process_owner_id = arrayFilter.process_owner_id;
+        } else {
+            param.process_owner_id = 0;
+        }
+        if (arrayFilter.system_owner_id) {
+            param.system_owner_id = arrayFilter.system_owner_id;
+        } else {
+            param.system_owner_id = 0;
+        }
+        if (arrayFilter.status_code) {
+            param.status_code = arrayFilter.status_code;
+        }
+        if (arrayFilter.arrayFilter && arrayFilter.arrayFilter.length > 0) {
+            param.array_filter_text = arrayFilter.arrayFilter;
+        }
+
+        this.$timeout(() => {
+            this.reloadTableData({
+                filterSetted: param
+            });
         });
     }
 

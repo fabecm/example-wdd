@@ -19,13 +19,13 @@ export class DashboardRequestController {
         childPage: 'tab.automaticEvents'
     }];
 
-    constructor(DashboardsService) {
+    constructor (DashboardsService) {
         'ngInject';
         this.dashboardsService = DashboardsService;
         this.dashboardCall();
     }
 
-    dashboardCall() {
+    dashboardCall () {
         this.dashboardsService.dashboardCall('dataquality')
             .then(getData => {
                 this.dataList = getData.data.array;
@@ -38,8 +38,6 @@ export class DashboardRequestController {
                 this.dataAvailable = true;
             });
     }
-
-
 
 
     // constructor (WorkspaceService) {

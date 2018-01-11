@@ -8,9 +8,9 @@
         <i class="icon icon-down-arrow"></i>
     </div>
 
-    <dashboard-filter></dashboard-filter>
+    <dashboard-filter applied-filter="vm.filterChanged(filterApplied)"></dashboard-filter>
 
-    <wdd-table ng-if="vm.rawData && vm.headerTable" service-response-obj="{{ {array: vm.rawData} }}" header-array-obj="{{ {array: vm.headerTable} }}"
+    <wdd-table reload-data="vm.reloadTableData" table-key="searchWorkspace" header-array-obj="{{ {array: vm.headerTable} }}"
         pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}"
         header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}" is-child-checked-bool="true" has-info-btn="true" path-primary-navigation="tab.dataDetail"
         has-primary-label="Nuovo workspace" action-primary-label="vm.createNewWorkspace()"></wdd-table>
