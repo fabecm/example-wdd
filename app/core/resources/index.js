@@ -10,6 +10,7 @@ import { SearchWorkspaceService } from './services/searchWorkspace';
 import { DetailsService } from './services/details';
 
 import { DashboardsService } from './services/dashboards';
+import { TableService } from './services/table';
 
 
 export default angular.module('wdd.core.resources', [])
@@ -21,6 +22,7 @@ export default angular.module('wdd.core.resources', [])
     .service('FilterWorkspace', FilterWorkspace)
 
     .service('DashboardsService', DashboardsService)
+    .service('TableService', TableService)
 
     .service('SearchWorkspaceService', SearchWorkspaceService)
     .factory('httpRequestInterceptor', HttpRequestInterceptor)

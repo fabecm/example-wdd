@@ -16,7 +16,7 @@ export class DetailsService {
     getWorkspaceIdDetails () {
         // workspaceId = 1;
         // return this.$http.get(`WDD/details/workspace/${workspaceId}`);
-        return this.$http.get(`WDD/details/workspace/3`);
+        return this.$http.get('WDD/details/workspace/3');
     }
 }
 
