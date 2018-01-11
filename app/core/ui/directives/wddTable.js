@@ -152,9 +152,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
-                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id});
+                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field});
                 } else if (row.action === 'secondaryNavigation') {
-                    $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id});
+                    $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field});
                 } else if (row.action === 'info') {
                     // To add the id to send to the modal
                     ModalService.openModificationWorkspace();

@@ -4,7 +4,9 @@ import DataLineageTemplate from './dataLineage.template.html';
 
 export const stateConfig = {
     url: '/data-lineage',
-    params: {},
+    params: {
+        id: null
+    },
     stateRoot: 'search',
     template: DataLineageTemplate,
     controller: DataLineageController,
