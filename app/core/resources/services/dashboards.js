@@ -18,7 +18,6 @@ export class DashboardsService {
             case 'systemowner':
                 return this.getSystemowner();
 
-
             default:
                 return this.getDataquality();
         }

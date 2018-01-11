@@ -31,6 +31,11 @@ export function WddDatepicker () {
             scope.openDatepicker = () => {
                 scope.popup.opened = true;
             };
+
+            scope.$watch('model.date', (newVal) => {
+                ngModel.$setViewValue(newVal);
+                ngModel.$render();
+            });
         }
     };
 }
