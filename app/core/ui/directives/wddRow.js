@@ -28,7 +28,7 @@ export function WddRow ($log) {
                 scope.hasIcon = true;
             }
 
-            $log.debug(scope.rowData);
+            // $log.debug(scope.rowData);
 
             scope.arrayAction = ['collapse', 'checked', 'info', 'primaryNavigation', 'secondaryNavigation', 'creation'];
             // scope.modelloModel = {};

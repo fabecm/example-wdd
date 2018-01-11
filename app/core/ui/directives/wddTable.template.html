@@ -1,10 +1,10 @@
-<div class="wdd-table" ng-if="serviceResponse" ng-class="{'child-table': isChild}">
+<div class="wdd-table" ng-show="serviceResponse" ng-class="{'child-table': isChild}">
     <table ng-class="{'expandable-table': expandable}">
         <thead>
             <th ng-if="isChild" class="baseHeaderIconWidth"></th>
             <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
                 <div ng-if="isChecked">
-                    <input type="checkbox" ng-model="isSelectAll.value" ng-change="checkRowsSelection()"/>
+                    <input type="checkbox" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
                 </div>
             </th>
             <th ng-repeat="item in headerArray track by $index">
@@ -15,14 +15,14 @@
         </thead>
         <tbody>
 
-            <tr class="base-row" wdd-row ng-if="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
+            <tr class="base-row" wdd-row ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
                 column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
                 has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
                 has-creation="hasCreation" is-from-child-table="isChild" check-row="checkValueChange()" is-sas="isToSas"></tr>
 
             <tr ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse}">
                 <td class="expandable-container" colspan="{{childCollspan()}}">
-                    <wdd-table service-response-obj="{{ {array: data.data_fields} }}" header-array-obj="{{ {array: headerArrayExpandable} }}"
+                    <wdd-table ng-if="data.data_fields" reload-data="vm.test" service-response-obj="{{ {array: data.data_fields} }}" header-array-obj="{{ {array: headerArrayExpandable} }}"
                         pagination-bool="{{ {boolean: pagination} }}" page-size-num="{{ {number: pageSize} }}" is-child="true"
                         is-checked-bool="{{ {boolean: isChildChecked} }}" has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}"></wdd-table>
                 </td>
@@ -45,16 +45,24 @@
     </div>
 
     <div ng-if="pagination" class="table-footer">
-        <div class="pagi-text" ng-click="changingPageToFirst()">
-            <a href="">PRIMA</a>
+        <div class="pagi-text" ng-click="changingPage(1)">
+            <span><<</span>
         </div>
+        <div class="pagi-text" ng-click="backwards()">
+            <span><</span>
+        </div>
+
         <ul class="pagination">
-            <li ng-repeat="obj in pages">
-                <a ng-class="{'current-page': currentPage === obj}" ng-click="changingPage(obj)">{{obj}}</a>
+            <li ng-repeat="obj in pages" ng-show="obj.isVisible">
+                <a ng-class="{'current-page': currentPage === obj.num}" ng-click="changingPage(obj.num)">{{obj.num}}</a>
             </li>
         </ul>
-        <div class="pagi-text" ng-click="changingPageToLast()">
-            <a href="">ULTIMA</a>
+
+        <div class="pagi-text" ng-click="forward()">
+            <span>></span>
+        </div>
+        <div class="pagi-text" ng-click="changingPage(pageNumber)">
+            <span>>></span>
         </div>
 
         <div class="isChildButton" ng-if="isChild">
