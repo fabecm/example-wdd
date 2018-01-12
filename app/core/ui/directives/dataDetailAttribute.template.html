@@ -34,8 +34,8 @@
 
         <div ng-if="isSelect">
             <div class="wbb-select">
-                <select ng-model="model.value" ng-options="opt as opt.label for opt in domainValue">
-                    <option value=""></option>
+                <select ng-model="model.value" ng-options="opt.label as opt.label for opt in domainValue" ng-focus="setFocusOnAttribute(true)"
+                    ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()">
                 </select>
                 <i class="icon icon-down-arrow"></i>
             </div>

@@ -157,7 +157,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                     $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field});
                 } else if (row.action === 'info') {
                     // To add the id to send to the modal
-                    ModalService.openModificationWorkspace();
+                    ModalService.openModificationWorkspace(scope.serviceResponse[row.key].workspace.id);
                 } else if (row.action === 'creation') {
                     // To add the id to send to the modal
                     ModalService.openNewWorkspaceRequests();

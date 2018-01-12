@@ -22,7 +22,7 @@
                         {{item.label}}
                     </div>
                     <div class="holder-type" ng-if="box.showType">
-                        <label class="label-type">{{item.type}}</label>
+                        <label class="label-type">{{item.value}}</label>
                         <span class="content-bold">{{item.label}}</span>
                     </div>
 
@@ -30,7 +30,7 @@
 
                 <div class="holder-description" ng-if="box.hasDescription && data.description">
                     <span class="description-label" class>Descrizione</span>
-                    <div class="description-box">{{box.data.description}}</div>
+                    <div class="description-box">{{box.data.rule}}</div>
                 </div>
             </div>
 

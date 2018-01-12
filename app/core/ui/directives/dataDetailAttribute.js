@@ -13,7 +13,8 @@ export function DataDetailAttribute () {
             attributeValues: '@',
             domainObjValue: '@',
             originValue: '@',
-            resetAttribute: '&'
+            resetAttribute: '&',
+            unlockAction: '&'
         },
         template: template,
         link: (scope, element, attribute, ngModel, $log) => {
@@ -110,6 +111,7 @@ export function DataDetailAttribute () {
             scope.valueChanged = () => {
                 ngModel.$setViewValue(scope.model.value);
                 ngModel.$render();
+                scope.unlockAction();
             };
         }
 
