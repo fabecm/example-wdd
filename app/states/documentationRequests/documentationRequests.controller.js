@@ -98,11 +98,18 @@ export class DocumentationRequestsController {
     // }
 
     createNewWorkspace () {
-        this.modalService.openNewWorkspaceModal();
+        this.modalService.openNewWorkspaceModal().then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterApplied
+                });
+            });
+        });
     }
 
     filterChanged (filterApplied) {
         let param = filterApplied;
+        this.filterApplied = filterApplied;
 
         this.$timeout(() => {
             this.reloadTableData({

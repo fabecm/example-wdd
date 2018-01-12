@@ -1,51 +1,48 @@
 export class ModificationWorkspace {
 
-    // startDate = 'GG/MM/AAAA'; === modalData.dataInizio
+    workspaceForm = {};
 
-    modalData = {
-        descrizione: '',
-        descrizioneEstesa: '',
-        dataInizio: '',
-        dataFine: '',
-        stato: '',
-        utenteRichiedente: '',
-        note: ''
-    };
-
-    constructor (DetailsService, $scope) {
+    constructor (ModalService, $scope, $log, $uibModalInstance) {
         'ngInject';
+        this.modalService = ModalService;
+        this.$log = $log;
+        this.$uibModalInstance = $uibModalInstance;
 
-        this.detailsService = DetailsService;
-
-        console.log($scope.$parent.test);
-
-
-        this.getWorkspaceDetails();
+        this.getWorkspaceDetails($scope.$parent.workspaceId);
     }
 
-    getWorkspaceDetails() {
-        this.detailsService.getWorkspaceIdDetails()
-            .then(getData => {
-                this.dataList = getData.data;
-
-                console.log('test1');
-                console.log(this.dataList);
-                console.log(this.modalData);
-                console.log('test2');
-
-                this.modalData.descrizione = this.dataList.short_description;
-                this.modalData.descrizioneEstesa = this.dataList.long_description;
-                this.modalData.dataInizio = this.dataList.start_date;
-                this.modalData.dataFine = this.dataList.end_date;
-                this.modalData.stato = this.dataList.status;
-                this.modalData.utenteRichiedente = this.dataList.responsible_user.label;
-                this.modalData.note = this.dataList.note;
-
-            });
+    getWorkspaceDetails (workspaceId) {
+        this.modalService.getWorkspaceIdDetails(workspaceId).then(w => {
+            this.workspaceForm.short_description = w.data.short_description;
+            this.workspaceForm.long_description = w.data.long_description;
+            this.workspaceForm.start_date = w.data.start_date;
+            this.workspaceForm.end_date = w.data.end_date;
+            this.workspaceForm.stato = w.data.status;
+            this.workspaceForm.utenteRichiedente = w.data.responsible_user.label;
+            this.workspaceForm.note = w.data.note;
+        });
     }
 
-    // this.initDataDetails();
+    close () {
+        this.$uibModalInstance.dismiss();
+    }
 
+    saveWorkspace () {
+        this.$log.debug('save', this.workspaceForm);
+        this.workspaceForm.send = false;
 
-    // getWorkspaceIdDeatils
+        this.modalService.createNewWorkspace(this.workspaceForm).then(res => {
+            this.$log.debug(res);
+        }).finally(() => {
+            this.$uibModalInstance.close();
+        });
+    }
+
+    sendWorkspace () {
+        if (this.workspaceForm.start_date && this.workspaceForm.end_date && this.responsibleUser) {
+            this.$log.debug('send', this.workspaceForm);
+            this.workspaceForm.send = true;
+            this.workspaceForm.responsible_user_id = this.responsibleUser;
+        }
+    }
 }

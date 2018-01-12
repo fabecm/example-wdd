@@ -14,10 +14,19 @@ import { MassiveManagmentModalController } from '../templates/massiveManagmentMo
 import MassiveManagmentTemplate from '../templates/massiveManagmentModal.template.html';
 
 export class ModalService {
-    constructor ($uibModal, $rootScope) {
+    constructor ($uibModal, $rootScope, $http) {
         'ngInject';
         this.$uibModal = $uibModal;
         this.$rootScope = $rootScope;
+        this.$http = $http;
+    }
+
+    createNewWorkspace (configuration) {
+        return this.$http.post('WDD/workspace/save', configuration);
+    }
+
+    getWorkspaceIdDetails (workspaceId) {
+        return this.$http.get(`WDD/details/workspace/${workspaceId}`);
     }
 
     openMassiveManagmentModal () {
@@ -40,21 +49,24 @@ export class ModalService {
             template: NewWorkspaceTemplate,
             controller: NewWorkspaceController,
             controllerAs: 'vm',
+            backdrop: 'static',
             resolve: {}
         });
 
         return modalInstance.result;
     }
 
-    openModificationWorkspace () {
+    openModificationWorkspace (workspaceId) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             template: ModificationWorkspaceTemplate,
             controller: ModificationWorkspace,
             controllerAs: 'vm',
+            backdrop: 'static',
             scope: angular.extend(this.$rootScope, {
-                test: 'parentScope'
+                test: 'parentScope',
+                workspaceId: workspaceId
             }),
             resolve: {}
         });
