@@ -15,16 +15,21 @@
             margin: 25px 0 0 0;
         }
     }
+
+    .input-container{
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        overflow: hidden;
+        background: white;
+        border: 1px solid #afc2de;
+    }
 }
 
 .wbb-datepicker__container {
     position: relative;
     /* width: 300px; */
     height: 30px;
-    border-radius: 5px;
-    overflow: hidden;
-    background: white;
-    border: 1px solid #afc2de;
     // &__left-item {
     //     float: left;
     // }
@@ -38,15 +43,7 @@
     &__container-date {
         position: relative;
         height: 30px;
-        border-radius: 5px;
-        overflow: hidden;
-        background: white;
-        border: 1px solid #afc2de;
-        border-right: 0;
-
-
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
+        flex: 1;
         &__date {
             padding: 5px 10px;
         }
@@ -54,15 +51,6 @@
     &__container-icon {
         position: relative;
         height: 30px;
-        border-radius: 5px;
-        overflow: hidden;
-        background: white;
-        border: 1px solid #afc2de;
-        border-left: 0;
-
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        
     }
 
 }
