@@ -6,7 +6,7 @@
 
     .wdd-labeled-input {
         span {
-            margin-top: 5px;
+            // margin-top: 5px;
         }
     }
 
@@ -15,4 +15,42 @@
             margin: 25px 0 0 0;
         }
     }
+
+    .input-container{
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        overflow: hidden;
+        background: white;
+        border: 1px solid #afc2de;
+    }
+}
+
+.wbb-datepicker__container {
+    position: relative;
+    /* width: 300px; */
+    height: 30px;
+    // &__left-item {
+    //     float: left;
+    // }
+    // &__icon {
+    //     float: left;
+    //     background-color: tomato;
+    // }
+}
+
+.wbb-datepicker {
+    &__container-date {
+        position: relative;
+        height: 30px;
+        flex: 1;
+        &__date {
+            padding: 5px 10px;
+        }
+    }
+    &__container-icon {
+        position: relative;
+        height: 30px;
+    }
+
 }

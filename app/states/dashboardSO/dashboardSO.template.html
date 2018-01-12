@@ -1,14 +1,24 @@
 <div class="dashboardSO">
     <div class="col-xs-5 chart-doghout-dash">
-        <h2 class="title">Attività in corso</h2>           
+        <h2 class="title">Attività in corso</h2>
         <doughnut-chart array-values="vm.chartValues" hide-label="true"></doughnut-chart>
     </div>
 
     <div class="col-xs-7 table-dash">
 
-        <dashboard-table bgcolor="#0097D9" table-title="Richieste di documentazione" table-body="vm.dataList" header-type="dateCentric" child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>
+        <dashboard-table bgcolor="#0097D9" table-title="Richieste di documentazione" table-body="vm.dataList" header-type="dateCentric"
+            child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>
 
-        <dashboard-table bgcolor="#00796B" table-title="Censimenti di iniziativa" table-body="vm.dataList" header-type="dateCentric" child-page="{{vm.chartValues[1].childPage}}"></dashboard-table>
+        <dashboard-table bgcolor="#00796B" table-title="Censimenti di iniziativa" table-body="vm.dataList" header-type="dateCentric"
+            child-page="{{vm.chartValues[1].childPage}}"></dashboard-table>
 
     </div>
+
+    <br>
 </div>
+
+
+<!-- <div class="line__container">
+    <div class="col-xs-5 line"></div>
+    <div class="col-xs-7 "></div>
+</div> -->
