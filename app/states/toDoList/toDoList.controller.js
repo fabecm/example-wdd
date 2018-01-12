@@ -43,15 +43,12 @@ export class ToDoListController {
         value: 'data_scadenza'
     }];
 
-    constructor (DataService, DatasourceService, $state, $timeout) {
+    constructor ($state, $timeout) {
         'ngInject';
-        this.datasourceService = DatasourceService;
-        this.dataService = DataService;
         this.$state = $state;
         this.$timeout = $timeout;
 
-        // this.getBootstrap();
-        // this.loadData();
+        this.initToDoList();
     }
 
     changeChild () {
@@ -62,56 +59,12 @@ export class ToDoListController {
 
     initToDoList () {
         this.$timeout(() => {
-            this.reloadTableData({});
+            let param = {};
+            this.reloadTableData({
+                filterSetted: param
+            });
         });
     }
-
-    // loadData (params) {
-    //     this.dataService.getData(params)
-    //     .then(searchData => {
-    //         this.rawData = angular.copy(searchData.data.OutputArray);
-    //         this.dataList = searchData.data.OutputArray;
-    //         let numPages = Math.ceil(this.dataList.length / this.pageSize);
-
-    //         // slice data per current page
-    //         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-    //         // create an array of pages to ng-repeat, + 1 for a correct number
-    //         this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
-    //     });
-    // }
-
-    // sliceDataToShow (currentPage, pageSize) {
-    //     let startIndex = (Number(currentPage) - 1) * Number(pageSize);
-    //     let endIndex = startIndex + pageSize;
-    //     let dataVisiblePage = this.rawData.slice(startIndex, endIndex);
-
-    //     return dataVisiblePage;
-    // }
-
-    // changingPage (obj) {
-    //     this.currentPage = obj;
-
-    //     this.dataList = this.rawData;
-
-    //     this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-    // }
-
-    // changingPageToFirst () {
-    //     this.currentPage = 1;
-
-    //     this.dataList = this.rawData;
-
-    //     this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-    // }
-
-    // changingPageToLast () {
-    //     this.currentPage = this.pages.length;
-
-    //     this.dataList = this.rawData;
-
-    //     this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-    // }
 
     filterChanged (arrayFilter) {
         let param = {};
@@ -140,13 +93,4 @@ export class ToDoListController {
             });
         });
     }
-
-    // getBootstrap () {
-    //     this.datasourceService.getBootstrap().then(res => {
-    //         this.filterBootstrap = {
-    //             processOwner: res.data.process_owner,
-    //             systemOwner: res.data.system_owner
-    //         };
-    //     });
-    // }
 }

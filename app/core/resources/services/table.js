@@ -27,6 +27,21 @@ export class TableService {
                     });
                 });
 
+            case 'toDoList':
+                return this.dataService.getSystemOwnerTodoList(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.OutputArray,
+                        pages: res.data.page_count
+                    });
+                });
+
+            case 'initiativeCensuses':
+                return this.dataService.getSystemOwnerInitiativeCensuses(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.OutputArray,
+                        pages: res.data.page_count
+                    });
+                });
             default:
                 return this.$q.when([]);
         }

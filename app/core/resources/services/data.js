@@ -5,9 +5,16 @@ export class DataService {
         this.$q = $q;
     }
 
-    // Use this one
     getData (pageNumber, pageLength, params = {}) {
         return this.$http.post(`WDD/search/fulltext?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
+    }
+
+    getSystemOwnerTodoList (pageNumber, pageLength, params = {}) {
+        return this.$http.post(`WDD/search/systemowner/todo?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
+    }
+
+    getSystemOwnerInitiativeCensuses (pageNumber, pageLength, params = {}) {
+        return this.$http.post(`WDD/search/systemowner/initiative?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 
     // // Mock function (not use)
