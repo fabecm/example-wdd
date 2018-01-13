@@ -8,7 +8,8 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             label: '@',
             placeholder: '@',
             type: '@',
-            dipendence: '@'
+            dipendence: '@',
+            newValue: '='
         },
         template: template,
         link: (scope, element, attribute, ngModel) => {
@@ -78,6 +79,10 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 } else {
                     scope.listValues = scope.originalList;
                 }
+            };
+
+            scope.newValue = () => {
+                return scope.model.label;
             };
         }
     };

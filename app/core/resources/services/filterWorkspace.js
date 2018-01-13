@@ -24,13 +24,15 @@ export class FilterWorkspace {
                 return this.classificationService.getEntity(dipendence).then(res => res.data.array);
             case 'attribute':
                 return this.classificationService.getAttribute(dipendence).then(res => res.data.array);
+            case 'entityName':
+                return this.$q.when([]);
             default:
                 return this.$q.when([]);
         }
     }
 
     getFilterWorkspace (type, stringSearched) {
-        // this.$log.debug(stringSearched);
+        this.$log.debug(stringSearched);
         return this.$http.get(`WDD/filter/workspace?workspaceType=${type}`);
         // return getMockedWorkspace(this.$q);
     }

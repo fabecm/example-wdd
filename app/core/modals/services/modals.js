@@ -13,6 +13,9 @@ import DateRejectTemplate from '../templates/dateReject.template.html';
 import { MassiveManagmentModalController } from '../templates/massiveManagmentModal';
 import MassiveManagmentTemplate from '../templates/massiveManagmentModal.template.html';
 
+import { CreateEntityController } from '../templates/createEntity';
+import CreateEntityTemplate from '../templates/createEntity.template.html';
+
 export class ModalService {
     constructor ($uibModal, $rootScope, $http) {
         'ngInject';
@@ -27,6 +30,22 @@ export class ModalService {
 
     getWorkspaceIdDetails (workspaceId) {
         return this.$http.get(`WDD/details/workspace/${workspaceId}`);
+    }
+
+    openCreateEntity (entityType, dataDetails) {
+        let modalInstance = this.$uibModal.open({
+            template: CreateEntityTemplate,
+            controller: CreateEntityController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            scope: angular.extend(this.$rootScope, {
+                entityType: entityType,
+                dataDetails: dataDetails
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
     }
 
     openMassiveManagmentModal () {

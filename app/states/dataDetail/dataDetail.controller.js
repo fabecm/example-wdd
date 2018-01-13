@@ -31,10 +31,11 @@ export class DataDetailController {
     //     enabled: false
     // }]
 
-    constructor (DetailsService, $stateParams) {
+    constructor (DetailsService, $stateParams, ModalService) {
         'ngInject';
         this.detailsService = DetailsService;
         this.$stateParams = $stateParams;
+        this.modalService = ModalService;
 
         this.initDataDetails();
     }
@@ -47,7 +48,11 @@ export class DataDetailController {
                 data.isLock = true;
                 if (data.attributes) {
                     data.attributes = data.attributes.map(attribute => {
-                        attribute.origin_value = angular.copy(attribute.values[0].value);
+                        attribute.origin_value = undefined;
+                        if (attribute.values && attribute.values.length > 0) {
+                            attribute.origin_value = angular.copy(attribute.values[0].value);
+                            return attribute;
+                        }
                         return attribute;
                     });
                 } else {
@@ -57,6 +62,12 @@ export class DataDetailController {
             });
             this.processes = res.data.steps;
             this.currentProcess = res.data.currentStep;
+        });
+    }
+
+    createEtity (termtype) {
+        this.modalService.openCreateEntity(termtype, this.visibleDataDetails).then(() => {
+            this.initDataDetails();
         });
     }
 

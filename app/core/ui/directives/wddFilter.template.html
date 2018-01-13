@@ -13,8 +13,8 @@
             </button> -->
         </div>
         <div class="filter-row" ng-show="!isFilterActive">
-            <wdd-autocomplete ng-model="processOwnerChosen" label="Process Owner" placeholder="Seleziona" type="processOwner"></wdd-autocomplete>
-            <wdd-autocomplete ng-model="systemOwnerChosen" label="System Owner" placeholder="Seleziona" type="systemOwner"></wdd-autocomplete>
+            <wdd-autocomplete ng-model="processOwnerChosen" label="Process Owner" placeholder="Seleziona" type="processOwner" new-value="vm.getNewValue"></wdd-autocomplete>
+            <wdd-autocomplete ng-model="systemOwnerChosen" label="System Owner" placeholder="Seleziona" type="systemOwner" new-value="vm.getNewValue"></wdd-autocomplete>
             <!-- <div class="wdd-labeled-input">
                 <label for="processOwner">Process Owner</label>
                 <div class="wbb-select">
@@ -42,9 +42,10 @@
         </div>
 
         <div class="filter-section" ng-repeat="item in filtersArray" ng-show="!isFilterActive">
-            <wdd-autocomplete ng-model="filterSetted[$index].entity" label="Entità" placeholder="Seleziona un'entità" type="entity" dipendence="{{ filterSetted[$index].attribute }}"></wdd-autocomplete>
+            <wdd-autocomplete ng-model="filterSetted[$index].entity" label="Entità" placeholder="Seleziona un'entità" type="entity" dipendence="{{ filterSetted[$index].attribute }}"
+                new-value="vm.getNewValue"></wdd-autocomplete>
             <wdd-autocomplete ng-model="filterSetted[$index].attribute" label="Attributo" placeholder="Seleziona un attributo" type="attribute"
-                dipendence="{{ filterSetted[$index].entity }}"></wdd-autocomplete>
+                dipendence="{{ filterSetted[$index].entity }}" new-value="vm.getNewValue"></wdd-autocomplete>
 
             <!-- <div class="wdd-labeled-input">
                 <label for="entity">Entità</label>

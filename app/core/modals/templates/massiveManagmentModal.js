@@ -22,7 +22,7 @@ export class MassiveManagmentModalController {
     }
 
     sendFile () {
-        console.log(this.fileToUpload);
+        // console.log(this.fileToUpload);
     }
 
 }

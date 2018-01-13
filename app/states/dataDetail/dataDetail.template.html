@@ -45,7 +45,7 @@
                     <button ng-if="!detail.toAdd" class="wdd-button icon-only" ng-click="vm.showAttributeBody(detail)">
                         <i class="icon" ng-class="{'icon-down-arrow': !detail.isOpened, 'icon-up-arrow': detail.isOpened}"></i>
                     </button>
-                    <button ng-if="detail.toAdd" class="wdd-button icon-only">
+                    <button ng-if="detail.toAdd" class="wdd-button icon-only" ng-click="vm.createEtity(detail.term.termtype)">
                         <i class="icon icon-new"></i>
                     </button>
                 </div>
@@ -62,14 +62,14 @@
                 <div class="left-column">
                     <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 != 0">
                         <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
-                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)">
+                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}" is-editable="{{ attr.is_editable }}">
                         </att>
                     </div>
                 </div>
                 <div class="right-column">
                     <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 == 0">
                         <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
-                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)">
+                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}" is-editable="{{ attr.is_editable }}">
                         </att>
                     </div>
                 </div>

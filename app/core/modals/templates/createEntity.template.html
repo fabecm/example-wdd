@@ -1,0 +1,25 @@
+<div class="wwd-modal">
+    <div class="wwd-modal__title">
+        <div class="" id="modal-title">{{vm.entityType}}</div>
+    </div>
+    <form name="formCreateEntity" ng-submit="vm.saveEntity()">
+        <div class="wwd-modal__body__container" id="modal-body">
+            <div class="wwd-modal__body">
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-1 wwd-modal__row__title wwd-modal__row__title--dark">
+                        Nome
+                    </div>
+                    <div class="col-xs-11">
+                        <wdd-autocomplete ng-model="vm.entityName.value" placeholder="Seleziona nome" type="entityName" new-value="vm.getNewvalue"></wdd-autocomplete>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="wwd-modal__footer">
+            <button class="wdd-button alt-color" type="button" ng-click="close">Annulla</button>
+            <button class="wdd-button pull-right" type="submit">Salva</button>
+        </div>
+    </form>
+</div>
