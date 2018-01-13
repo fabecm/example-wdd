@@ -17,6 +17,14 @@ export class DataService {
         return this.$http.post(`WDD/search/systemowner/initiative?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 
+    getDQApprovalRequest (pageNumber, pageLength, params = {}) {
+        return this.$http.post(`WDD/search/dataquality/approval?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
+    }
+
+    getDQAutomaticEvents (pageNumber, pageLength, params = {}) {
+        return this.$http.post(`WDD/search/dataquality/event?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
+    }
+
     // // Mock function (not use)
     // getData (params = {}) {
     //     let defer = this.$q.defer();

@@ -122,24 +122,14 @@ export class DashboardRequestController {
         this.tableService.getTableData('searchWorkspace', {}, 1).then(res => {
             this.tableRichiesteDocumentazione = res.dataTable.splice(0, 3);
         });
+
+        this.tableService.getTableData('approvalRequest', {}, 1).then(res => {
+            this.tableApprovalRequest = res.dataTable.splice(0, 3);
+        });
+
+        this.tableService.getTableData('automaticEvents', {}, 1).then(res => {
+            this.tableAutomaticEvents = res.dataTable.splice(0, 3);
+        });
     }
-
-
-    // constructor (WorkspaceService) {
-    //     'ngInject';
-    //     this.workspaceService = WorkspaceService;
-    //     this.getData();
-    // }
-
-    // getData () {
-    //     this.workspaceService.getData('workspaceCentrico')
-    //     .then(searchData => {
-    //         this.dataList = searchData.data.OutputArray;
-    //         this.chartValues[0].value = 99;
-    //         this.chartValues[1].value = this.dataList.length;
-    //         this.chartValues[2].value = this.dataList.length;
-    //     });
-    // }
-
 
 }

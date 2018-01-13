@@ -42,6 +42,23 @@ export class TableService {
                         pages: res.data.page_count
                     });
                 });
+
+            case 'approvalRequest':
+                return this.dataService.getDQApprovalRequest(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.OutputArray,
+                        pages: res.data.page_count
+                    });
+                });
+
+            case 'automaticEvents':
+                return this.dataService.getDQAutomaticEvents(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.OutputArray,
+                        pages: res.data.page_count
+                    });
+                });
+
             default:
                 return this.$q.when([]);
         }
