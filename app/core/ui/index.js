@@ -16,6 +16,9 @@ import { WddRow } from './directives/wddRow';
 import { WddTable } from './directives/wddTable';
 import { wddProgress } from './directives/wddProgress';
 
+import { WddAlert } from './services/alert';
+import { WddAlertMessage } from './directives/alertMessage';
+
 
 export default angular.module('wdd.core.ui', [])
     .directive('wbbSelect', WbbSelect)
@@ -32,4 +35,6 @@ export default angular.module('wdd.core.ui', [])
     .directive('wddRow', WddRow)
     .directive('wddTable', WddTable)
     .directive('wddProgress', wddProgress)
+    .service('WDDAlert', WddAlert)
+    .directive('wddAlert', WddAlertMessage)
     .name;

@@ -1,10 +1,12 @@
 <div class="dashboardRequest">
-    <div class="col-xs-5 chart-doghout-dash">
+    <div class="chart-doghout-dash">
         <h2 class="title">Attività in corso</h2>
         <doughnut-chart ng-if="vm.dataAvailable" array-values="vm.chartValues" hide-label="true"></doughnut-chart>
     </div>
 
-    <div class="col-xs-7 table-dash">
+    <div class="vertical-line"></div>
+
+    <div class="table-dash">
 
         <dashboard-table ng-if="vm.tableRichiesteDocumentazione" bgcolor="#0097d9" table-title="Richieste di documentazione" table-body="vm.tableRichiesteDocumentazione"
             header-type="vm.headerRichiestaDocumentazione" child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>

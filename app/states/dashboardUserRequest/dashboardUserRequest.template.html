@@ -1,48 +1,12 @@
 <div class="dashboardUserRequest">
-    <div class="col-xs-5 chart-doghout-dash">
+    <div class="chart-doghout-dash">
         <h2 class="title">Workspace</h2>
         <doughnut-chart ng-if="vm.dataAvailable" array-values="vm.chartValues" hide-label="true"></doughnut-chart>
     </div>
 
-    <div class="col-xs-7">
+    <div class="vertical-line"></div>
 
-        <!-- <dashboard-table bgcolor="#0097D9" title="Richieste di documentazione" table-body="vm.dataList" header-type="dateCentric"></dashboard-table>
-
-        <dashboard-table bgcolor="#F2BE00" title="Censimenti di iniziativa" table-body="vm.dataList" header-type="dateCentric"></dashboard-table> -->
-
-        <!-- <div class="progress-overall-holder" ng-if="false">
-            <h2 class="title">Avanzamento Workspace</h2>
-            <hr />
-            <div class="overall-progress">
-                <div class="holder">
-                    <div class="progress-circle" ng-style="{'transform': 'rotate(120deg)'}"></div>
-                    <div class="progress-circle-cover">
-                        <div class="label">
-                            <span>70%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="workspace-holder">
-            <h2 class="title">Avanzamento Workspace</h2>
-            <hr />
-            <div class="workspace-list" ng-repeat="workspace in vm.workspaces">
-                <div class="left-block">
-                    {{ workspace.label }}
-                </div>
-                <div class="right-block">
-                    <div class="requested">
-                        <span>{{ workspace.requested }}</span>
-                    </div>
-                    <div class="censed">
-                        <div class="progress-workspace" ng-style="{'width': workspace.perc + '%'}"></div>
-                        <span>{{ workspace.censed }}</span>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+    <div class="progres-mageolder">
         <div class="progress-overall-holder">
             <h2 class="title">Avanzamento Complessivo</h2>
             <div class="progress-overall-line">

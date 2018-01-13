@@ -1,6 +1,6 @@
 import template from './wddRow.template.html';
 
-export function WddRow ($log) {
+export function WddRow () {
     'ngInject';
     return {
         scope: {
