@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($log, $timeout, $state, ModalService) {
+export function WddTable ($log, $timeout, $state, ModalService, TableService) {
     'ngInject';
     return {
         scope: {
@@ -23,7 +23,9 @@ export function WddTable ($log, $timeout, $state, ModalService) {
             actionPrimaryLabel: '&',
             hasSecondaryLabel: '@',
             actionSecondaryLabel: '&',
-            hasCreationBtn: '@'
+            hasCreationBtn: '@',
+            reloadData: '=',
+            tableKey: '@'
         },
         template: template,
         link: (scope) => {
@@ -31,6 +33,94 @@ export function WddTable ($log, $timeout, $state, ModalService) {
             scope.rawData = [];
             scope.currentPage = 1;
             scope.isSelectAll = {};
+            scope.filterApplied = {};
+            scope.checkedElements = [];
+
+            scope.reloadData = (filter) => {
+                // $log.debug('filter', filter);
+                if (filter && filter.filterSetted) {
+                    scope.filterApplied = filter.filterSetted;
+                }
+
+                if (filter && filter.filterSetted && filter.filterSetted.resetPage) {
+                    scope.currentPage = 1;
+                }
+
+                TableService.getTableData(scope.tableKey, scope.filterApplied, scope.currentPage).then(data => {
+                    scope.serviceResponse = data.dataTable;
+                    scope.pageNumber = data.pages;
+                    scope.pages = [...Array((scope.pageNumber ? scope.pageNumber: 1) + 1).keys()].slice(1, scope.pageNumber + 1);
+                    scope.pages = scope.pages.map(pag => {
+                        let isVisible = false;
+
+                        if (scope.currentPage === 1 && pag < 4) {
+                            isVisible = true;
+                        } else if (scope.currentPage === scope.pageNumber && pag > (scope.pageNumber - 3)) {
+                            isVisible = true;
+                        } else if (scope.currentPage === pag) {
+                            isVisible = true;
+                        } else if (pag === (scope.currentPage + 1) || pag === (scope.currentPage - 1)) {
+                            isVisible = true;
+                        }
+
+                        return({
+                            num: pag,
+                            isVisible: isVisible
+                        });
+                    });
+
+                    initData(scope);
+                });
+            };
+
+            scope.sliceDataToShow = () => {
+                let startIndex = (Number(scope.currentPage) - 1) * Number(scope.pageSize);
+                let endIndex = startIndex + scope.pageSize;
+                let dataVisiblePage = scope.rawData.slice(startIndex, endIndex);
+
+                return dataVisiblePage.map(elem => {
+                    elem.isChecked = scope.isSelectAll.value;
+                    return elem;
+                });
+            };
+
+            scope.changingPage = (page) => {
+                scope.currentPage = page;
+                scope.serviceResponse = undefined;
+                if (scope.isChild) {
+                    scope.sliceDataToShow();
+                } else {
+                    scope.reloadData();
+                }
+            };
+
+            scope.backwards = () => {
+                if (scope.currentPage === 1) {
+                    return;
+                }
+
+                scope.currentPage -= 1;
+                scope.serviceResponse = undefined;
+                if (scope.isChild) {
+                    scope.sliceDataToShow();
+                } else {
+                    scope.reloadData();
+                }
+            };
+
+            scope.forward = () => {
+                if (scope.currentPage === scope.pageNumber) {
+                    return;
+                }
+
+                scope.currentPage += 1;
+                scope.serviceResponse = undefined;
+                if (scope.isChild) {
+                    scope.sliceDataToShow();
+                } else {
+                    scope.reloadData();
+                }
+            };
 
             if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreationBtn) {
                 scope.hasIcon = true;
@@ -42,15 +132,44 @@ export function WddTable ($log, $timeout, $state, ModalService) {
                 scope.hasUnderTable = true;
             }
 
-            scope.sliceDataToShow = () => {
-                let startIndex = (Number(scope.currentPage) - 1) * Number(scope.pageSize);
-                let endIndex = startIndex + scope.pageSize;
-                let dataVisiblePage = scope.rawData.slice(startIndex, endIndex);
+            scope.childCollspan = () => {
+                let numColl = 0;
 
-                return dataVisiblePage.map(elem => {
-                    elem.isChecked = scope.isSelectAll.value;
-                    return elem;
-                });
+                numColl += scope.headerArray.length;
+
+                if (scope.expandable || scope.isChecked) {
+                    numColl += 1;
+                }
+
+                if (scope.hasIcon) {
+                    numColl += 1;
+                }
+
+                return numColl;
+            };
+
+            scope.rowAction = (row) => {
+                if (row.action === 'collapse') {
+                    scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
+                } else if (row.action === 'primaryNavigation') {
+                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field});
+                } else if (row.action === 'secondaryNavigation') {
+                    $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field});
+                } else if (row.action === 'info') {
+                    // To add the id to send to the modal
+                    ModalService.openModificationWorkspace(scope.serviceResponse[row.key].workspace.id);
+                } else if (row.action === 'creation') {
+                    // To add the id to send to the modal
+                    ModalService.openNewWorkspaceRequests();
+                }
+            };
+
+            scope.secondaryAction = () => {
+                scope.actionSecondaryLabel();
+            };
+
+            scope.primaryAction = () => {
+                scope.actionPrimaryLabel();
             };
 
             try {
@@ -91,124 +210,43 @@ export function WddTable ($log, $timeout, $state, ModalService) {
                     scope.hasCreation = JSON.parse(scope.hasCreationBtn);
                 }
 
-                initTable(scope);
+                if (scope.isChild && scope.serviceResponse[0]) {
+                    const startRes = scope.serviceResponse[0];
+                    scope.serviceResponse = [];
+                    for (let i = 0; i < Array(25).length; i++) {
+                        scope.serviceResponse.push(startRes);
+                    }
+                }
             } catch (error) {
                 $log.debug(error);
             }
 
-            scope.childCollspan = () => {
-                let numColl = 0;
+            if (scope.isChild) {
+                initData(scope);
 
-                numColl += scope.headerArray.length;
+                scope.rawData = angular.copy(scope.serviceResponse);
 
-                if (scope.expandable || scope.isChecked) {
-                    numColl += 1;
+                if (!scope.pageSize) {
+                    scope.pageSize = 10;
                 }
 
-                if (scope.hasIcon) {
-                    numColl += 1;
-                }
-
-                return numColl;
-            };
-
-
-            scope.changingPage = (obj) => {
-                scope.currentPage = obj;
-
-                scope.serviceResponse = undefined;
-
-                $timeout(() => {
+                if(scope.serviceResponse && scope.serviceResponse.length && scope.pagination && scope.pageSize && scope.pageSize > 0) {
+                    let numPages = Math.ceil(scope.serviceResponse.length / scope.pageSize);
                     scope.serviceResponse = scope.sliceDataToShow();
-                });
-            };
-
-            scope.changingPageToFirst = () => {
-                scope.currentPage = 1;
-
-                scope.serviceResponse = undefined;
-
-                $timeout(() => {
-                    scope.serviceResponse = scope.sliceDataToShow();
-                });
-            };
-
-            scope.changingPageToLast = () => {
-                scope.currentPage = scope.pages.length;
-
-                scope.serviceResponse = undefined;
-
-                $timeout(() => {
-                    scope.serviceResponse = scope.sliceDataToShow();
-                });
-            };
-
-            scope.rowAction = (row) => {
-                if (row.action === 'collapse') {
-                    scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
-                } else if (row.action === 'primaryNavigation') {
-                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id});
-                } else if (row.action === 'secondaryNavigation') {
-                    $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id});
-                } else if (row.action === 'info') {
-                    // Add the id to send to the modal
-                    ModalService.openModificationWorkspace();
-                } else if (row.action === 'creation') {
-                    // Add the id to send to the modal
-                    ModalService.openNewWorkspaceRequests();
+                    scope.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
                 }
-            };
-
-            scope.secondaryAction = () => {
-                scope.actionSecondaryLabel();
-            };
-
-            scope.primaryAction = () => {
-                scope.actionPrimaryLabel();
-            };
-
-            scope.checkRowsSelection = () => {
-                scope.serviceResponse = scope.serviceResponse.map(row => {
-                    row.isChecked = scope.isSelectAll.value;
-                    return row;
-                });
-            };
-
-            scope.checkValueChange = () => {
-                let allAreTrue = true;
-                scope.serviceResponse.map(row => {
-                    if (!row.isChecked) {
-                        scope.isSelectAll.value = false;
-                        allAreTrue = false;
-                    }
-                });
-
-                if (allAreTrue) {
-                    scope.isSelectAll.value = true;
-                }
-            };
+            }
         }
     };
 }
 
-function initTable (scope) {
+function initData (scope) {
     if (scope.expandable) {
         scope.serviceResponse = scope.serviceResponse.map(elem => {
             elem.workspace.collapse = true;
-            elem.isChecked = scope.isSelectAll.value;
+            elem.isChecked = Boolean(scope.checkedElements.find(el => el === elem.id));
+            // elem.isChecked = scope.isSelectAll.value;
             return elem;
         });
-    }
-
-    scope.rawData = angular.copy(scope.serviceResponse);
-
-    if (!scope.pageSize) {
-        scope.pageSize = 10;
-    }
-
-    if(scope.serviceResponse && scope.serviceResponse.length && scope.pagination && scope.pageSize && scope.pageSize > 0) {
-        let numPages = Math.ceil(scope.serviceResponse.length / scope.pageSize);
-        scope.serviceResponse = scope.sliceDataToShow();
-        scope.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
     }
 }

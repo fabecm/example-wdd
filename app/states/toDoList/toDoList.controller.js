@@ -43,14 +43,12 @@ export class ToDoListController {
         value: 'data_scadenza'
     }];
 
-    constructor (DataService, DatasourceService, $state) {
+    constructor ($state, $timeout) {
         'ngInject';
-        this.datasourceService = DatasourceService;
-        this.dataService = DataService;
         this.$state = $state;
+        this.$timeout = $timeout;
 
-        // this.getBootstrap();
-        this.loadData();
+        this.initToDoList();
     }
 
     changeChild () {
@@ -59,87 +57,40 @@ export class ToDoListController {
         }
     }
 
-    loadData (params) {
-        this.dataService.getData(params)
-        .then(searchData => {
-            this.rawData = angular.copy(searchData.data.OutputArray);
-            this.dataList = searchData.data.OutputArray;
-            let numPages = Math.ceil(this.dataList.length / this.pageSize);
-
-            // slice data per current page
-            this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-            // create an array of pages to ng-repeat, + 1 for a correct number
-            this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
+    initToDoList () {
+        this.$timeout(() => {
+            let param = {};
+            this.reloadTableData({
+                filterSetted: param
+            });
         });
     }
 
-    sliceDataToShow (currentPage, pageSize) {
-        let startIndex = (Number(currentPage) - 1) * Number(pageSize);
-        let endIndex = startIndex + pageSize;
-        let dataVisiblePage = this.rawData.slice(startIndex, endIndex);
+    filterChanged (arrayFilter) {
+        let param = {};
+        param.resetPage = true;
 
-        return dataVisiblePage;
-    }
+        if (arrayFilter.process_owner_id) {
+            param.process_owner_id = arrayFilter.process_owner_id;
+        } else {
+            param.process_owner_id = 0;
+        }
+        if (arrayFilter.system_owner_id) {
+            param.system_owner_id = arrayFilter.system_owner_id;
+        } else {
+            param.system_owner_id = 0;
+        }
+        if (arrayFilter.status_code) {
+            param.status_code = arrayFilter.status_code;
+        }
+        if (arrayFilter.arrayFilter && arrayFilter.arrayFilter.length > 0) {
+            param.array_filter_text = arrayFilter.arrayFilter;
+        }
 
-    changingPage (obj) {
-        this.currentPage = obj;
-
-        this.dataList = this.rawData;
-
-        this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-    }
-
-    changingPageToFirst () {
-        this.currentPage = 1;
-
-        this.dataList = this.rawData;
-
-        this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-    }
-
-    changingPageToLast () {
-        this.currentPage = this.pages.length;
-
-        this.dataList = this.rawData;
-
-        this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-    }
-
-    filterChanged (param) {
-        // let param = {};
-
-        // if (this.processOwnerChosen) {
-        //     param.process_owner_id = this.processOwnerChosen.id;
-        // }
-        // if (this.systemOwnerChosen) {
-        //     param.system_owner_id = this.systemOwnerChosen.id;
-        // }
-        // if (this.statusChosen) {
-        //     param.status_code = this.statusChosen.label;
-        // }
-        // if (arrayFilter && arrayFilter.length > 0) {
-        //     param.arrayFilter = arrayFilter;
-        // }
-
-        this.dataService.getData(param)
-        .then(searchData => {
-            this.rawData = angular.copy(searchData.data.OutputArray);
-            this.dataList = searchData.data.OutputArray;
-            let numPages = Math.ceil(this.dataList.length / this.pageSize);
-
-            this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-            this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
+        this.$timeout(() => {
+            this.reloadTableData({
+                filterSetted: param
+            });
         });
     }
-
-    // getBootstrap () {
-    //     this.datasourceService.getBootstrap().then(res => {
-    //         this.filterBootstrap = {
-    //             processOwner: res.data.process_owner,
-    //             systemOwner: res.data.system_owner
-    //         };
-    //     });
-    // }
 }

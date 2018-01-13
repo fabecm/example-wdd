@@ -2,83 +2,84 @@
     <div class="wwd-modal__title">
         <h class="" id="modal-title">Modifica Workspace</h>
     </div>
-    <div class="wwd-modal__body__container" id="modal-body">
-        <div class="wwd-modal__body">
-            <div class="row wwd-modal__row">
-                <div class="col-xs-3 wwd-modal__row__title">
-                    Descrizione
-                </div>
-                <div class="col-xs-9">
-                    <input type="text" placeholder="Es. WS1">
-                </div>
-            </div>
-
-            <div class="row wwd-modal__row">
-                <div class="col-xs-3 wwd-modal__row__title">
-                    Descrizione Estesa
-                </div>
-                <div class="col-xs-9">
-                    <input type="text" placeholder="Es. Workspace 1">
-                </div>
-            </div>
-
-            <div class="row wwd-modal__row">
-                <div class="col-xs-3">
-
-                </div>
-                <div class="col-xs-9 row">
-                    <div class="col-xs-6 wwd-modal__row__title">
-                        Data Inizio
-                        <wdd-datepicker ng-model="vm.startDate" label="{{vm.labelStartDate}}"></wdd-datepicker>
+    <form name="createNewWorkspaceForm" ng-submit="vm.saveWorkspace()">
+        <div class="wwd-modal__body__container" id="modal-body">
+            <div class="wwd-modal__body">
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-3 wwd-modal__row__title">
+                        Descrizione
                     </div>
-                    <div class="col-xs-6 wwd-modal__row__title">
-                        Data Fine
-                        <wdd-datepicker ng-model="vm.startDate" label="{{vm.labelStartDate}}"></wdd-datepicker>
+                    <div class="col-xs-9">
+                        <!-- <input text="name" type="text" placeholder="Es. WS1"> -->
+                        <input type="text" ng-model="vm.workspaceForm.short_description" maxlength="100" required>
+                    </div>
+                </div>
+
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-3 wwd-modal__row__title">
+                        Descrizione Estesa
+                    </div>
+                    <div class="col-xs-9">
+                        <input type="text" ng-model="vm.workspaceForm.long_description" maxlength="500" required>
+                    </div>
+                </div>
+
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-3">
+
+                    </div>
+                    <div class="col-xs-9 row">
+                        <div class="col-xs-6 wwd-modal__row__title">
+                            Data Inizio
+                            <wdd-datepicker ng-model="vm.workspaceForm.start_date"></wdd-datepicker>
+                        </div>
+                        <div class="col-xs-6 wwd-modal__row__title">
+                            Data Fine
+                            <wdd-datepicker ng-model="vm.workspaceForm.end_date"></wdd-datepicker>
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-3 wwd-modal__row__title">
+                        Stato
+                    </div>
+                    <div class="col-xs-9">
+                        <input type="text" ng-model="vm.workspaceForm.stato" readonly>
+                    </div>
+                </div>
 
-            <div class="row wwd-modal__row">
-                <div class="col-xs-3 wwd-modal__row__title">
-                    Stato
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-3 wwd-modal__row__title">
+                        Utente Richiedente
+                    </div>
+                    <div class="col-xs-9">
+                        <wdd-autocomplete ng-model="vm.descriptionSelected.value" label="{{labelDescription}}" placeholder="{{placeholderDescription}}"
+                            type="{{typeDescription}}" new-value="vm.getNewValue">
+                        </wdd-autocomplete>
+                    </div>
                 </div>
-                <div class="col-xs-9">
-                    <input type="text" placeholder="Stato 1">
-                </div>
-            </div>
 
-            <div class="row wwd-modal__row">
-                <div class="col-xs-3 wwd-modal__row__title">
-                    Utente Richiedente
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-3 wwd-modal__row__title">
+                        Note
+                    </div>
+                    <div class="col-xs-9">
+                        <textarea ng-model="vm.workspaceForm.note" maxlength="100"></textarea>
+                    </div>
                 </div>
-                <div class="col-xs-9">
-                    <wdd-autocomplete ng-model="descriptionSelected.value" label="{{labelDescription}}" placeholder="{{placeholderDescription}}"
-                        type="{{typeDescription}}" list-values="descriptionList" ng-change="change()">
-                    </wdd-autocomplete>
-                </div>
-            </div>
 
-            <div class="row wwd-modal__row">
-                <div class="col-xs-3 wwd-modal__row__title">
-                    Note
-                </div>
-                <div class="col-xs-9">
-                    <textarea placeholder="Inserisci eventuali note per il nuovo workspace."></textarea>
-                </div>
             </div>
 
         </div>
-
-
-
-    </div>
-    <div class="wwd-modal__footer">
-        <button class="wdd-button alt-color" type="button">Annulla</button>
-        <button class="wdd-button alert-color" type="button">Elimina</button>
-        <button class="wdd-button alt-color pull-right" type="button">Invia</button>
-        <button class="wdd-button pull-right" type="button">Salva</button>
-    </div>
+        <div class="wwd-modal__footer">
+            <button class="wdd-button alt-color" type="button" ng-click="vm.close()">Annulla</button>
+            <button class="wdd-button alert-color" type="button" ng-click="deletWorkspace()">Elimina</button>
+            <button class="wdd-button alt-color pull-right" type="button" ng-click="vm.sendWorkspace()">Invia</button>
+            <button class="wdd-button pull-right" type="submit">Salva</button>
+        </div>
+    </form>
 
 </div>

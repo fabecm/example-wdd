@@ -4,7 +4,9 @@ import DataDetailTemplate from './dataDetail.template.html';
 
 export const stateConfig = {
     url: '/data-detail',
-    params: {},
+    params: {
+        id: null
+    },
     template: DataDetailTemplate,
     controller: DataDetailController,
     controllerAs: 'vm'

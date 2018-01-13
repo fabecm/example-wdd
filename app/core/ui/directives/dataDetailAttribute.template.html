@@ -2,6 +2,7 @@
 
     <div class="attribute-name" ng-class="{'name-focus-enabled': isFocusEnabled}">
         {{attributeName}}
+        <span class="attribute-required" ng-if="isRequired === 'true'">*</span>
         <div class="file-manage" ng-if="isFile">
             <label for="attachFile">
                 <i class="icon icon-new"></i>
@@ -15,12 +16,12 @@
 
         <div ng-if="isTextArea">
             <textarea class="wdd-textarea" ng-model="model.value" ng-focus="setFocusOnAttribute(true)" ng-blur="setFocusOnAttribute(false)"
-                ng-change="valueChanged()"></textarea>
+                ng-change="valueChanged()" ng-disabled="!isEditable"></textarea>
         </div>
 
         <div ng-if="isInput">
             <input class="wdd-input-text" ng-model="model.value" ng-focus="setFocusOnAttribute(true)" ng-blur="setFocusOnAttribute(false)"
-                ng-change="valueChanged()" />
+                ng-change="valueChanged()" ng-disabled="!isEditable"/>
         </div>
 
         <div ng-if="isRadioButton" ng-hide="true">
@@ -34,8 +35,8 @@
 
         <div ng-if="isSelect">
             <div class="wbb-select">
-                <select ng-model="model.value" ng-options="opt as opt.label for opt in domainValue">
-                    <option value=""></option>
+                <select ng-model="model.value" ng-options="opt.label as opt.label for opt in domainValue" ng-focus="setFocusOnAttribute(true)"
+                    ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()" ng-disabled="!isEditable">
                 </select>
                 <i class="icon icon-down-arrow"></i>
             </div>

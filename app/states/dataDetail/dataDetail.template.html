@@ -21,9 +21,9 @@
         </div>
     </div>
 
-    <div class="process-steps">
+    <div class="process-steps" ng-if="vm.processes">
         <div class="process-steps__container">
-            <div class="step" ng-repeat="pro in vm.processes" ng-class="{'step--complete': pro.enabled}">
+            <div class="step" ng-repeat="pro in vm.processes" ng-class="{'step--complete': pro.id <= vm.currentProcess.id}">
                 <div class="title">
                     {{ pro.label }}
                 </div>
@@ -39,11 +39,14 @@
     </div>
 
     <div class="details-container">
-        <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="detail in vm.visibleDataDetails track by $index" ng-class="{'active': detail.isOpened}">
+        <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="(key, detail) in vm.visibleDataDetails track by $index" ng-class="{'active': detail.isOpened}">
             <div class="header">
                 <div class="header-icon">
-                    <button class="wdd-button icon-only" ng-click="vm.showAttributeBody(detail)">
+                    <button ng-if="!detail.toAdd" class="wdd-button icon-only" ng-click="vm.showAttributeBody(detail)">
                         <i class="icon" ng-class="{'icon-down-arrow': !detail.isOpened, 'icon-up-arrow': detail.isOpened}"></i>
+                    </button>
+                    <button ng-if="detail.toAdd" class="wdd-button icon-only" ng-click="vm.createEtity(detail.term.termtype)">
+                        <i class="icon icon-new"></i>
                     </button>
                 </div>
                 <div class="header-title">
@@ -51,46 +54,32 @@
                     <label class="header-title-elem name-elem">{{detail.term.name}}</label>
                 </div>
                 <div class="header-label">
-                    <label class="wdd-label complete">{{detail.status}}</label>
+                    <label class="wdd-label complete" ng-class="{'complete': detail.status.light === 'complete'}" ng-if="!detail.toAdd">{{detail.status.label}}</label>
+                    <label class="wdd-label" ng-if="detail.toAdd">Incompleto</label>
                 </div>
             </div>
-            <div class="body">
+            <div class="body" ng-if="!detail.toAdd">
                 <div class="left-column">
                     <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 != 0">
-                        <att ng-model="attr.default_value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
-                            reset-attribute="vm.resetChanges(resetFunction)">
+                        <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
+                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}" is-editable="{{ attr.is_editable }}">
                         </att>
                     </div>
                 </div>
                 <div class="right-column">
                     <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 == 0">
-                        <att ng-model="attr.default_value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
-                            reset-attribute="vm.resetChanges(resetFunction)">
+                        <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
+                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}" is-editable="{{ attr.is_editable }}">
                         </att>
                     </div>
                 </div>
 
             </div>
-            <div class="footer">
+            <div class="footer" ng-if="!detail.toAdd">
                 <button class="wdd-button alt-color">ELIMINA ENTITA'</button>
                 <button class="wdd-button alt-color">ELIMINA BOZZA</button>
-                <button class="wdd-button alt-color" ng-disabled="!vm.checkObject(detail.attributes)" ng-click="vm.resetAttribute">ANNULLA MODIFICHE</button>
-                <button class="wdd-button" ng-disabled="!vm.checkObject(detail.attributes)">SALVA MODIFICHE</button>
-            </div>
-        </div>
-        <div class="detail-container">
-            <div class="header">
-                <div class="header-icon">
-                    <button class="wdd-button icon-only">
-                        <i class="icon icon-new"></i>
-                    </button>
-                </div>
-                <div class="header-title">
-                    <label class="header-title-elem type-elem">Business Data</label>
-                </div>
-                <div class="header-label">
-                    <label class="wdd-label">Incompleto</label>
-                </div>
+                <button class="wdd-button alt-color" ng-disabled="detail.isLock" ng-click="vm.deleteChanges(detail)">ANNULLA MODIFICHE</button>
+                <button class="wdd-button" ng-disabled="detail.isLock" ng-click="vm.saveChanges(detail)">SALVA MODIFICHE</button>
             </div>
         </div>
     </div>

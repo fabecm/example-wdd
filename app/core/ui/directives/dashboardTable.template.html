@@ -4,12 +4,12 @@
             {{tableTitle}}
         </caption>
         <tr>
-            <th ng-repeat="header in headerArray" class="dashboard-table-cell">
+            <th ng-repeat="header in headerArray track by $index" class="dashboard-table-cell">
                 {{ header.label }}
             </th>
         </tr>
 
-        <tr ng-repeat="obj in tableBody">
+        <tr ng-repeat="obj in tableBody track by $index">
             <td class="dashboard-table-cell" ng-repeat="header in headerArray">
                 <div tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{obj[header.value].label}}"
                     tooltip-enable="false" show-tooltip>

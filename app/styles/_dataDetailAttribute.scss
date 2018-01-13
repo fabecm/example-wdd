@@ -8,6 +8,10 @@
         width: 125px;
         color: #37475f;
 
+        .attribute-required {
+            color: red;
+        }
+
         .file-manage {
             display: flex;
             flex-direction: row;
@@ -30,6 +34,10 @@
             &:focus {
                 box-shadow: 0 0 0pt 2pt #2a74de;
             }
+        }
+
+        [disabled="disabled"] {
+            background-color: rgba(181, 180, 180, 0.3);
         }
     }
 }

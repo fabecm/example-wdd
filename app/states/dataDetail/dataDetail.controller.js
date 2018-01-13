@@ -1,55 +1,123 @@
+/*
+    TODO:
+    isDraft = true:
+        Il dato non è di produzione quindi bisogna aggiungere in query alla chiamata is_draft=true e mostrare il workflow
+
+    isDraft = false (o assente):
+        Il dato è di produzione, non c'è bisogno di specificare in query il campo is_draft e non bisogna visualizzare il workflow
+*/
 export class DataDetailController {
 
     listDataDetails = [];
+    visibleDataDetails = [];
 
-    processes = [{
-        label: 'Step 1',
-        enabled: true
-    }, {
-        label: 'Step 2',
-        enabled: true
-    }, {
-        label: 'Step 3',
-        enabled: true
-    }, {
-        label: 'Step 4',
-        enabled: true
-    }, {
-        label: 'Step 5',
-        enabled: false
-    }, {
-        label: 'Step 6',
-        enabled: false
-    }]
+    // processes = [{
+    //     label: 'Step 1',
+    //     enabled: true
+    // }, {
+    //     label: 'Step 2',
+    //     enabled: true
+    // }, {
+    //     label: 'Step 3',
+    //     enabled: true
+    // }, {
+    //     label: 'Step 4',
+    //     enabled: true
+    // }, {
+    //     label: 'Step 5',
+    //     enabled: false
+    // }, {
+    //     label: 'Step 6',
+    //     enabled: false
+    // }]
 
-    constructor (DetailsService, $stateParams) {
+    constructor (DetailsService, $stateParams, ModalService) {
         'ngInject';
         this.detailsService = DetailsService;
         this.$stateParams = $stateParams;
+        this.modalService = ModalService;
 
         this.initDataDetails();
     }
 
     initDataDetails () {
         this.detailsService.getDataFieldDetails(this.$stateParams.id).then(res => {
-            this.listDataDetails = res.data;
-            this.visibleDataDetails = res.data.map(data => {
+            this.listDataDetails = res.data.array;
+            this.visibleDataDetails = res.data.array.map(data => {
                 data.isOpened = true;
-                data.attributes = data.attributes.map(attribute => {
-                    attribute.origin_value = attribute.default_value;
-                    return attribute;
-                });
+                data.isLock = true;
+                if (data.attributes) {
+                    data.attributes = data.attributes.map(attribute => {
+                        attribute.origin_value = undefined;
+                        if (attribute.values && attribute.values.length > 0) {
+                            attribute.origin_value = angular.copy(attribute.values[0].value);
+                            return attribute;
+                        }
+                        return attribute;
+                    });
+                } else {
+                    data.toAdd = true;
+                }
                 return data;
             });
+            this.processes = res.data.steps;
+            this.currentProcess = res.data.currentStep;
         });
     }
 
+    createEtity (termtype) {
+        this.modalService.openCreateEntity(termtype, this.visibleDataDetails).then(() => {
+            this.initDataDetails();
+        });
+    }
+
+    unlockAction (index) {
+        this.visibleDataDetails[index].isLock = false;
+    }
+
     checkObject (obj) {
+        if (!obj) {
+            return true;
+        }
         return obj.filter(o => o.default_value).length;
     }
 
     resetChanges (resetAttribute) {
         this.resetAttribute = resetAttribute;
+    }
+
+    saveChanges (detail) {
+        let entityToSave = {};
+
+        entityToSave.term = detail.term;
+        entityToSave.attributes = detail.attributes.map(att => {
+            return {
+                name: att.name,
+                values: att.values
+            };
+        });
+
+        entityToSave.relations = [];
+        for (let i = 0; i < this.visibleDataDetails.length; i++) {
+            if (this.visibleDataDetails[i].term.termId && detail.term.termId !== this.visibleDataDetails[i].term.termId) {
+                entityToSave.relations.push({
+                    termtype: this.visibleDataDetails[i].term.termtype,
+                    name: this.visibleDataDetails[i].term.name,
+                    termId: this.visibleDataDetails[i].term.termId,
+                    isDraft: this.visibleDataDetails[i].term.isDraft
+                });
+            }
+        }
+
+        this.detailsService.saveEntity(entityToSave);
+        detail.isLock = true;
+    }
+
+    deleteChanges (detail) {
+        detail.isLock = true;
+        detail.attributes.map(attribute => {
+            attribute.values[0].value = attribute.origin_value;
+        });
     }
 
     showAttributeBody (detail) {
@@ -62,6 +130,9 @@ export class DataDetailController {
     }
 
     checkDetailStatus () {
+        if (!this.visibleDataDetails) {
+            return false;
+        }
         return this.visibleDataDetails.filter(e => !e.isOpened).length >= 1;
     }
 

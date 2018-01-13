@@ -1,6 +1,6 @@
 import template from './wddFilter.template.html';
 
-export function WddFilter ($log, $q, ClassificationService, DatasourceService) {
+export function WddFilter ($log, $q, ClassificationService) {
     'ngInject';
     return {
         scope: {
@@ -17,41 +17,28 @@ export function WddFilter ($log, $q, ClassificationService, DatasourceService) {
             }, {
                 label: 'Produzione'
             }];
+            scope.statusChosen = scope.filterStatus[0];
             scope.filterArrayBase = [];
 
-            let getStandardFilter = () => {
-                return $q.all([ClassificationService.getEntity(), ClassificationService.getAttribute()])
-                    .then(res => {
-                        return {
-                            entity: res[0].data,
-                            attribute: res[1].data
-                        };
-                    });
-            };
-
-            let getBootstrap = () => {
-                DatasourceService.getBootstrap().then(res => {
-                    scope.filterBootstrap = {
-                        processOwner: res.data.process_owner,
-                        systemOwner: res.data.system_owner
-                    };
-                });
-            };
+            // let getBootstrap = () => {
+            //     DatasourceService.getBootstrap().then(res => {
+            //         scope.filterBootstrap = {
+            //             processOwner: res.data.process_owner,
+            //             systemOwner: res.data.system_owner
+            //         };
+            //     });
+            // };
 
             let initFilter = () => {
-                getStandardFilter().then(res => {
-                    scope.filtersArray = [res];
-                    scope.filterArrayBase = [res];
-                });
-                getBootstrap();
+                scope.filtersArray = [{}];
+                scope.filterArrayBase = [{}];
+                // getBootstrap();
             };
             initFilter();
 
             scope.addNewFilter = () => {
                 scope.isFilterActive = false;
-                getStandardFilter().then(res => {
-                    scope.filtersArray.push(res);
-                });
+                scope.filtersArray.push([]);
             };
 
             scope.removeFilter = (filter) => {
@@ -78,10 +65,10 @@ export function WddFilter ($log, $q, ClassificationService, DatasourceService) {
                 let param = {};
 
                 if (scope.processOwnerChosen) {
-                    param.process_owner_id = scope.processOwnerChosen.id;
+                    param.process_owner_id = scope.processOwnerChosen;
                 }
                 if (scope.systemOwnerChosen) {
-                    param.system_owner_id = scope.systemOwnerChosen.id;
+                    param.system_owner_id = scope.systemOwnerChosen;
                 }
                 if (scope.statusChosen) {
                     param.status_code = scope.statusChosen.label;
@@ -99,7 +86,9 @@ export function WddFilter ($log, $q, ClassificationService, DatasourceService) {
                 param.arrayFilter = array.array_filter_text;
 
                 $log.debug(param);
-                scope.appliedFilter(param);
+                scope.appliedFilter({
+                    filterApplied: param
+                });
             };
 
             scope.showFilter = () => {
@@ -111,16 +100,11 @@ export function WddFilter ($log, $q, ClassificationService, DatasourceService) {
             };
 
             scope.resetFilter = () => {
-                scope.processOwnerChosen = {};
-                scope.systemOwnerChosen = {};
-                scope.statusChosen = {};
+                scope.processOwnerChosen = undefined;
+                scope.systemOwnerChosen = undefined;
+                scope.statusChosen = scope.filterStatus[0];
                 scope.filterSetted = [];
                 scope.filtersArray = scope.filterArrayBase;
-
-                scope.modelle = undefined;
-                scope.modellissimi = undefined;
-                scope.modello = undefined;
-                scope.modella = undefined;
             };
 
             scope.updateEntity = (filter, filterSetted) => {

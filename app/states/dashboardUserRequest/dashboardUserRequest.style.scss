@@ -136,6 +136,13 @@
         font-size: 25px;
         margin-bottom: 20px;
     }
+    .list-holder {
+        height: 490px;
+        width: 640px;
+        padding: 0 40px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
     .workspace-list{
         width: 100%;
         display: flex;

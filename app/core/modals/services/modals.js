@@ -1,6 +1,6 @@
 import { NewWorkspaceController } from '../templates/newWorkspace';
 import NewWorkspaceTemplate from '../templates/newWorkspace.template.html';
-import { ModificationWorkspaceController } from '../templates/modificationWorkspace';
+import { ModificationWorkspace } from '../templates/modificationWorkspace';
 import ModificationWorkspaceTemplate from '../templates/modificationWorkspace.template.html';
 import { NewWorkspaceRequestsController } from '../templates/newWorkspaceRequests';
 import NewWorkspaceRequestsTemplate from '../templates/newWorkspaceRequests.template.html';
@@ -13,10 +13,39 @@ import DateRejectTemplate from '../templates/dateReject.template.html';
 import { MassiveManagmentModalController } from '../templates/massiveManagmentModal';
 import MassiveManagmentTemplate from '../templates/massiveManagmentModal.template.html';
 
+import { CreateEntityController } from '../templates/createEntity';
+import CreateEntityTemplate from '../templates/createEntity.template.html';
+
 export class ModalService {
-    constructor ($uibModal) {
+    constructor ($uibModal, $rootScope, $http) {
         'ngInject';
         this.$uibModal = $uibModal;
+        this.$rootScope = $rootScope;
+        this.$http = $http;
+    }
+
+    createNewWorkspace (configuration) {
+        return this.$http.post('WDD/workspace/save', configuration);
+    }
+
+    getWorkspaceIdDetails (workspaceId) {
+        return this.$http.get(`WDD/details/workspace/${workspaceId}`);
+    }
+
+    openCreateEntity (entityType, dataDetails) {
+        let modalInstance = this.$uibModal.open({
+            template: CreateEntityTemplate,
+            controller: CreateEntityController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            scope: angular.extend(this.$rootScope, {
+                entityType: entityType,
+                dataDetails: dataDetails
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
     }
 
     openMassiveManagmentModal () {
@@ -29,7 +58,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openNewWorkspaceModal () {
@@ -39,23 +68,29 @@ export class ModalService {
             template: NewWorkspaceTemplate,
             controller: NewWorkspaceController,
             controllerAs: 'vm',
+            backdrop: 'static',
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
-    openModificationWorkspace () {
+    openModificationWorkspace (workspaceId) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             template: ModificationWorkspaceTemplate,
-            controller: ModificationWorkspaceController,
+            controller: ModificationWorkspace,
             controllerAs: 'vm',
+            backdrop: 'static',
+            scope: angular.extend(this.$rootScope, {
+                test: 'parentScope',
+                workspaceId: workspaceId
+            }),
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openNewWorkspaceRequests () {
@@ -68,7 +103,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openApprovalModal () {
@@ -81,7 +116,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openDateApproveModal () {
@@ -94,7 +129,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openDateApproveModal () {
@@ -107,7 +142,7 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 
     openDateRejectModal () {
@@ -120,6 +155,6 @@ export class ModalService {
             resolve: {}
         });
 
-        modalInstance.result.then();
+        return modalInstance.result;
     }
 }

@@ -237,19 +237,24 @@
     }
   }
   .pagi-text {
-    margin-left: 13px;
-    margin-right: 13px;
+    margin-left: 6px;
+    margin-right: 6px;
     text-transform: uppercase;
     a,
     a:focus,
     a:hover {
       color: white;
     }
+
+    span {
+      color: #ffffff;
+    }
   }
 }
 
 .tooltip-test {
   width: 150px;
+  // width: auto;
 }
 
 // temporary, I dont know how to call it better
@@ -304,13 +309,17 @@
     border-bottom-left-radius: 4px;
   }
   .pagi-text {
-    margin-left: 13px;
-    margin-right: 13px;
+    margin-left: 6px;
+    margin-right: 6px;
     text-transform: uppercase;
     a,
     a:focus,
     a:hover {
       color: white;
+    }
+
+    span {
+      color: #ffffff;
     }
   }
 }
@@ -353,13 +362,17 @@
     border-bottom-left-radius: 4px;
   }
   .pagi-text {
-    margin-left: 13px;
-    margin-right: 13px;
+    margin-left: 6px;
+    margin-right: 6px;
     text-transform: uppercase;
     a,
     a:focus,
     a:hover {
       color: white;
+    }
+
+    span {
+      color: #ffffff;
     }
   }
 }
@@ -415,7 +428,7 @@
 }
 
 .dashboard-table-cell {
-  width: 85px;
+  // width: 85px;
 }
 
 td.dashboard-table-cell{

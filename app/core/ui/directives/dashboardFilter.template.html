@@ -1,14 +1,14 @@
 <div class="dashboard-filter">
-    <wdd-autocomplete ng-model="workspaceSelected.value" label="{{labelWorkspace}}" placeholder="{{placeholderWorkspace}}" type="{{typeWorkspace}}"
-        list-values="workspaceList" ng-change="change()"></wdd-autocomplete>
+    <wdd-autocomplete ng-model="workspaceSelected.value" label="{{labelWorkspace}}" placeholder="{{placeholderWorkspace}}" type="workspace"
+        list-values="workspaceList" ng-change="change()" new-value="vm.getNewValue"></wdd-autocomplete>
 
     <wdd-autocomplete ng-model="descriptionSelected.value" label="{{labelDescription}}" placeholder="{{placeholderDescription}}"
-        type="{{typeDescription}}" list-values="descriptionList" ng-change="change()"></wdd-autocomplete>
+        type="description" list-values="descriptionList" ng-change="change()" new-value="vm.getNewValue"></wdd-autocomplete>
 
     <div class="wdd-labeled-input">
         <label for="entity">Stato</label>
         <div class="wbb-select">
-            <select name="stato" ng-model="prova" ng-options="opt.id as opt.label for opt in item.entity" ng-change="updateAttribute(item, filterSetted[$index])">
+            <select name="stato" ng-model="status" ng-options="opt.id as opt.label for opt in statusList" ng-change="updateAttribute(item, filterSetted[$index])">
                 <option value="">Seleziona stato</option>
             </select>
             <i class="icon icon-down-arrow"></i>
