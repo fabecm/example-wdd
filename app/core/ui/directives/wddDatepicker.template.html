@@ -1,14 +1,13 @@
 <div class="wdd-datepicker">
     <div class="wdd-labeled-input">
         <label>{{label}}</label>
-        <span uib-datepicker-popup="{{format}}" ng-model="model.date" is-open="popup.opened" datepicker-options="options" show-button-bar="false">
-            <span ng-if="model.date">{{model.date | date:format}}</span>
-            <span ng-if="!model.date">GG/MM/AAAA</span>
-        </span>
-    </div>
-    <div class="align-calendar">
-        <button class="wdd-button icon-only" type="button" ng-click="openDatepicker()">
-            <i class="icon icon-calendar"></i>
-        </button>
+        <div class="input-container">
+            <div class="wbb-datepicker__container-date" uib-datepicker-popup="{{format}}" ng-model="model.date" is-open="popup.opened" datepicker-options="options" show-button-bar="false">
+                <div class="wbb-datepicker__container-date__date">{{model.date | date:format}}</div>
+            </div>
+            <button class="wdd-button icon-only" ng-click="openDatepicker()">
+                <i class="icon icon-calendar wbb-datepicker__container-icon"></i>
+            </button>
+        </div>
     </div>
 </div>

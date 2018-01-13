@@ -1,7 +1,8 @@
 <div class="wdd-filter-container">
     <div class="expandable">
         <button class="wdd-button icon-only" ng-click="expandableFilter()">
-            <i class="icon icon-espandi-tutto"></i>
+            <!-- <i class="icon icon-espandi-tutto" ></i> -->
+            <i class="icon" ng-class="{'icon-up-arrow': !isFilterActive, 'icon-down-arrow': isFilterActive}"></i>
         </button>
     </div>
     <div class="filter-section-row" ng-class="{'collapsed': isFilterActive}">

@@ -46,6 +46,9 @@
         td {
           padding: 5px;
           position: relative;
+          // temporary fix for task 24
+          padding-top: 0;
+          padding-bottom: 0;
           &.expandable-container {
             padding: 0px;
           }
