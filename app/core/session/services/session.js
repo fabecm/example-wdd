@@ -18,7 +18,7 @@ export class SessionService {
                 this.apiEntry = apiEndpoint.contextPath;
             });
         }
-        return this.$http.get('/getConfigurationEndpoint')
+        return this.$http.get('/edd-uiAppl/getConfigurationEndpoint')
             .then(apiEndpoint => {
                 this.apiEntry = apiEndpoint.contextPath;
             });
