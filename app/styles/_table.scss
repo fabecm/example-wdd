@@ -33,6 +33,9 @@
           &.hasTwoIcon {
             width: 60px !important;
           }
+          &.hasTreeIcon {
+            width: 90px !important;
+          }
         }
       }
     }
@@ -103,6 +106,17 @@
               top: 0px;
               // bottom: 0;
               right: 30px;
+              width: 30px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              // background-color: #ffffff;
+            }
+            .col-ternary-navigation {
+              position: absolute;
+              top: 0px;
+              // bottom: 0;
+              right: 60px;
               width: 30px;
               display: flex;
               align-items: center;

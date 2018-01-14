@@ -14,7 +14,7 @@
         <div ng-show="vm.selectedTab == 0 && vm.showTab">
             <wdd-table reload-data="vm.reloadTableData" table-key="searchPage" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
                 page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail"
-                has-secondary-navigation-btn="true" path-secondary-navigation="tab.dataLineage"></wdd-table>
+                has-secondary-navigation-btn="true" path-secondary-navigation="tab.dataLineage" has-ternary-navigation-btn="true" path-ternary-navigation="tab.dataLineage" is-to-sas="true"></wdd-table>
         </div>
         <div ng-show="vm.selectedTab == 1 && vm.showTab">
             <wdd-table ng-if="vm.rawDataEntity && vm.rawDataEntity.length && vm.headerEntityTable" service-response-obj="{{ {array: vm.rawDataEntity} }}"

@@ -10,14 +10,14 @@
             <th ng-repeat="item in headerArray track by $index">
                 {{item.label}}
             </th>
-            <th ng-if="hasIcon" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2}"></th>
+            <th ng-if="hasIcon" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2, 'hasTreeIcon': iconNumber == 3}"></th>
             <th ng-if="isChild" class="baseHeaderIconWidth"></th>
         </thead>
         <tbody>
 
             <tr class="base-row" wdd-row ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
                 column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
-                has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
+                has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation" has-ternary-navigation-btn="ternaryNavigation"
                 has-creation="hasCreation" is-from-child-table="isChild" check-row="checkValueChange()" is-sas="isToSas"></tr>
 
             <tr ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse}">

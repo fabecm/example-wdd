@@ -12,6 +12,7 @@ export function WddRow () {
             rowCollapse: '=',
             hasPrimaryNavigationBtn: '=',
             hasSecondaryNavigationBtn: '=',
+            hasTernaryNavigationBtn: '=',
             hasInfoBtn: '=',
             hasCreation: '=',
             isFromChildTable: '=',
@@ -30,7 +31,7 @@ export function WddRow () {
 
             // $log.debug(scope.rowData);
 
-            scope.arrayAction = ['collapse', 'checked', 'info', 'primaryNavigation', 'secondaryNavigation', 'creation'];
+            scope.arrayAction = ['collapse', 'checked', 'info', 'primaryNavigation', 'secondaryNavigation', 'creation', 'ternaryNavigation'];
             // scope.modelloModel = {};
 
             scope.doAction = (act) => {

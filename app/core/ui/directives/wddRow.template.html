@@ -6,38 +6,38 @@
         </button>
     </div>
     <div ng-if="rowChecked">
-        <input type="checkbox" ng-model="rowData.isChecked" ng-change="checkData()"/>
+        <input type="checkbox" ng-model="rowData.isChecked" ng-change="checkData()" />
     </div>
 </td>
 
 <td wdd-cell ng-repeat="c in column track by $index" cell="rowData[c.value]" header="c.value" class="has-border"></td>
 
-<td class="icon-container" ng-if="hasIcon">
+<td class="icon-container" ng-if="hasIcon" ng-class="{'has-two-el': hasSecondaryNavigationBtn, 'has-tree-el': hasTernaryNavigationBtn}">
     <div ng-if="hasInfoBtn">
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[2])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Info"
-        tooltip-enable="false" show-tooltip>
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[2])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Info" tooltip-enable="false" show-tooltip>
             <i class="icon icon-info"></i>
         </button>
     </div>
     <div class="col-primary-navigation" ng-if="hasPrimaryNavigationBtn">
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[3])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Dettaglio Dato"
-        tooltip-enable="false" show-tooltip>
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[3])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Dettaglio Dato" tooltip-enable="false" show-tooltip>
             <i class="icon icon-workspace-details"></i>
         </button>
     </div>
     <div class="col-primary-navigation" ng-if="hasCreation">
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[5])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Inserisci Dato"
-        tooltip-enable="false" show-tooltip>
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[5])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Inserisci Dato" tooltip-enable="false" show-tooltip>
             <i class="icon icon-new"></i>
         </button>
     </div>
     <div class="col-secondary-navigation" ng-if="hasSecondaryNavigationBtn">
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[4])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Data Lineage"
-        tooltip-enable="false" show-tooltip ng-if="!isSas">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[4])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Data Lineage" tooltip-enable="false" show-tooltip ng-if="!isSas || hasTernaryNavigationBtn">
             <i class="icon icon-lineage"></i>
         </button>
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[4])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Lineage SAS"
-        tooltip-enable="false" show-tooltip ng-if="isSas">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[4])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Lineage SAS" tooltip-enable="false" show-tooltip ng-if="!hasTernaryNavigationBtn && isSas">
+            <i class="icon icon-lineage-sas"></i>
+        </button>
+    </div>
+    <div class="col-ternary-navigation" ng-if="hasTernaryNavigationBtn">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[6])" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="Lineage SAS" tooltip-enable="false" show-tooltip ng-if="hasTernaryNavigationBtn && isSas">
             <i class="icon icon-lineage-sas"></i>
         </button>
     </div>

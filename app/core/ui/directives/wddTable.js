@@ -17,6 +17,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
             pathPrimaryNavigation: '@',
             pathSecondaryNavigation: '@',
             hasSecondaryNavigationBtn: '@',
+            pathTernaryNavigation: '@',
+            hasTernaryNavigationBtn: '@',
             isToSas: '@',
             hasInfoBtn: '@',
             hasPrimaryLabel: '@',
@@ -126,7 +128,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 scope.hasIcon = true;
             }
 
-            scope.iconNumber = Number(!!scope.hasPrimaryNavigationBtn) + Number(!!scope.hasSecondaryNavigationBtn);
+            scope.iconNumber = Number(!!scope.hasPrimaryNavigationBtn) + Number(!!scope.hasSecondaryNavigationBtn) + Number(!!scope.hasTernaryNavigationBtn);
 
             if (scope.hasPrimaryLabel || scope.hasSecondaryLabel) {
                 scope.hasUnderTable = true;
@@ -202,6 +204,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 }
                 if (scope.hasSecondaryNavigationBtn) {
                     scope.secondaryNavigation = JSON.parse(scope.hasSecondaryNavigationBtn);
+                }
+                if (scope.hasTernaryNavigationBtn) {
+                    scope.ternaryNavigation = JSON.parse(scope.hasTernaryNavigationBtn);
                 }
                 if (scope.hasInfoBtn) {
                     scope.info = JSON.parse(scope.hasInfoBtn);
