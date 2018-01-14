@@ -1,4 +1,4 @@
-export function HttpRequestInterceptor ($injector) {
+export function HttpRequestInterceptor ($injector, $q) {
     'ngInject';
 
     return {
@@ -11,6 +11,11 @@ export function HttpRequestInterceptor ($injector) {
             }
 
             return config;
+        },
+        responseError: function (rejection) {
+            const message = rejection.statusText ? rejection.statusText: 'ERRORE NEL RECUPERO DEI DATI';
+            $injector.get('WDDAlert').showAlert('error', message);
+            return $q.reject(rejection);
         }
     };
 }

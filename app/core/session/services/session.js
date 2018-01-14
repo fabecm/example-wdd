@@ -21,9 +21,6 @@ export class SessionService {
         return this.$http.get('/getConfigurationEndpoint')
             .then(apiEndpoint => {
                 this.apiEntry = apiEndpoint.contextPath;
-            })
-            .catch(err => {
-                this.WDDAlert.showAlert('error', err);
             });
     }
 

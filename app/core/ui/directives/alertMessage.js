@@ -5,12 +5,13 @@ export function WddAlertMessage () {
     return {
         scope: {
             type: '@',
-            message: '@'
+            message: '@',
+            id: '@'
         },
         template: template,
         link: (scope) => {
             scope.close = () => {
-                $('wdd-alert').remove();
+                $(`#${scope.id}`).remove();
             };
         }
     };

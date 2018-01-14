@@ -1,17 +1,25 @@
 <div class="search-page">
-    <div class="wbb-select select-child">
+    <div class="btn-group wdd-dropdown" uib-dropdown is-open="status.isopen">
+        <button id="single-button" type="button" class="wdd-button dropdown" uib-dropdown-toggle ng-disabled="disabled">
+            Richieste di documentazione 
+            <i class="icon icon-down-arrow"></i>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+            <li role="menuitem"><a>Richieste di documentazione</a></li>
+            <li role="menuitem"><a ui-sref="tab.initiativeCensuses">Censimenti di iniziativa</a></li>
+        </ul>
+    </div>
+    <!-- <div class="wbb-select select-child">
         <select name="stato" ng-model="vm.pageChild" ng-change="vm.changeChild()">
             <option value="">Richieste di documentazione</option>
             <option value="tab.initiativeCensuses">Censimenti di iniziativa</option>
         </select>
         <i class="icon icon-down-arrow"></i>
-    </div>
+    </div> -->
 
     <wdd-filter applied-filter="vm.filterChanged(filterApplied)"></wdd-filter>
 
-    <wdd-table reload-data="vm.reloadTableData" table-key="toDoList" header-array-obj="{{ {array: vm.headerTable} }}"
-        pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
-        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-secondary-label="Non di competenza"
-        has-primary-label="Inoltra per approvazione"></wdd-table>
+    <wdd-table reload-data="vm.reloadTableData" table-key="toDoList" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
+        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-secondary-label="Non di competenza" has-primary-label="Inoltra per approvazione"></wdd-table>
 
 </div>

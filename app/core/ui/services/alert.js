@@ -9,11 +9,11 @@ export class WddAlert {
     }
 
     showAlert (type, message) {
-        const parsedMessage = message.statusText;
-        $('body').append(this.$compile(this.getTemplate(type, parsedMessage))(this.$rootScope));
+        $('body').append(this.$compile(this.getTemplate(type, message))(this.$rootScope));
     }
 
     getTemplate (type, message) {
-        return `<wdd-alert type="${type}" message="${message}"/>`;
+        const randId = Math.floor((Math.random() * 100) + 1);
+        return `<wdd-alert id="${randId}" type="${type}" message="${message}"/>`;
     }
 }

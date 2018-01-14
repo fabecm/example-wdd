@@ -60,6 +60,13 @@
             }
         }
     }
+    &.dropdown {
+        background: #233145;
+        color: #ffffff;
+        &:after {
+            display: none;
+        }
+    }
     &.alert-color {
         background-color: $button-alert-background-color;
         color: $button-alert-color;
