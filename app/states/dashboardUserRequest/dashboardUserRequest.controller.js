@@ -40,7 +40,8 @@ export class DashboardUserRequestController {
     }
 
     dashboardCall () {
-        this.dashboardsService.dashboardCall('responsibleuser').then(getData => {
+        this.responsibleUserRequest = this.dashboardsService.dashboardCall('responsibleuser');
+        this.responsibleUserRequest.then(getData => {
             this.dataList = getData.data.array;
 
             this.chartValues[0].value = this.dataList[0].value;
@@ -49,7 +50,8 @@ export class DashboardUserRequestController {
             this.dataAvailable = true;
         });
 
-        this.dashboardsService.dashboardCall('responsibleuserStatus').then(getData => {
+        this.statusRequest = this.dashboardsService.dashboardCall('responsibleuserStatus');
+        this.statusRequest.then(getData => {
             this.workspaceList = getData.data.array.map(data => {
                 return {
                     id: data.id,
@@ -69,8 +71,8 @@ export class DashboardUserRequestController {
                 totalConsed += Number(this.workspaceList[i].censed);
             }
 
-            if (totalConsed !== 0) {
-                this.overallPercentage = totalRequested / totalConsed * 100;
+            if (totalRequested !== 0) {
+                this.overallPercentage = Math.floor(totalConsed / totalRequested * 100);
             } else {
                 this.overallPercentage = 0;
             }

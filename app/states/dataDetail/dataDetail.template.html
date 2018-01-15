@@ -1,15 +1,12 @@
 <div class="wdd-secondary-header">
+    <button class="wdd-button icon-only right-spacer" ng-click="vm.back()">
+        <i class="icon icon-left-arrow"></i>        
+    </button>
     <h2 class="title">Dettaglio Dato</h2>
 </div>
 <div class="data-detail-page">
     <div class="detail-row">
         <div class="left-side">
-            <button class="wdd-button alt-color" ng-click="vm.back()">TORNA INDIETRO</button>
-        </div>
-        <div class="center">
-            <label>{{vm.visibleDataDetails[0].term.name}}</label>
-        </div>
-        <div class="right-side">
             <button class="wdd-button" ng-click="vm.changeAllDetailStatus(true)" ng-if="vm.checkDetailStatus()">
                 <i class="icon icon-espandi-tutto"></i>
                 ESPANDI TUTTO
@@ -18,6 +15,12 @@
                 <i class="icon icon-espandi-tutto"></i>
                 COMPRIMI TUTTO
             </button>
+        </div>
+        <div class="center">
+            <label>{{vm.visibleDataDetails[0].term.name}}</label>
+        </div>
+        <div class="right-side">
+
         </div>
     </div>
 
@@ -39,7 +42,8 @@
     </div>
 
     <div class="details-container">
-        <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="(key, detail) in vm.visibleDataDetails track by $index" ng-class="{'active': detail.isOpened}">
+        <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="(key, detail) in vm.visibleDataDetails track by $index"
+            ng-class="{'active': detail.isOpened}">
             <div class="header">
                 <div class="header-icon">
                     <button ng-if="!detail.toAdd" class="wdd-button icon-only" ng-click="vm.showAttributeBody(detail)">
@@ -62,14 +66,16 @@
                 <div class="left-column">
                     <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 != 0">
                         <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
-                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}" is-editable="{{ attr.is_editable }}">
+                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}"
+                            is-editable="{{ attr.is_editable }}">
                         </att>
                     </div>
                 </div>
                 <div class="right-column">
                     <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 == 0">
                         <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
-                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}" is-editable="{{ attr.is_editable }}">
+                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}"
+                            is-editable="{{ attr.is_editable }}">
                         </att>
                     </div>
                 </div>

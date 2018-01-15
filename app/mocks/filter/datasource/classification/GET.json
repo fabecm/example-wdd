@@ -1,83 +1,39 @@
 {
     "array": [{
-            "label": "Data Layout",
-            "id": 201
-        },
-        {
-            "label": "Retention",
-            "id": 202
-        },
-        {
-            "label": "Rule",
-            "id": 203
-        },
-        {
-            "label": "Full Description",
-            "id": 204
-        },
-        {
-            "label": "Status",
-            "id": 205
-        },
-        {
-            "label": "Data Length",
-            "id": 206
-        },
-        {
-            "label": "Field",
-            "id": 207
-        },
-        {
-            "label": "Data Type",
-            "id": 208
-        },
-        {
-            "label": "Data Source",
-            "id": 209
-        },
-        {
-            "label": "Description",
-            "id": 210
-        },
-        {
-            "label": "Security Level",
-            "id": 211
-        },
-        {
-            "label": "Destruction Requirements",
-            "id": 212
-        },
-        {
-            "label": "Importance",
-            "id": 213
-        },
-        {
-            "label": "Process",
-            "id": 214
-        },
-        {
-            "label": "Data Position",
-            "id": 215
-        },
-        {
-            "label": "Master Data",
-            "id": 216
-        },
-        {
-            "label": "Group Legal Entities",
-            "id": 217
-        },
-        {
-            "label": "Program",
-            "id": 218
-        },
-        {
-            "label": "Data Source Type",
-            "id": 219
-        },
-        {
-            "label": "Table",
-            "id": 220
-        }
-    ]
+        "label": "EDG DD - System Owner",
+        "id": 1
+    }, {
+        "label": "EDG DD - Technical Application",
+        "id": 2
+    }, {
+        "label": "EDG DD - Business Glossary",
+        "id": 3
+    }, {
+        "label": "EDG DD - Program",
+        "id": 4
+    }, {
+        "label": "EDG DD - Business Data",
+        "id": 5
+    }, {
+        "label": "EDG DD - Data Source",
+        "id": 6
+    }, {
+        "label": "EDG DD - Data Table",
+        "id": 7
+    }, {
+        "label": "EDG DD - Process Owner",
+        "id": 8
+    }, {
+        "label": "EDG DD - Responsible User",
+        "id": 9
+    }, {
+        "label": "EDG DD - Business Rule",
+        "id": 10
+    }, {
+        "label": "EDG DD - Data Field",
+        "id": 11
+    }, {
+        "label": "EDG DD - Technical Rule",
+        "id": 12
+    }]
 }

@@ -14,6 +14,10 @@ export function WddCell ($filter) {
                     scope.parsedCell = [{
                         icon: 'glyphicon glyphicon-ok'
                     }];
+                } else {
+                    scope.parsedCell = [{
+                        icon: 'glyphicon glyphicon-remove'
+                    }];
                 }
                 return;
             }

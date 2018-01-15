@@ -16,7 +16,7 @@ export function DoughnutChart ($timeout, $state, $log) {
             $timeout(() => {
                 scope.chart = document.getElementById(scope.chartId);
 
-                // const emptyColor = ['#707c8e'];
+                const emptyColor = ['#707c8e'];
                 const emptyData = [1];
 
                 const ctx = document.getElementById(scope.chartId).getContext('2d');
@@ -31,12 +31,24 @@ export function DoughnutChart ($timeout, $state, $log) {
                 let valueArray = emptyData;
                 let labelArray = [];
 
-                if (scope.arrayValues.length > 0) {
-                    scope.arrayValues.map(e => {
-                        scope.numLabelChart += Number(e.value);
-                    });
-                    // arrayBackgroundColor = scope.arrayValues.map(e => generateColor(e.color, 1));
-                    arrayBackgroundColor = scope.arrayValues.map(e => {
+                scope.arrayValues.map(e => {
+                    scope.numLabelChart += Number(e.value);
+                });
+
+                if (scope.numLabelChart === 0) {
+                    scope.chartElements = Array(1);
+                    scope.chartElements[0] = {
+                        color: emptyColor[0],
+                        value: emptyData[0]
+                    };
+                } else {
+                    scope.chartElements = angular.copy(scope.arrayValues);
+                }
+
+
+                if (scope.chartElements.length > 0) {
+                    // arrayBackgroundColor = scope.chartElements.map(e => generateColor(e.color, 1));
+                    arrayBackgroundColor = scope.chartElements.map(e => {
                         var x = ctx.createRadialGradient(
                             chartWidth/2,
                             chartHeight/2+10,
@@ -55,8 +67,8 @@ export function DoughnutChart ($timeout, $state, $log) {
                         return x;
                     });
 
-                    // arrayHoverColor = scope.arrayValues.map(e => generateColor(e.color, 0.8));
-                    arrayHoverColor = scope.arrayValues.map(e => {
+                    // arrayHoverColor = scope.chartElements.map(e => generateColor(e.color, 0.8));
+                    arrayHoverColor = scope.chartElements.map(e => {
                         var x = ctx.createRadialGradient(
                             chartWidth/2,
                             chartHeight/2+10,
@@ -75,8 +87,13 @@ export function DoughnutChart ($timeout, $state, $log) {
                         return x;
                     });
 
-                    labelArray = scope.arrayValues.map(e => e.label);
-                    valueArray = scope.arrayValues.map(e => e.value);
+                    labelArray = scope.arrayValues.map(e => {
+                        return ({
+                            label: e.label,
+                            value: e.value
+                        });
+                    });
+                    valueArray = scope.chartElements.map(e => e.value);
                 }
 
 

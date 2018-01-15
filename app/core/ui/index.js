@@ -19,6 +19,8 @@ import { wddProgress } from './directives/wddProgress';
 import { WddAlert } from './services/alert';
 import { WddAlertMessage } from './directives/alertMessage';
 
+import { WddSpinner } from './directives/wddSpinner';
+
 
 export default angular.module('wdd.core.ui', [])
     .directive('wbbSelect', WbbSelect)
@@ -37,4 +39,5 @@ export default angular.module('wdd.core.ui', [])
     .directive('wddProgress', wddProgress)
     .service('WDDAlert', WddAlert)
     .directive('wddAlert', WddAlertMessage)
+    .directive('wddSpinner', WddSpinner)
     .name;

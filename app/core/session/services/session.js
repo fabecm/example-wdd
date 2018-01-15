@@ -29,7 +29,7 @@ export class SessionService {
 function getMockedData ($q) {
     var deferred = $q.defer();
     deferred.resolve({
-        contextPath: 'http://GPLLL0062:8080/edd-serviceWeb'
+        contextPath: 'http://10.238.9.61:8080/edd-serviceAppl'
     });
 
     return deferred.promise;

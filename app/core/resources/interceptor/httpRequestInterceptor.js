@@ -14,7 +14,14 @@ export function HttpRequestInterceptor ($injector, $q) {
         },
         responseError: function (rejection) {
             const message = rejection.statusText ? rejection.statusText: 'ERRORE NEL RECUPERO DEI DATI';
-            $injector.get('WDDAlert').showAlert('error', message);
+            const url = rejection.config.url;
+            const apiBase = $injector.get('SessionService').apiEntry;
+            let endpoint = url.substring(url.indexOf(apiBase) + apiBase.length, url.length);
+            if (endpoint.indexOf('?') >= 0) {
+                endpoint = endpoint.substring(0, endpoint.indexOf('?'));
+            }
+            const text = `${message} - (${endpoint})`;
+            $injector.get('WDDAlert').showAlert('error', text);
             return $q.reject(rejection);
         }
     };

@@ -4,7 +4,7 @@
     position: relative;
     .vertical-line{
         border-right: 1px solid rgba(147, 172, 208, 0.5);
-        height: calc(100vh);
+        height: calc(100vh - 130px);
         position: absolute;
         left: calc(40% + 30px);
         top: 0px;
@@ -28,7 +28,6 @@
 
     .progres-mageolder{
         flex: 1;
-        padding: 0 41px;
     }
 }
 .progress-overall-holder{
@@ -43,6 +42,10 @@
     h2 {
         align-self: flex-start;
         font-size: 25px;
+    }
+    .progress-overall-line-holder {
+        padding: 0 40px;
+        width: 100%;
     }
     .progress-overall-line{
         height: 60px;
@@ -154,6 +157,7 @@
     .list-holder {
         overflow-y: auto;
         overflow-x: hidden;
+        max-height: 480px;
     }
     .workspace-list{
         width: 100%;

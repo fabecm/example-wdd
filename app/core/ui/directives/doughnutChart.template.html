@@ -10,8 +10,8 @@
 <div class="chart-legend-container">
     <div class="container-block">
         <div class="chart-legend" ng-style="{color: arrayValues[key].color}" ng-repeat="(key, legend) in labelArray" ng-click="goToChild(key)">
-            <div class="left-block">{{valueArray[key]}}</div>
-            <div class="right-block">{{legend}}</div>
+            <div class="left-block">{{legend.value}}</div>
+            <div class="right-block">{{legend.label}}</div>
         </div>
     </div>
 </div>
