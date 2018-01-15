@@ -1,0 +1,83 @@
+{
+    "array": [{
+            "label": "Data Layout",
+            "id": 201
+        },
+        {
+            "label": "Retention",
+            "id": 202
+        },
+        {
+            "label": "Rule",
+            "id": 203
+        },
+        {
+            "label": "Full Description",
+            "id": 204
+        },
+        {
+            "label": "Status",
+            "id": 205
+        },
+        {
+            "label": "Data Length",
+            "id": 206
+        },
+        {
+            "label": "Field",
+            "id": 207
+        },
+        {
+            "label": "Data Type",
+            "id": 208
+        },
+        {
+            "label": "Data Source",
+            "id": 209
+        },
+        {
+            "label": "Description",
+            "id": 210
+        },
+        {
+            "label": "Security Level",
+            "id": 211
+        },
+        {
+            "label": "Destruction Requirements",
+            "id": 212
+        },
+        {
+            "label": "Importance",
+            "id": 213
+        },
+        {
+            "label": "Process",
+            "id": 214
+        },
+        {
+            "label": "Data Position",
+            "id": 215
+        },
+        {
+            "label": "Master Data",
+            "id": 216
+        },
+        {
+            "label": "Group Legal Entities",
+            "id": 217
+        },
+        {
+            "label": "Program",
+            "id": 218
+        },
+        {
+            "label": "Data Source Type",
+            "id": 219
+        },
+        {
+            "label": "Table",
+            "id": 220
+        }
+    ]
+}

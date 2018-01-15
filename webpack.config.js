@@ -7,6 +7,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
+var apiMocker = require('connect-api-mocker');
+
 const PATHS = {
     build: path.join(__dirname, 'target', 'angular-resources')
 };
@@ -22,11 +24,12 @@ let assetFileName = '[name].' + envHashFileName;
 module.exports = function(env) {
     if (!env) {
         env = {
-            mode: 'watch'
+            mode: 'watch',
+            mock: false
         };
     }
+    const MOCK = env.mock;
     const BUILD = env.mode === 'build';
-    console.log(path.join(__dirname, PATHS.build));
     var config = {
         resolve: {
             modules: [
@@ -122,6 +125,12 @@ module.exports = function(env) {
             })
         ]
     };
+
+    if (MOCK) {
+        config.devServer.setup = function (app) {
+            app.use('/edd-uiAppl', apiMocker('app/mocks/'));
+        };
+    }
 
     if (BUILD) {
         config.module.rules.push({
