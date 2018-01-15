@@ -7,6 +7,7 @@
     .states-holder{
         flex: 1;
         padding: 20px 50px;
+        padding-top: 60px;
         // TODO: Fix flex 1 going over parent elem
         height: calc(100% - #{$header-primary-height});
         overflow-y: auto;

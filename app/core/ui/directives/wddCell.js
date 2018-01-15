@@ -9,16 +9,12 @@ export function WddCell ($filter) {
         },
         template: template,
         link: (scope) => {
-            if (scope.header === 'business_rules') {
-                scope.parsedCell = [{
-                    icon: 'glyphicon glyphicon-ok'
-                }];
-                return;
-            }
-            if (scope.header === 'tech_rules') {
-                scope.parsedCell = [{
-                    icon: 'glyphicon glyphicon-ok'
-                }];
+            if (scope.header === 'business_rules' || scope.header === 'tech_rules') {
+                if (scope.cell && scope.cell.length) {
+                    scope.parsedCell = [{
+                        icon: 'glyphicon glyphicon-ok'
+                    }];
+                }
                 return;
             }
             if (!scope.cell || (!scope.cell.length && scope.cell.length !== 0)) {
