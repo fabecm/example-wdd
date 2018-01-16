@@ -13,7 +13,7 @@ export function WddSpinner ($compile) {
             elem.append($compile('<div class="wdd-spinner" ng-if="checkPromises()"><img src="{{::imagePath}}" /></div>')(scope));
             scope.checkPromises = () => {
                 return scope.wddSpinner.find(e => e.$$state.status === 0);
-            }
+            };
         }
-    }
+    };
 }

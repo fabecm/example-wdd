@@ -75,13 +75,51 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 });
             };
 
+            scope.checkRowsSelection = () => {
+                if (scope.isChild) {
+                    if (scope.isSelectAll.value) {
+                        scope.checkedElements = scope.rawData.map(e => e.data_fields);
+                    } else {
+                        scope.checkedElements = [];
+                    }
+                    scope.serviceResponse = scope.sliceDataToShow();
+                    console.log(scope.serviceResponse);
+                }
+            };
+
+            scope.checkValueChange = (row) => {
+                if (scope.isChild) {
+                    if (scope.isSelectAll.value) {
+                        scope.isSelectAll.value = false;
+                    }
+                    if (row.data.isChecked && (scope.checkedElements.length + 1) === scope.rawData.length) {
+                        scope.isSelectAll.value = true;
+                    }
+                    if (row.data.isChecked) {
+                        scope.checkedElements.push(row.data.data_fields);
+                    } else {
+                        const index = scope.checkedElements.findIndex((row_data) => row_data.id === row.data.data_fields.id);
+                        if (index >= 0) {
+                            scope.checkedElements.splice(index, 1);
+                        }
+                    }
+                }
+
+            };
+
             scope.sliceDataToShow = () => {
                 let startIndex = (Number(scope.currentPage) - 1) * Number(scope.pageSize);
                 let endIndex = startIndex + scope.pageSize;
                 let dataVisiblePage = scope.rawData.slice(startIndex, endIndex);
 
                 return dataVisiblePage.map(elem => {
-                    elem.isChecked = scope.isSelectAll.value;
+                    const index = scope.checkedElements.findIndex((row_data) => row_data.id === elem.data_fields.id);
+                    if (index >= 0) {
+                        elem.isChecked = true;
+                    } else {
+                        elem.isChecked = false;
+                    }
+
                     return elem;
                 });
             };
@@ -90,7 +128,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 scope.currentPage = page;
                 scope.serviceResponse = undefined;
                 if (scope.isChild) {
-                    scope.sliceDataToShow();
+                    scope.serviceResponse = scope.sliceDataToShow();
                 } else {
                     scope.reloadData();
                 }
@@ -104,7 +142,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 scope.currentPage -= 1;
                 scope.serviceResponse = undefined;
                 if (scope.isChild) {
-                    scope.sliceDataToShow();
+                    scope.serviceResponse = scope.sliceDataToShow();
                 } else {
                     scope.reloadData();
                 }
@@ -118,7 +156,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 scope.currentPage += 1;
                 scope.serviceResponse = undefined;
                 if (scope.isChild) {
-                    scope.sliceDataToShow();
+                    scope.serviceResponse = scope.sliceDataToShow();
                 } else {
                     scope.reloadData();
                 }
@@ -214,14 +252,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 if (scope.hasCreationBtn) {
                     scope.hasCreation = JSON.parse(scope.hasCreationBtn);
                 }
-
-                if (scope.isChild && scope.serviceResponse[0]) {
-                    const startRes = scope.serviceResponse[0];
-                    scope.serviceResponse = [];
-                    for (let i = 0; i < Array(25).length; i++) {
-                        scope.serviceResponse.push(startRes);
-                    }
-                }
             } catch (error) {
                 $log.debug(error);
             }
@@ -235,10 +265,17 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                     scope.pageSize = 10;
                 }
 
-                if(scope.serviceResponse && scope.serviceResponse.length && scope.pagination && scope.pageSize && scope.pageSize > 0) {
+                if(scope.isChild && scope.serviceResponse && scope.serviceResponse.length && scope.pagination && scope.pageSize && scope.pageSize > 0) {
                     let numPages = Math.ceil(scope.serviceResponse.length / scope.pageSize);
                     scope.serviceResponse = scope.sliceDataToShow();
                     scope.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
+                    scope.pageNumber = numPages;
+                    scope.pages = scope.pages.map(pag => {
+                        return({
+                            num: pag,
+                            isVisible: true
+                        });
+                    });
                 }
             }
         }
