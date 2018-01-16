@@ -1,6 +1,7 @@
 export class NewWorkspaceController {
 
     workspaceForm = {};
+    responsibleUser = {};
 
     constructor ($log, $uibModalInstance, ModalService) {
         'ngInject';
@@ -10,14 +11,14 @@ export class NewWorkspaceController {
     }
 
     saveWorkspace () {
-        this.$log.debug('save', this.workspaceForm);
-        this.workspaceForm.send = false;
+        if (this.responsibleUser && this.responsibleUser.value) {
+            this.workspaceForm.responsible_user_id = this.responsibleUser.value;
+        }
 
-        this.modalService.createNewWorkspace(this.workspaceForm).then(res => {
-            this.$log.debug(res);
-        }).finally(() => {
-            this.$uibModalInstance.close();
-        });
+        this.workspaceForm.send = false;
+        this.$log.debug('save', this.workspaceForm);
+
+        this.createNewWorkspace(this.workspaceForm);
     }
 
     close () {
@@ -25,10 +26,19 @@ export class NewWorkspaceController {
     }
 
     sendWorkspace () {
-        if (this.workspaceForm.start_date && this.workspaceForm.end_date && this.responsibleUser) {
-            this.$log.debug('send', this.workspaceForm);
+        if (this.workspaceForm.start_date && this.workspaceForm.end_date && this.responsibleUser && this.responsibleUser.value) {
+            this.workspaceForm.responsible_user_id = this.responsibleUser.value;
             this.workspaceForm.send = true;
-            this.workspaceForm.responsible_user_id = this.responsibleUser;
+            this.$log.debug('send', this.workspaceForm);
+            this.createNewWorkspace(this.workspaceForm);
         }
+    }
+
+    createNewWorkspace (workspaceForm) {
+        this.modalService.createNewWorkspace(workspaceForm).then(res => {
+            this.$log.debug(res);
+        }).finally(() => {
+            this.$uibModalInstance.close();
+        });
     }
 }
