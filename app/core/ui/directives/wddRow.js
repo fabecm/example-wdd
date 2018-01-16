@@ -44,7 +44,9 @@ export function WddRow () {
             };
 
             scope.checkData = () => {
-                scope.checkRow();
+                scope.checkRow({
+                    data: scope.rowData
+                });
             };
         }
     };
