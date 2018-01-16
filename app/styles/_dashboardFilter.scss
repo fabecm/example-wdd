@@ -21,6 +21,37 @@
         width: 160px; 
     }
 
+    @media screen and (max-width: 1200px) {
+        flex-wrap: wrap;
+
+        wdd-autocomplete, .dash-filter-input, .filter-action, wdd-datepicker{
+            width: 33%;
+            flex: initial;
+            padding: 0 15px;
+        }
+        .wbb-select{
+            width: 100% !important;
+        }
+        .filter-action .wdd-button.last-button {
+            margin-right: 2px;
+        }
+        .wdd-autocomplete{
+            width: 100%;
+            .wdd-labeled-input{
+                width: 100%;
+                .wdd-input-text{
+                    width: 100%;
+                }
+            }
+        }
+        .wdd-datepicker{
+            padding: 0;
+        }
+        .filter-action{
+            justify-content: flex-end !important;
+        }
+    }
+
     .wdd-labeled-input {
         .wdd-button.icon-only {
             height: 25px;

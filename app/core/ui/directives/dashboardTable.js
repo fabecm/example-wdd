@@ -14,13 +14,15 @@ export function DashboardTable (WorkspaceService, $log, $state, $filter) {
         link: (scope) => {
             scope.headerArray = scope.headerType;
 
-            scope.tableBody = scope.tableBody.map(obj => {
-                for (let field in obj) {
-                    if (obj[field] && obj[field].date) {
-                        obj[field].label = $filter('date')(obj[field].date, 'shortDate');
+            scope.$watch('tableBody', () => {
+                scope.tableBodyParsed = scope.tableBody.map(obj => {
+                    for (let field in obj) {
+                        if (obj[field] && obj[field].date) {
+                            obj[field].label = $filter('date')(obj[field].date, 'shortDate');
+                        }
                     }
-                }
-                return obj;
+                    return obj;
+                });
             });
 
             scope.goToChildPage = () => {

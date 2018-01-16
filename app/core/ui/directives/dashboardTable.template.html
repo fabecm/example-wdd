@@ -1,4 +1,7 @@
 <div class="wdd-table dashboard-table">
+    <div class="missing-data" ng-if="!tableBodyParsed || tableBodyParsed.length == 0">
+        <h1>Nessun dato presente</h1>
+    </div>
     <table ng-click="goToChildPage()">
         <caption ng-style="{'background-color' : bgcolor}">
             {{tableTitle}}
@@ -9,13 +12,17 @@
             </th>
         </tr>
 
-        <tr ng-repeat="obj in tableBody track by $index">
+        <tr ng-repeat="obj in tableBodyParsed track by $index">
             <td class="dashboard-table-cell" ng-repeat="header in headerArray">
                 <div tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{obj[header.value].label}}"
                     tooltip-enable="false" show-tooltip>
                     {{obj[header.value].label}}
                 </div>
             </td>
+        </tr>
+
+        <tr ng-if="!tableBodyParsed || tableBodyParsed.length == 0" ng-repeat="placeHLD in [0, 1, 2]">
+            <td class="dashboard-table-cell" ng-repeat="header in headerArray"></td>
         </tr>
     </table>
 

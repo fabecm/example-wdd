@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 import ChartJs from 'chart.js';
 import { random } from 'faker';
 import template from './doughnutChart.template.html';
@@ -12,6 +14,15 @@ export function DoughnutChart ($timeout, $state, $log) {
         },
         template: template,
         link: (scope) => {
+
+            if ($(window).width() >= 1200) {
+                scope.width = 400;
+                scope.height = 400;
+            } else {
+                scope.width = 300;
+                scope.height = 300;
+            }
+
             scope.chartId = random.number();
             $timeout(() => {
                 scope.chart = document.getElementById(scope.chartId);
