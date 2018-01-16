@@ -7,7 +7,7 @@
                     <input type="checkbox" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
                 </div>
             </th>
-            <th ng-repeat="item in headerArray track by $index">
+            <th ng-repeat="item in headerArray track by $index" resizable r-directions="['right']">
                 {{item.label}}
             </th>
             <th ng-if="hasIcon" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2, 'hasTreeIcon': iconNumber == 3}"></th>
