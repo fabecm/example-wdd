@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import template from './wddAutocomplete.template.html';
 
 export function WddAutocomplete ($log, FilterWorkspace) {
@@ -46,6 +47,21 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 $log.debug(scope.listValues);
                 scope.isListVisible = !scope.isListVisible;
             };
+
+            $(document).click(function (e) {
+                e.stopPropagation();
+                if (e.target.id === 'autocomplete-clicker') {
+                    return;
+                }
+                if ($(e.target).parents('#autocomplete-value-list').length === 0) {
+                    scope.isListVisible = false;
+                    scope.$apply();
+                }
+            });
+
+            scope.$on('$destroy', function () {
+                $(document).off('click');
+            });
 
             scope.changedLabel = () => {
                 // ngModel.$setViewValue(scope.model.label);
