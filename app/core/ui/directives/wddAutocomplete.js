@@ -10,7 +10,8 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             placeholder: '@',
             type: '@',
             dipendence: '@',
-            newValue: '='
+            newValue: '=',
+            isEditable: '@'
         },
         template: template,
         link: (scope, element, attribute, ngModel) => {
@@ -21,31 +22,37 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 scope.initAutocomplete();
             });
 
-            scope.initAutocomplete = () => {
-                FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendence).then(res => {
-                    scope.listValues = res;
-                    scope.originalList = angular.copy(scope.listValues);
-                });
-            };
-
             ngModel.$render = () => {
                 if(ngModel.$modelValue) {
-                    let itemApplied = scope.listValues.find(item => item.id === ngModel.$modelValue);
-
-                    if (itemApplied) {
-                        scope.model = itemApplied;
-                    } else {
-                        scope.model = {};
+                    if (scope.listValues) {
+                        let itemApplied = scope.listValues.find(item => item.id === ngModel.$modelValue);
+                        
+                        if (itemApplied) {
+                            scope.model = itemApplied;
+                        } else {
+                            scope.model = {};
+                        }
                     }
+
                 } else {
                     scope.model = {};
                 }
                 $log.debug(scope.model);
             };
 
+            scope.initAutocomplete = () => {
+                FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendence).then(res => {
+                    scope.listValues = res;
+                    scope.originalList = angular.copy(scope.listValues);
+
+                    ngModel.$render();
+                });
+            };
+
             scope.showListValues = () => {
-                $log.debug(scope.listValues);
-                scope.isListVisible = !scope.isListVisible;
+                if (!scope.isEditable) {
+                    scope.isListVisible = !scope.isListVisible;
+                }
             };
 
             $(document).click(function (e) {

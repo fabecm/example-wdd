@@ -24,6 +24,8 @@ export class FilterWorkspace {
                 return this.classificationService.getEntity(dipendence).then(res => res.data.array);
             case 'attribute':
                 return this.classificationService.getAttribute(dipendence).then(res => res.data.array);
+            case 'responsibleUser':
+                return this.getResponsibleUser(stringSearched).then(res => res.data.array);
             case 'entityName':
                 return this.$q.when([]);
             default:
@@ -35,6 +37,11 @@ export class FilterWorkspace {
         this.$log.debug(stringSearched);
         return this.$http.get(`WDD/filter/workspace?workspaceType=${type}`);
         // return getMockedWorkspace(this.$q);
+    }
+
+    getResponsibleUser (stringSearched) {
+        this.$log.debug(stringSearched);
+        return this.$http.get('WDD/filter/responsibleUser');
     }
 
     // getDescription (stringSearched) {
