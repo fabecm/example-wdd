@@ -2,10 +2,10 @@
     <div class="wdd-labeled-input">
         <label ng-if="label">{{label}}</label>
         <input class="wdd-input-text" ng-model="model.label" type="text" placeholder="{{placeholder}}" ng-change="changedLabel()" ng-model-options="{ debounce: 1000 }"/>
-        <i class="icon icon-down-arrow" ng-class="{'adjust-icon': !label}" ng-click="showListValues()"></i>
+        <i id="autocomplete-clicker" class="icon icon-down-arrow" ng-class="{'adjust-icon': !label}" ng-click="showListValues()"></i>
     </div>
 
-    <div class="container-list-values" ng-class="{'hide-container': !isListVisible}">
+    <div id="autocomplete-value-list" class="container-list-values" ng-class="{'hide-container': !isListVisible}">
         <div class="option-value" ng-repeat="value in listValues" ng-click="itemSelected(value)">
             {{value.label}}
         </div>
