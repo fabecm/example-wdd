@@ -34,7 +34,8 @@
     <div class="under-table" ng-if="!isChild">
         <div class="left-side">
             <button class="wdd-button icon-only" tooltip-placement="right" tooltip-class="tooltip-test" uib-tooltip="Esporta" tooltip-enable="false"
-                show-tooltip>
+                show-tooltip ng-csv="printRecordSelected()" lazy-load="true" filename="{{ selectedFilename }}"
+                csv-column-order="selectedColmnOrder" field-separator=";" csv-header="selectedHeader">
                 <i class="icon icon-excel"></i>
             </button>
         </div>

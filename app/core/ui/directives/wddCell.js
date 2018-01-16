@@ -9,8 +9,14 @@ export function WddCell ($filter) {
         },
         template: template,
         link: (scope) => {
-            if (scope.header === 'business_rules' || scope.header === 'tech_rules') {
-                if (scope.cell && scope.cell.length) {
+            if (!scope.cell || (!scope.cell.length && scope.cell.length !== 0)) {
+                scope.parsedCell = [scope.cell];
+            } else {
+                scope.parsedCell = scope.cell;
+            }
+
+            if (scope.header === 'business_rule' || scope.header === 'tech_rule') {
+                if (scope.parsedCell && scope.parsedCell.length && scope.parsedCell[0].label) {
                     scope.parsedCell = [{
                         icon: 'glyphicon glyphicon-ok'
                     }];
@@ -20,11 +26,6 @@ export function WddCell ($filter) {
                     }];
                 }
                 return;
-            }
-            if (!scope.cell || (!scope.cell.length && scope.cell.length !== 0)) {
-                scope.parsedCell = [scope.cell];
-            } else {
-                scope.parsedCell = scope.cell;
             }
 
             if (scope.parsedCell && scope.parsedCell.map) {

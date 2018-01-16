@@ -48,10 +48,10 @@ export class SearchController {
         value: 'program'
     }, {
         label: 'Technical Rule',
-        value: 'tech_rules'
+        value: 'tech_rule'
     }, {
         label: 'Business Rule',
-        value: 'business_rules'
+        value: 'business_rule'
     }, {
         label: 'Business Data',
         value: 'business_data'
