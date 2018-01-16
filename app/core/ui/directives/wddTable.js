@@ -75,6 +75,33 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 });
             };
 
+            scope.printRecordSelected = () => {
+                scope.selectedFilename = 'Export.csv';
+                scope.selectedColmnOrder = scope.headerArray.map(e => {
+                    return (e.value);
+                });
+                scope.selectedHeader = scope.headerArray.map(e => {
+                    return (e.label);
+                });
+                return scope.getDataToExport();
+            };
+
+            scope.getDataToExport = () => {
+                return TableService.getTableData(scope.tableKey, scope.filterApplied, 1, 5000).then(data => {
+                    let dataToExport = data.dataTable.map(record => {
+                        for (const e in record) {
+                            if (record[e].label) {
+                                record[e] = record[e].label;
+                            } else {
+                                record[e] = '';
+                            }
+                        }
+                        return record;
+                    });
+                    return dataToExport;
+                });
+            };
+
             scope.sliceDataToShow = () => {
                 let startIndex = (Number(scope.currentPage) - 1) * Number(scope.pageSize);
                 let endIndex = startIndex + scope.pageSize;

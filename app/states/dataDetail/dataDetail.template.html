@@ -47,7 +47,7 @@
             <div class="header">
                 <div class="header-icon">
                     <button ng-if="!detail.toAdd" class="wdd-button icon-only" ng-click="vm.showAttributeBody(detail)">
-                        <i class="icon" ng-class="{'icon-down-arrow': !detail.isOpened, 'icon-up-arrow': detail.isOpened}"></i>
+                        <i class="icon" ng-class="{'icon-right-arrow': !detail.isOpened, 'icon-down-arrow': detail.isOpened}"></i>
                     </button>
                     <button ng-if="detail.toAdd" class="wdd-button icon-only" ng-click="vm.createEtity(detail.term.termtype)">
                         <i class="icon icon-new"></i>

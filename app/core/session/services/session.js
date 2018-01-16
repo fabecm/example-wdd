@@ -13,7 +13,7 @@ export class SessionService {
     }
 
     getApiEntry () {
-        if(Boolean(false) === true) {
+        if(Boolean(true) === true) {
             return getMockedData(this.$q).then(apiEndpoint => {
                 this.apiEntry = apiEndpoint.contextPath;
             });
@@ -29,6 +29,7 @@ export class SessionService {
 function getMockedData ($q) {
     var deferred = $q.defer();
     deferred.resolve({
+        // contextPath: 'http://MBCL26001921:8080/edd-serviceAppl'
         contextPath: 'http://10.238.9.61:8080/edd-serviceAppl'
     });
 

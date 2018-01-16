@@ -267,8 +267,13 @@
 }
 
 .tooltip-test {
-  width: 150px;
-  // width: auto;
+
+  .tooltip-inner {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-line;
+    // width: 150px;
+  }
 }
 
 // temporary, I dont know how to call it better
