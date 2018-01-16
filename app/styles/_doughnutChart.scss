@@ -79,7 +79,7 @@ doughnut-chart {
             flex-direction: row;
             align-items: center;
             
-            .left-block {
+            .lf-block {
                 width: 50px;
                 text-align: right;
                 cursor: pointer;
@@ -87,6 +87,7 @@ doughnut-chart {
             }
             
             .right-block {
+                flex: 1;
                 padding-left: 20px;
                 cursor: pointer;
                 font-size: 30px;

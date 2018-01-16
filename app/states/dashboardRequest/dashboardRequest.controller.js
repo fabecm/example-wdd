@@ -34,9 +34,6 @@ export class DashboardRequestController {
         label: 'Descrizione',
         value: 'description'
     }, {
-        label: 'Data Table',
-        value: 'data_table'
-    }, {
         label: 'Data Inizio',
         value: 'start_date'
     }, {

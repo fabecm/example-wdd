@@ -9,10 +9,9 @@
     <div class="vertical-line"></div>
 
     <div class="table-dash">
-        <dashboard-table ng-if="vm.tableTodoList" bgcolor="#0097D9" table-title="Richieste di documentazione" table-body="vm.tableTodoList"
+        <dashboard-table bgcolor="#0097D9" table-title="Richieste di documentazione" table-body="vm.tableTodoList"
             header-type="vm.headerTodoList" child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>
-
-        <dashboard-table ng-if="vm.tableInitiativeCensuses" bgcolor="#00796B" table-title="Censimenti di iniziativa" table-body="vm.tableInitiativeCensuses"
+        <dashboard-table bgcolor="#00796B" table-title="Censimenti di iniziativa" table-body="vm.tableInitiativeCensuses"
             header-type="vm.headerInitiativeCensuses" child-page="{{vm.chartValues[1].childPage}}"></dashboard-table>
 
     </div>

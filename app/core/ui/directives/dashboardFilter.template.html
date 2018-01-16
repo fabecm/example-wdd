@@ -5,7 +5,7 @@
     <wdd-autocomplete ng-model="descriptionSelected.value" label="{{labelDescription}}" placeholder="{{placeholderDescription}}"
         type="description" list-values="descriptionList" ng-change="change()" new-value="vm.getNewValue"></wdd-autocomplete>
 
-    <div class="wdd-labeled-input">
+    <div class="wdd-labeled-input dash-filter-input">
         <label for="entity">Stato</label>
         <div class="wbb-select">
             <select name="stato" ng-model="status" ng-options="opt.id as opt.label for opt in statusList" ng-change="updateAttribute(item, filterSetted[$index])">
@@ -28,6 +28,6 @@
             <i class="icon icon-reset"></i>
         </button> -->
         <button class="wdd-button width-adapt" ng-click="resetFilter()">Pulisci</button>
-        <button class="wdd-button width-adapt" ng-click="setFilter()">Ricerca</button>
+        <button class="wdd-button width-adapt last-button" ng-click="setFilter()">Ricerca</button>
     </div>
 </div>

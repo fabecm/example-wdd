@@ -1,0 +1,16 @@
+{
+    "array": [
+        {
+            "value": 23,
+            "id": "Richieste di documentazione"
+        },
+        {
+            "value": 10,
+            "id": "Richieste di approvazione"
+        },
+        {
+            "value": 5,
+            "id": "Eventi Automatici"
+        }
+    ]
+}

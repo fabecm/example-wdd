@@ -150,6 +150,9 @@
 }
 
 .workspace-holder{
+    display: flex;
+    flex-direction: column;
+    max-height: 55vh;
     h2.title {
         font-size: 25px;
         margin-bottom: 20px;
@@ -157,7 +160,7 @@
     .list-holder {
         overflow-y: auto;
         overflow-x: hidden;
-        max-height: 480px;
+        flex: 1;
     }
     .workspace-list{
         width: 100%;

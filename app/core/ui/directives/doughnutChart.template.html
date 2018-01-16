@@ -1,5 +1,5 @@
 <div class="donut-chart-graph">
-    <canvas width="400" height="400" id="{{chartId}}"></canvas>
+    <canvas width="{{width}}" height="{{height}}" id="{{chartId}}"></canvas>
     <div class="label-chart">
         <div class="whiteCircle"></div>
         <label class="numberLabel">{{numLabelChart}} </label>
@@ -10,7 +10,7 @@
 <div class="chart-legend-container">
     <div class="container-block">
         <div class="chart-legend" ng-style="{color: arrayValues[key].color}" ng-repeat="(key, legend) in labelArray" ng-click="goToChild(key)">
-            <div class="left-block">{{legend.value}}</div>
+            <div class="lf-block">{{legend.value}}</div>
             <div class="right-block">{{legend.label}}</div>
         </div>
     </div>
