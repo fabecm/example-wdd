@@ -14,7 +14,7 @@
             <div class="progress-overall-line-holder">
                 <div class="progress-overall-line">
                     <div class="active-overall-line" ng-style="{'width': vm.overallPercentage + '%'}">
-                        <div class="overall-number" ng-class="{'under-20': vm.overallPercentage < 20, 'over-20': vm.overallPercentage >= 20}">{{vm.overallPercentage}}%</div>
+                        <div ng-show="vm.overallPercentage >= 0" class="overall-number" ng-class="{'under-20': vm.overallPercentage < 20, 'over-20': vm.overallPercentage >= 20}">{{vm.overallPercentage}}%</div>
                     </div>
                 </div>
             </div>

@@ -37,11 +37,12 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 
     h2 {
         align-self: flex-start;
         font-size: 25px;
+        margin: 20px 0;
     }
     .progress-overall-line-holder {
         padding: 0 40px;
@@ -171,9 +172,6 @@
             position: absolute;
             left: 10px;
             margin-left: 10px;
-        }
-        .workspace-title{
-    
         }
         .left-block {
             font-size: 20px;
