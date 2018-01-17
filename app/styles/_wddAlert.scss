@@ -4,8 +4,30 @@ wdd-alert{
     height: 50px;
     font-size: 20px;
     align-items: center;
-    background: rgb(215, 042, 006);
-    color: white;
+
+    &[type="error"]{
+        background: rgb(215, 042, 006);
+        color: white;
+        .icon-holder .wdd-button.icon-only{
+            color: white;
+        }
+    }
+
+    &[type="success"]{
+        background: rgb(000, 155, 000); 
+        color: black;
+        .icon-holder .wdd-button.icon-only{
+            color: black;
+        }
+    }
+
+    &[type="warning"]{
+        background: rgb(255, 255, 0);
+        color: black;
+        .icon-holder .wdd-button.icon-only{
+            color: black;
+        }
+    }
     
     .container {
         flex: 1;
