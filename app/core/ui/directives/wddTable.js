@@ -48,7 +48,10 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                     scope.currentPage = 1;
                 }
 
-                TableService.getTableData(scope.tableKey, scope.filterApplied, scope.currentPage).then(data => {
+                const getTableDataPromise = TableService.getTableData(scope.tableKey, scope.filterApplied, scope.currentPage);
+                scope.promise = getTableDataPromise;
+
+                getTableDataPromise.then(data => {
                     scope.serviceResponse = data.dataTable;
                     scope.pageNumber = data.pages;
                     scope.pages = [...Array((scope.pageNumber ? scope.pageNumber: 1) + 1).keys()].slice(1, scope.pageNumber + 1);
@@ -119,7 +122,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
             };
 
             scope.getDataToExport = () => {
-                return TableService.getTableData(scope.tableKey, scope.filterApplied, 1, 5000).then(data => {
+                const getTableDataPromise = TableService.getTableData(scope.tableKey, scope.filterApplied, 1, 5000);
+                scope.promise = getTableDataPromise;
+                return getTableDataPromise.then(data => {
                     let dataToExport = data.dataTable.map(record => {
                         for (const e in record) {
                             if (record[e].label) {

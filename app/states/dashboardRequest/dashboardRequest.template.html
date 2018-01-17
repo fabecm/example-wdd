@@ -2,7 +2,7 @@
     <h2 class="title">Attività in corso</h2>
 </div>
 <div class="dashboardRequest">
-    <div class="chart-doghout-dash">
+    <div class="chart-doghout-dash" wdd-spinner="[vm.dataqualityPromise.$$state]" spinner-style="floating">
         <doughnut-chart ng-if="vm.dataAvailable" array-values="vm.chartValues" hide-label="true"></doughnut-chart>
     </div>
 
@@ -10,13 +10,13 @@
 
     <div class="table-dash">
 
-        <dashboard-table bgcolor="#0097d9" table-title="Richieste di documentazione" table-body="vm.tableRichiesteDocumentazione"
+        <dashboard-table promise="vm.searchWorkspacePromise" bgcolor="#0097d9" table-title="Richieste di documentazione" table-body="vm.tableRichiesteDocumentazione"
             header-type="vm.headerRichiestaDocumentazione" child-page="{{vm.chartValues[0].childPage}}"></dashboard-table>
 
-        <dashboard-table bgcolor="#007284" table-title="Richieste di approvazione" table-body="vm.tableApprovalRequest"
+        <dashboard-table promise="vm.approvalRequestPromise" bgcolor="#007284" table-title="Richieste di approvazione" table-body="vm.tableApprovalRequest"
             header-type="vm.headerApprovalRequest" child-page="{{vm.chartValues[1].childPage}}"></dashboard-table>
 
-        <dashboard-table bgcolor="#df5356" table-title="Eventi automatici" table-body="vm.tableAutomaticEvents"
+        <dashboard-table promise="vm.automaticEventsPromise" bgcolor="#df5356" table-title="Eventi automatici" table-body="vm.tableAutomaticEvents"
             header-type="vm.headerAutomaticEvents" child-page="{{vm.chartValues[2].childPage}}"></dashboard-table>
 
         <!-- <dashboard-table bgcolor="#FB8C00" table-title="Richieste di approvazione entità" table-body="vm.dataList" header-type="workspaceCentric"

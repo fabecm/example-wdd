@@ -8,13 +8,27 @@ export function DashboardTable (WorkspaceService, $log, $state, $filter) {
             bgcolor: '@',
             tableBody: '=',
             headerType: '=',
-            childPage: '@'
+            childPage: '@',
+            promise: '='
         },
         template: template,
         link: (scope) => {
             scope.headerArray = scope.headerType;
 
+            if (scope.promise) {
+                scope.promise
+                    .then(() => {
+                        scope.isErrored = false;
+                    })
+                    .catch(() => {
+                        scope.isErrored = true;
+                    });
+            }
+
             scope.$watch('tableBody', () => {
+                if (!scope.tableBody) {
+                    return;
+                }
                 scope.tableBodyParsed = scope.tableBody.map(obj => {
                     for (let field in obj) {
                         if (obj[field] && obj[field].date) {

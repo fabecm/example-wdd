@@ -12,7 +12,8 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             dipendence: '@',
             newValue: '=',
             isEditable: '=',
-            requiredDependence: '@'
+            requiredDependence: '@',
+            promise: '='
         },
         template: template,
         link: (scope, element, attribute, ngModel) => {
@@ -44,7 +45,9 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             };
 
             scope.initAutocomplete = () => {
-                FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendence).then(res => {
+                const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendence);
+                scope.promise = requestFilter;
+                requestFilter.then(res => {
                     scope.listValues = res;
                     scope.originalList = angular.copy(scope.listValues);
 
@@ -92,7 +95,9 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             scope.updateListValue = () => {
                 // To add autocomplete behaviour
                 if (scope.model.label.length > 2) {
-                    FilterWorkspace.updateList(scope.type, scope.model.label).then(res => {
+                    const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label);
+                    scope.promise = requestFilter;
+                    requestFilter.then(res => {
                         scope.listValues = res;
                         scope.listValues = [{
                             id: 1,

@@ -1,11 +1,11 @@
 <div class="wdd-secondary-header">
     <button class="wdd-button icon-only right-spacer" ng-click="vm.back()">
-        <i class="icon icon-left-arrow"></i>        
+        <i class="icon icon-left-arrow"></i>
     </button>
     <h2 class="title">Data Lineage</h2>
 </div>
 <div class="data-lineage-page">
-    <div class="square-container">
+    <div class="square-container" wdd-spinner="[vm.getLineageFieldPromise.$$state, vm.getLineageRulePromise.$$state]">
 
         <div class="square box-{{key}}" ng-class="{'hide-square': !box}" ng-repeat="(key, box) in vm.lineageBoxes track by $index">
             <div class="title">
