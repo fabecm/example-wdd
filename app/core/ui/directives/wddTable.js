@@ -86,7 +86,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                         scope.checkedElements = [];
                     }
                     scope.serviceResponse = scope.sliceDataToShow();
-                    console.log(scope.serviceResponse);
                 }
             };
 
@@ -107,7 +106,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                         }
                     }
                 }
-
             };
 
             scope.printRecordSelected = () => {

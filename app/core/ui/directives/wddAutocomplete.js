@@ -27,14 +27,13 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 if(ngModel.$modelValue) {
                     if (scope.listValues) {
                         let itemApplied = scope.listValues.find(item => item.id === ngModel.$modelValue);
-                        
+
                         if (itemApplied) {
                             scope.model = itemApplied;
                         } else {
                             scope.model = {};
                         }
                     }
-
                 } else {
                     scope.model = {};
                 }

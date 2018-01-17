@@ -14,7 +14,6 @@ export function DoughnutChart ($timeout, $state, $log) {
         },
         template: template,
         link: (scope) => {
-
             if ($(window).width() >= 1200) {
                 scope.width = 400;
                 scope.height = 400;
