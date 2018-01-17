@@ -32,7 +32,7 @@ export class DataLineageController {
                 };
             }
 
-            if (res.data.tech_rules_in.length > 0) {
+            if (res.data.tech_rules_in && res.data.tech_rules_in.length > 0) {
                 this.lineageBoxes[3] = {
                     title: 'Technical Rule',
                     data: res.data.tech_rules_in,
@@ -47,7 +47,7 @@ export class DataLineageController {
                 infoOperation: this.goToDataDetail.bind(this)
             };
 
-            if (res.data.tech_rules_out.length > 0) {
+            if (res.data.tech_rules_out && res.data.tech_rules_out.length > 0) {
                 this.lineageBoxes[5] = {
                     title: 'Technical Rule',
                     data: res.data.tech_rules_out,
@@ -55,7 +55,7 @@ export class DataLineageController {
                 };
             }
 
-            if (res.data.other_relation[0]) {
+            if (res.data.other_relation && res.data.other_relation[0]) {
                 this.lineageBoxes[7] = {
                     title: 'Business Data',
                     data: res.data.other_relation[0],
@@ -63,7 +63,7 @@ export class DataLineageController {
                 };
             }
 
-            if (res.data.other_relation[1]) {
+            if (res.data.other_relation && res.data.other_relation[1]) {
                 this.lineageBoxes[6] = {
                     title: 'Business Data',
                     data: res.data.other_relation[1],
@@ -71,7 +71,7 @@ export class DataLineageController {
                 };
             }
 
-            if (res.data.other_relation[2]) {
+            if (res.data.other_relation && res.data.other_relation[2]) {
                 this.lineageBoxes[8] = {
                     title: 'Business Data',
                     data: res.data.other_relation[2],
@@ -86,7 +86,7 @@ export class DataLineageController {
         this.getLineageRulePromise.then(res => {
             this.lineageBoxes = Array(9);
 
-            if (res.data.business_rule.label) {
+            if (res.data.business_rule && res.data.business_rule.label) {
                 this.lineageBoxes[1] = {
                     title: 'Business Rule',
                     data: res.data.business_rule,
@@ -95,7 +95,7 @@ export class DataLineageController {
                 };
             }
 
-            if (res.data.data_field_in.length > 0) {
+            if (res.data.data_field_in && res.data.data_field_in.length > 0) {
                 this.lineageBoxes[3] = {
                     title: 'Data Field',
                     data: res.data.data_field_in,
@@ -111,7 +111,7 @@ export class DataLineageController {
                 infoOperation: this.goToDataDetail.bind(this)
             };
 
-            if (res.data.data_field_out.length > 0) {
+            if (res.data.data_field_out && res.data.data_field_out.length > 0) {
                 this.lineageBoxes[5] = {
                     title: 'Data Field',
                     data: res.data.data_field_out,
@@ -119,7 +119,7 @@ export class DataLineageController {
                 };
             }
 
-            if (res.data.program.length > 0) {
+            if (res.data.program && res.data.program.length > 0) {
                 this.lineageBoxes[7] = {
                     title: 'Program',
                     data: res.data.program,
