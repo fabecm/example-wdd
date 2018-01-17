@@ -1,4 +1,5 @@
-<div class="wdd-table" ng-show="serviceResponse" ng-class="{'child-table': isChild}">
+<div ng-show="promise.$$state.status == 0" wdd-spinner="[promise.$$state]" spinner-style="floating" style="height: 400px;width: 100%;"></div>
+<div class="wdd-table" ng-show="serviceResponse && promise.$$state.status != 0" ng-class="{'child-table': isChild}">
     <table ng-class="{'expandable-table': expandable}">
         <thead>
             <th ng-if="isChild" class="baseHeaderIconWidth"></th>

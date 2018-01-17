@@ -72,7 +72,8 @@ export class DashboardSOController {
     }
 
     getChartData () {
-        this.dashboardsService.dashboardCall('systemowner').then(chartData => {
+        this.systemOwnerPromise = this.dashboardsService.dashboardCall('systemowner');
+        this.systemOwnerPromise.then(chartData => {
             this.chartValues[0].value = chartData.data.array[0].value;
             this.chartValues[1].value = chartData.data.array[1].value;
             // this.chartValues[2].value = chartData.data.array[2].value;
@@ -82,10 +83,12 @@ export class DashboardSOController {
     }
 
     getTablesData () {
-        this.tableService.getTableData('toDoList', {}, 1).then(res => {
+        this.toDoListPromise = this.tableService.getTableData('toDoList', {}, 1);
+        this.toDoListPromise.then(res => {
             this.tableTodoList = res.dataTable.splice(0, 3);
         });
-        this.tableService.getTableData('initiativeCensuses', {}, 1).then(res => {
+        this.initiativeCensusesPromise = this.tableService.getTableData('initiativeCensuses', {}, 1);
+        this.initiativeCensusesPromise.then(res => {
             this.tableInitiativeCensuses = res.dataTable.splice(0, 3);
         });
     }

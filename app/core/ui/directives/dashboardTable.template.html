@@ -1,6 +1,9 @@
-<div class="wdd-table dashboard-table">
-    <div class="missing-data" ng-if="!tableBodyParsed || tableBodyParsed.length == 0">
+<div class="wdd-table dashboard-table" wdd-spinner="[promise.$$state]">
+    <div class="missing-data" ng-if="tableBodyParsed.length == 0">
         <h1>Nessun dato presente</h1>
+    </div>
+    <div class="missing-data" ng-if="isErrored">
+        <h1>Errore nel recupero dei dati</h1>
     </div>
     <table ng-click="goToChildPage()">
         <caption ng-style="{'background-color' : bgcolor}">

@@ -2,13 +2,13 @@
     <h2 class="title">Workspace</h2>
 </div>
 <div class="dashboardUserRequest">
-    <div class="chart-doghout-dash">
+    <div class="chart-doghout-dash" wdd-spinner="[vm.responsibleUserRequest.$$state]" spinner-style="floating">
         <doughnut-chart ng-if="vm.dataAvailable" array-values="vm.chartValues" hide-label="true"></doughnut-chart>
     </div>
 
     <div class="vertical-line"></div>
 
-    <div class="progres-mageolder">
+    <div class="progres-mageolder" wdd-spinner="[vm.statusRequest.$$state]" spinner-style="floating">
         <div class="progress-overall-holder">
             <h2 class="title">Avanzamento Complessivo</h2>
             <div class="progress-overall-line-holder">

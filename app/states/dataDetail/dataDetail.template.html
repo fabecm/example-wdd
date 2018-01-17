@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="details-container">
+    <div class="details-container" wdd-spinner="[vm.getDataFieldDetailsPromise.$$state]">
         <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="(key, detail) in vm.visibleDataDetails track by $index"
             ng-class="{'active': detail.isOpened}">
             <div class="header">

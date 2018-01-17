@@ -105,7 +105,8 @@ export class DashboardRequestController {
     }
 
     getChartData () {
-        this.dashboardsService.dashboardCall('dataquality').then(chartData => {
+        this.dataqualityPromise = this.dashboardsService.dashboardCall('dataquality');
+        this.dataqualityPromise.then(chartData => {
             this.chartValues[0].value = chartData.data.array[0].value;
             this.chartValues[1].value = chartData.data.array[1].value;
             this.chartValues[2].value = chartData.data.array[2].value;
@@ -116,15 +117,18 @@ export class DashboardRequestController {
     }
 
     getTablesData () {
-        this.tableService.getTableData('searchWorkspace', {}, 1).then(res => {
+        this.searchWorkspacePromise = this.tableService.getTableData('searchWorkspace', {}, 1);
+        this.searchWorkspacePromise.then(res => {
             this.tableRichiesteDocumentazione = res.dataTable.splice(0, 3);
         });
 
-        this.tableService.getTableData('approvalRequest', {}, 1).then(res => {
+        this.approvalRequestPromise = this.tableService.getTableData('approvalRequest', {}, 1);
+        this.approvalRequestPromise.then(res => {
             this.tableApprovalRequest = res.dataTable.splice(0, 3);
         });
 
-        this.tableService.getTableData('automaticEvents', {}, 1).then(res => {
+        this.automaticEventsPromise = this.tableService.getTableData('automaticEvents', {}, 1);
+        this.automaticEventsPromise.then(res => {
             this.tableAutomaticEvents = res.dataTable.splice(0, 3);
         });
     }

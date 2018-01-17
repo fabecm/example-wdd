@@ -10,6 +10,9 @@ export function WddFilter ($log, $q, ClassificationService) {
         link: (scope) => {
             scope.filtersArray = [];
             scope.filterSetted = [];
+
+            scope.promises = {};
+
             scope.filterStatus = [{
                 label: 'Tutti'
             }, {
@@ -108,13 +111,15 @@ export function WddFilter ($log, $q, ClassificationService) {
             };
 
             scope.updateEntity = (filter, filterSetted) => {
-                ClassificationService.getEntity(filterSetted.attribute).then(res => {
+                scope.getEntityPromise = ClassificationService.getEntity(filterSetted.attribute);
+                scope.getEntityPromise.then(res => {
                     filter.entity = res.data;
                 });
             };
 
             scope.updateAttribute = (filter, filterSetted) => {
-                ClassificationService.getAttribute(filterSetted.entity).then(res => {
+                scope.getAttributePromise = ClassificationService.getAttribute(filterSetted.entity);
+                scope.getAttributePromise.then(res => {
                     filter.attribute = res.data;
                 });
             };

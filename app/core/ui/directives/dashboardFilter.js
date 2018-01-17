@@ -13,6 +13,8 @@ export function DashboardFilter ($log, FilterWorkspace) {
             scope.typeWorkspace = 'workspace';
             scope.workspaceSelected = {};
 
+            scope.promises = {};
+
             scope.labelDescription = 'Descrizione';
             scope.placeholderDescription = 'Seleziona descrizione';
             scope.typeDescrizione = 'description';
@@ -74,7 +76,9 @@ export function DashboardFilter ($log, FilterWorkspace) {
 
 function getStatusList (scope, FilterWorkspace) {
     let type = 'status';
-    FilterWorkspace.updateList(type).then(res => {
+    const statusPromise = FilterWorkspace.updateList(type);
+    scope.promises.statusPromise = statusPromise;
+    statusPromise.then(res => {
         scope.statusList = res;
     });
 }

@@ -41,7 +41,8 @@ export class DataDetailController {
     }
 
     initDataDetails () {
-        this.detailsService.getDataFieldDetails(this.$stateParams.id).then(res => {
+        this.getDataFieldDetailsPromise = this.detailsService.getDataFieldDetails(this.$stateParams.id);
+        this.getDataFieldDetailsPromise.then(res => {
             this.listDataDetails = res.data.array;
             this.visibleDataDetails = res.data.array.map(data => {
                 data.isOpened = true;

@@ -20,7 +20,8 @@ export class DataLineageController {
     }
 
     getLineageField (termId) {
-        this.lineageService.getLineageField(termId).then(res => {
+        this.getLineageFieldPromise = this.lineageService.getLineageField(termId);
+        this.getLineageFieldPromise.then(res => {
             this.lineageBoxes = Array(9);
 
             if (res.data.tech_hierarchy) {
@@ -81,7 +82,8 @@ export class DataLineageController {
     }
 
     getLineageRule (ruleId) {
-        this.lineageService.getLineageRule(ruleId).then(res => {
+        this.getLineageRulePromise = this.lineageService.getLineageRule(ruleId);
+        this.getLineageRulePromise.then(res => {
             this.lineageBoxes = Array(9);
 
             if (res.data.business_rule.label) {
