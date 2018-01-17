@@ -11,7 +11,8 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             type: '@',
             dipendence: '@',
             newValue: '=',
-            isEditable: '@'
+            isEditable: '=',
+            requiredDependence: '@'
         },
         template: template,
         link: (scope, element, attribute, ngModel) => {
@@ -19,6 +20,9 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             scope.model = {};
 
             scope.$watch('dipendence', () => {
+                if (scope.requiredDependence && !scope.dipendence) {
+                    return;
+                }
                 scope.initAutocomplete();
             });
 
@@ -26,14 +30,13 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 if(ngModel.$modelValue) {
                     if (scope.listValues) {
                         let itemApplied = scope.listValues.find(item => item.id === ngModel.$modelValue);
-                        
+
                         if (itemApplied) {
                             scope.model = itemApplied;
                         } else {
                             scope.model = {};
                         }
                     }
-
                 } else {
                     scope.model = {};
                 }
