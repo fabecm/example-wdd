@@ -22,9 +22,9 @@ export class FilterWorkspace {
             case 'systemOwner':
                 return this.datasourceService.getBootstrap().then(res => res.data.system_owner);
             case 'entity':
-                return this.classificationService.getEntity(dipendence).then(res => res.data.array);
+                return this.classificationService.getEntity(dipendence, stringSearched).then(res => res.data.array);
             case 'attribute':
-                return this.classificationService.getAttribute(dipendence).then(res => res.data.array);
+                return this.classificationService.getAttribute(dipendence, stringSearched).then(res => res.data.array);
             case 'responsibleUser':
                 return this.getResponsibleUser(stringSearched).then(res => res.data.array);
             case 'entityName':

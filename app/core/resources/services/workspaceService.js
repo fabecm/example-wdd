@@ -9,8 +9,7 @@ export class WorkspaceService {
     getFieldValues (type, stringSearched = '', dipendence) {
         switch (type) {
             case 'newRequestSO':
-                // return this.$http.get(`WDD/filter/newdata?type=systemowner`)
-                return this.$http.get('WDD/filter/newdata?type=systemowner');
+                return this.$http.get(`WDD/filter/newdata?type=systemowner&label_search=${stringSearched}`);
             case 'newRequestTA':
                 return this.$http.get(`WDD/filter/newdata?type=techapp&systemowner_id=${dipendence}&label_search=${stringSearched}`);
             case 'newRequestDS':

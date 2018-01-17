@@ -1,4 +1,4 @@
-<div class="wwd-modal">
+<div class="wwd-modal" wdd-spinner="[vm.systemOwnerPromise.$$state, vm.techApplPromise.$$state, vm.dataSourcePromise.$$state, vm.dataTablePromise.$$state, vm.dataFieldPromise.$$state]">
     <div class="wwd-modal__title">
         <h class="" id="modal-title">Richiesta documentazione dato</h>
     </div>
@@ -11,7 +11,8 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.systemOwnerSelected.value" type="newRequestSO" ng-change="vm.inputChanged('SO')" new-value="vm.getNewValue">
+                    <wdd-autocomplete ng-model="vm.systemOwnerSelected.value" type="newRequestSO" ng-change="vm.inputChanged('SO')" new-value="true"
+                        promise="vm.systemOwnerPromise">
                     </wdd-autocomplete>
                 </div>
             </div>
@@ -21,8 +22,9 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.technicalApplication.value" type="newRequestTA" ng-change="vm.inputChanged('TA')" new-value="vm.getNewValue"
-                        required-dependence="true" dipendence="{{ vm.systemOwnerSelected.value }}" is-editable="vm.isTechApplEditable()">
+                    <wdd-autocomplete ng-model="vm.technicalApplication.value" type="newRequestTA" ng-change="vm.inputChanged('TA')" new-value="true"
+                        required-dependence="true" dipendence="{{ vm.systemOwnerSelected.value }}" is-editable="vm.isTechApplEditable()"
+                        promise="vm.techApplPromise">
                     </wdd-autocomplete>
                 </div>
             </div>
@@ -32,8 +34,8 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.dataSource.value" type="newRequestDS" ng-change="vm.inputChanged('DS')" new-value="vm.getNewValue"
-                    required-dependence="true" dipendence="{{ vm.technicalApplication.value }}" is-editable="vm.isDataSourceEditable()">
+                    <wdd-autocomplete ng-model="vm.dataSource.value" type="newRequestDS" ng-change="vm.inputChanged('DS')" new-value="true"
+                        required-dependence="true" dipendence="{{ vm.technicalApplication.value }}" is-editable="vm.isDataSourceEditable()" promise="vm.dataSourcePromise">
                     </wdd-autocomplete>
                 </div>
             </div>
@@ -43,8 +45,8 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.dataTable.value" type="newRequestDT" new-value="vm.getNewValue"
-                    required-dependence="true" dipendence="{{ vm.dataSource.value }}" is-editable="vm.areDataTableFieldEditable()">
+                    <wdd-autocomplete ng-model="vm.dataTable.value" type="newRequestDT" new-value="true" required-dependence="true"
+                        dipendence="{{ vm.dataSource.value }}" is-editable="vm.areDataTableFieldEditable()" promise="vm.dataTablePromise">
                     </wdd-autocomplete>
                 </div>
             </div>
@@ -54,8 +56,8 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.dataField.value" type="newRequestDF" new-value="vm.getNewValue"
-                    required-dependence="true" dipendence="{{ vm.dataSource.value }}" is-editable="vm.areDataTableFieldEditable()">
+                    <wdd-autocomplete ng-model="vm.dataField.value" type="newRequestDF" new-value="true" required-dependence="true"
+                        dipendence="{{ vm.dataSource.value }}" is-editable="vm.areDataTableFieldEditable()" promise="vm.dataFieldPromise">
                     </wdd-autocomplete>
                 </div>
             </div>
@@ -76,9 +78,9 @@
 
     </div>
     <div class="wwd-modal__footer">
-        <button class="wdd-button alt-color" type="button">Annulla</button>
-        <button class="wdd-button alt-color pull-right" type="button">Nuovo</button>
-        <button class="wdd-button pull-right" type="button">Salva</button>
+        <button class="wdd-button alt-color" type="button" ng-click="vm.close()">Annulla</button>
+        <button class="wdd-button alt-color pull-right" type="button" ng-click="vm.saveRequestDocumentationData('new')">Nuovo</button>
+        <button class="wdd-button pull-right" type="button" ng-click="vm.saveRequestDocumentationData('save')">Salva</button>
     </div>
 
 </div>

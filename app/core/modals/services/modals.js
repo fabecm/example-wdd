@@ -32,6 +32,10 @@ export class ModalService {
         return this.$http.get(`WDD/details/workspace/${workspaceId}`);
     }
 
+    saveRequestDocumentationData (data) {
+        return this.$http.post('WDD/newdata/save', data);
+    }
+
     openCreateEntity (entityType, dataDetails) {
         let modalInstance = this.$uibModal.open({
             template: CreateEntityTemplate,
@@ -93,13 +97,17 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openNewWorkspaceRequests () {
+    openNewWorkspaceRequests (workspaceId) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             template: NewWorkspaceRequestsTemplate,
             controller: NewWorkspaceRequestsController,
             controllerAs: 'vm',
+            backdrop: 'static',
+            scope: angular.extend(this.$rootScope, {
+                workspaceId: workspaceId
+            }),
             resolve: {}
         });
 

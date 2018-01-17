@@ -38,7 +38,7 @@ export class TableService {
             case 'initiativeCensuses':
                 return this.dataService.getSystemOwnerInitiativeCensuses(pageNumber, pageLength, filterApplied).then(res => {
                     return ({
-                        dataTable: res.data.OutputArray,
+                        dataTable: res.data.data_list,
                         pages: res.data.page_count
                     });
                 });

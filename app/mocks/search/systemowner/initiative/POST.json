@@ -1,1 +1,16 @@
-{}
+{
+  "page_count": 1,
+  "data_list": [
+    {
+      "workspace": { "match": 0 },
+      "data_field": { "match": 0 },
+      "data_table": { "label": "DD - DT - TPTMSPM - DPTB", "match": 0 },
+      "data_source": {
+        "label": "DD - DS - %%%.TWS.MM186S.TW00SA25.BDU.POPO",
+        "match": 0
+      },
+      "tech_application": { "label": "DD - TA - TWS", "match": 0 },
+      "workspace_end_date": "2018-01-17"
+    }
+  ]
+}

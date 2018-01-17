@@ -99,21 +99,17 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     scope.promise = requestFilter;
                     requestFilter.then(res => {
                         scope.listValues = res;
-                        scope.listValues = [{
-                            id: 1,
-                            label: 'test1'
-                        }, {
-                            id: 2,
-                            label: 'test2'
-                        }];
+                        // scope.listValues = [{
+                        //     id: 1,
+                        //     label: 'test1'
+                        // }, {
+                        //     id: 2,
+                        //     label: 'test2'
+                        // }];
                     });
                 } else {
                     scope.listValues = scope.originalList;
                 }
-            };
-
-            scope.newValue = () => {
-                return scope.model.label;
             };
         }
     };
