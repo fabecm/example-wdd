@@ -80,14 +80,17 @@ export class SearchController {
         value: 'last_change'
     }];
 
-    constructor (DataService, DatasourceService, $timeout) {
+    constructor (DataService, DatasourceService, $timeout, $rootScope) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
         this.$timeout = $timeout;
+        this.$rootScope = $rootScope;
 
         // this.getBootstrap();
         // this.loadData();
+
+        this.filterChanged();
     }
 
     // loadData (params) {
@@ -110,44 +113,24 @@ export class SearchController {
     }
 
     filterChanged (arrayFilter) {
-        let param = {};
-        param.resetPage = true;
+        if (!arrayFilter && Object.keys(this.$rootScope.appliedFilter).length === 0) {
+            return;
+        }
 
-        if (arrayFilter.process_owner_id) {
-            param.process_owner_id = arrayFilter.process_owner_id;
+        let param = {
+            filterType: 'searchFilter',
+            resetPage: true
+        };
+
+        if (!arrayFilter && Object.keys(this.$rootScope.appliedFilter).length > 0) {
+            param.getChached = true;
         } else {
-            param.process_owner_id = 0;
+            param.filterSetted = arrayFilter;
         }
-        if (arrayFilter.system_owner_id) {
-            param.system_owner_id = arrayFilter.system_owner_id;
-        } else {
-            param.system_owner_id = 0;
-        }
-        if (arrayFilter.status_code) {
-            param.status_code = arrayFilter.status_code;
-        }
-        if (arrayFilter.arrayFilter && arrayFilter.arrayFilter.length > 0) {
-            param.array_filter_text = arrayFilter.arrayFilter;
-        }
-
-        // this.dataService.getData(param)
-        // .then(searchData => {
-        //     this.rawData = angular.copy(searchData.data.OutputArray);
-        //     // this.dataList = searchData.data.OutputArray;
-        //     let tableEntity = getEntityTable();
-        //     this.rawDataEntity = tableEntity.data.OutputArray;
-        //     // let numPages = Math.ceil(this.dataList.length / this.pageSize);
-
-        //     // this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-        //     // this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
-        // });
 
         this.$timeout(() => {
             this.showTab = true;
-            this.reloadTableData({
-                filterSetted: param
-            });
+            this.reloadTableData(param);
         });
     }
 

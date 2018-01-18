@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($log, $timeout, $state, ModalService, TableService, WDDAlert) {
+export function WddTable ($log, $timeout, $state, ModalService, TableService, WDDAlert, $rootScope) {
     'ngInject';
     return {
         scope: {
@@ -40,8 +40,33 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
             scope.reloadData = (filter) => {
                 // $log.debug('filter', filter);
+                if (filter && filter.getChached) {
+                    if (filter.filterType && filter.filterType === 'searchFilter') {
+                        let param = $rootScope.appliedFilter ? $rootScope.appliedFilter : {};
+
+                        scope.filterApplied = {
+                            status_code: $rootScope.appliedFilter.status_code ? $rootScope.appliedFilter.status_code.label : undefined,
+                            array_filter_text: $rootScope.appliedFilter.arrayFilter.map((ttFilter) => {
+                                return {
+                                    entity_id: ttFilter.entity,
+                                    attribute_id: ttFilter.attribute,
+                                    text: ttFilter.text
+                                };
+                            }),
+                            process_owner_id: $rootScope.appliedFilter.process_owner_id ? $rootScope.appliedFilter.process_owner_id : 0,
+                            system_owner_id: $rootScope.appliedFilter.system_owner_id ? $rootScope.appliedFilter.system_owner_id : 0
+                        }
+                    }
+                }
+ 
                 if (filter && filter.filterSetted) {
-                    scope.filterApplied = filter.filterSetted;
+
+                    scope.filterApplied = {
+                        status_code: filter.filterSetted.status_code,
+                        array_filter_text: filter.filterSetted.arrayFilter,
+                        process_owner_id: filter.filterSetted.process_owner_id ? filter.filterSetted.process_owner_id : 0,
+                        system_owner_id: filter.filterSetted.system_owner_id ? filter.filterSetted.system_owner_id : 0
+                    }
                 }
 
                 if (filter && filter.filterSetted && filter.filterSetted.resetPage) {

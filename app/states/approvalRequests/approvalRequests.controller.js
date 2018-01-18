@@ -72,31 +72,25 @@ export class ApprovalRequestsController {
     }
 
     filterChanged (arrayFilter) {
-        let param = {};
-        param.resetPage = true;
+        if (!arrayFilter && Object.keys(this.$rootScope.appliedFilter).length === 0) {
+            return;
+        }
 
-        if (arrayFilter.process_owner_id) {
-            param.process_owner_id = arrayFilter.process_owner_id;
+        let param = {
+            filterType: 'searchFilter',
+            resetPage: true
+        };
+
+        if (!arrayFilter && Object.keys(this.$rootScope.appliedFilter).length > 0) {
+            param.getChached = true;
         } else {
-            param.process_owner_id = 0;
+            param.filterSetted = arrayFilter;
         }
-        if (arrayFilter.system_owner_id) {
-            param.system_owner_id = arrayFilter.system_owner_id;
-        } else {
-            param.system_owner_id = 0;
-        }
-        if (arrayFilter.status_code) {
-            param.status_code = arrayFilter.status_code;
-        }
-        if (arrayFilter.arrayFilter && arrayFilter.arrayFilter.length > 0) {
-            param.array_filter_text = arrayFilter.arrayFilter;
-        }
+
+        this.filterApplied = param.filterSetted;
 
         this.$timeout(() => {
-            this.showTab = true;
-            this.reloadTableData({
-                filterSetted: param
-            });
+            this.reloadTableData(param);
         });
     }
 }

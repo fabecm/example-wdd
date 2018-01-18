@@ -50,7 +50,7 @@ export class DocumentationRequestsController {
         value: 'system_owner'
     }]
 
-    constructor (DataService, DatasourceService, $state, $timeout, ModalService) {
+    constructor(DataService, DatasourceService, $state, $timeout, ModalService) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
@@ -64,7 +64,7 @@ export class DocumentationRequestsController {
         // this.loadData();
     }
 
-    initDocumentationRequest () {
+    initDocumentationRequest() {
         this.$timeout(() => {
             let param = {};
             this.reloadTableData({
@@ -73,7 +73,7 @@ export class DocumentationRequestsController {
         });
     }
 
-    changeChild () {
+    changeChild() {
         if (this.pageChild) {
             this.$state.go(this.pageChild);
         }
@@ -94,7 +94,7 @@ export class DocumentationRequestsController {
     //     });
     // }
 
-    createNewWorkspace () {
+    createNewWorkspace() {
         this.modalService.openNewWorkspaceModal().then(() => {
             this.$timeout(() => {
                 this.reloadTableData({
@@ -104,48 +104,36 @@ export class DocumentationRequestsController {
         });
     }
 
-    filterChanged (filterApplied) {
-        let param = filterApplied;
-        this.filterApplied = filterApplied;
+    filterChanged(filterApplied) {
+        if (!arrayFilter && Object.keys(this.$rootScope.appliedFilter).length === 0) {
+            return;
+        }
+
+        let param = {
+            filterType: 'searchFilter',
+            resetPage: true
+        };
+
+        if (!arrayFilter && Object.keys(this.$rootScope.appliedFilter).length > 0) {
+            param.getChached = true;
+        } else {
+            param.filterSetted = arrayFilter;
+        }
+
+        this.filterApplied = param.filterSetted;
 
         this.$timeout(() => {
-            this.reloadTableData({
-                filterSetted: param
-            });
+            this.reloadTableData(param);
         });
-        // let param = {};
-
-        // if (this.processOwnerChosen) {
-        //     param.process_owner_id = this.processOwnerChosen.id;
-        // }
-        // if (this.systemOwnerChosen) {
-        //     param.system_owner_id = this.systemOwnerChosen.id;
-        // }
-        // if (this.statusChosen) {
-        //     param.status_code = this.statusChosen.label;
-        // }
-        // if (arrayFilter && arrayFilter.length > 0) {
-        //     param.arrayFilter = arrayFilter;
-        // }
-
-        // this.dataService.getData(param)
-        // .then(searchData => {
-        //     this.rawData = angular.copy(searchData.data.OutputArray);
-        //     this.dataList = searchData.data.OutputArray;
-        //     let numPages = Math.ceil(this.dataList.length / this.pageSize);
-
-        //     this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-        //     this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
-        // });
     }
-
-    // getBootstrap () {
-    //     this.datasourceService.getBootstrap().then(res => {
-    //         this.filterBootstrap = {
-    //             processOwner: res.data.process_owner,
-    //             systemOwner: res.data.system_owner
-    //         };
-    //     });
-    // }
 }
+
+// getBootstrap () {
+//     this.datasourceService.getBootstrap().then(res => {
+//         this.filterBootstrap = {
+//             processOwner: res.data.process_owner,
+//             systemOwner: res.data.system_owner
+//         };
+//     });
+// }
+//}
