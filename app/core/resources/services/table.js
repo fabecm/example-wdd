@@ -30,7 +30,7 @@ export class TableService {
             case 'toDoList':
                 return this.dataService.getSystemOwnerTodoList(pageNumber, pageLength, filterApplied).then(res => {
                     return ({
-                        dataTable: res.data.OutputArray,
+                        dataTable: res.data.data_list,
                         pages: res.data.page_count
                     });
                 });
@@ -38,7 +38,7 @@ export class TableService {
             case 'initiativeCensuses':
                 return this.dataService.getSystemOwnerInitiativeCensuses(pageNumber, pageLength, filterApplied).then(res => {
                     return ({
-                        dataTable: res.data.OutputArray,
+                        dataTable: res.data.data_list,
                         pages: res.data.page_count
                     });
                 });
@@ -46,7 +46,7 @@ export class TableService {
             case 'approvalRequest':
                 return this.dataService.getDQApprovalRequest(pageNumber, pageLength, filterApplied).then(res => {
                     return ({
-                        dataTable: res.data.OutputArray,
+                        dataTable: res.data.data_list,
                         pages: res.data.page_count
                     });
                 });
@@ -54,7 +54,7 @@ export class TableService {
             case 'automaticEvents':
                 return this.dataService.getDQAutomaticEvents(pageNumber, pageLength, filterApplied).then(res => {
                     return ({
-                        dataTable: res.data.OutputArray,
+                        dataTable: res.data.data_list,
                         pages: res.data.page_count
                     });
                 });
