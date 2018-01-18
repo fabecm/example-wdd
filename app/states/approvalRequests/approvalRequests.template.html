@@ -31,7 +31,7 @@
 
     <wdd-table reload-data="vm.reloadTableData" table-key="approvalRequest" header-array-obj="{{ {array: vm.headerTable} }}"
         pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
-        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" action-primary-label="vm.approve()"
-        disabled-primary-label-with-empty-response="true" has-secondary-label="Rifiuta" action-secondary-label="vm.reject()"
+        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" action-primary-label="vm.approve({selectedItems: selectedItems})"
+        disabled-primary-label-with-empty-response="true" has-secondary-label="Rifiuta" action-secondary-label="vm.reject(selectedItems)"
         disabled-secondary-label-with-empty-response="true" has-tertiary-label="Prendi in carico" disabled-tertiary-label-with-empty-response="true"></wdd-table>
 </div>

@@ -62,7 +62,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     if (scope.serviceResponse !== null && scope.serviceResponse !== undefined && scope.serviceResponse.length === 0) {
                         WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE');
                     }
-                    
+
                     scope.pageNumber = data.pages;
                     scope.pages = [...Array((scope.pageNumber ? scope.pageNumber: 1) + 1).keys()].slice(1, scope.pageNumber + 1);
                     scope.pages = scope.pages.map(pag => {
@@ -101,15 +101,15 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         scope.checkedElements = [];
                     }
 
-                    return scope.serviceResponse.map(elem => {
-                        console.log(elem);
+                    scope.serviceResponse.map(elem => {
+                        // console.log(elem);
                         const index = scope.checkedElements.findIndex((row_data) => row_data.id === elem.data_fields.id);
                         if (index >= 0) {
                             elem.isChecked = true;
                         } else {
                             elem.isChecked = false;
                         }
-    
+
                         return elem;
                     });
                 }
@@ -271,16 +271,16 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             };
 
             scope.secondaryAction = () => {
-                scope.actionSecondaryLabel();
+                scope.actionSecondaryLabel({selectedItems: scope.checkedElements});
             };
 
             scope.primaryAction = () => {
-                scope.actionPrimaryLabel();
+                scope.actionPrimaryLabel({selectedItems: scope.checkedElements});
             };
 
             scope.tertiaryAction = () => {
-                scope.actionTertiaryLabel();
-            }
+                scope.actionTertiaryLabel({selectedItems: scope.checkedElements});
+            };
 
             try {
                 if (scope.serviceResponseObj) {

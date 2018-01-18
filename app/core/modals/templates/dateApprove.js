@@ -1,8 +1,7 @@
-export class ApprovalModalController {
-    constructor ($uibModalInstance, $scope) {
+export class DateApproveController {
+    constructor ($uibModalInstance) {
         'ngInject';
         this.$uibModalInstance = $uibModalInstance;
-        this.$scope = $scope;
 
         this.selectedItems = this.$scope.$parent.selectedItems;
         console.log(this.selectedItems);

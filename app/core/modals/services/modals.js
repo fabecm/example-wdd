@@ -36,6 +36,10 @@ export class ModalService {
         return this.$http.post('WDD/newdata/save', data);
     }
 
+    doAction () {
+
+    }
+
     openCreateEntity (entityType, dataDetails) {
         let modalInstance = this.$uibModal.open({
             template: CreateEntityTemplate,
@@ -135,7 +139,7 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openDateApproveModal () {
+    openDateApproveModal (selectedItems) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -144,26 +148,29 @@ export class ModalService {
             controllerAs: 'vm',
             backdrop: 'static',
             keyboard: false,
+            scope: angular.extend(this.$rootScope, {
+                selectedItems: selectedItems
+            }),
             resolve: {}
         });
 
         return modalInstance.result;
     }
 
-    openDateApproveModal () {
-        let modalInstance = this.$uibModal.open({
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            template: DateApproveTemplate,
-            controller: ApprovalModalController,
-            controllerAs: 'vm',
-            backdrop: 'static',
-            keyboard: false,
-            resolve: {}
-        });
-
-        return modalInstance.result;
-    }
+    // openDateApproveModal () {
+    //     let modalInstance = this.$uibModal.open({
+    //         ariaLabelledBy: 'modal-title',
+    //         ariaDescribedBy: 'modal-body',
+    //         template: DateApproveTemplate,
+    //         controller: ApprovalModalController,
+    //         controllerAs: 'vm',
+    //         backdrop: 'static',
+    //         keyboard: false,
+    //         resolve: {}
+    //     });
+    //
+    //     return modalInstance.result;
+    // }
 
     openDateRejectModal () {
         let modalInstance = this.$uibModal.open({

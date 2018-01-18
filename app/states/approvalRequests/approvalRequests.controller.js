@@ -66,12 +66,12 @@ export class ApprovalRequestsController {
         }
     }
 
-    approve () {
-        this.modalService.openDateApproveModal();
+    approve (selectedItems) {
+        this.modalService.openDateApproveModal(selectedItems);
     }
 
-    reject () {
-        this.modalService.openDateRejectModal();
+    reject (selectedItems) {
+        this.modalService.openDateRejectModal(selectedItems);
     }
 
     filterChanged (arrayFilter) {
