@@ -45,6 +45,9 @@ export class AutomaticEventsController {
     }, {
         label: 'Evento',
         value: 'event'
+    }, {
+        label: 'Stato',
+        value: 'status'
     }];
 
     constructor ($timeout, $state, ModalService) {

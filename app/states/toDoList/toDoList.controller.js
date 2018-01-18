@@ -37,7 +37,7 @@ export class ToDoListController {
         value: 'system_owner'
     }, {
         label: 'Stato',
-        value: 'state'
+        value: 'status'
     }, {
         label: 'Data Scadenza',
         value: 'data_scadenza'

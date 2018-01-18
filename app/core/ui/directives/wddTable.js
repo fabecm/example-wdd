@@ -23,8 +23,13 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             hasInfoBtn: '@',
             hasPrimaryLabel: '@',
             actionPrimaryLabel: '&',
+            disabledPrimaryLabelWithEmptyResponse: '@',
             hasSecondaryLabel: '@',
             actionSecondaryLabel: '&',
+            disabledSecondaryLabelWithEmptyResponse: '@',
+            hasTertiaryLabel: '@',
+            actionTertiaryLabel: '&',
+            disabledTertiaryLabelWithEmptyResponse: '@',
             hasCreationBtn: '@',
             reloadData: '=',
             tableKey: '@'
@@ -227,7 +232,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
-                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field});
+                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field, isDraft: scope.serviceResponse[row.key].is_draft});
                 } else if (row.action === 'secondaryNavigation') {
                     $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field});
                 } else if (row.action === 'info') {
@@ -244,6 +249,10 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.primaryAction = () => {
                 scope.actionPrimaryLabel();
             };
+
+            scope.tertiaryAction = () => {
+                scope.actionTertiaryLabel();
+            }
 
             try {
                 if (scope.serviceResponseObj) {

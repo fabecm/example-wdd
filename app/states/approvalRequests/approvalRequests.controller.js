@@ -36,6 +36,9 @@ export class ApprovalRequestsController {
         label: 'System Owner',
         value: 'system_owner'
     }, {
+        label: 'Stato',
+        value: 'status'
+    }, {
         label: 'Data Scadenza',
         value: 'data_scadenza'
     }];

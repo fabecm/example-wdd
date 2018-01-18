@@ -37,11 +37,13 @@ export class DataDetailController {
         this.$stateParams = $stateParams;
         this.modalService = ModalService;
 
+        this.isDraft = this.$stateParams.isDraft;
+
         this.initDataDetails();
     }
 
     initDataDetails () {
-        this.getDataFieldDetailsPromise = this.detailsService.getDataFieldDetails(this.$stateParams.id);
+        this.getDataFieldDetailsPromise = this.detailsService.getDataFieldDetails(this.$stateParams.id, this.$stateParams.isDraft);
         this.getDataFieldDetailsPromise.then(res => {
             this.listDataDetails = res.data.array;
             this.visibleDataDetails = res.data.array.map(data => {

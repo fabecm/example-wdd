@@ -63,6 +63,9 @@ export class DashboardRequestController {
         label: 'System Owner',
         value: 'system_owner'
     }, {
+        label: 'Stato',
+        value: 'status'
+    }, {
         label: 'Data Scadenza',
         value: 'data_scadenza'
     }];
@@ -94,6 +97,9 @@ export class DashboardRequestController {
     }, {
         label: 'Evento',
         value: 'event'
+    }, {
+        label: 'Stato',
+        value: 'status'
     }];
 
     constructor (DashboardsService, TableService) {

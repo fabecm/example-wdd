@@ -36,6 +36,9 @@ export class InitiativeCensusesController {
         label: 'Program',
         value: 'program'
     }, {
+        label: 'Stato',
+        value: 'status'
+    }, {
         label: 'Data Scadenza',
         value: 'data_scadenza'
     }];

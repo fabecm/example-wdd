@@ -57,7 +57,7 @@
                     <label class="header-title-elem type-elem">{{detail.term.termtype}}</label>
                     <label class="header-title-elem name-elem">{{detail.term.name}}</label>
                 </div>
-                <div class="header-label">
+                <div class="header-label" ng-if="vm.isDraft">
                     <label class="wdd-label complete" ng-class="{'complete': detail.status.light === 'complete'}" ng-if="!detail.toAdd">{{detail.status.label}}</label>
                     <label class="wdd-label" ng-if="detail.toAdd">Incompleto</label>
                 </div>
