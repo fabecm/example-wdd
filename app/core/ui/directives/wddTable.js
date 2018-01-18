@@ -96,6 +96,22 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         scope.checkedElements = [];
                     }
                     scope.serviceResponse = scope.sliceDataToShow();
+                } else {
+                    if (!scope.isSelectAll.value) {
+                        scope.checkedElements = [];
+                    }
+
+                    return scope.serviceResponse.map(elem => {
+                        console.log(elem);
+                        const index = scope.checkedElements.findIndex((row_data) => row_data.id === elem.data_fields.id);
+                        if (index >= 0) {
+                            elem.isChecked = true;
+                        } else {
+                            elem.isChecked = false;
+                        }
+    
+                        return elem;
+                    });
                 }
             };
 
@@ -111,6 +127,18 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         scope.checkedElements.push(row.data.data_fields);
                     } else {
                         const index = scope.checkedElements.findIndex((row_data) => row_data.id === row.data.data_fields.id);
+                        if (index >= 0) {
+                            scope.checkedElements.splice(index, 1);
+                        }
+                    }
+                } else {
+                    if (scope.isSelectAll.value) {
+                        scope.isSelectAll.value = false;
+                    }
+                    if (row.data.isChecked) {
+                        scope.checkedElements.push(row.data);
+                    } else {
+                        const index = scope.checkedElements.findIndex((raw) => raw.id_field === row.data.id_field);
                         if (index >= 0) {
                             scope.checkedElements.splice(index, 1);
                         }
