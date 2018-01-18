@@ -87,7 +87,7 @@ doughnut-chart {
             }
             
             .right-block {
-                flex: 1;
+                width: calc(100% - 70px);
                 padding-left: 20px;
                 cursor: pointer;
                 font-size: 30px;
