@@ -36,7 +36,7 @@
         <div class="left-side">
             <button class="wdd-button icon-only" tooltip-placement="right" tooltip-class="tooltip-test" uib-tooltip="Esporta" tooltip-enable="false"
                 show-tooltip ng-csv="printRecordSelected()" lazy-load="true" filename="{{ selectedFilename }}"
-                csv-column-order="selectedColmnOrder" field-separator=";" csv-header="selectedHeader">
+                csv-column-order="selectedColmnOrder" field-separator=";" csv-header="selectedHeader" ng-disabled="serviceResponse.length === 0">
                 <i class="icon icon-excel"></i>
             </button>
         </div>
