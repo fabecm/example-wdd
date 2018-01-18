@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($log, $timeout, $state, ModalService, TableService) {
+export function WddTable ($log, $timeout, $state, ModalService, TableService, WDDAlert) {
     'ngInject';
     return {
         scope: {
@@ -53,6 +53,11 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
 
                 getTableDataPromise.then(data => {
                     scope.serviceResponse = data.dataTable;
+
+                    if (scope.serviceResponse !== null && scope.serviceResponse !== undefined && scope.serviceResponse.length === 0) {
+                        WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE');
+                    }
+                    
                     scope.pageNumber = data.pages;
                     scope.pages = [...Array((scope.pageNumber ? scope.pageNumber: 1) + 1).keys()].slice(1, scope.pageNumber + 1);
                     scope.pages = scope.pages.map(pag => {

@@ -1,4 +1,4 @@
-<div class="wwd-modal" wdd-spinner="[vm.systemOwnerPromise.$$state, vm.techApplPromise.$$state, vm.dataSourcePromise.$$state, vm.dataTablePromise.$$state, vm.dataFieldPromise.$$state]">
+<div class="wwd-modal" wdd-spinner="[vm.saveRequestDocumentationDataPromise.$$state, vm.systemOwnerPromise.$$state, vm.techApplPromise.$$state, vm.dataSourcePromise.$$state, vm.dataTablePromise.$$state, vm.dataFieldPromise.$$state]">
     <div class="wwd-modal__title">
         <h class="" id="modal-title">Richiesta documentazione dato</h>
     </div>
@@ -34,8 +34,8 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.dataSource.value" type="newRequestDS" ng-change="vm.inputChanged('DS')" new-value="true"
-                        required-dependence="true" dipendence="{{ vm.technicalApplication.value }}" is-editable="vm.isDataSourceEditable()" promise="vm.dataSourcePromise">
+                    <wdd-autocomplete ng-model="vm.dataSource.value" type="newRequestDS" ng-change="vm.inputChanged('DS')" new-value="true" required-dependence="true"
+                        dipendence="{{ vm.technicalApplication.value }}" is-editable="vm.isDataSourceEditable()" promise="vm.dataSourcePromise">
                     </wdd-autocomplete>
                 </div>
             </div>
@@ -45,8 +45,8 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.dataTable.value" type="newRequestDT" new-value="true" required-dependence="true"
-                        dipendence="{{ vm.dataSource.value }}" is-editable="vm.areDataTableFieldEditable()" promise="vm.dataTablePromise">
+                    <wdd-autocomplete ng-model="vm.dataTable.value" type="newRequestDT" new-value="true" required-dependence="true" dipendence="{{ vm.dataSource.value }}"
+                        is-editable="vm.areDataTableFieldEditable()" promise="vm.dataTablePromise">
                     </wdd-autocomplete>
                 </div>
             </div>
@@ -56,8 +56,8 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.dataField.value" type="newRequestDF" new-value="true" required-dependence="true"
-                        dipendence="{{ vm.dataSource.value }}" is-editable="vm.areDataTableFieldEditable()" promise="vm.dataFieldPromise">
+                    <wdd-autocomplete ng-model="vm.dataField.value" type="newRequestDF" new-value="true" required-dependence="true" dipendence="{{ vm.dataSource.value }}"
+                        is-editable="vm.areDataTableFieldEditable()" promise="vm.dataFieldPromise">
                     </wdd-autocomplete>
                 </div>
             </div>

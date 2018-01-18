@@ -83,13 +83,13 @@ export class DashboardSOController {
     }
 
     getTablesData () {
-        this.toDoListPromise = this.tableService.getTableData('toDoList', {}, 1);
+        this.toDoListPromise = this.tableService.getTableData('toDoList', {}, 1, 3);
         this.toDoListPromise.then(res => {
-            this.tableTodoList = res.dataTable.splice(0, 3);
+            this.tableTodoList = res.dataTable;
         });
-        this.initiativeCensusesPromise = this.tableService.getTableData('initiativeCensuses', {}, 1);
+        this.initiativeCensusesPromise = this.tableService.getTableData('initiativeCensuses', {}, 1, 3);
         this.initiativeCensusesPromise.then(res => {
-            this.tableInitiativeCensuses = res.dataTable.splice(0, 3);
+            this.tableInitiativeCensuses = res.dataTable;
         });
     }
 }

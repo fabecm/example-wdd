@@ -78,7 +78,8 @@ export class NewWorkspaceRequestsController {
 
             // console.log('RequestDocumentationData', data);
 
-            this.modalService.saveRequestDocumentationData(data).then(res => {
+            this.saveRequestDocumentationDataPromise = this.modalService.saveRequestDocumentationData(data);
+            this.saveRequestDocumentationDataPromise.then(res => {
                 this.$log.debug(res);
             }).finally(() => {
                 if (operation === 'save') {
