@@ -58,7 +58,6 @@ export class NewWorkspaceRequestsController {
             && this.technicalApplication && this.technicalApplication.value
             && this.dataSource.value && this.dataSource.value
             && this.dataField && this.dataField.value) {
-
             let data = {
                 workspace_id: this.workspaceId,
                 systemowner_id: this.systemOwnerSelected.value,
@@ -77,7 +76,7 @@ export class NewWorkspaceRequestsController {
                 data.datatable_id = this.dataTable.value;
             }
 
-            console.log('RequestDocumentationData', data);
+            // console.log('RequestDocumentationData', data);
 
             this.modalService.saveRequestDocumentationData(data).then(res => {
                 this.$log.debug(res);

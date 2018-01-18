@@ -49,7 +49,10 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 scope.promise = requestFilter;
                 requestFilter.then(res => {
                     scope.listValues = res;
-                    scope.originalList = angular.copy(scope.listValues);
+                    
+                    if (!scope.originalList) {
+                        scope.originalList = angular.copy(scope.listValues);
+                    }
 
                     ngModel.$render();
                 });
@@ -99,6 +102,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     scope.promise = requestFilter;
                     requestFilter.then(res => {
                         scope.listValues = res;
+                        scope.isListVisible = true;
                         // scope.listValues = [{
                         //     id: 1,
                         //     label: 'test1'
@@ -109,6 +113,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     });
                 } else {
                     scope.listValues = scope.originalList;
+                    scope.isListVisible = true;
                 }
             };
         }

@@ -89,7 +89,7 @@ export class InitiativeCensusesController {
         this.filterApplied = filterApplied;
 
         param.resetPage = true;
-        
+
         if (filterApplied.process_owner_id) {
             param.process_owner_id = filterApplied.process_owner_id;
         } else {

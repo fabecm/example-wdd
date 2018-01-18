@@ -30,7 +30,7 @@ function getMockedData ($q) {
     var deferred = $q.defer();
     deferred.resolve({
         // contextPath: 'http://MBCL26001921:8080/edd-serviceAppl'
-        contextPath: 'http://10.238.9.61:8080/edd-serviceAppl'
+        contextPath: 'http://10.238.9.61:8080/edd-serviceWeb'
     });
 
     return deferred.promise;
