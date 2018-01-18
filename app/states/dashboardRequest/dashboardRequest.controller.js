@@ -117,19 +117,19 @@ export class DashboardRequestController {
     }
 
     getTablesData () {
-        this.searchWorkspacePromise = this.tableService.getTableData('searchWorkspace', {}, 1);
+        this.searchWorkspacePromise = this.tableService.getTableData('searchWorkspace', {}, 1, 3);
         this.searchWorkspacePromise.then(res => {
-            this.tableRichiesteDocumentazione = res.dataTable.splice(0, 3);
+            this.tableRichiesteDocumentazione = res.dataTable;
         });
 
-        this.approvalRequestPromise = this.tableService.getTableData('approvalRequest', {}, 1);
+        this.approvalRequestPromise = this.tableService.getTableData('approvalRequest', {}, 1, 3);
         this.approvalRequestPromise.then(res => {
-            this.tableApprovalRequest = res.dataTable.splice(0, 3);
+            this.tableApprovalRequest = res.dataTable;
         });
 
-        this.automaticEventsPromise = this.tableService.getTableData('automaticEvents', {}, 1);
+        this.automaticEventsPromise = this.tableService.getTableData('automaticEvents', {}, 1, 3);
         this.automaticEventsPromise.then(res => {
-            this.tableAutomaticEvents = res.dataTable.splice(0, 3);
+            this.tableAutomaticEvents = res.dataTable;
         });
     }
 

@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($log, $timeout, $state, ModalService, TableService) {
+export function WddTable ($log, $timeout, $state, ModalService, TableService, WDDAlert) {
     'ngInject';
     return {
         scope: {
@@ -53,6 +53,11 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
 
                 getTableDataPromise.then(data => {
                     scope.serviceResponse = data.dataTable;
+
+                    if (scope.serviceResponse !== null && scope.serviceResponse !== undefined && scope.serviceResponse.length === 0) {
+                        WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE');
+                    }
+                    
                     scope.pageNumber = data.pages;
                     scope.pages = [...Array((scope.pageNumber ? scope.pageNumber: 1) + 1).keys()].slice(1, scope.pageNumber + 1);
                     scope.pages = scope.pages.map(pag => {
@@ -128,7 +133,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                             if (record[e].label) {
                                 record[e] = record[e].label;
                             } else {
-                                record[e] = '';
+                                record[e] = record[e].date;
                             }
                         }
                         return record;
@@ -226,11 +231,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService) {
                 } else if (row.action === 'secondaryNavigation') {
                     $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field});
                 } else if (row.action === 'info') {
-                    // To add the id to send to the modal
                     ModalService.openModificationWorkspace(scope.serviceResponse[row.key].workspace.id);
                 } else if (row.action === 'creation') {
-                    // To add the id to send to the modal
-                    ModalService.openNewWorkspaceRequests();
+                    ModalService.openNewWorkspaceRequests(scope.serviceResponse[row.key].workspace.id);
                 }
             };
 

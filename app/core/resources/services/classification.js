@@ -6,25 +6,33 @@ export class ClassificationService {
         this.$log = $log;
     }
 
-    getEntity (attribute) {
+    getEntity (attribute, stringSearched) {
         this.$log.debug(attribute);
         let id = '';
+        let text = '';
         if (attribute) {
             id = `&id=${attribute}`;
         }
-        return this.$http.get(`WDD/filter/datasource/classification?type=Entity${id}`);
+        if (stringSearched) {
+            text = `&text=${stringSearched}`;
+        }
+        return this.$http.get(`WDD/filter/datasource/classification?type=Entity${text}${id}`);
         // let defer = this.$q.defer();
         // defer.resolve(getEntityMock());
         // return defer.promise;
     }
 
-    getAttribute (entity) {
+    getAttribute (entity, stringSearched) {
         this.$log.debug(entity);
         let id = '';
+        let text = '';
         if (entity) {
             id = `&id=${entity}`;
         }
-        return this.$http.get(`WDD/filter/datasource/classification?type=Attribute${id}`);
+        if (stringSearched) {
+            text = `&text=${stringSearched}`;
+        }
+        return this.$http.get(`WDD/filter/datasource/classification?type=Attribute${text}${id}`);
         // let defer = this.$q.defer();
         // defer.resolve(getAttributeMock());
         // return defer.promise;

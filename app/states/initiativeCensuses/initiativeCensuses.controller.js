@@ -88,6 +88,25 @@ export class InitiativeCensusesController {
         let param = filterApplied;
         this.filterApplied = filterApplied;
 
+        param.resetPage = true;
+
+        if (filterApplied.process_owner_id) {
+            param.process_owner_id = filterApplied.process_owner_id;
+        } else {
+            param.process_owner_id = 0;
+        }
+        if (filterApplied.system_owner_id) {
+            param.system_owner_id = filterApplied.system_owner_id;
+        } else {
+            param.system_owner_id = 0;
+        }
+        if (filterApplied.status_code) {
+            param.status_code = filterApplied.status_code;
+        }
+        if (filterApplied.arrayFilter && filterApplied.arrayFilter.length > 0) {
+            param.array_filter_text = filterApplied.arrayFilter;
+        }
+
         this.$timeout(() => {
             this.reloadTableData({
                 filterSetted: param

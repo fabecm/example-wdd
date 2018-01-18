@@ -53,7 +53,8 @@ export class ModificationWorkspace {
     }
 
     updateWorkspace (workspaceForm) {
-        this.modalService.createNewWorkspace(workspaceForm).then(res => {
+        this.createNewWorkspacePromise = this.modalService.createNewWorkspace(workspaceForm);
+        this.createNewWorkspacePromise.then(res => {
             this.$log.debug(res);
         }).finally(() => {
             this.$uibModalInstance.close();

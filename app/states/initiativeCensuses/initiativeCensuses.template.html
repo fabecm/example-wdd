@@ -1,12 +1,16 @@
 <div class="wdd-secondary-header">
     <div class="btn-group wdd-dropdown" uib-dropdown is-open="status.isopen">
         <button id="single-button" type="button" class="wdd-button dropdown" uib-dropdown-toggle ng-disabled="disabled">
-                        Censimenti di iniziativa 
-                    <i class="icon icon-down-arrow"></i>
-                </button>
+            Censimenti di iniziativa
+            <i class="icon icon-down-arrow"></i>
+        </button>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-            <li role="menuitem"><a ui-sref="tab.toDoList">Richieste di documentazione</a></li>
-            <li role="menuitem"><a>Censimenti di iniziativa</a></li>
+            <li role="menuitem">
+                <a ui-sref="tab.toDoList">Richieste di documentazione</a>
+            </li>
+            <li role="menuitem">
+                <a>Censimenti di iniziativa</a>
+            </li>
         </ul>
     </div>
     <div class="flexer"></div>
@@ -20,7 +24,9 @@
 
     <wdd-filter applied-filter="vm.filterChanged(filterApplied)"></wdd-filter>
 
-    <wdd-table reload-data="vm.reloadTableData" table-key="initiativeCensuses" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
-        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Invia per approvazione" has-secondary-label="Nuovo dato" action-secondary-label="vm.createNewData()"></wdd-table>
+    <wdd-table reload-data="vm.reloadTableData" table-key="initiativeCensuses" header-array-obj="{{ {array: vm.headerTable} }}"
+        pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
+        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Invia per approvazione"
+        has-secondary-label="Nuovo dato" action-secondary-label="vm.createNewData()"></wdd-table>
 
 </div>
