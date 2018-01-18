@@ -1,4 +1,4 @@
-<div class="wwd-modal">
+<div class="wwd-modal" wdd-spinner="[vm.utenteRichiedentePromise.$$state]">
     <div class="wwd-modal__title">
         <h class="" id="modal-title">Modifica Workspace</h>
     </div>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-xs-9">
                         <wdd-autocomplete ng-model="vm.workspaceForm.utenteRichiedente.value" label="{{labelDescription}}" placeholder="{{placeholderDescription}}"
-                            type="responsibleUser" new-value="false" is-editable="{{ vm.lockUtenteRichiedente }}">
+                            type="responsibleUser" new-value="false" is-editable="vm.lockUtenteRichiedente" promise="vm.utenteRichiedentePromise">
                         </wdd-autocomplete>
                     </div>
                 </div>
