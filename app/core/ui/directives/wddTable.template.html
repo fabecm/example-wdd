@@ -42,9 +42,9 @@
             </button>
         </div>
         <div class="right-side">
-            <button class="wdd-button" ng-if="hasTertiaryLabel" ng-click="tertiaryAction()" ng-disabled="disabledTertiaryLabelWithEmptyResponse && serviceResponse.length === 0">{{hasTertiaryLabel}}</button>
-            <button class="wdd-button" ng-if="hasSecondaryLabel" ng-click="secondaryAction()" ng-disabled="disabledSecondaryLabelWithEmptyResponse && serviceResponse.length === 0">{{hasSecondaryLabel}}</button>
-            <button class="wdd-button" ng-if="hasPrimaryLabel" ng-click="primaryAction()" ng-disabled="disabledPrimaryLabelWithEmptyResponse && serviceResponse.length === 0">{{hasPrimaryLabel}}</button>
+            <button class="wdd-button" ng-if="hasTertiaryLabel" ng-click="tertiaryAction()" ng-disabled="disabledTertiaryLabelWithEmptyResponse && (serviceResponse.length === 0 || checkedElements.length === 0)">{{hasTertiaryLabel}}</button>
+            <button class="wdd-button" ng-if="hasSecondaryLabel" ng-click="secondaryAction()" ng-disabled="disabledSecondaryLabelWithEmptyResponse && (serviceResponse.length === 0 || checkedElements.length === 0)">{{hasSecondaryLabel}}</button>
+            <button class="wdd-button" ng-if="hasPrimaryLabel" ng-click="primaryAction()" ng-disabled="disabledPrimaryLabelWithEmptyResponse && (serviceResponse.length === 0 || checkedElements.length === 0)">{{hasPrimaryLabel}}</button>
         </div>
     </div>
 

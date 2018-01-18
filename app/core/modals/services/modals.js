@@ -42,7 +42,7 @@ export class ModalService {
             controller: CreateEntityController,
             controllerAs: 'vm',
             backdrop: 'static',
-            keyboard: 'false',
+            keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 entityType: entityType,
                 dataDetails: dataDetails
@@ -61,7 +61,7 @@ export class ModalService {
             controller: MassiveManagmentModalController,
             controllerAs: 'vm',
             backdrop: 'static',
-            keyboard: 'false',
+            keyboard: false,
             resolve: {}
         });
 
@@ -76,7 +76,7 @@ export class ModalService {
             controller: NewWorkspaceController,
             controllerAs: 'vm',
             backdrop: 'static',
-            keyboard: 'false',
+            keyboard: false,
             resolve: {}
         });
 
@@ -91,7 +91,7 @@ export class ModalService {
             controller: ModificationWorkspace,
             controllerAs: 'vm',
             backdrop: 'static',
-            keyboard: 'false',
+            keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 test: 'parentScope',
                 workspaceId: workspaceId
@@ -110,7 +110,7 @@ export class ModalService {
             controller: NewWorkspaceRequestsController,
             controllerAs: 'vm',
             backdrop: 'static',
-            keyboard: 'false',
+            keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 workspaceId: workspaceId
             }),
@@ -128,7 +128,7 @@ export class ModalService {
             controller: ApprovalModalController,
             controllerAs: 'vm',
             backdrop: 'static',
-            keyboard: 'false',
+            keyboard: false,
             resolve: {}
         });
 
@@ -143,7 +143,7 @@ export class ModalService {
             controller: ApprovalModalController,
             controllerAs: 'vm',
             backdrop: 'static',
-            keyboard: 'false',
+            keyboard: false,
             resolve: {}
         });
 
@@ -158,7 +158,7 @@ export class ModalService {
             controller: ApprovalModalController,
             controllerAs: 'vm',
             backdrop: 'static',
-            keyboard: 'false',
+            keyboard: false,
             resolve: {}
         });
 
@@ -173,7 +173,7 @@ export class ModalService {
             controller: ApprovalModalController,
             controllerAs: 'vm',
             backdrop: 'static',
-            keyboard: 'false',
+            keyboard: false,
             resolve: {}
         });
 

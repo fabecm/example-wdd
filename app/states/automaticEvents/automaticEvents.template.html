@@ -1,13 +1,19 @@
 <div class="wdd-secondary-header">
     <div class="btn-group wdd-dropdown" uib-dropdown is-open="status.isopen">
         <button id="single-button" type="button" class="wdd-button dropdown" uib-dropdown-toggle ng-disabled="disabled">
-                    Eventi automatici 
-                    <i class="icon icon-down-arrow"></i>
-                </button>
+            Eventi automatici
+            <i class="icon icon-down-arrow"></i>
+        </button>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-            <li role="menuitem"><a ui-sref="tab.documentationRequests">Richieste di documentazione</a></li>
-            <li role="menuitem"><a ui-sref="tab.approvalRequests">Richieste di approvazione</a></li>
-            <li role="menuitem"><a>Eventi automatici</a></li>
+            <li role="menuitem">
+                <a ui-sref="tab.documentationRequests">Richieste di documentazione</a>
+            </li>
+            <li role="menuitem">
+                <a ui-sref="tab.approvalRequests">Richieste di approvazione</a>
+            </li>
+            <li role="menuitem">
+                <a>Eventi automatici</a>
+            </li>
         </ul>
     </div>
 </div>
@@ -23,7 +29,9 @@
 
     <wdd-filter applied-filter="vm.filterChanged(filterApplied)"></wdd-filter>
 
-    <wdd-table reload-data="vm.reloadTableData" table-key="automaticEvents" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
-        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" action-primary-label="vm.approve()" has-secondary-label="Inoltra"></wdd-table>
+    <wdd-table reload-data="vm.reloadTableData" table-key="automaticEvents" header-array-obj="{{ {array: vm.headerTable} }}"
+        pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
+        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" action-primary-label="vm.approve()"
+        disabled-primary-label-with-empty-response="true" has-secondary-label="Inoltra" disabled-secondary-label-with-empty-response="true"></wdd-table>
 
 </div>
