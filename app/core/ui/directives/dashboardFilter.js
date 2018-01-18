@@ -1,6 +1,6 @@
 import template from './dashboardFilter.template.html';
 
-export function DashboardFilter ($log, FilterWorkspace) {
+export function DashboardFilter ($log) {
     'ngInject';
     return {
         scope: {
@@ -8,23 +8,22 @@ export function DashboardFilter ($log, FilterWorkspace) {
         },
         template: template,
         link: (scope) => {
+            scope.promises = {};
+
             scope.labelWorkspace = 'Workspace';
             scope.placeholderWorkspace = 'Seleziona workspace';
             scope.typeWorkspace = 'workspace';
-            scope.workspaceSelected = {};
 
-            scope.promises = {};
 
             scope.labelDescription = 'Descrizione';
             scope.placeholderDescription = 'Seleziona descrizione';
             scope.typeDescrizione = 'description';
-            scope.descriptionSelected = {};
 
-            scope.status = {};
+            scope.labelStatus = 'Stato';
+            scope.placeholderStatus = 'Seleziona stato';
             scope.typeStatus = 'status';
-            scope.statusList = {};
 
-            getStatusList(scope, FilterWorkspace);
+            // getStatusList(scope, FilterWorkspace);
 
             scope.startDate = 'GG/MM/AAAA';
             scope.labelStartDate = 'Data inizio';
@@ -32,14 +31,10 @@ export function DashboardFilter ($log, FilterWorkspace) {
             scope.endDate = 'GG/MM/AAAA';
             scope.labelEndDate = 'Data fine';
 
-            scope.change = () => {
-                $log.debug(scope.workspaceSelected);
-            };
-
             scope.resetFilter = () => {
                 scope.workspaceSelected = {};
                 scope.descriptionSelected = {};
-                scope.status = undefined;
+                scope.statusSelected = {};
                 scope.startDate = {};
                 scope.startDate = 'GG/MM/AAAA';
                 scope.endDate = {};
@@ -56,7 +51,7 @@ export function DashboardFilter ($log, FilterWorkspace) {
                     param.descriptionSelected = scope.descriptionSelected.value;
                 }
                 if (scope.status) {
-                    param.status = scope.status;
+                    param.status = scope.statusSelected.value;
                 }
                 if (scope.startDate !== 'GG/MM/AAAA') {
                     param.startDate = scope.startDate;
@@ -74,11 +69,11 @@ export function DashboardFilter ($log, FilterWorkspace) {
     };
 }
 
-function getStatusList (scope, FilterWorkspace) {
-    let type = 'status';
-    const statusPromise = FilterWorkspace.updateList(type);
-    scope.promises.statusPromise = statusPromise;
-    statusPromise.then(res => {
-        scope.statusList = res;
-    });
-}
+// function getStatusList (scope, FilterWorkspace) {
+//     let type = 'status';
+//     const statusPromise = FilterWorkspace.updateList(type);
+//     scope.promises.statusPromise = statusPromise;
+//     statusPromise.then(res => {
+//         scope.statusList = res;
+//     });
+// }

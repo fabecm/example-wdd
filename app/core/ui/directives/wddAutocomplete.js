@@ -21,7 +21,15 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             scope.model = {};
 
             scope.$watch('dipendence', () => {
-                if (scope.requiredDependence && !scope.dipendence) {
+                try {
+                    if (scope.dipendence) {
+                        scope.dipendenceObj = JSON.parse(scope.dipendence);
+                    }
+                } catch (error) {
+                    $log.debug(error);
+                }
+
+                if (scope.requiredDependence && !scope.dipendenceObj) {
                     return;
                 }
                 scope.initAutocomplete();
@@ -45,11 +53,11 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             };
 
             scope.initAutocomplete = () => {
-                const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendence);
+                const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendenceObj);
                 scope.promise = requestFilter;
                 requestFilter.then(res => {
                     scope.listValues = res;
-                    
+
                     if (!scope.originalList) {
                         scope.originalList = angular.copy(scope.listValues);
                     }

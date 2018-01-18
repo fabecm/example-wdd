@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-xs-8">
                     <wdd-autocomplete ng-model="vm.technicalApplication.value" type="newRequestTA" ng-change="vm.inputChanged('TA')" new-value="true"
-                        required-dependence="true" dipendence="{{ vm.systemOwnerSelected.value }}" is-editable="vm.isTechApplEditable()"
+                        required-dependence="true" dipendence="{{ [vm.systemOwnerSelected.value] }}" is-editable="vm.isTechApplEditable()"
                         promise="vm.techApplPromise">
                     </wdd-autocomplete>
                 </div>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-xs-8">
                     <wdd-autocomplete ng-model="vm.dataSource.value" type="newRequestDS" ng-change="vm.inputChanged('DS')" new-value="true" required-dependence="true"
-                        dipendence="{{ vm.technicalApplication.value }}" is-editable="vm.isDataSourceEditable()" promise="vm.dataSourcePromise">
+                        dipendence="{{ [vm.technicalApplication.value] }}" is-editable="vm.isDataSourceEditable()" promise="vm.dataSourcePromise">
                     </wdd-autocomplete>
                 </div>
             </div>
@@ -45,7 +45,7 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.dataTable.value" type="newRequestDT" new-value="true" required-dependence="true" dipendence="{{ vm.dataSource.value }}"
+                    <wdd-autocomplete ng-model="vm.dataTable.value" type="newRequestDT" new-value="true" required-dependence="true" dipendence="{{ [vm.dataSource.value] }}"
                         is-editable="vm.areDataTableFieldEditable()" promise="vm.dataTablePromise">
                     </wdd-autocomplete>
                 </div>
@@ -56,7 +56,7 @@
 
                 </div>
                 <div class="col-xs-8">
-                    <wdd-autocomplete ng-model="vm.dataField.value" type="newRequestDF" new-value="true" required-dependence="true" dipendence="{{ vm.dataSource.value }}"
+                    <wdd-autocomplete ng-model="vm.dataField.value" type="newRequestDF" new-value="true" required-dependence="true" dipendence="{{ [vm.dataSource.value] }}"
                         is-editable="vm.areDataTableFieldEditable()" promise="vm.dataFieldPromise">
                     </wdd-autocomplete>
                 </div>

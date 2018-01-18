@@ -7,11 +7,10 @@ export class ClassificationService {
     }
 
     getEntity (attribute, stringSearched) {
-        this.$log.debug(attribute);
         let id = '';
         let text = '';
-        if (attribute) {
-            id = `&id=${attribute}`;
+        if (attribute[0]) {
+            id = `&id=${attribute[0]}`;
         }
         if (stringSearched) {
             text = `&text=${stringSearched}`;
@@ -23,11 +22,10 @@ export class ClassificationService {
     }
 
     getAttribute (entity, stringSearched) {
-        this.$log.debug(entity);
         let id = '';
         let text = '';
-        if (entity) {
-            id = `&id=${entity}`;
+        if (entity[0]) {
+            id = `&id=${entity[0]}`;
         }
         if (stringSearched) {
             text = `&text=${stringSearched}`;
