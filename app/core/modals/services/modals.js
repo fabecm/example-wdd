@@ -5,11 +5,6 @@ import ModificationWorkspaceTemplate from '../templates/modificationWorkspace.te
 import { NewWorkspaceRequestsController } from '../templates/newWorkspaceRequests';
 import NewWorkspaceRequestsTemplate from '../templates/newWorkspaceRequests.template.html';
 
-import { ApprovalModalController } from '../templates/approvalModal';
-import ApprovalModalTemplate from '../templates/approvalModal.template.html';
-import DateApproveTemplate from '../templates/dateApprove.template.html';
-import DateRejectTemplate from '../templates/dateReject.template.html';
-
 import { ActionModalController } from '../templates/actionModal';
 import ActionModalTemplate from '../templates/actionModal.template.html';
 
@@ -191,53 +186,5 @@ export class ModalService {
             body: 'confermando i dati selezionati verranno segnalati come non di competenza. Vuoi procedere?'
         };
         return text;
-    }
-
-    openApprovalModal () {
-        let modalInstance = this.$uibModal.open({
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            template: ApprovalModalTemplate,
-            controller: ApprovalModalController,
-            controllerAs: 'vm',
-            backdrop: 'static',
-            keyboard: false,
-            resolve: {}
-        });
-
-        return modalInstance.result;
-    }
-
-    openDateApproveModal (selectedItems) {
-        let modalInstance = this.$uibModal.open({
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            template: DateApproveTemplate,
-            controller: ApprovalModalController,
-            controllerAs: 'vm',
-            backdrop: 'static',
-            keyboard: false,
-            scope: angular.extend(this.$rootScope, {
-                selectedItems: selectedItems
-            }),
-            resolve: {}
-        });
-
-        return modalInstance.result;
-    }
-
-    openDateRejectModal () {
-        let modalInstance = this.$uibModal.open({
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            template: DateRejectTemplate,
-            controller: ApprovalModalController,
-            controllerAs: 'vm',
-            backdrop: 'static',
-            keyboard: false,
-            resolve: {}
-        });
-
-        return modalInstance.result;
     }
 }

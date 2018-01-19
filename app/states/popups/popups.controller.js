@@ -15,10 +15,6 @@ export class PopupsController {
             this.ModalService.openNewWorkspaceRequests();
         };
 
-        this.open4 = () => {
-            this.ModalService.openApprovalModal();
-        };
-
         this.open5 = () => {
             this.ModalService.openMassiveManagmentModal();
         };
