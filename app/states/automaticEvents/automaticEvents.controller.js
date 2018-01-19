@@ -73,8 +73,22 @@ export class AutomaticEventsController {
         }
     }
 
-    approve () {
-        this.modalService.openDateApproveModal();
+    approve (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'SEND',
+            text: this.modalService.getApproveText()
+        };
+        this.modalService.openActionModal(param);
+    }
+
+    forwardToApprove (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getForwardText()
+        };
+        this.modalService.openActionModal(param);
     }
 
     filterChanged (arrayFilter) {
