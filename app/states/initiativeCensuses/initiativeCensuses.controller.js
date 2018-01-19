@@ -67,6 +67,15 @@ export class InitiativeCensusesController {
         }
     }
 
+    forwardToApprove (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getForwardText()
+        };
+        this.modalService.openActionModal(param);
+    }
+
     openGestioneMassiva () {
         this.modalService.openMassiveManagmentModal();
     }
