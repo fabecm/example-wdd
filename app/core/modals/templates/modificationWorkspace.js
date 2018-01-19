@@ -1,4 +1,4 @@
-export class ModificationWorkspace {
+export class ModificationWorkspaceController {
 
     workspaceForm = {};
 

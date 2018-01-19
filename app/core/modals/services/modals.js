@@ -1,14 +1,12 @@
 import { NewWorkspaceController } from '../templates/newWorkspace';
 import NewWorkspaceTemplate from '../templates/newWorkspace.template.html';
-import { ModificationWorkspace } from '../templates/modificationWorkspace';
+import { ModificationWorkspaceController } from '../templates/modificationWorkspace';
 import ModificationWorkspaceTemplate from '../templates/modificationWorkspace.template.html';
 import { NewWorkspaceRequestsController } from '../templates/newWorkspaceRequests';
 import NewWorkspaceRequestsTemplate from '../templates/newWorkspaceRequests.template.html';
 
-import { ApprovalModalController } from '../templates/approvalModal';
-import ApprovalModalTemplate from '../templates/approvalModal.template.html';
-import DateApproveTemplate from '../templates/dateApprove.template.html';
-import DateRejectTemplate from '../templates/dateReject.template.html';
+import { ActionModalController } from '../templates/actionModal';
+import ActionModalTemplate from '../templates/actionModal.template.html';
 
 import { MassiveManagmentModalController } from '../templates/massiveManagmentModal';
 import MassiveManagmentTemplate from '../templates/massiveManagmentModal.template.html';
@@ -36,12 +34,17 @@ export class ModalService {
         return this.$http.post('WDD/newdata/save', data);
     }
 
+    doAction (data) {
+        return this.$http.post('WDD/action/continueProcess', data);
+    }
+
     openCreateEntity (entityType, dataDetails) {
         let modalInstance = this.$uibModal.open({
             template: CreateEntityTemplate,
             controller: CreateEntityController,
             controllerAs: 'vm',
             backdrop: 'static',
+            keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 entityType: entityType,
                 dataDetails: dataDetails
@@ -59,6 +62,8 @@ export class ModalService {
             template: MassiveManagmentTemplate,
             controller: MassiveManagmentModalController,
             controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
             resolve: {}
         });
 
@@ -73,6 +78,7 @@ export class ModalService {
             controller: NewWorkspaceController,
             controllerAs: 'vm',
             backdrop: 'static',
+            keyboard: false,
             resolve: {}
         });
 
@@ -84,9 +90,10 @@ export class ModalService {
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             template: ModificationWorkspaceTemplate,
-            controller: ModificationWorkspace,
+            controller: ModificationWorkspaceController,
             controllerAs: 'vm',
             backdrop: 'static',
+            keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 test: 'parentScope',
                 workspaceId: workspaceId
@@ -105,6 +112,7 @@ export class ModalService {
             controller: NewWorkspaceRequestsController,
             controllerAs: 'vm',
             backdrop: 'static',
+            keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 workspaceId: workspaceId
             }),
@@ -114,55 +122,69 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openApprovalModal () {
+    openActionModal (param) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
-            template: ApprovalModalTemplate,
-            controller: ApprovalModalController,
+            template: ActionModalTemplate,
+            controller: ActionModalController,
             controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            scope: angular.extend(this.$rootScope, {
+                actionParam: param
+            }),
             resolve: {}
         });
 
         return modalInstance.result;
     }
 
-    openDateApproveModal () {
-        let modalInstance = this.$uibModal.open({
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            template: DateApproveTemplate,
-            controller: ApprovalModalController,
-            controllerAs: 'vm',
-            resolve: {}
-        });
-
-        return modalInstance.result;
+    getApproveText () {
+        let text = {
+            title: 'Approvazione Dati',
+            body: 'confermando verranno inviate in produzione le modifiche apportate ai dati selezionati. Vuoi procedere?'
+        };
+        return text;
     }
 
-    openDateApproveModal () {
-        let modalInstance = this.$uibModal.open({
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            template: DateApproveTemplate,
-            controller: ApprovalModalController,
-            controllerAs: 'vm',
-            resolve: {}
-        });
-
-        return modalInstance.result;
+    getRejectText () {
+        let text = {
+            title: 'Rifiuto Approvazione Dati',
+            body: 'confermando verranno rifiutate le modifiche apportate ai dati selezionati. Il dato verrà inoltrato al System Owner per ulteriori approfondimenti. Vuoi procedere?'
+        };
+        return text;
     }
 
-    openDateRejectModal () {
-        let modalInstance = this.$uibModal.open({
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            template: DateRejectTemplate,
-            controller: ApprovalModalController,
-            controllerAs: 'vm',
-            resolve: {}
-        });
+    getTakeChargeText () {
+        let text = {
+            title: 'Presa in carico',
+            body: 'confermando verranno presi in carico i dati selezionati. Vuoi procedere?'
+        };
+        return text;
+    }
 
-        return modalInstance.result;
+    getTakeChargeModifyText () {
+        let text = {
+            title: 'Presa in modifica',
+            body: 'confermando verranno presi in modifica i dati selezionati. Vuoi procedere?'
+        };
+        return text;
+    }
+
+    getForwardText () {
+        let text = {
+            title: 'Inoltra selezionati',
+            body: 'confermando verranno inoltrati i dati selezionati. Vuoi procedere?'
+        };
+        return text;
+    }
+
+    getNotOfCompetenceText () {
+        let text = {
+            title: 'Non di competenza',
+            body: 'confermando i dati selezionati verranno segnalati come non di competenza. Vuoi procedere?'
+        };
+        return text;
     }
 }

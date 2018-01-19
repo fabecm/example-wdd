@@ -5,7 +5,8 @@ import DataDetailTemplate from './dataDetail.template.html';
 export const stateConfig = {
     url: '/data-detail',
     params: {
-        id: null
+        id: null,
+        isDraft: null
     },
     template: DataDetailTemplate,
     controller: DataDetailController,

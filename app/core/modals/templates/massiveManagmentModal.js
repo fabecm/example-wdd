@@ -2,8 +2,9 @@ export class MassiveManagmentModalController {
 
     fileToUpload = {};
 
-    constructor ($scope) {
+    constructor ($uibModalInstance, $scope) {
         'ngInject';
+        this.$uibModalInstance = $uibModalInstance;
         this.scope = $scope;
     }
 
@@ -23,6 +24,10 @@ export class MassiveManagmentModalController {
 
     sendFile () {
         // console.log(this.fileToUpload);
+    }
+
+    close () {
+        this.$uibModalInstance.dismiss();
     }
 
 }

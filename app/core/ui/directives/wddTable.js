@@ -23,8 +23,13 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             hasInfoBtn: '@',
             hasPrimaryLabel: '@',
             actionPrimaryLabel: '&',
+            disabledPrimaryLabelWithEmptyResponse: '@',
             hasSecondaryLabel: '@',
             actionSecondaryLabel: '&',
+            disabledSecondaryLabelWithEmptyResponse: '@',
+            hasTertiaryLabel: '@',
+            actionTertiaryLabel: '&',
+            disabledTertiaryLabelWithEmptyResponse: '@',
             hasCreationBtn: '@',
             reloadData: '=',
             tableKey: '@'
@@ -57,7 +62,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     if (scope.serviceResponse !== null && scope.serviceResponse !== undefined && scope.serviceResponse.length === 0) {
                         WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE');
                     }
-                    
+
                     scope.pageNumber = data.pages;
                     scope.pages = [...Array((scope.pageNumber ? scope.pageNumber: 1) + 1).keys()].slice(1, scope.pageNumber + 1);
                     scope.pages = scope.pages.map(pag => {
@@ -96,15 +101,15 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         scope.checkedElements = [];
                     }
 
-                    return scope.serviceResponse.map(elem => {
-                        console.log(elem);
+                    scope.serviceResponse.map(elem => {
+                        // console.log(elem);
                         const index = scope.checkedElements.findIndex((row_data) => row_data.id === elem.data_fields.id);
                         if (index >= 0) {
                             elem.isChecked = true;
                         } else {
                             elem.isChecked = false;
                         }
-    
+
                         return elem;
                     });
                 }
@@ -255,7 +260,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
-                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field});
+                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field, isDraft: scope.serviceResponse[row.key].is_draft});
                 } else if (row.action === 'secondaryNavigation') {
                     $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field});
                 } else if (row.action === 'info') {
@@ -266,11 +271,24 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             };
 
             scope.secondaryAction = () => {
-                scope.actionSecondaryLabel();
+                scope.actionSecondaryLabel({selectedItems: scope.checkedElements});
             };
 
             scope.primaryAction = () => {
-                scope.actionPrimaryLabel();
+                scope.actionPrimaryLabel({selectedItems: scope.checkedElements});
+            };
+
+            scope.tertiaryAction = () => {
+                scope.actionTertiaryLabel({selectedItems: scope.checkedElements});
+            };
+
+            scope.forwardCheckedItems = () => {
+                let param = {
+                    selectedItems: scope.checkedElements,
+                    action: 'FORWARD',
+                    text: ModalService.getForwardText()
+                };
+                ModalService.openActionModal(param);
             };
 
             try {

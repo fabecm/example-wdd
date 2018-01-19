@@ -1,6 +1,6 @@
 .wdd-table {
   border-radius: 5px;
-  overflow: hidden;
+  // overflow: hidden;
   box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   .resizable{
@@ -274,7 +274,7 @@
 }
 
 .tooltip-test {
-
+  
   .tooltip-inner {
     overflow-wrap: break-word;
     word-wrap: break-word;

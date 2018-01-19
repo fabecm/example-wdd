@@ -5,12 +5,12 @@ export class DetailsService {
         this.$q = $q;
     }
 
-    getDataFieldDetails (termId) {
+    getDataFieldDetails (termId, isDraft) {
         // if(Boolean(true) === true) {
         //     return getMockedData(this.$q);
         // }
         // termId = 1136820;
-        return this.$http.get(`WDD/details/${termId}`);
+        return this.$http.get(`WDD/details/${termId}?is_draft=${isDraft}`);
         // return this.$http.get(`WDD/details/D64?is_draft=true`);
     }
 

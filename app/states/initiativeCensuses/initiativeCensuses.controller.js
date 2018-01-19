@@ -36,6 +36,9 @@ export class InitiativeCensusesController {
         label: 'Program',
         value: 'program'
     }, {
+        label: 'Stato',
+        value: 'status'
+    }, {
         label: 'Data Scadenza',
         value: 'data_scadenza'
     }];
@@ -62,6 +65,15 @@ export class InitiativeCensusesController {
         if (this.pageChild) {
             this.$state.go(this.pageChild);
         }
+    }
+
+    forwardToApprove (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getForwardText()
+        };
+        this.modalService.openActionModal(param);
     }
 
     openGestioneMassiva () {

@@ -36,6 +36,9 @@ export class ApprovalRequestsController {
         label: 'System Owner',
         value: 'system_owner'
     }, {
+        label: 'Stato',
+        value: 'status'
+    }, {
         label: 'Data Scadenza',
         value: 'data_scadenza'
     }];
@@ -63,12 +66,31 @@ export class ApprovalRequestsController {
         }
     }
 
-    approve () {
-        this.modalService.openDateApproveModal();
+    approve (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getApproveText()
+        };
+        this.modalService.openActionModal(param);
     }
 
-    reject () {
-        this.modalService.openDateRejectModal();
+    reject (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'REJECT',
+            text: this.modalService.getRejectText()
+        };
+        this.modalService.openActionModal(param);
+    }
+
+    takeCharge (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getTakeChargeText()
+        };
+        this.modalService.openActionModal(param);
     }
 
     filterChanged (arrayFilter) {

@@ -14,9 +14,7 @@ export class FilterWorkspace {
             case 'workspace':
             case 'description':
             case 'status':
-                return this.getFilterWorkspace(type, stringSearched).then(res => res.data.array);
-            // case 'description':
-            //     return this.getDescription(stringSearched);
+                return this.getFilterWorkspace(type, stringSearched, dipendence).then(res => res.data.array);
             case 'processOwner':
                 return this.datasourceService.getBootstrap().then(res => res.data.process_owner);
             case 'systemOwner':
@@ -40,10 +38,34 @@ export class FilterWorkspace {
         }
     }
 
-    getFilterWorkspace (type, stringSearched) {
-        this.$log.debug(stringSearched);
-        return this.$http.get(`WDD/filter/workspace?workspaceType=${type}`);
-        // return getMockedWorkspace(this.$q);
+    getFilterWorkspace (type, stringSearched, dipendence) {
+        let path = '';
+        switch (type) {
+            case 'workspace':
+                path += this.checkProperty(dipendence[0], 'description_id');
+                path += this.checkProperty(dipendence[1], 'status_id');
+                return this.$http.get(`WDD/filter/workspace?workspaceType=${type}${path}`);
+
+            case 'description':
+                path += this.checkProperty(dipendence[0], 'workspace_id');
+                path += this.checkProperty(dipendence[1], 'status_id');
+                return this.$http.get(`WDD/filter/workspace?workspaceType=${type}${path}`);
+
+            case 'status':
+                path += this.checkProperty(dipendence[0], 'workspace_id');
+                path += this.checkProperty(dipendence[1], 'description_id');
+                return this.$http.get(`WDD/filter/workspace?workspaceType=${type}${path}`);
+
+            default:
+                return this.$q.when([]);
+        }
+    }
+
+    checkProperty (property, label) {
+        if (property) {
+            return `&${label}=${property}`;
+        }
+        return '';
     }
 
     getResponsibleUser (stringSearched) {

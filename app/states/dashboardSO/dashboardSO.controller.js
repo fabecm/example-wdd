@@ -34,7 +34,7 @@ export class DashboardSOController {
         value: 'system_owner'
     }, {
         label: 'Stato',
-        value: 'state'
+        value: 'status'
     }, {
         label: 'Data Scadenza',
         value: 'data_scadenza'
@@ -58,6 +58,9 @@ export class DashboardSOController {
     }, {
         label: 'Program',
         value: 'program'
+    }, {
+        label: 'Stato',
+        value: 'status'
     }, {
         label: 'Data Scadenza',
         value: 'data_scadenza'

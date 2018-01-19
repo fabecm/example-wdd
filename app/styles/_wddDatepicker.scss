@@ -4,10 +4,8 @@
     width: 160px;
     padding-left: 20px;
 
-    .wdd-labeled-input {
-        span {
-            // margin-top: 5px;
-        }
+    > .wdd-labeled-input {
+        width: 100%;
     }
 
     .align-calendar {
@@ -23,6 +21,7 @@
         overflow: hidden;
         background: white;
         border: 1px solid #afc2de;
+        width: 100%;
     }
 }
 
