@@ -6,7 +6,7 @@ export class ActionModalController {
         this.modalService = ModalService;
 
         this.actionParam = this.$scope.$parent.actionParam;
-        console.log(this.actionParam);
+        // console.log(this.actionParam);
     }
 
     confirmChoice () {

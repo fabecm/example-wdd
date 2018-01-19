@@ -88,7 +88,7 @@ export class ApprovalRequestsController {
         let param = {
             selectedItems: selectedItems.selectedItems,
             action: 'FORWARD',
-            text: this.modalService.getForwardText()
+            text: this.modalService.getTakeChargeText()
         };
         this.modalService.openActionModal(param);
     }

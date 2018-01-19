@@ -161,10 +161,34 @@ export class ModalService {
         return text;
     }
 
-    getForwardText () {
+    getTakeChargeText () {
         let text = {
             title: 'Presa in carico',
             body: 'confermando verranno presi in carico i dati selezionati. Vuoi procedere?'
+        };
+        return text;
+    }
+
+    getTakeChargeModifyText () {
+        let text = {
+            title: 'Presa in modifica',
+            body: 'confermando verranno presi in modifica i dati selezionati. Vuoi procedere?'
+        };
+        return text;
+    }
+
+    getForwardText () {
+        let text = {
+            title: 'Inoltra selezionati',
+            body: 'confermando verranno inoltrati i dati selezionati. Vuoi procedere?'
+        };
+        return text;
+    }
+
+    getNotOfCompetenceText () {
+        let text = {
+            title: 'Non di competenza',
+            body: 'confermando i dati selezionati verranno segnalati come non di competenza. Vuoi procedere?'
         };
         return text;
     }
@@ -201,21 +225,6 @@ export class ModalService {
 
         return modalInstance.result;
     }
-
-    // openDateApproveModal () {
-    //     let modalInstance = this.$uibModal.open({
-    //         ariaLabelledBy: 'modal-title',
-    //         ariaDescribedBy: 'modal-body',
-    //         template: DateApproveTemplate,
-    //         controller: ApprovalModalController,
-    //         controllerAs: 'vm',
-    //         backdrop: 'static',
-    //         keyboard: false,
-    //         resolve: {}
-    //     });
-    //
-    //     return modalInstance.result;
-    // }
 
     openDateRejectModal () {
         let modalInstance = this.$uibModal.open({

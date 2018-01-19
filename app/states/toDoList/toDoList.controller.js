@@ -43,10 +43,11 @@ export class ToDoListController {
         value: 'data_scadenza'
     }];
 
-    constructor ($state, $timeout) {
+    constructor ($state, $timeout, ModalService) {
         'ngInject';
         this.$state = $state;
         this.$timeout = $timeout;
+        this.modalService = ModalService;
 
         this.initToDoList();
     }
@@ -64,6 +65,33 @@ export class ToDoListController {
                 filterSetted: param
             });
         });
+    }
+
+    forwardToApprove (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getForwardText()
+        };
+        this.modalService.openActionModal(param);
+    }
+
+    notOfCompetence (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'REJECT',
+            text: this.modalService.getForwardText()
+        };
+        this.modalService.openActionModal(param);
+    }
+
+    takeChargeToModify (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getTakeChargeModifyText()
+        };
+        this.modalService.openActionModal(param);
     }
 
     filterChanged (arrayFilter) {
