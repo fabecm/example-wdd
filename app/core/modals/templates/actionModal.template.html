@@ -1,15 +1,13 @@
-<div class="wwd-modal">
+<div class="wwd-modal" wdd-spinner="[vm.doActionPromise.$$state]">
     <div class="wwd-modal__title">
-        <div class="" id="modal-title">Rifiuto approvazione Dati</div>
+        <div class="" id="modal-title">{{vm.actionParam.text.title}}</div>
     </div>
     <div class="wwd-modal__body__container" id="modal-body">
         <div class="wwd-modal__body">
             <div class="row wwd-modal__row">
                 <div class="col-xs-12 wwd-modal__row__description">
                     <span class="wwd-modal__row__title wwd-modal__row__title--dark">Attenzione: </span>
-                    confermando verranno rifiutate le modifiche apportate ai dati selezionati. Il dato verrà inoltrato al System Owner per ulteriori
-                    approfondimenti. Vuoi procedere?
-
+                     {{vm.actionParam.text.body}}
                 </div>
             </div>
             <div class="row wwd-modal__row">
@@ -17,18 +15,16 @@
                     Note
                 </div>
                 <div class="col-xs-11">
-                    <textarea placeholder="text"></textarea>
+                    <textarea ng-model="vm.note"></textarea>
                 </div>
             </div>
 
         </div>
 
-
-
     </div>
     <div class="wwd-modal__footer">
         <button class="wdd-button alert-color" type="button" ng-click="vm.close()">Annulla</button>
-        <button class="wdd-button pull-right" type="button">Conferma</button>
+        <button class="wdd-button pull-right" type="button" ng-click="vm.confirmChoice()">Conferma</button>
     </div>
 
 </div>

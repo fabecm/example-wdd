@@ -10,6 +10,9 @@ import ApprovalModalTemplate from '../templates/approvalModal.template.html';
 import DateApproveTemplate from '../templates/dateApprove.template.html';
 import DateRejectTemplate from '../templates/dateReject.template.html';
 
+import { ActionModalController } from '../templates/actionModal';
+import ActionModalTemplate from '../templates/actionModal.template.html';
+
 import { MassiveManagmentModalController } from '../templates/massiveManagmentModal';
 import MassiveManagmentTemplate from '../templates/massiveManagmentModal.template.html';
 
@@ -36,8 +39,8 @@ export class ModalService {
         return this.$http.post('WDD/newdata/save', data);
     }
 
-    doAction () {
-
+    doAction (data) {
+        return this.$http.post('WDD/action/continueProcess', data);
     }
 
     openCreateEntity (entityType, dataDetails) {
@@ -122,6 +125,48 @@ export class ModalService {
         });
 
         return modalInstance.result;
+    }
+
+    openActionModal (param) {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: ActionModalTemplate,
+            controller: ActionModalController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            scope: angular.extend(this.$rootScope, {
+                actionParam: param
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    getApproveText () {
+        let text = {
+            title: 'Approvazione Dati',
+            body: 'confermando verranno inviate in produzione le modifiche apportate ai dati selezionati. Vuoi procedere?'
+        };
+        return text;
+    }
+
+    getRejectText () {
+        let text = {
+            title: 'Rifiuto Approvazione Dati',
+            body: 'confermando verranno rifiutate le modifiche apportate ai dati selezionati. Il dato verrà inoltrato al System Owner per ulteriori approfondimenti. Vuoi procedere?'
+        };
+        return text;
+    }
+
+    getForwardText () {
+        let text = {
+            title: 'Presa in carico',
+            body: 'confermando verranno presi in carico i dati selezionati. Vuoi procedere?'
+        };
+        return text;
     }
 
     openApprovalModal () {
