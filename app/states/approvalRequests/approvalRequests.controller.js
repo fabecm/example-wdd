@@ -67,11 +67,30 @@ export class ApprovalRequestsController {
     }
 
     approve (selectedItems) {
-        this.modalService.openDateApproveModal(selectedItems);
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getApproveText()
+        };
+        this.modalService.openActionModal(param);
     }
 
     reject (selectedItems) {
-        this.modalService.openDateRejectModal(selectedItems);
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'REJECT',
+            text: this.modalService.getRejectText()
+        };
+        this.modalService.openActionModal(param);
+    }
+
+    takeCharge (selectedItems) {
+        let param = {
+            selectedItems: selectedItems.selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getForwardText()
+        };
+        this.modalService.openActionModal(param);
     }
 
     filterChanged (arrayFilter) {
