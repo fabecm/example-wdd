@@ -13,14 +13,18 @@ export class SessionService {
     }
 
     getApiEntry () {
-        if(Boolean(true) === true) {
+        if(Boolean(false) === true) {
             return getMockedData(this.$q).then(apiEndpoint => {
                 this.apiEntry = apiEndpoint.contextPath;
+                this.endPointSas = 'http://itam.hbl.local/jsasdqm/SASLineage/';
+                this.objectIdSas = 'BDN:q5miodGw:';
             });
         }
         return this.$http.get('/edd-uiAppl/getConfigurationEndpoint')
             .then(apiEndpoint => {
                 this.apiEntry = apiEndpoint.data.contextPath;
+                this.endPointSas = apiEndpoint.data.endPointSas;
+                this.objectIdSas = apiEndpoint.data.objectIdSas;
             });
     }
 

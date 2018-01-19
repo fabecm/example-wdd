@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($log, $timeout, $state, ModalService, TableService, WDDAlert) {
+export function WddTable ($log, $timeout, $state, ModalService, TableService, WDDAlert, SessionService) {
     'ngInject';
     return {
         scope: {
@@ -267,6 +267,13 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     ModalService.openModificationWorkspace(scope.serviceResponse[row.key].workspace.id);
                 } else if (row.action === 'creation') {
                     ModalService.openNewWorkspaceRequests(scope.serviceResponse[row.key].workspace.id);
+                } else if (row.action === 'ternaryNavigation') {
+                    let pathSas = [`${SessionService.endPointSas}`,
+                    `#subjectName=${encodeURI(scope.serviceResponse[row.key].data_field.label)}`,
+                    `&module=relationships&subjectType=6003&viewName=Governance&subjectID=`,
+                    `${SessionService.objectIdSas}`,
+                    `${scope.serviceResponse[row.key].id_field}`];
+                    window.open(pathSas.join(''), '_blank');
                 }
             };
 
