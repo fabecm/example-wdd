@@ -282,6 +282,15 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 scope.actionTertiaryLabel({selectedItems: scope.checkedElements});
             };
 
+            scope.forwardCheckedItems = () => {
+                let param = {
+                    selectedItems: scope.checkedElements,
+                    action: 'FORWARD',
+                    text: ModalService.getForwardText()
+                };
+                ModalService.openActionModal(param);
+            };
+
             try {
                 if (scope.serviceResponseObj) {
                     scope.serviceResponse = JSON.parse(scope.serviceResponseObj).array;
