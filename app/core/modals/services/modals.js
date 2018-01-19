@@ -1,6 +1,6 @@
 import { NewWorkspaceController } from '../templates/newWorkspace';
 import NewWorkspaceTemplate from '../templates/newWorkspace.template.html';
-import { ModificationWorkspace } from '../templates/modificationWorkspace';
+import { ModificationWorkspaceController } from '../templates/modificationWorkspace';
 import ModificationWorkspaceTemplate from '../templates/modificationWorkspace.template.html';
 import { NewWorkspaceRequestsController } from '../templates/newWorkspaceRequests';
 import NewWorkspaceRequestsTemplate from '../templates/newWorkspaceRequests.template.html';
@@ -90,7 +90,7 @@ export class ModalService {
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             template: ModificationWorkspaceTemplate,
-            controller: ModificationWorkspace,
+            controller: ModificationWorkspaceController,
             controllerAs: 'vm',
             backdrop: 'static',
             keyboard: false,
