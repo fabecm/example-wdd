@@ -68,7 +68,7 @@ export class ApprovalRequestsController {
 
     approve (selectedItems) {
         let param = {
-            selectedItems: selectedItems.selectedItems,
+            selectedItems: selectedItems,
             action: 'FORWARD',
             text: this.modalService.getApproveText()
         };
@@ -77,7 +77,7 @@ export class ApprovalRequestsController {
 
     reject (selectedItems) {
         let param = {
-            selectedItems: selectedItems.selectedItems,
+            selectedItems: selectedItems,
             action: 'REJECT',
             text: this.modalService.getRejectText()
         };
@@ -86,7 +86,7 @@ export class ApprovalRequestsController {
 
     takeCharge (selectedItems) {
         let param = {
-            selectedItems: selectedItems.selectedItems,
+            selectedItems: selectedItems,
             action: 'FORWARD',
             text: this.modalService.getTakeChargeText()
         };

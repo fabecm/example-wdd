@@ -69,7 +69,7 @@ export class ToDoListController {
 
     forwardToApprove (selectedItems) {
         let param = {
-            selectedItems: selectedItems.selectedItems,
+            selectedItems: selectedItems,
             action: 'FORWARD',
             text: this.modalService.getForwardText()
         };
@@ -78,7 +78,7 @@ export class ToDoListController {
 
     notOfCompetence (selectedItems) {
         let param = {
-            selectedItems: selectedItems.selectedItems,
+            selectedItems: selectedItems,
             action: 'REJECT',
             text: this.modalService.getForwardText()
         };
@@ -87,7 +87,7 @@ export class ToDoListController {
 
     takeChargeToModify (selectedItems) {
         let param = {
-            selectedItems: selectedItems.selectedItems,
+            selectedItems: selectedItems,
             action: 'FORWARD',
             text: this.modalService.getTakeChargeModifyText()
         };

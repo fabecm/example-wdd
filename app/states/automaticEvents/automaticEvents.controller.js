@@ -75,7 +75,7 @@ export class AutomaticEventsController {
 
     approve (selectedItems) {
         let param = {
-            selectedItems: selectedItems.selectedItems,
+            selectedItems: selectedItems,
             action: 'SEND',
             text: this.modalService.getApproveText()
         };
@@ -84,7 +84,7 @@ export class AutomaticEventsController {
 
     forwardToApprove (selectedItems) {
         let param = {
-            selectedItems: selectedItems.selectedItems,
+            selectedItems: selectedItems,
             action: 'FORWARD',
             text: this.modalService.getForwardText()
         };

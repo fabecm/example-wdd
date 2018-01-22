@@ -69,7 +69,7 @@ export class InitiativeCensusesController {
 
     forwardToApprove (selectedItems) {
         let param = {
-            selectedItems: selectedItems.selectedItems,
+            selectedItems: selectedItems,
             action: 'FORWARD',
             text: this.modalService.getForwardText()
         };
