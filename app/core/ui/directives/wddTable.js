@@ -260,19 +260,19 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
-                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field, isDraft: scope.serviceResponse[row.key].is_draft});
+                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field.id, isDraft: scope.serviceResponse[row.key].is_draft});
                 } else if (row.action === 'secondaryNavigation') {
-                    $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field});
+                    $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field.id});
                 } else if (row.action === 'info') {
                     ModalService.openModificationWorkspace(scope.serviceResponse[row.key].workspace.id);
                 } else if (row.action === 'creation') {
                     ModalService.openNewWorkspaceRequests(scope.serviceResponse[row.key].workspace.id);
                 } else if (row.action === 'ternaryNavigation') {
                     let pathSas = [`${SessionService.endPointSas}`,
-                        `#subjectName=${encodeURI(scope.serviceResponse[row.key].data_field.label)}`,
+                        `#subjectName=${encodeURI(scope.serviceResponse[row.key].id_field.label)}`,
                         '&module=relationships&subjectType=6003&viewName=Governance&subjectID=',
                         `${SessionService.objectIdSas}`,
-                        `${scope.serviceResponse[row.key].id_field}`];
+                        `${scope.serviceResponse[row.key].id_field.id}`];
                     window.open(pathSas.join(''), '_blank');
                 }
             };
