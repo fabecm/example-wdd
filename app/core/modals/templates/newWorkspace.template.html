@@ -30,11 +30,11 @@
                     <div class="col-xs-9 row">
                         <div class="col-xs-6 wwd-modal__row__title">
                             Data Inizio
-                            <wdd-datepicker ng-model="vm.workspaceForm.start_date"></wdd-datepicker>
+                            <wdd-datepicker ng-model="vm.workspaceForm.start_date" dependence="vm.workspaceForm.end_date" limit="max"></wdd-datepicker>
                         </div>
                         <div class="col-xs-6 wwd-modal__row__title">
                             Data Fine
-                            <wdd-datepicker ng-model="vm.workspaceForm.end_date"></wdd-datepicker>
+                            <wdd-datepicker ng-model="vm.workspaceForm.end_date" dependence="vm.workspaceForm.start_date" limit="min"></wdd-datepicker>
                         </div>
 
                     </div>

@@ -18,9 +18,9 @@
         </div>
     </div> -->
 
-    <wdd-datepicker ng-model="startDate" label="{{labelStartDate}}"></wdd-datepicker>
+    <wdd-datepicker ng-model="startDate" label="{{labelStartDate}}" dependence="endDate" limit="max"></wdd-datepicker>
 
-    <wdd-datepicker ng-model="endDate" label="{{labelEndDate}}"></wdd-datepicker>
+    <wdd-datepicker ng-model="endDate" label="{{labelEndDate}}" dependence="startDate" limit="min"></wdd-datepicker>
 
     <div class="filter-action">
         <!-- <div class="wdd-button">

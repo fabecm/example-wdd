@@ -1,25 +1,35 @@
 import template from './wddDatepicker.template.html';
 
-export function WddDatepicker () {
+export function WddDatepicker ($log) {
     'ngInject';
     return {
         require: '^ngModel',
         scope: {
-            label: '@'
+            label: '@',
+            dependence: '=',
+            limit: '@'
         },
         template: template,
         link: (scope, element, attribute, ngModel) => {
             scope.model = {};
 
+            scope.options = {
+                showWeeks: false,
+                showButtonBar: false
+            };
+
+            scope.$watch('dependence', (newVal) => {
+                if (scope.limit === 'max') {
+                    scope.options.maxDate = newVal;
+                } else if (scope.limit === 'min') {
+                    scope.options.minDate = newVal;
+                }
+            });
+
             ngModel.$render = () => {
                 if (ngModel.$modelValue) {
                     scope.model.date = ngModel.$modelValue;
                 }
-            };
-
-            scope.options = {
-                showWeeks: false,
-                showButtonBar: false
             };
 
             scope.popup = {
