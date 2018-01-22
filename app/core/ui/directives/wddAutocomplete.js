@@ -35,7 +35,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 scope.initAutocomplete();
             });
 
-            ngModel.$render = (item) => {
+            ngModel.$render = (newVal) => {
                 if(ngModel.$modelValue) {
                     if (scope.listValues) {
                         let itemApplied = scope.listValues.find(item => item.id === ngModel.$modelValue);
@@ -43,7 +43,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                         if (itemApplied) {
                             scope.model = itemApplied;
                         } else if (scope.newValue) {
-                            scope.model = item;
+                            scope.model = newVal;
                         } else {
                             scope.model = {};
                         }
@@ -99,7 +99,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
 
             scope.itemSelected = (item) => {
                 scope.model.label = angular.copy(item.label);
-                ngModel.$setViewValue(item.id);$log.debug('wddAutocomplete-value', scope.model);
+                ngModel.$setViewValue(item.id);
                 ngModel.$setValidity('incomplete', true);
                 ngModel.$render(item);
                 scope.showListValues();

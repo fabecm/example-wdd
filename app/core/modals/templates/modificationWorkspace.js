@@ -13,19 +13,37 @@ export class ModificationWorkspaceController {
 
     getWorkspaceDetails (workspaceId) {
         this.modalService.getWorkspaceIdDetails(workspaceId).then(w => {
+        this.workspaceDetailsPromise = this.modalService.getWorkspaceIdDetails(workspaceId);
+        this.workspaceDetailsPromise.then(w => {
             this.workspaceForm.short_description = w.data.short_description;
+            this.originalShortDescription = angular.copy(w.data.short_description);
             this.workspaceForm.long_description = w.data.long_description;
+            this.originalLongDescription = angular.copy(w.data.long_description);
             this.workspaceForm.start_date = w.data.start_date;
+            this.originalStartDate = angular.copy(w.data.start_date);
             this.workspaceForm.end_date = w.data.end_date;
+            this.originalEndDate = angular.copy(w.data.end_date);
             this.workspaceForm.stato = w.data.status;
+
+            if (w.data.status === 'Creato') {
+                this.hideSendBtn = true;
+            }
+
+            this.isDeleteDisable = true;
+            if (w.data.status === 'Creato' || w.data.status === 'Nuovo') {
+                this.isDeleteDisable = false;
+            }
+
             this.workspaceForm.utenteRichiedente = {};
             this.workspaceForm.utenteRichiedente.value = w.data.responsible_user.id;
+            this.originalUtenteRichiedente = angular.copy(w.data.responsible_user.id);
 
             if (this.workspaceForm.utenteRichiedente.value && this.workspaceForm.stato !== 'Creato') {
                 this.lockUtenteRichiedente = true;
             }
 
             this.workspaceForm.note = w.data.note;
+            this.originalNote = angular.copy(w.data.note);
         });
     }
 

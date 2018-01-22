@@ -21,6 +21,21 @@ export class NewWorkspaceController {
         this.createNewWorkspace(this.workspaceForm);
     }
 
+    isSaveDisabled () {
+        return (!this.workspaceForm.short_description
+                || !this.workspaceForm.long_description
+                || !this.workspaceForm.start_date
+                || !this.workspaceForm.end_date);
+    }
+
+    isSendDisabled () {
+        return (!this.workspaceForm.short_description
+            || !this.workspaceForm.long_description
+            || !this.workspaceForm.start_date
+            || !this.workspaceForm.end_date
+            || !(this.responsibleUser && this.responsibleUser.value));
+    }
+
     close () {
         this.$uibModalInstance.dismiss();
     }

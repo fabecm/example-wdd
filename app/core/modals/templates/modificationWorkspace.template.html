@@ -1,4 +1,4 @@
-<div class="wwd-modal" wdd-spinner="[vm.utenteRichiedentePromise.$$state, vm.createNewWorkspacePromise.$$state]">
+<div class="wwd-modal" wdd-spinner="[vm.workspaceDetailsPromise.$$state, vm.utenteRichiedentePromise.$$state, vm.createNewWorkspacePromise.$$state]">
     <div class="wwd-modal__title">
         <h class="" id="modal-title">Modifica Workspace</h>
     </div>
@@ -31,11 +31,11 @@
                     <div class="col-xs-9 row">
                         <div class="col-xs-6 wwd-modal__row__title">
                             Data Inizio
-                            <wdd-datepicker ng-model="vm.workspaceForm.start_date"></wdd-datepicker>
+                            <wdd-datepicker ng-model="vm.workspaceForm.start_date" dependence="vm.workspaceForm.end_date" limit="max"></wdd-datepicker>
                         </div>
                         <div class="col-xs-6 wwd-modal__row__title">
                             Data Fine
-                            <wdd-datepicker ng-model="vm.workspaceForm.end_date"></wdd-datepicker>
+                            <wdd-datepicker ng-model="vm.workspaceForm.end_date" dependence="vm.workspaceForm.start_date" limit="min"></wdd-datepicker>
                         </div>
 
                     </div>
@@ -76,9 +76,9 @@
         </div>
         <div class="wwd-modal__footer">
             <button class="wdd-button alt-color" type="button" ng-click="vm.close()">Annulla</button>
-            <button class="wdd-button alert-color" type="button" ng-click="vm.deletWorkspace()">Elimina</button>
-            <button class="wdd-button alt-color pull-right" type="button" ng-click="vm.sendWorkspace()">Invia</button>
-            <button class="wdd-button pull-right" type="submit">Salva</button>
+            <button class="wdd-button alert-color" type="button" ng-click="vm.deleteWorkspace()" ng-disabled="vm.isDeleteDisable">Elimina</button>
+            <button ng-if="vm.hideSendBtn" class="wdd-button alt-color pull-right" type="button" ng-click="vm.sendWorkspace()" ng-disabled="vm.isSendDisabled()">Invia</button>
+            <button class="wdd-button pull-right" type="submit" ng-disabled="vm.isSaveDisabled()">Salva</button>
         </div>
     </form>
 
