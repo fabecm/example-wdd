@@ -1,6 +1,6 @@
 import template from './wddDatepicker.template.html';
 
-export function WddDatepicker ($log) {
+export function WddDatepicker () {
     'ngInject';
     return {
         require: '^ngModel',
@@ -20,9 +20,9 @@ export function WddDatepicker ($log) {
 
             scope.$watch('dependence', (newVal) => {
                 if (scope.limit === 'max') {
-                    scope.options.maxDate = newVal;
+                    scope.options.maxDate = new Date(newVal);
                 } else if (scope.limit === 'min') {
-                    scope.options.minDate = newVal;
+                    scope.options.minDate = new Date(newVal);
                 }
             });
 
