@@ -1,9 +1,10 @@
 export class NewWorkspaceRequestsController {
 
-    constructor ($uibModalInstance, $scope, ModalService) {
+    constructor ($uibModalInstance, $scope, ModalService, WDDAlert) {
         'ngInject';
         this.$uibModalInstance = $uibModalInstance;
         this.modalService = ModalService;
+        this.WDDAlert = WDDAlert;
 
         this.workspaceId = $scope.$parent.workspaceId;
     }
@@ -81,6 +82,7 @@ export class NewWorkspaceRequestsController {
             this.saveRequestDocumentationDataPromise = this.modalService.saveRequestDocumentationData(data);
             this.saveRequestDocumentationDataPromise.then(res => {
                 this.$log.debug(res);
+                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO');
             }).finally(() => {
                 if (operation === 'save') {
                     this.$uibModalInstance.close();

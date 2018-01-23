@@ -29,7 +29,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     $log.debug(error);
                 }
 
-                if (scope.requiredDependence && !scope.dipendenceObj) {
+                if (scope.requiredDependence && !scope.dipendenceObj[0]) {
                     return;
                 }
                 scope.initAutocomplete();

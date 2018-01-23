@@ -73,7 +73,13 @@ export class InitiativeCensusesController {
             action: 'FORWARD',
             text: this.modalService.getForwardText()
         };
-        this.modalService.openActionModal(param);
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterApplied
+                });
+            });
+        });
     }
 
     openGestioneMassiva () {
@@ -81,22 +87,17 @@ export class InitiativeCensusesController {
     }
 
     createNewData () {
-        this.modalService.openNewWorkspaceRequests();
+        this.modalService.openNewWorkspaceRequests().then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterApplied
+                });
+            });
+        });
     }
 
 
     filterChanged (filterApplied) {
-        // this.dataService.getData(param)
-        // .then(searchData => {
-        //     this.rawData = angular.copy(searchData.data.OutputArray);
-        //     this.dataList = searchData.data.OutputArray;
-        //     let numPages = Math.ceil(this.dataList.length / this.pageSize);
-
-        //     this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-        //     this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
-        // });
-
         let param = filterApplied;
         this.filterApplied = filterApplied;
 

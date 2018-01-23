@@ -23,7 +23,7 @@ export class RuDashboardController {
 
     headerTableExpandable = [{
         label: 'Data Field',
-        value: 'data_fields'
+        value: 'data_field'
     }, {
         label: 'Data Table',
         value: 'data_table'

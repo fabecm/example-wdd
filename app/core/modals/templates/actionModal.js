@@ -1,9 +1,10 @@
 export class ActionModalController {
-    constructor ($uibModalInstance, $scope, ModalService) {
+    constructor ($uibModalInstance, $scope, ModalService, WDDAlert) {
         'ngInject';
         this.$uibModalInstance = $uibModalInstance;
         this.$scope = $scope;
         this.modalService = ModalService;
+        this.WDDAlert = WDDAlert;
 
         this.actionParam = this.$scope.$parent.actionParam;
         // console.log(this.actionParam);
@@ -20,7 +21,11 @@ export class ActionModalController {
 
         this.doActionPromise = this.modalService.doAction(entities);
         this.doActionPromise.then(res => {
-            this.$log.debug(res);
+            if (res.data.completed) {
+                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO');
+            } else {
+                this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE');
+            }
         }).finally(() => {
             this.$uibModalInstance.close();
         });

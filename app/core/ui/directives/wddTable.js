@@ -124,9 +124,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         scope.isSelectAll.value = true;
                     }
                     if (row.data.isChecked) {
-                        scope.checkedElements.push(row.data.data_fields);
+                        scope.checkedElements.push(row.data.id_field);
                     } else {
-                        const index = scope.checkedElements.findIndex((row_data) => row_data.id === row.data.data_fields.id);
+                        const index = scope.checkedElements.findIndex((row_data) => row_data.id === row.data.id_field.id);
                         if (index >= 0) {
                             scope.checkedElements.splice(index, 1);
                         }
@@ -290,6 +290,11 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             };
 
             scope.forwardCheckedItems = () => {
+                scope.checkedElements = scope.checkedElements.map(e => {
+                    return ({
+                        id_field: e
+                    });
+                });
                 let param = {
                     selectedItems: scope.checkedElements,
                     action: 'FORWARD',

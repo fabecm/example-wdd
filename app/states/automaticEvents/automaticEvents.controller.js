@@ -79,7 +79,14 @@ export class AutomaticEventsController {
             action: 'SEND',
             text: this.modalService.getApproveText()
         };
-        this.modalService.openActionModal(param);
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.showTab = true;
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
+            });
+        });
     }
 
     forwardToApprove (selectedItems) {
@@ -88,7 +95,14 @@ export class AutomaticEventsController {
             action: 'FORWARD',
             text: this.modalService.getForwardText()
         };
-        this.modalService.openActionModal(param);
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.showTab = true;
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
+            });
+        });
     }
 
     filterChanged (arrayFilter) {
@@ -111,6 +125,8 @@ export class AutomaticEventsController {
         if (arrayFilter.arrayFilter && arrayFilter.arrayFilter.length > 0) {
             param.array_filter_text = arrayFilter.arrayFilter;
         }
+
+        this.filterSetted = param;
 
         this.$timeout(() => {
             this.showTab = true;

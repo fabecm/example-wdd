@@ -73,7 +73,13 @@ export class ToDoListController {
             action: 'FORWARD',
             text: this.modalService.getForwardText()
         };
-        this.modalService.openActionModal(param);
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
+            });
+        });
     }
 
     notOfCompetence (selectedItems) {
@@ -82,7 +88,13 @@ export class ToDoListController {
             action: 'REJECT',
             text: this.modalService.getForwardText()
         };
-        this.modalService.openActionModal(param);
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
+            });
+        });
     }
 
     takeChargeToModify (selectedItems) {
@@ -91,7 +103,13 @@ export class ToDoListController {
             action: 'FORWARD',
             text: this.modalService.getTakeChargeModifyText()
         };
-        this.modalService.openActionModal(param);
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
+            });
+        });
     }
 
     filterChanged (arrayFilter) {
@@ -114,6 +132,8 @@ export class ToDoListController {
         if (arrayFilter.arrayFilter && arrayFilter.arrayFilter.length > 0) {
             param.array_filter_text = arrayFilter.arrayFilter;
         }
+
+        this.filterSetted = param;
 
         this.$timeout(() => {
             this.reloadTableData({

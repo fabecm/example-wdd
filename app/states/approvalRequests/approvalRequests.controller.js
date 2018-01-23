@@ -72,7 +72,14 @@ export class ApprovalRequestsController {
             action: 'FORWARD',
             text: this.modalService.getApproveText()
         };
-        this.modalService.openActionModal(param);
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.showTab = true;
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
+            });
+        });
     }
 
     reject (selectedItems) {
@@ -81,7 +88,14 @@ export class ApprovalRequestsController {
             action: 'REJECT',
             text: this.modalService.getRejectText()
         };
-        this.modalService.openActionModal(param);
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.showTab = true;
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
+            });
+        });
     }
 
     takeCharge (selectedItems) {
@@ -90,7 +104,14 @@ export class ApprovalRequestsController {
             action: 'FORWARD',
             text: this.modalService.getTakeChargeText()
         };
-        this.modalService.openActionModal(param);
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.showTab = true;
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
+            });
+        });
     }
 
     filterChanged (arrayFilter) {
@@ -113,6 +134,8 @@ export class ApprovalRequestsController {
         if (arrayFilter.arrayFilter && arrayFilter.arrayFilter.length > 0) {
             param.array_filter_text = arrayFilter.arrayFilter;
         }
+
+        this.filterSetted = param;
 
         this.$timeout(() => {
             this.showTab = true;
