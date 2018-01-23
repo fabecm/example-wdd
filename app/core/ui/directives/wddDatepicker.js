@@ -7,7 +7,8 @@ export function WddDatepicker () {
         scope: {
             label: '@',
             dependence: '=',
-            limit: '@'
+            limit: '@',
+            isEditable: '='
         },
         template: template,
         link: (scope, element, attribute, ngModel) => {

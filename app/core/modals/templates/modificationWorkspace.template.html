@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-xs-9">
                         <!-- <input text="name" type="text" placeholder="Es. WS1"> -->
-                        <input type="text" ng-model="vm.workspaceForm.short_description" maxlength="100" required>
+                        <input type="text" ng-model="vm.workspaceForm.short_description" maxlength="100" required ng-disabled="vm.fieldIsReadonly">
                     </div>
                 </div>
 
@@ -20,7 +20,7 @@
                         Descrizione Estesa
                     </div>
                     <div class="col-xs-9">
-                        <input type="text" ng-model="vm.workspaceForm.long_description" maxlength="500" required>
+                        <input type="text" ng-model="vm.workspaceForm.long_description" maxlength="500" required ng-disabled="vm.fieldIsReadonly">
                     </div>
                 </div>
 
@@ -31,11 +31,11 @@
                     <div class="col-xs-9 row">
                         <div class="col-xs-6 wwd-modal__row__title">
                             Data Inizio
-                            <wdd-datepicker ng-model="vm.workspaceForm.start_date" dependence="vm.workspaceForm.end_date" limit="max"></wdd-datepicker>
+                            <wdd-datepicker ng-model="vm.workspaceForm.start_date" dependence="vm.workspaceForm.end_date" limit="max" is-editable="vm.fieldIsReadonly"></wdd-datepicker>
                         </div>
                         <div class="col-xs-6 wwd-modal__row__title">
                             Data Fine
-                            <wdd-datepicker ng-model="vm.workspaceForm.end_date" dependence="vm.workspaceForm.start_date" limit="min"></wdd-datepicker>
+                            <wdd-datepicker ng-model="vm.workspaceForm.end_date" dependence="vm.workspaceForm.start_date" limit="min" is-editable="vm.fieldIsReadonly"></wdd-datepicker>
                         </div>
 
                     </div>
@@ -67,7 +67,7 @@
                         Note
                     </div>
                     <div class="col-xs-9">
-                        <textarea ng-model="vm.workspaceForm.note" maxlength="100"></textarea>
+                        <textarea ng-model="vm.workspaceForm.note" maxlength="100" ng-disabled="vm.fieldIsReadonly"></textarea>
                     </div>
                 </div>
 
@@ -76,9 +76,9 @@
         </div>
         <div class="wwd-modal__footer">
             <button class="wdd-button alt-color" type="button" ng-click="vm.close()">Annulla</button>
-            <button class="wdd-button alert-color" type="button" ng-click="vm.deleteWorkspace()" ng-disabled="vm.isDeleteDisable">Elimina</button>
-            <button ng-if="vm.hideSendBtn" class="wdd-button alt-color pull-right" type="button" ng-click="vm.sendWorkspace()" ng-disabled="vm.isSendDisabled()">Invia</button>
-            <button class="wdd-button pull-right" type="submit" ng-disabled="vm.isSaveDisabled()">Salva</button>
+            <button ng-if="vm.showDeleteBtn" class="wdd-button alert-color" type="button" ng-click="vm.deleteWorkspace()" ng-disabled="vm.isDeleteDisable">Elimina</button>
+            <button ng-if="vm.showSendBtn" class="wdd-button alt-color pull-right" type="button" ng-click="vm.sendWorkspace()" ng-disabled="vm.isSendDisabled()">Invia</button>
+            <button ng-if="vm.showSaveBtn" class="wdd-button pull-right" type="submit" ng-disabled="vm.isSaveDisabled()">Salva</button>
         </div>
     </form>
 

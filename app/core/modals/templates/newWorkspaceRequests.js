@@ -60,7 +60,7 @@ export class NewWorkspaceRequestsController {
             && this.dataField && this.dataField.value) {
             let data = {
                 workspace_id: this.workspaceId,
-                systemowner_id: this.systemOwnerSelected.value,
+                system_owner_id: this.systemOwnerSelected.value,
                 techapp_id: this.technicalApplication.value,
                 datasource_id: this.dataSource.value,
                 datafield_id: this.dataField.value
