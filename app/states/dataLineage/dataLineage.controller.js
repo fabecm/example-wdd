@@ -55,26 +55,26 @@ export class DataLineageController {
                 };
             }
 
-            if (res.data.other_relation && res.data.other_relation[0]) {
+            if (res.data.other_relations && res.data.other_relations[0]) {
                 this.lineageBoxes[7] = {
-                    title: 'Business Data',
-                    data: res.data.other_relation[0],
+                    title: res.data.other_relations[0].title,
+                    data: res.data.other_relations[0],
                     operation: null
                 };
             }
 
-            if (res.data.other_relation && res.data.other_relation[1]) {
+            if (res.data.other_relations && res.data.other_relations[1]) {
                 this.lineageBoxes[6] = {
-                    title: 'Business Data',
-                    data: res.data.other_relation[1],
+                    title: res.data.other_relations[1].title,
+                    data: res.data.other_relations[1],
                     operation: null
                 };
             }
 
-            if (res.data.other_relation && res.data.other_relation[2]) {
+            if (res.data.other_relations && res.data.other_relations[2]) {
                 this.lineageBoxes[8] = {
-                    title: 'Business Data',
-                    data: res.data.other_relation[2],
+                    title: res.data.other_relations[2].title,
+                    data: res.data.other_relations[2],
                     operation: null
                 };
             }
