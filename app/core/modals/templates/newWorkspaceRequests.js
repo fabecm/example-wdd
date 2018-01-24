@@ -81,8 +81,11 @@ export class NewWorkspaceRequestsController {
 
             this.saveRequestDocumentationDataPromise = this.modalService.saveRequestDocumentationData(data);
             this.saveRequestDocumentationDataPromise.then(res => {
-                this.$log.debug(res);
-                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO');
+                if (res.completed) {
+                    this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO');
+                } else {
+                    this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE');
+                }
             }).finally(() => {
                 if (operation === 'save') {
                     this.$uibModalInstance.close();

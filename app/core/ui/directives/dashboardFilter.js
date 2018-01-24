@@ -50,7 +50,7 @@ export function DashboardFilter ($log) {
                 if (scope.descriptionSelected) {
                     param.descriptionSelected = scope.descriptionSelected.value;
                 }
-                if (scope.status) {
+                if (scope.statusSelected) {
                     param.status = scope.statusSelected.value;
                 }
                 if (scope.startDate !== 'GG/MM/AAAA') {
