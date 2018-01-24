@@ -24,6 +24,7 @@ export class ActionModalController {
             if (res.data.completed) {
                 this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO');
             } else {
+                this.modalService.openErrorActionModal(res.data);
                 this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE');
             }
         }).finally(() => {

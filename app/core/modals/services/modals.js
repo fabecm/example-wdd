@@ -8,6 +8,9 @@ import NewWorkspaceRequestsTemplate from '../templates/newWorkspaceRequests.temp
 import { ActionModalController } from '../templates/actionModal';
 import ActionModalTemplate from '../templates/actionModal.template.html';
 
+import { ErrorActionModalController } from '../templates/errorActionModal';
+import ErrorActionModalTemplate from '../templates/errorActionModal.template.html';
+
 import { MassiveManagmentModalController } from '../templates/massiveManagmentModal';
 import MassiveManagmentTemplate from '../templates/massiveManagmentModal.template.html';
 
@@ -115,6 +118,24 @@ export class ModalService {
             keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 workspaceId: workspaceId
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openErrorActionModal (param) {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: ErrorActionModalTemplate,
+            controller: ErrorActionModalController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            scope: angular.extend(this.$rootScope, {
+                infoParam: param
             }),
             resolve: {}
         });
