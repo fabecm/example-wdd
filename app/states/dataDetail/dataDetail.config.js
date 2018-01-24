@@ -3,11 +3,7 @@ import { DataDetailController } from './dataDetail.controller';
 import DataDetailTemplate from './dataDetail.template.html';
 
 export const stateConfig = {
-    url: '/data-detail',
-    params: {
-        id: null,
-        isDraft: null
-    },
+    url: '/data-detail?id&isDraft',
     template: DataDetailTemplate,
     controller: DataDetailController,
     controllerAs: 'vm'

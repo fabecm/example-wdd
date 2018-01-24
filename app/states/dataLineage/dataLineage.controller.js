@@ -12,11 +12,23 @@ export class DataLineageController {
         this.$stateParams = $stateParams;
 
         // TODO per l'init recuperare il termId dai parametri dello state
-        this.initLineage(this.$stateParams.id);
+        this.initLineage();
     }
 
-    initLineage (termId) {
-        this.getLineageField(termId);
+    initLineage () {
+        if (this.$stateParams.type === 'F') {
+            this.getLineageField(this.$stateParams.id);
+        } else if (this.$stateParams.type === 'R') {
+            this.getLineageRule(this.$stateParams.id);
+        }
+    }
+
+    goToRuleState (termId) {
+        this.$state.go('.', {id: termId, type: 'R'});
+    }
+
+    goToFieldState (termId) {
+        this.$state.go('.', {id: termId, type: 'F'});
     }
 
     getLineageField (termId) {
@@ -36,7 +48,7 @@ export class DataLineageController {
                 this.lineageBoxes[3] = {
                     title: 'Technical Rule',
                     data: res.data.tech_rules_in,
-                    operation: this.getLineageRule.bind(this)
+                    operation: this.goToRuleState.bind(this)
                 };
             }
 
@@ -51,7 +63,7 @@ export class DataLineageController {
                 this.lineageBoxes[5] = {
                     title: 'Technical Rule',
                     data: res.data.tech_rules_out,
-                    operation: this.getLineageRule.bind(this)
+                    operation: this.goToRuleState.bind(this)
                 };
             }
 
@@ -99,7 +111,7 @@ export class DataLineageController {
                 this.lineageBoxes[3] = {
                     title: 'Data Field',
                     data: res.data.data_field_in,
-                    operation: this.getLineageField.bind(this)
+                    operation: this.goToFieldState.bind(this)
                 };
             }
 
@@ -115,7 +127,7 @@ export class DataLineageController {
                 this.lineageBoxes[5] = {
                     title: 'Data Field',
                     data: res.data.data_field_out,
-                    operation: this.getLineageField.bind(this)
+                    operation: this.goToFieldState.bind(this)
                 };
             }
 
