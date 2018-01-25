@@ -49,7 +49,7 @@ export class DataDetailController {
     }
 
     showProcessHistory () {
-        this.modalService.openProcessHistoryModal('D234');
+        this.modalService.openProcessHistoryModal(this.$stateParams.id);
     }
 
     createEtity (termtype) {

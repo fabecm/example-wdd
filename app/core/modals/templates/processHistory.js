@@ -5,7 +5,7 @@ export class ProcessHistoryController {
         value: 'status'
     }, {
         label: 'Data Inizio',
-        value: 'start_date'
+        value: 'start_data'
     }, {
         label: 'Nota',
         value: 'note'
