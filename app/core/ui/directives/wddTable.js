@@ -60,7 +60,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     scope.serviceResponse = data.dataTable;
 
                     if (scope.serviceResponse !== null && scope.serviceResponse !== undefined && scope.serviceResponse.length === 0) {
-                        WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE');
+                        WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE', 'empty.table');
                     }
 
                     scope.pageNumber = data.pages;
@@ -260,7 +260,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
-                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field.id, isDraft: scope.serviceResponse[row.key].is_draft});
+                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field.id, isDraft: scope.serviceResponse[row.key].draft});
                 } else if (row.action === 'secondaryNavigation') {
                     $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field.id, type: 'F'});
                 } else if (row.action === 'info') {

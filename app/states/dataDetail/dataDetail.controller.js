@@ -1,10 +1,10 @@
 /*
     TODO:
     isDraft = true:
-        Il dato non è di produzione quindi bisogna aggiungere in query alla chiamata is_draft=true e mostrare il workflow
+        Il dato non è di produzione quindi bisogna aggiungere in query alla chiamata draft=true e mostrare il workflow
 
     isDraft = false (o assente):
-        Il dato è di produzione, non c'è bisogno di specificare in query il campo is_draft e non bisogna visualizzare il workflow
+        Il dato è di produzione, non c'è bisogno di specificare in query il campo draft e non bisogna visualizzare il workflow
 */
 export class DataDetailController {
 

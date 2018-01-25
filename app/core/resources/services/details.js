@@ -10,8 +10,8 @@ export class DetailsService {
         //     return getMockedData(this.$q);
         // }
         // termId = 1136820;
-        return this.$http.get(`WDD/details/${termId}?is_draft=${isDraft}`);
-        // return this.$http.get(`WDD/details/D64?is_draft=true`);
+        return this.$http.get(`WDD/details/${termId}?draft=${isDraft}`);
+        // return this.$http.get(`WDD/details/D64?draft=true`);
     }
 
     saveEntity (entity) {
