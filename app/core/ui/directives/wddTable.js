@@ -267,9 +267,13 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 } else if (row.action === 'secondaryNavigation') {
                     $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field.id, type: 'F', isDraft: scope.serviceResponse[row.key].draft});
                 } else if (row.action === 'info') {
-                    ModalService.openModificationWorkspace(scope.serviceResponse[row.key].workspace.id);
+                    ModalService.openModificationWorkspace(scope.serviceResponse[row.key].workspace.id).then(() => {
+                        scope.reloadData();
+                    });
                 } else if (row.action === 'creation') {
-                    ModalService.openNewWorkspaceRequests(scope.serviceResponse[row.key].workspace.id);
+                    ModalService.openNewWorkspaceRequests(scope.serviceResponse[row.key].workspace.id).then(() => {
+                        scope.reloadData();
+                    });
                 } else if (row.action === 'ternaryNavigation') {
                     let pathSas = [`${SessionService.endPointSas}`,
                         `#subjectName=${encodeURI(scope.serviceResponse[row.key].id_field.label)}`,
