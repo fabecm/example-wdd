@@ -28,7 +28,7 @@ export class ModificationWorkspaceController {
 
             if (w.data.status === 'Creato' || w.data.status === 'Nuovo') {
                 this.showSaveBtn = true;
-                
+
                 if (w.data.status === 'Creato') {
                     this.showDeleteBtn = true;
                     this.showSendBtn = true;
@@ -179,9 +179,9 @@ export class ModificationWorkspaceController {
         this.deleteWorkspacePromise = this.modalService.deleteWorkspace(this.$scope.$parent.workspaceId);
         this.deleteWorkspacePromise.then(res => {
             if (res.data.result) {
-                this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE');
+                this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'delete-workspace-done');
             } else {
-                this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA');
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'delete-workspace-error');
             }
         }).finally(() => {
             this.$uibModalInstance.close();
@@ -192,6 +192,11 @@ export class ModificationWorkspaceController {
         this.createNewWorkspacePromise = this.modalService.createNewWorkspace(workspaceForm);
         this.createNewWorkspacePromise.then(res => {
             this.$log.debug(res);
+            if (res.data.result) {
+                this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'modification-workspace-done');
+            } else {
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'modification-workspace-error');
+            }
         }).finally(() => {
             this.$uibModalInstance.close();
         });

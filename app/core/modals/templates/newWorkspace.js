@@ -54,7 +54,11 @@ export class NewWorkspaceController {
         this.createNewWorkspacePromise = this.modalService.createNewWorkspace(workspaceForm);
         this.createNewWorkspacePromise.then(res => {
             this.$log.debug(res);
-            this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO');
+            if (res.data.result) {
+                this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'create-workspace-done');
+            } else {
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'create-workspace-error');
+            }
         }).finally(() => {
             this.$uibModalInstance.close();
         });

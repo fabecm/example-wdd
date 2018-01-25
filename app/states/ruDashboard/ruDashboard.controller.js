@@ -76,12 +76,19 @@ export class RuDashboardController {
     }
 
     createNewWorkspace () {
-        this.modalService.openNewWorkspaceModal();
+        this.modalService.openNewWorkspaceModal().then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
+            });
+        });
     }
 
     filterChanged (filterApplied) {
         let param = filterApplied;
         param.type = 'nuovi';
+        this.filterSetted = param;
 
         this.$timeout(() => {
             this.reloadTableData({
