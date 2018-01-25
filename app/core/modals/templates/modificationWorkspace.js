@@ -2,13 +2,15 @@ export class ModificationWorkspaceController {
 
     workspaceForm = {};
 
-    constructor (ModalService, $scope, $log, $uibModalInstance) {
+    constructor (ModalService, $scope, $log, $uibModalInstance, WDDAlert) {
         'ngInject';
         this.modalService = ModalService;
         this.$log = $log;
         this.$uibModalInstance = $uibModalInstance;
+        this.$scope = $scope;
+        this.WDDAlert = WDDAlert;
 
-        this.getWorkspaceDetails($scope.$parent.workspaceId);
+        this.getWorkspaceDetails(this.$scope.$parent.workspaceId);
     }
 
     getWorkspaceDetails (workspaceId) {
@@ -25,10 +27,10 @@ export class ModificationWorkspaceController {
             this.workspaceForm.stato = w.data.status;
 
             if (w.data.status === 'Creato' || w.data.status === 'Nuovo') {
-                this.showDeleteBtn = true;
                 this.showSaveBtn = true;
-
+                
                 if (w.data.status === 'Creato') {
+                    this.showDeleteBtn = true;
                     this.showSendBtn = true;
                 }
             } else {
@@ -171,6 +173,19 @@ export class ModificationWorkspaceController {
             this.workspaceForm.send = true;
             this.updateWorkspace(this.workspaceForm);
         }
+    }
+
+    deleteWorkspace () {
+        this.deleteWorkspacePromise = this.modalService.deleteWorkspace(this.$scope.$parent.workspaceId);
+        this.deleteWorkspacePromise.then(res => {
+            if (res.data.result) {
+                this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE');
+            } else {
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA');
+            }
+        }).finally(() => {
+            this.$uibModalInstance.close();
+        });
     }
 
     updateWorkspace (workspaceForm) {

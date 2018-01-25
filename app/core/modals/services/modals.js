@@ -44,6 +44,10 @@ export class ModalService {
         return this.$http.post('WDD/action/continueProcess', data);
     }
 
+    deleteWorkspace (workspaceId) {
+        return this.$http.delete(`WDD/workspace/delete/${workspaceId}`);
+    }
+
     getProcessHistory (termId) {
         return this.$http.get(`WDD/process/history/${termId}`);
     }
