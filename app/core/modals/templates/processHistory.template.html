@@ -1,0 +1,16 @@
+<div class="wwd-modal">
+    <div class="wwd-modal__title">
+        <div class="" id="modal-title">Storico Processi</div>
+    </div>
+    <div class="wwd-modal__body__container" id="modal-body">
+        <div class="wwd-modal__body">
+            <wdd-table reload-data="vm.reloadTableData" table-key="processHistory" header-array-obj="{{ {array: vm.headerTable} }}"
+                pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}"></wdd-table>
+        </div>
+
+    </div>
+    <div class="wwd-modal__footer">
+        <button class="wdd-button alt-color" type="button" ng-click="vm.close()">Chiudi</button>
+    </div>
+
+</div>
