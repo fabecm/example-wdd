@@ -23,8 +23,7 @@
 
         </div>
     </div>
-
-    <div class="process-steps" ng-if="vm.processes">
+    <div class="process-steps" ng-if="vm.processes" ng-click="vm.showProcessHistory()">
         <div class="process-steps__container">
             <div class="step" ng-repeat="pro in vm.processes" ng-class="{'step--complete': pro.id <= vm.currentProcess.id}">
                 <div class="title">
