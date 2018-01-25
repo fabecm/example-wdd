@@ -48,6 +48,10 @@ export class DataDetailController {
         });
     }
 
+    showProcessHistory () {
+        this.modalService.openProcessHistoryModal('D234');
+    }
+
     createEtity (termtype) {
         this.modalService.openCreateEntity(termtype, this.visibleDataDetails).then(() => {
             this.initDataDetails();

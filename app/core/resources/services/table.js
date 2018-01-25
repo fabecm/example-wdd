@@ -1,12 +1,13 @@
 export class TableService {
     defaultPageLength = 10;
 
-    constructor ($q, $http, DataService, SearchWorkspaceService) {
+    constructor ($q, $http, DataService, SearchWorkspaceService, ModalService) {
         'ngInject';
         this.$q = $q;
         this.$http = $http;
         this.dataService = DataService;
         this.searchWorkspaceService = SearchWorkspaceService;
+        this.modalService = ModalService;
     }
 
     getTableData (key, filterApplied, pageNumber, pageLength = this.defaultPageLength) {
@@ -56,6 +57,14 @@ export class TableService {
                     return ({
                         dataTable: res.data.data_list,
                         pages: res.data.page_count
+                    });
+                });
+
+            case 'processHistory':
+                return this.modalService.getProcessHistory(filterApplied.termId).then(res => {
+                    return ({
+                        dataTable: res.data.array,
+                        pages: 1
                     });
                 });
 

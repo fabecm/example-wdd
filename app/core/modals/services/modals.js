@@ -11,6 +11,9 @@ import ActionModalTemplate from '../templates/actionModal.template.html';
 import { ErrorActionModalController } from '../templates/errorActionModal';
 import ErrorActionModalTemplate from '../templates/errorActionModal.template.html';
 
+import { ProcessHistoryController } from '../templates/processHistory';
+import ProcessHistoryTemplate from '../templates/processHistory.template.html';
+
 import { MassiveManagmentModalController } from '../templates/massiveManagmentModal';
 import MassiveManagmentTemplate from '../templates/massiveManagmentModal.template.html';
 
@@ -39,6 +42,10 @@ export class ModalService {
 
     doAction (data) {
         return this.$http.post('WDD/action/continueProcess', data);
+    }
+
+    getProcessHistory (termId) {
+        return this.$http.get(`WDD/process/history/${termId}`);
     }
 
     openCreateEntity (entityType, dataDetails) {
@@ -118,6 +125,25 @@ export class ModalService {
             keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 workspaceId: workspaceId
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openProcessHistoryModal (termId) {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: ProcessHistoryTemplate,
+            controller: ProcessHistoryController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            size: 'md',
+            scope: angular.extend(this.$rootScope, {
+                termId: termId
             }),
             resolve: {}
         });
