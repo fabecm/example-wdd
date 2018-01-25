@@ -41,6 +41,10 @@ export class ModalService {
         return this.$http.post('WDD/action/continueProcess', data);
     }
 
+    deleteWorkspace (workspaceId) {
+        return this.$http.delete(`WDD/workspace/delete/${workspaceId}`);
+    }
+
     openCreateEntity (entityType, dataDetails) {
         let modalInstance = this.$uibModal.open({
             template: CreateEntityTemplate,
