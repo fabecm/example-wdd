@@ -24,11 +24,11 @@ export class DataLineageController {
     }
 
     goToRuleState (termId) {
-        this.$state.go('.', {id: termId, type: 'R'});
+        this.$state.go('.', {id: termId, type: 'R', isDraft: this.$stateParams.isDraft});
     }
 
     goToFieldState (termId) {
-        this.$state.go('.', {id: termId, type: 'F'});
+        this.$state.go('.', {id: termId, type: 'F', isDraft: this.$stateParams.isDraft});
     }
 
     getLineageField (termId) {
@@ -146,6 +146,6 @@ export class DataLineageController {
     }
 
     goToDataDetail (termId) {
-        this.$state.go('tab.dataDetail', {id: termId, isDraft: false});
+        this.$state.go('tab.dataDetail', {id: termId, isDraft: this.$stateParams.isDraft});
     }
 }
