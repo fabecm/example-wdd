@@ -2,12 +2,13 @@ export class CreateEntityController {
 
     lockButtonSave = true;
 
-    constructor ($uibModalInstance, $scope, $timeout, DetailsService) {
+    constructor ($uibModalInstance, $scope, $timeout, DetailsService, WDDAlert) {
         'ngInject';
         this.$uibModalInstance = $uibModalInstance;
         this.$scope = $scope;
         this.$timeout = $timeout;
         this.detailsService = DetailsService;
+        this.WDDAlert = WDDAlert;
 
         this.entityType = this.$scope.$parent.entityType;
         this.dataDetails = this.$scope.$parent.dataDetails;
@@ -46,7 +47,14 @@ export class CreateEntityController {
                 }
             }
             // console.log(entityToSave);
-            this.detailsService.saveEntity(entityToSave);
+            this.saveEntityPromise = this.detailsService.saveEntity(entityToSave);
+            this.saveEntityPromise.then(res => {
+                if (res.data.result) {
+                    this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CON SUCCESSO', 'save-entity-done');
+                } else {
+                    this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'save-entity-error');
+                }
+            })
         }).then(() => {
             this.$uibModalInstance.close();
         });
