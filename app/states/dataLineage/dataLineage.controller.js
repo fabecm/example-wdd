@@ -146,6 +146,6 @@ export class DataLineageController {
     }
 
     goToDataDetail (termId) {
-        this.$state.go('tab.dataDetail', {id: termId});
+        this.$state.go('tab.dataDetail', {id: termId, isDraft: false});
     }
 }
