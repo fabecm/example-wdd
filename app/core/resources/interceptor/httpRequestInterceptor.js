@@ -21,7 +21,8 @@ export function HttpRequestInterceptor ($injector, $q) {
                 endpoint = endpoint.substring(0, endpoint.indexOf('?'));
             }
             const text = `${message} - (${endpoint})`;
-            $injector.get('WDDAlert').showAlert('error', text);
+            const key = endpoint.substring(1).replace(/\//g, '-');
+            $injector.get('WDDAlert').showAlert('error', text, key);
             return $q.reject(rejection);
         }
     };

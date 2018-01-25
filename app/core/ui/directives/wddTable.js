@@ -58,9 +58,10 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
                 getTableDataPromise.then(data => {
                     scope.serviceResponse = data.dataTable;
+                    scope.isErrored = false;
 
                     if (scope.serviceResponse !== null && scope.serviceResponse !== undefined && scope.serviceResponse.length === 0) {
-                        WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE', 'empty.table');
+                        WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE', 'empty-table');
                     }
 
                     scope.pageNumber = data.pages;
@@ -85,6 +86,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     });
 
                     initData(scope);
+                }).catch(() => {
+                    scope.isErrored = true;
                 });
             };
 

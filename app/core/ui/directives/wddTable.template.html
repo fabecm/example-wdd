@@ -1,5 +1,11 @@
 <div ng-show="promise.$$state.status == 0" wdd-spinner="[promise.$$state]" spinner-style="floating" style="height: 400px;width: 100%;"></div>
 <div class="wdd-table" ng-show="serviceResponse && promise.$$state.status != 0" ng-class="{'child-table': isChild}">
+    <div class="empty-response" ng-if="serviceResponse.length === 0">
+        <h1>Nessun dato presente</h1>
+    </div>
+    <div class="empty-response" ng-if="isErrored">
+        <h1>Errore nel recupero dei dati</h1>
+    </div>
     <table ng-class="{'expandable-table': expandable}">
         <thead>
             <th ng-if="isChild" class="baseHeaderIconWidth"></th>
@@ -28,6 +34,10 @@
                         pagination-bool="{{ {boolean: pagination} }}" page-size-num="{{ {number: pageSize} }}" is-child="true"
                         is-checked-bool="{{ {boolean: isChildChecked} }}" has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}"></wdd-table>
                 </td>
+            </tr>
+
+            <tr ng-if="!serviceResponse || serviceResponse.length === 0" ng-repeat="placeHLD in [0, 1, 2]">
+                <td class="dashboard-table-cell" ng-repeat="header in headerArray"></td>
             </tr>
 
         </tbody>

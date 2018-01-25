@@ -8,13 +8,24 @@ export class WddAlert {
         this.$rootScope = $rootScope;
     }
 
-    showAlert (type, message) {
-        $('#alert-holder').append(this.$compile(this.getTemplate(type, message))(this.$rootScope));
+    showAlert (type, message, alertKey) {
+        this.isAlreadyOpenTemplate(alertKey);
+        $('#alert-holder').append(this.$compile(this.getTemplate(type, message, alertKey))(this.$rootScope));
     }
 
-    getTemplate (type, message) {
-        const randId = Math.floor((Math.random() * 100) + 1);
-        return `<wdd-alert id="wdd-alert-${randId}" type="${type}" message="${message}"/>`;
+    getTemplate (type, message, alertKey) {
+        let key = alertKey;
+        if (!alertKey) {
+            key = Math.floor((Math.random() * 100) + 1);
+        }
+        return `<wdd-alert id="wdd-alert-${key}" type="${type}" message="${message}"/>`;
+    }
+
+    isAlreadyOpenTemplate (alertKey) {
+        let element = $(`#wdd-alert-${alertKey}`);
+        if (element.length && element.length > 0) {
+            $(`#wdd-alert-${alertKey}`).remove();
+        }
     }
 
     removeAlert () {
