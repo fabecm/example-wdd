@@ -12,6 +12,13 @@ export class CreateEntityController {
 
         this.entityType = this.$scope.$parent.entityType;
         this.dataDetails = this.$scope.$parent.dataDetails;
+        this.isDraft = JSON.parse(this.$scope.$parent.isDraft);
+
+        if (this.isDraft) {
+            this.workspaceId = JSON.parse(this.$scope.$parent.workspaceId);
+        } else {
+            this.workspaceId = 1;
+        }
     }
 
     saveEntity () {
@@ -42,7 +49,8 @@ export class CreateEntityController {
                         termtype: this.dataDetails[i].term.termtype,
                         name: this.dataDetails[i].term.name,
                         termId: this.dataDetails[i].term.termId,
-                        isDraft: this.dataDetails[i].term.isDraft
+                        draft: this.dataDetails[i].term.draft,
+                        workspaceId: this.workspaceId
                     });
                 }
             }

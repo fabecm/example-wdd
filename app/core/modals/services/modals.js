@@ -52,7 +52,7 @@ export class ModalService {
         return this.$http.get(`WDD/process/history/${termId}`);
     }
 
-    openCreateEntity (entityType, dataDetails) {
+    openCreateEntity (entityType, dataDetails, workspaceId, isDraft) {
         let modalInstance = this.$uibModal.open({
             template: CreateEntityTemplate,
             controller: CreateEntityController,
@@ -61,7 +61,9 @@ export class ModalService {
             keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 entityType: entityType,
-                dataDetails: dataDetails
+                dataDetails: dataDetails,
+                workspaceId: workspaceId,
+                isDraft: isDraft
             }),
             resolve: {}
         });

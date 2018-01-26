@@ -260,12 +260,26 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             };
 
             scope.rowAction = (row) => {
+                let workspaceId;
+                if (scope.serviceResponse[row.key].workspace && scope.serviceResponse[row.key].workspace.match) {
+                    workspaceId = scope.serviceResponse[row.key].workspace.match;
+                }
+
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
-                    $state.go(scope.pathPrimaryNavigation, {id: scope.serviceResponse[row.key].id_field.id, isDraft: scope.serviceResponse[row.key].draft});
+                    $state.go(scope.pathPrimaryNavigation, {
+                        id: scope.serviceResponse[row.key].id_field.id,
+                        isDraft: scope.serviceResponse[row.key].draft,
+                        workspaceId: workspaceId
+                    });
                 } else if (row.action === 'secondaryNavigation') {
-                    $state.go(scope.pathSecondaryNavigation, {id: scope.serviceResponse[row.key].id_field.id, type: 'F', isDraft: scope.serviceResponse[row.key].draft});
+                    $state.go(scope.pathSecondaryNavigation, {
+                        id: scope.serviceResponse[row.key].id_field.id,
+                        type: 'F',
+                        isDraft: scope.serviceResponse[row.key].draft,
+                        workspaceId: workspaceId
+                    });
                 } else if (row.action === 'info') {
                     ModalService.openModificationWorkspace(scope.serviceResponse[row.key].workspace.id).then(() => {
                         scope.reloadData();

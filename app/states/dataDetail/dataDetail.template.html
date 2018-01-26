@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="details-container" wdd-spinner="[vm.getDataFieldDetailsPromise.$$state]">
+    <div class="details-container" wdd-spinner="[vm.getDataFieldDetailsPromise.$$state, vm.saveEntityPromise.$$state]">
         <div class="detail-container" ng-if="vm.visibleDataDetails" ng-repeat="(key, detail) in vm.visibleDataDetails track by $index"
             ng-class="{'active': detail.isOpened}">
             <div class="header">
@@ -82,9 +82,9 @@
             </div>
             <div class="footer" ng-if="!detail.toAdd">
                 <button class="wdd-button alt-color">ELIMINA ENTITA'</button>
-                <button class="wdd-button alt-color">ELIMINA BOZZA</button>
+                <button ng-if="vm.isDraft" class="wdd-button alt-color">ELIMINA BOZZA</button>
                 <button class="wdd-button alt-color" ng-disabled="detail.isLock" ng-click="vm.deleteChanges(detail)">ANNULLA MODIFICHE</button>
-                <button class="wdd-button" ng-disabled="detail.isLock" ng-click="vm.saveChanges(detail)">SALVA MODIFICHE</button>
+                <button class="wdd-button" ng-disabled="detail.isLock" ng-click="vm.saveChanges(key, detail)">SALVA MODIFICHE</button>
             </div>
         </div>
     </div>

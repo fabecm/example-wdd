@@ -1,23 +1,22 @@
-/*
-    TODO:
-    isDraft = true:
-        Il dato non è di produzione quindi bisogna aggiungere in query alla chiamata draft=true e mostrare il workflow
-
-    isDraft = false (o assente):
-        Il dato è di produzione, non c'è bisogno di specificare in query il campo draft e non bisogna visualizzare il workflow
-*/
 export class DataDetailController {
 
     listDataDetails = [];
     visibleDataDetails = [];
 
-    constructor (DetailsService, $stateParams, ModalService) {
+    constructor (DetailsService, $stateParams, ModalService, WDDAlert) {
         'ngInject';
         this.detailsService = DetailsService;
         this.$stateParams = $stateParams;
         this.modalService = ModalService;
+        this.WDDAlert = WDDAlert;
 
-        this.isDraft = this.$stateParams.isDraft;
+        this.isDraft = JSON.parse(this.$stateParams.isDraft);
+        
+        if (this.isDraft) {
+            this.workspaceId = JSON.parse(this.$stateParams.workspaceId);
+        } else {
+            this.workspaceId = 1;
+        }
 
         this.initDataDetails();
     }
@@ -53,7 +52,7 @@ export class DataDetailController {
     }
 
     createEtity (termtype) {
-        this.modalService.openCreateEntity(termtype, this.visibleDataDetails).then(() => {
+        this.modalService.openCreateEntity(termtype, this.visibleDataDetails, this.workspaceId, this.isDraft).then(() => {
             this.initDataDetails();
         });
     }
@@ -73,7 +72,7 @@ export class DataDetailController {
         this.resetAttribute = resetAttribute;
     }
 
-    saveChanges (detail) {
+    saveChanges (key, detail) {
         let entityToSave = {};
 
         entityToSave.term = detail.term;
@@ -91,12 +90,20 @@ export class DataDetailController {
                     termtype: this.visibleDataDetails[i].term.termtype,
                     name: this.visibleDataDetails[i].term.name,
                     termId: this.visibleDataDetails[i].term.termId,
-                    isDraft: this.visibleDataDetails[i].term.isDraft
+                    draft: this.visibleDataDetails[i].term.draft,
+                    workspaceId: this.workspaceId
                 });
             }
         }
 
-        this.detailsService.saveEntity(entityToSave);
+        this.saveEntityPromise = this.detailsService.saveEntity(entityToSave);
+        this.saveEntityPromise.then(res => {
+            if (res.data.result) {
+                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'save-entity-done');
+            } else {
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'save-entity-error');
+            }
+        });
         detail.isLock = true;
     }
 
