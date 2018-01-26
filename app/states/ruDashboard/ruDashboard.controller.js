@@ -36,6 +36,9 @@ export class RuDashboardController {
     }, {
         label: 'System Owner',
         value: 'system_owner'
+    }, {
+        label: 'Stato',
+        value: 'status'
     }];
 
     constructor ($q, $state, $timeout, ModalService) {

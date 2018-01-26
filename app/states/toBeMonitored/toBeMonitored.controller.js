@@ -39,6 +39,9 @@ export class ToBeMonitoredController {
     }, {
         label: 'System owner',
         value: 'system_owner'
+    }, {
+        label: 'Stato',
+        value: 'status'
     }];
 
     constructor ($q, $state, $timeout) {

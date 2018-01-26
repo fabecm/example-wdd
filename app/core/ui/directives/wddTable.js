@@ -64,6 +64,21 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE', 'empty-table');
                     }
 
+                    if (scope.expandable && scope.serviceResponse && scope.serviceResponse.length > 0) {
+                        scope.serviceResponse.map(e => {
+                            if (e.data_fields && e.data_fields.length > 0) {
+                                e.data_fields = e.data_fields.map(field => {
+                                    field.workspace = {
+                                        id: e.workspace.id
+                                    };
+                                    return field;
+                                });
+                            }
+                            return e;
+                        });
+                        console.log(scope.serviceResponse);
+                    }
+
                     scope.pageNumber = data.pages;
                     scope.pages = [...Array((scope.pageNumber ? scope.pageNumber: 1) + 1).keys()].slice(1, scope.pageNumber + 1);
                     scope.pages = scope.pages.map(pag => {
@@ -261,15 +276,22 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
             scope.rowAction = (row) => {
                 let workspaceId;
-                if (scope.serviceResponse[row.key].workspace && scope.serviceResponse[row.key].workspace.match) {
-                    workspaceId = scope.serviceResponse[row.key].workspace.match;
+                if (scope.serviceResponse[row.key].workspace && scope.serviceResponse[row.key].workspace.id) {
+                    workspaceId = scope.serviceResponse[row.key].workspace.id;
+                }
+
+                let fieldId;
+                if (scope.isChild) {
+                    fieldId = scope.serviceResponse[row.key].id_field;
+                } else if (scope.serviceResponse[row.key].id_field) {
+                    fieldId = scope.serviceResponse[row.key].id_field.id;
                 }
 
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
                     $state.go(scope.pathPrimaryNavigation, {
-                        id: scope.serviceResponse[row.key].id_field.id,
+                        id: fieldId,
                         isDraft: scope.serviceResponse[row.key].draft,
                         workspaceId: workspaceId
                     });

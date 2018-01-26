@@ -48,7 +48,10 @@ export class DocumentationRequestsController {
     }, {
         label: 'System Owner',
         value: 'system_owner'
-    }]
+    }, {
+        label: 'Stato',
+        value: 'status'
+    }];
 
     constructor (DataService, DatasourceService, $state, $timeout, ModalService) {
         'ngInject';
