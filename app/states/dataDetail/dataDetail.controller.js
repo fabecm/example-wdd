@@ -72,7 +72,7 @@ export class DataDetailController {
         this.resetAttribute = resetAttribute;
     }
 
-    saveChanges (key, detail) {
+    saveChanges (detail) {
         let entityToSave = {};
 
         entityToSave.term = detail.term;
@@ -110,7 +110,7 @@ export class DataDetailController {
     deleteChanges (detail) {
         detail.isLock = true;
         detail.attributes.map(attribute => {
-            attribute.values[0].value = attribute.origin_value;
+            attribute.values[0].value = angular.copy(attribute.origin_value);
         });
     }
 

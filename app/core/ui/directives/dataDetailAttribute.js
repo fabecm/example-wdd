@@ -23,13 +23,14 @@ export function DataDetailAttribute () {
             scope.isFocusEnabled = false;
 
             ngModel.$render = () => {
-                if (ngModel.$modelValue) {
-                    scope.model.value = ngModel.$modelValue;
+                // if (ngModel.$modelValue) {
+                //     scope.model.value = ngModel.$modelValue;
 
-                    if (scope.isCheckBox) {
-                        setCheckboxModel(scope);
-                    }
-                }
+                //     if (scope.isCheckBox) {
+                //         setCheckboxModel(scope);
+                //     }
+                // }
+                scope.model.value = ngModel.$modelValue;
             };
 
             try {
