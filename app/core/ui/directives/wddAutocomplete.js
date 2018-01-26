@@ -20,6 +20,10 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             scope.isListVisible = false;
             scope.model = {};
 
+            if (scope.type === 'newRequestSO' || scope.type === 'newRequestTA' || scope.type === 'newRequestDS' || scope.type === 'newRequestDT' || scope.type === 'newRequestDF') {
+                scope.showMoreValues = true;
+            }
+
             scope.$watch('dipendence', () => {
                 try {
                     if (scope.dipendence) {

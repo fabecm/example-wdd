@@ -7,12 +7,16 @@
     </div>
 
     <div id="autocomplete-value-list" class="container-list-values" ng-class="{'hide-container': !isListVisible}">
-        <div ng-if="newValue" class="option-value" ng-click="itemSelected({label: model.label, id: model.label})">
+        <div ng-if="newValue" class="option-value in-insertion" ng-click="itemSelected({label: model.label, id: model.label})">
             {{model.label}}
         </div>
 
         <div class="option-value" ng-repeat="value in listValues" ng-click="itemSelected(value)">
             {{value.label}}
+        </div>
+
+        <div ng-if="showMoreValues && listValues.length === 5">
+            ...
         </div>
     </div>
 
