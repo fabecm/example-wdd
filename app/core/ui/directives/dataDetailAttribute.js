@@ -123,13 +123,13 @@ function setFocusOnAttribute (scope, value) {
     scope.isFocusEnabled = value;
 }
 
-function setCheckboxModel (scope) {
-    scope.checkboxModel = {};
-    angular.forEach(scope.domainValue, el => {
-        scope.checkboxModel[el] = false;
-    });
+// function setCheckboxModel (scope) {
+//     scope.checkboxModel = {};
+//     angular.forEach(scope.domainValue, el => {
+//         scope.checkboxModel[el] = false;
+//     });
 
-    angular.forEach(scope.model.value, val => {
-        scope.checkboxModel[val] = true;
-    });
-}
+//     angular.forEach(scope.model.value, val => {
+//         scope.checkboxModel[val] = true;
+//     });
+// }

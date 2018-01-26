@@ -11,7 +11,7 @@ export class DataDetailController {
         this.WDDAlert = WDDAlert;
 
         this.isDraft = JSON.parse(this.$stateParams.isDraft);
-        
+
         if (this.isDraft) {
             this.workspaceId = JSON.parse(this.$stateParams.workspaceId);
         } else {

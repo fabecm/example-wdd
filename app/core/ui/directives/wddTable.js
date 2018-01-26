@@ -76,7 +76,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                             }
                             return e;
                         });
-                        console.log(scope.serviceResponse);
                     }
 
                     scope.pageNumber = data.pages;
