@@ -1,5 +1,5 @@
 export class SessionService {
-    constructor ($http, UserService, RuleProfileService, $q, WDDAlert, $state) {
+    constructor ($http, UserService, RuleProfileService, $q, WDDAlert, $state, $log) {
         'ngInject';
         this.$http = $http;
         this.userService = UserService;
@@ -7,6 +7,7 @@ export class SessionService {
         this.$q = $q;
         this.WDDAlert = WDDAlert;
         this.$state = $state;
+        this.$log = $log;
     }
 
     init () {
@@ -24,7 +25,7 @@ export class SessionService {
                 this.$state.go(destinationPage);
             })
             .catch(err => {
-                console.error(err);
+                this.$log.debug(err);
             });
     }
 

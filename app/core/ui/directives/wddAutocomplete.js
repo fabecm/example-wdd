@@ -55,7 +55,6 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 } else {
                     scope.model = {};
                 }
-                $log.debug(scope.model);
             };
 
             scope.initAutocomplete = () => {

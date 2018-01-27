@@ -4,7 +4,7 @@ import ChartJs from 'chart.js';
 import { random } from 'faker';
 import template from './doughnutChart.template.html';
 
-export function DoughnutChart ($timeout, $state, $log) {
+export function DoughnutChart ($timeout, $state) {
     'ngInject';
 
     return {
@@ -112,7 +112,7 @@ export function DoughnutChart ($timeout, $state, $log) {
                 scope.arrayBackgroundColor = arrayBackgroundColor;
                 scope.showLegend = !!labelArray.length;
 
-                let myChart = new ChartJs(ctx, {
+                let myChart = new ChartJs(ctx, { // eslint-disable-line no-unused-vars
                     type: 'doughnut',
                     data: {
                         datasets: [{
@@ -136,7 +136,6 @@ export function DoughnutChart ($timeout, $state, $log) {
                         }
                     }
                 });
-                $log.debug(myChart, labelArray);
 
                 scope.goToChild = (index) => {
                     $state.go(scope.arrayValues[index].childPage);

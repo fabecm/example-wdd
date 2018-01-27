@@ -1,6 +1,6 @@
 import template from './wddFilter.template.html';
 
-export function WddFilter ($log, $q, ClassificationService) {
+export function WddFilter ($log, $q, ClassificationService, WddCacheService, $state) {
     'ngInject';
     return {
         scope: {
@@ -8,8 +8,11 @@ export function WddFilter ($log, $q, ClassificationService) {
         },
         template: template,
         link: (scope) => {
+            scope.filterKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
+            console.log('FILTER_KEY: ', scope.filterKey);
             scope.filtersArray = [];
-            scope.filterSetted = [];
+            // scope.filterSetted = [];
+            scope.filterSetted = WddCacheService.getCachedFilter(scope.filterKey) ? WddCacheService.getCachedFilter(scope.filterKey) : [];
 
             scope.promises = {};
 
@@ -23,19 +26,9 @@ export function WddFilter ($log, $q, ClassificationService) {
             scope.statusChosen = scope.filterStatus[0];
             scope.filterArrayBase = [];
 
-            // let getBootstrap = () => {
-            //     DatasourceService.getBootstrap().then(res => {
-            //         scope.filterBootstrap = {
-            //             processOwner: res.data.process_owner,
-            //             systemOwner: res.data.system_owner
-            //         };
-            //     });
-            // };
-
             let initFilter = () => {
                 scope.filtersArray = [{}];
                 scope.filterArrayBase = [{}];
-                // getBootstrap();
             };
             initFilter();
 
@@ -43,6 +36,16 @@ export function WddFilter ($log, $q, ClassificationService) {
                 scope.isFilterActive = false;
                 scope.filtersArray.push([]);
             };
+
+            scope.$on('$destroy', () => {
+                WddCacheService.cacheFilter(scope.filterKey, {
+                    process_owner_id: scope.processOwnerChosen,
+                    system_owner_id: scope.systemOwnerChosen,
+                    status_code: scope.statusChosen,
+                    arrayFilter: scope.filterSetted,
+                    isFilterActive: scope.isFilterActive
+                });
+            });
 
             scope.removeFilter = (filter) => {
                 let indexElem = scope.filtersArray.indexOf(filter);

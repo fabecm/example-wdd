@@ -85,8 +85,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         });
                     }
 
-
-
                     scope.pageNumber = data.pages;
                     scope.pages = [...Array((scope.pageNumber ? scope.pageNumber: 1) + 1).keys()].slice(1, scope.pageNumber + 1);
                     scope.pages = scope.pages.map(pag => {
