@@ -37,6 +37,6 @@ export default angular.module('wdd.states', [])
             .state('tab.entityApprovalRequest', EntityApprovalRequestConfig)
             .state('tab.dashboardUserRequest', DashboardUserRequestConfig);
 
-        $urlRouterProvider.otherwise(DashboardSOConfig.url);
+        $urlRouterProvider.otherwise(SearchConfig.url);
     })
     .name;

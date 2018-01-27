@@ -7,5 +7,6 @@ export const stateConfig = {
     params: {},
     template: DashboardSOTemplate,
     controller: DashboardSOController,
-    controllerAs: 'vm'
+    controllerAs: 'vm',
+    pageId: 'DSBOARD_SO'
 };

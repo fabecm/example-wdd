@@ -1,18 +1,21 @@
 <div class="BaseTabsState">
     <div class="wdd-primary-header">
-        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 0}" ng-click="vm.selectedTab = 0;vm.goTo('tab.dashboardSO')">
+        <div class="wdd-tab" ng-if="vm.SOEnabled" ng-class="{'selected': vm.selectedTab == 0}" ng-click="vm.goTo('tab.dashboardSO')">
             <i class="icon icon-dashboard"></i>
-            <span>Dashboard <br /> System Owner</span>
+            <span ng-if="vm.numDashboards === 1">Dashboard</span>
+            <span ng-if="vm.numDashboards > 1">System Owner</span>
         </div>
-        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 1}" ng-click="vm.selectedTab = 1;vm.goTo('tab.dashboardRequest')">
+        <div class="wdd-tab" ng-if="vm.DQEnabled" ng-class="{'selected': vm.selectedTab == 1}" ng-click="vm.goTo('tab.dashboardRequest')">
             <i class="icon icon-dashboard"></i>
-            <span>Dashboard <br /> Data Quality</span>
+            <span ng-if="vm.numDashboards === 1">Dashboard</span>
+            <span ng-if="vm.numDashboards > 1">Data Quality</span>
         </div>
-        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 2}" ng-click="vm.selectedTab = 2;vm.goTo('tab.dashboardUserRequest')">
+        <div class="wdd-tab" ng-if="vm.UREnabled" ng-class="{'selected': vm.selectedTab == 2}" ng-click="vm.goTo('tab.dashboardUserRequest')">
             <i class="icon icon-dashboard"></i>
-            <span>Dashboard <br /> Utente Richiedente</span>
+            <span ng-if="vm.numDashboards === 1">Dashboard</span>
+            <span ng-if="vm.numDashboards > 1">Utente Richiedente</span>
         </div>
-        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 3}" ng-click="vm.selectedTab = 3;vm.goTo('tab.search')">
+        <div class="wdd-tab" ng-class="{'selected': vm.selectedTab == 3}" ng-click="vm.goTo('tab.search')">
             <i class="icon icon-ricerca"></i>
             <span>Consultazione</span>
         </div>

@@ -1,15 +1,31 @@
 export class SessionService {
-    constructor ($http, UserService, $q, WDDAlert) {
+    constructor ($http, UserService, RuleProfileService, $q, WDDAlert, $state) {
         'ngInject';
         this.$http = $http;
         this.userService = UserService;
+        this.ruleProfileService = RuleProfileService;
         this.$q = $q;
         this.WDDAlert = WDDAlert;
+        this.$state = $state;
     }
 
     init () {
         return this.getApiEntry()
-            .then(() => this.userService.getUser());
+            .then(() => this.userService.getUser())
+            .then(() => this.ruleProfileService.getRuleProfile())
+            .then(rules => {
+                const dashboardStatesEnabled = this.$state.get().filter(state => rules.dashboards.indexOf(state.pageId) >= 0);
+                let destinationPage = '';
+                if (dashboardStatesEnabled && dashboardStatesEnabled.length > 0) {
+                    destinationPage = dashboardStatesEnabled[0].name;
+                } else {
+                    destinationPage = 'tab.search';
+                }
+                this.$state.go(destinationPage);
+            })
+            .catch(err => {
+                console.error(err);
+            });
     }
 
     getApiEntry () {
