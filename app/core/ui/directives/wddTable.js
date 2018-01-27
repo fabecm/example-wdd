@@ -11,6 +11,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             expandableBool: '@',
             headerArrayExpandableObj: '@',
             isChildCheckedBool: '@',
+            stateToAbleChildCheck: '@',
             isChild: '@',
             isCheckedBool: '@',
             hasPrimaryNavigationBtn: '@',
@@ -38,6 +39,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
         link: (scope) => {
             scope.pages = [];
             scope.rawData = [];
+            scope.checkableChild = [];
             scope.currentPage = 1;
             scope.isSelectAll = {};
             scope.filterApplied = {};
@@ -71,12 +73,19 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                                     field.workspace = {
                                         id: e.workspace.id
                                     };
+                                    if (field.status.label === scope.stateToAbleChildCheck) {
+                                        field.ableCheck = true;
+                                    } else {
+                                        field.ableCheck = false;
+                                    }
                                     return field;
                                 });
                             }
                             return e;
                         });
                     }
+
+
 
                     scope.pageNumber = data.pages;
                     scope.pages = [...Array((scope.pageNumber ? scope.pageNumber: 1) + 1).keys()].slice(1, scope.pageNumber + 1);
@@ -108,7 +117,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.checkRowsSelection = () => {
                 if (scope.isChild) {
                     if (scope.isSelectAll.value) {
-                        scope.checkedElements = scope.rawData.map(e => e.data_fields);
+                        scope.checkedElements = scope.checkableChild.map(e => e.id_field);
                     } else {
                         scope.checkedElements = [];
                     }
@@ -137,7 +146,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     if (scope.isSelectAll.value) {
                         scope.isSelectAll.value = false;
                     }
-                    if (row.data.isChecked && (scope.checkedElements.length + 1) === scope.rawData.length) {
+                    if (row.data.isChecked && (scope.checkedElements.length + 1) === scope.checkableChild.length) {
                         scope.isSelectAll.value = true;
                     }
                     if (row.data.isChecked) {
@@ -198,7 +207,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 let dataVisiblePage = scope.rawData.slice(startIndex, endIndex);
 
                 return dataVisiblePage.map(elem => {
-                    const index = scope.checkedElements.findIndex((row_data) => row_data.id === elem.data_fields.id);
+                    const index = scope.checkedElements.findIndex((row_data) => {
+                        return row_data === elem.id_field;
+                    });
                     if (index >= 0) {
                         elem.isChecked = true;
                     } else {
@@ -393,6 +404,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 initData(scope);
 
                 scope.rawData = angular.copy(scope.serviceResponse);
+                scope.checkableChild = angular.copy(scope.rawData).filter(e => e.ableCheck);
 
                 if (!scope.pageSize) {
                     scope.pageSize = 10;

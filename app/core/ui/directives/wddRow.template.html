@@ -5,7 +5,10 @@
             <i class="icon" ng-class="{'icon-right-arrow': rowData.workspace.collapse, 'icon-down-arrow': !rowData.workspace.collapse}"></i>
         </button>
     </div>
-    <div ng-if="rowChecked">
+    <div ng-if="rowChecked && !isFromChildTable">
+        <input type="checkbox" ng-model="rowData.isChecked" ng-change="checkData()" />
+    </div>
+    <div ng-if="rowChecked && isFromChildTable && rowData.ableCheck">
         <input type="checkbox" ng-model="rowData.isChecked" ng-change="checkData()" />
     </div>
 </td>

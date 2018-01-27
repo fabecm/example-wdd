@@ -11,7 +11,8 @@
             <th ng-if="isChild" class="baseHeaderIconWidth"></th>
             <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
                 <div ng-if="isChecked">
-                    <input type="checkbox" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
+                    <input type="checkbox" ng-show="!isChild" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
+                    <input type="checkbox" ng-show="isChild && checkableChild.length > 0" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
                 </div>
             </th>
             <th ng-repeat="item in headerArray track by $index" resizable r-directions="['right']">
@@ -32,7 +33,8 @@
                 <td class="expandable-container" colspan="{{childCollspan()}}">
                     <wdd-table ng-if="data.data_fields" reload-data="vm.test" service-response-obj="{{ {array: data.data_fields} }}" header-array-obj="{{ {array: headerArrayExpandable} }}"
                         pagination-bool="{{ {boolean: pagination} }}" page-size-num="{{ {number: pageSize} }}" is-child="true"
-                        is-checked-bool="{{ {boolean: isChildChecked} }}" has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}"></wdd-table>
+                        is-checked-bool="{{ {boolean: isChildChecked} }}"
+                        has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}"></wdd-table>
                 </td>
             </tr>
 
