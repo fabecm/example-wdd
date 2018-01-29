@@ -49,6 +49,16 @@
             }
         }
 
+        &__input {
+            display: flex;
+            flex-direction: row;
+
+            i.glyphicon {
+                padding: 7px 0 7px 15px;
+                color: rgb(000, 155, 000);
+            }
+        }
+
         [readonly] {
             background-color: rgba(181, 180, 180, 0.3);
         }
