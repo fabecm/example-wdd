@@ -10,18 +10,22 @@
             <input id="attachFile" type="file" class="hiddenAttachFile" onchange="angular.element(this).scope().fileNameChanged(this.files)">
             <i class="icon icon-delete" ng-click="removeFile()"></i>
         </div>
+        <div class="file-manage" ng-if="canAddEntity">
+            <i class="icon icon-new" ng-click="addEntity()"></i>
+            <i class="icon icon-delete" ng-click="removeEntity()"></i>
+        </div>
     </div>
 
     <div class="attribute-value">
 
         <div ng-if="isTextArea">
             <textarea class="wdd-textarea" ng-model="model.value" ng-focus="setFocusOnAttribute(true)" ng-blur="setFocusOnAttribute(false)"
-                ng-change="valueChanged()" ng-disabled="!isEditable"></textarea>
+                ng-change="valueChanged()" ng-disabled="isEditable === 'false'"></textarea>
         </div>
 
         <div ng-if="isInput">
             <input class="wdd-input-text" ng-model="model.value" ng-focus="setFocusOnAttribute(true)" ng-blur="setFocusOnAttribute(false)"
-                ng-change="valueChanged()" ng-disabled="!isEditable"/>
+                ng-change="valueChanged()" ng-disabled="isEditable === 'false'"/>
         </div>
 
         <div ng-if="isRadioButton" ng-hide="true">
@@ -34,9 +38,9 @@
         </div>
 
         <div ng-if="isSelect">
-            <div class="wbb-select">
+            <div class="wbb-select" ng-disabled="isEditable === 'false'">
                 <select ng-model="model.value" ng-options="opt.label as opt.label for opt in domainValue" ng-focus="setFocusOnAttribute(true)"
-                    ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()" ng-disabled="!isEditable">
+                    ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()" ng-disabled="isEditable === 'false'">
                 </select>
                 <i class="icon icon-down-arrow"></i>
             </div>
