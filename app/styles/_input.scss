@@ -19,6 +19,12 @@
         }
     }
 
+    &[disabled="disabled"] {
+        &:after {
+            background: rgba(181, 180, 180, 0.0);
+        }
+    }
+
     &:after {
         content: '';
         position: absolute;

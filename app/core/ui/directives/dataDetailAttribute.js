@@ -1,6 +1,7 @@
 import template from './dataDetailAttribute.template.html';
 
 export function DataDetailAttribute () {
+    'ngInject';
     return {
         require: '^ngModel',
         scope: {
@@ -14,6 +15,7 @@ export function DataDetailAttribute () {
             domainObjValue: '@',
             originValue: '@',
             resetAttribute: '&',
+            addEntityFunction: '&',
             unlockAction: '&'
         },
         template: template,
@@ -23,13 +25,6 @@ export function DataDetailAttribute () {
             scope.isFocusEnabled = false;
 
             ngModel.$render = () => {
-                // if (ngModel.$modelValue) {
-                //     scope.model.value = ngModel.$modelValue;
-
-                //     if (scope.isCheckBox) {
-                //         setCheckboxModel(scope);
-                //     }
-                // }
                 scope.model.value = ngModel.$modelValue;
             };
 
@@ -58,6 +53,12 @@ export function DataDetailAttribute () {
                     scope.isSelect = true;
                     break;
                 case 'MULTISELECTLIST':
+                    scope.isCheckBox = true;
+                    break;
+                case 'CHECKBOXLIST':
+                    if (scope.attributeName === 'Data Source field input') {
+                        scope.canAddEntity = true;
+                    }
                     scope.isCheckBox = true;
                     break;
                 case 'FLAG':
@@ -113,6 +114,13 @@ export function DataDetailAttribute () {
                 ngModel.$setViewValue(scope.model.value);
                 ngModel.$render();
                 scope.unlockAction();
+            };
+
+            scope.addEntity = () => {
+                if (scope.isEditable === 'false') {
+                    return;
+                }
+                scope.addEntityFunction();
             };
         }
 
