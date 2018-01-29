@@ -1,6 +1,6 @@
 import template from './dataDetailAttribute.template.html';
 
-export function DataDetailAttribute (ModalService) {
+export function DataDetailAttribute () {
     'ngInject';
     return {
         require: '^ngModel',
@@ -56,7 +56,7 @@ export function DataDetailAttribute (ModalService) {
                     scope.isCheckBox = true;
                     break;
                 case 'CHECKBOXLIST':
-                    if (scope.attributeName === 'Data Source field input' || scope.attributeName === 'Data Source field output') {
+                    if (scope.attributeName === 'Data Source field input') {
                         scope.canAddEntity = true;
                     }
                     scope.isCheckBox = true;
@@ -117,6 +117,9 @@ export function DataDetailAttribute (ModalService) {
             };
 
             scope.addEntity = () => {
+                if (scope.isEditable === 'false') {
+                    return;
+                }
                 scope.addEntityFunction();
             };
         }
