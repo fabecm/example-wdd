@@ -103,53 +103,54 @@ export class ModificationWorkspaceController {
 
     isSendDisabled () {
         let numUndefined = 0;
-        let numChange = 0;
+        // let numChange = 0;
         if (!this.workspaceForm.short_description) {
             numUndefined += 1;
         }
-        if (this.workspaceForm.short_description !== this.originalShortDescription) {
-            numChange += 1;
-        }
+        // if (this.workspaceForm.short_description !== this.originalShortDescription) {
+        //     numChange += 1;
+        // }
 
         if (!this.workspaceForm.long_description) {
             numUndefined += 1;
         }
-        if (this.workspaceForm.long_description !== this.originalLongDescription) {
-            numChange += 1;
-        }
+        // if (this.workspaceForm.long_description !== this.originalLongDescription) {
+        //     numChange += 1;
+        // }
 
         if (!this.workspaceForm.start_date) {
             numUndefined += 1;
         }
-        if (this.workspaceForm.start_date !== this.originalStartDate) {
-            numChange += 1;
-        }
+        // if (this.workspaceForm.start_date !== this.originalStartDate) {
+        //     numChange += 1;
+        // }
 
         if (!this.workspaceForm.end_date) {
             numUndefined += 1;
         }
-        if (this.workspaceForm.end_date !== this.originalEndDate) {
-            numChange += 1;
-        }
+        // if (this.workspaceForm.end_date !== this.originalEndDate) {
+        //     numChange += 1;
+        // }
 
         if (!this.workspaceForm.utenteRichiedente || !this.workspaceForm.utenteRichiedente.value) {
             numUndefined += 1;
         }
-        if (this.workspaceForm.utenteRichiedente && this.workspaceForm.utenteRichiedente.value !== this.originalUtenteRichiedente) {
-            numChange += 1;
-        }
+        // if (this.workspaceForm.utenteRichiedente && this.workspaceForm.utenteRichiedente.value !== this.originalUtenteRichiedente) {
+        //     numChange += 1;
+        // }
 
-        if (this.workspaceForm.note !== this.originalNote) {
-            numChange += 1;
-        }
+        // if (this.workspaceForm.note !== this.originalNote) {
+        //     numChange += 1;
+        // }
 
         if (numUndefined > 0) {
             return true;
-        } else if (numChange > 0) {
-            return false;
-        } else if (numChange === 0) {
-            return true;
         }
+        // else if (numChange > 0) {
+        //     return false;
+        // } else if (numChange === 0) {
+        //     return true;
+        // }
         return false;
     }
 
