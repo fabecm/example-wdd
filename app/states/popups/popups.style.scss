@@ -21,6 +21,15 @@
 
         }
     }
+    &__body__new__workspace {
+        width: 850px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        .wwd-modal__row__input wdd-autocomplete .wdd-autocomplete{
+            width: 600px;
+        }
+
+    }
     &__body {
         width: 490px;
         margin-top: 5px;
@@ -34,6 +43,19 @@
     &__row {
         margin-top: 24px;
         margin-bottom: 24px;
+        &__titleNewWorkspace {
+            font-size: 11px;
+            color: #000000;
+
+            // stupid idea, but for that moment ok / kb
+            margin-top: 10px;
+            // /end of stupid idea
+            &--dark {
+                color: #37475F;
+                font-size: 14px;
+                margin-top: 5px;
+            }
+        }
         &__title {
             font-size: 11px;
             color: #B3C5E0;

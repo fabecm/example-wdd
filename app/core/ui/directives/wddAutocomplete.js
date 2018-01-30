@@ -109,24 +109,20 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             };
 
             scope.updateListValue = () => {
-                // To add autocomplete behaviour
                 if (scope.model.label.length > 2) {
                     const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendenceObj);
                     scope.promise = requestFilter;
                     requestFilter.then(res => {
                         scope.listValues = res;
                         scope.isListVisible = true;
-                        // scope.listValues = [{
-                        //     id: 1,
-                        //     label: 'test1'
-                        // }, {
-                        //     id: 2,
-                        //     label: 'test2'
-                        // }];
                     });
                 } else {
                     scope.listValues = scope.originalList;
                     scope.isListVisible = true;
+                    if (!scope.model.label) {
+                        ngModel.$setViewValue(undefined);
+                        ngModel.$render(scope.model);
+                    }
                 }
             };
         }
