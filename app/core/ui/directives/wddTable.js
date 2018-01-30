@@ -60,7 +60,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
                 const getTableDataPromise = TableService.getTableData(scope.tableKey, scope.filterApplied, scope.currentPage);
                 scope.promise = getTableDataPromise;
-
+                WddCacheService.cachePage(scope.cacheKey, scope.currentPage);
                 getTableDataPromise.then(data => {
                     scope.serviceResponse = data.dataTable;
                     scope.isErrored = false;
@@ -114,10 +114,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     scope.isErrored = true;
                 });
             };
-
-            scope.$on('$destroy', () => {
-                WddCacheService.cachePage(scope.cacheKey, scope.currentPage);
-            });
 
             scope.checkRowsSelection = () => {
                 if (scope.isChild) {
