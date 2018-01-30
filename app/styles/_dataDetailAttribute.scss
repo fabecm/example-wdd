@@ -15,6 +15,10 @@
         .file-manage {
             display: flex;
             flex-direction: row;
+
+            i {
+                cursor: pointer;
+            }
             
             .hiddenAttachFile {
                 display: none;

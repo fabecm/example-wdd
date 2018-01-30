@@ -8,7 +8,7 @@
     </div>
     <table ng-class="{'expandable-table': expandable}">
         <thead>
-            <th ng-if="isChild" class="baseHeaderIconWidth"></th>
+            <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
             <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
                 <div ng-if="isChecked">
                     <input type="checkbox" ng-show="!isChild" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
@@ -19,7 +19,7 @@
                 {{item.label}}
             </th>
             <th ng-if="hasIcon" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2, 'hasTreeIcon': iconNumber == 3}"></th>
-            <th ng-if="isChild" class="baseHeaderIconWidth"></th>
+            <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
         </thead>
         <tbody>
 
@@ -29,7 +29,7 @@
                 has-ternary-navigation-btn="ternaryNavigation" has-creation="hasCreation" is-from-child-table="isChild" check-row="checkValueChange({data: data})"
                 is-sas="isToSas"></tr>
 
-            <tr ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse}">
+            <tr class="collapsable" ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse, 'odd': $index % 2 !== 0, 'even': $index % 2 === 0}">
                 <td class="expandable-container" colspan="{{childCollspan()}}">
                     <wdd-table ng-if="data.data_fields" reload-data="vm.test" service-response-obj="{{ {array: data.data_fields} }}" header-array-obj="{{ {array: headerArrayExpandable} }}"
                         pagination-bool="{{ {boolean: pagination} }}" page-size-num="{{ {number: pageSize} }}" is-child="true"

@@ -114,6 +114,12 @@ export class DataDetailController {
         });
     }
 
+    addEntity () {
+        this.modalService.openNewWorkspaceRequests(this.workspaceId).then(() => {
+            this.initDataDetails();
+        });
+    }
+
     showAttributeBody (detail) {
         // this.changeAllDetailStatus(false);
         detail.isOpened = !detail.isOpened;

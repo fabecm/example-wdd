@@ -35,10 +35,10 @@ export function DashboardFilter ($log, $state, WddCacheService) {
             // getStatusList(scope, FilterWorkspace);
 
             scope.startDate = 'GG/MM/AAAA';
-            scope.labelStartDate = 'Data inizio';
+            scope.labelStartDate = 'Data inizio dal';
 
             scope.endDate = 'GG/MM/AAAA';
-            scope.labelEndDate = 'Data fine';
+            scope.labelEndDate = 'Data fine al';
 
             scope.resetFilter = () => {
                 scope.workspaceSelected = {};

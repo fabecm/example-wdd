@@ -42,7 +42,7 @@ export class SearchWorkspaceService {
         let pathQuery = new QueryParams({
             pageNumber: pageNumber,
             pageLength: pageLength,
-            workspaceId: filterApplied.workspaceSelected,
+            workspace_id: filterApplied.workspaceSelected,
             description: filterApplied.descriptionSelected,
             startDate: startDate,
             endDate: endDate,

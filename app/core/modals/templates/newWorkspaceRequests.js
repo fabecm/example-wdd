@@ -11,13 +11,13 @@ export class NewWorkspaceRequestsController {
 
     inputChanged (type) {
         switch (type) {
-            case 'ALL':
-                this.systemOwnerSelected = undefined;
-                this.technicalApplication = undefined;
-                this.dataSource = undefined;
-                this.dataTable = undefined;
-                this.dataField = undefined;
-                break;
+            // case 'ALL':
+            //     this.systemOwnerSelected = undefined;
+            //     this.technicalApplication = undefined;
+            //     this.dataSource = undefined;
+            //     this.dataTable = undefined;
+            //     this.dataField = undefined;
+            //     break;
             case 'SO':
                 this.technicalApplication = undefined;
                 this.dataSource = undefined;
@@ -90,7 +90,9 @@ export class NewWorkspaceRequestsController {
                 if (operation === 'save') {
                     this.$uibModalInstance.close();
                 } else if (operation === 'new') {
-                    this.inputChanged('ALL');
+                    this.$uibModalInstance.close();
+                    this.modalService.openNewWorkspaceRequests();
+                    // this.inputChanged('ALL');
                 }
             });
         }
