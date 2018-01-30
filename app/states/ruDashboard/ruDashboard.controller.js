@@ -41,12 +41,13 @@ export class RuDashboardController {
         value: 'status'
     }];
 
-    constructor ($q, $state, $timeout, ModalService) {
+    constructor ($q, $state, $timeout, ModalService, WddCacheService) {
         'ngInject';
         this.$q = $q;
         this.$state = $state;
         this.$timeout = $timeout;
         this.modalService = ModalService;
+        this.wddCacheService = WddCacheService;
 
         this.initRuDashboard();
     }

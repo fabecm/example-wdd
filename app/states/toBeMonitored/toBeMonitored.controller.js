@@ -21,7 +21,7 @@ export class ToBeMonitoredController {
         value: 'status'
     }, {
         label: 'Avanzamento',
-        value: 'step'
+        value: 'process'
     }];
 
     headerTableExpandable = [{
