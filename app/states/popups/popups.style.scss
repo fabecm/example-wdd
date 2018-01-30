@@ -28,7 +28,6 @@
         .wwd-modal__row__input wdd-autocomplete .wdd-autocomplete{
             width: 600px;
         }
-
     }
     &__body {
         width: 490px;
@@ -43,6 +42,9 @@
     &__row {
         margin-top: 24px;
         margin-bottom: 24px;
+        .createEntity wdd-autocomplete .wdd-autocomplete{
+            width: 450px;
+        }
         &__titleNewWorkspace {
             font-size: 11px;
             color: #000000;

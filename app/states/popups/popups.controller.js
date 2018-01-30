@@ -18,5 +18,9 @@ export class PopupsController {
         this.open5 = () => {
             this.ModalService.openMassiveManagmentModal();
         };
+
+        this.open6 = () => {
+            this.ModalService.openCreateEntity();
+        };
     }
 }
