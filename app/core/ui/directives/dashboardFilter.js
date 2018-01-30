@@ -4,7 +4,8 @@ export function DashboardFilter ($log, $state, WddCacheService) {
     'ngInject';
     return {
         scope: {
-            appliedFilter: '&'
+            appliedFilter: '&',
+            typePage: '@'
         },
         template: template,
         link: (scope) => {
