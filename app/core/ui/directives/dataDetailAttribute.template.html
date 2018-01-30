@@ -10,7 +10,7 @@
             <input id="attachFile" type="file" class="hiddenAttachFile" onchange="angular.element(this).scope().fileNameChanged(this.files)">
             <i class="icon icon-delete" ng-click="removeFile()"></i>
         </div>
-        <div class="file-manage" ng-if="canAddEntity">
+        <div class="file-manage" ng-if="canAddEntity && isEditable === 'false'">
             <i class="icon icon-new" ng-click="addEntity()"></i>
             <i class="icon icon-delete" ng-click="removeEntity()"></i>
         </div>

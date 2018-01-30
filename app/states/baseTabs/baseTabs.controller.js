@@ -1,7 +1,8 @@
 export class BaseTabsCtrl {
-    constructor ($state, RuleProfileService, $transitions) {
+    constructor ($state, RuleProfileService, $transitions, WddCacheService) {
         'ngInject';
         this.$state = $state;
+        this.wddCacheService = WddCacheService;
 
         this.setSelectedTab(this.$state.$current.name);
 
@@ -24,12 +25,15 @@ export class BaseTabsCtrl {
         switch (stateName) {
             case 'tab.dashboardSO':
                 this.selectedTab = 0;
+                this.wddCacheService.clearAllCache();
                 break;
             case 'tab.dashboardRequest':
                 this.selectedTab = 1;
+                this.wddCacheService.clearAllCache();
                 break;
             case 'tab.dashboardUserRequest':
                 this.selectedTab = 2;
+                this.wddCacheService.clearAllCache();
                 break;
             case 'tab.search':
                 this.selectedTab = 3;

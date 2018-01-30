@@ -80,30 +80,23 @@ export class SearchController {
         value: 'last_change'
     }];
 
-    constructor (DataService, DatasourceService, $timeout) {
+    constructor (DataService, DatasourceService, $timeout, WddCacheService) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
         this.$timeout = $timeout;
+        this.wddCacheService = WddCacheService;
 
-        // this.getBootstrap();
-        // this.loadData();
+        this.initSearchPage();
     }
 
-    // loadData (params) {
-    //     this.dataService.getData(params)
-    //     .then(searchData => {
-    //         this.rawData = angular.copy(searchData.data.OutputArray);
-    //         this.dataList = searchData.data.OutputArray;
-    //         let numPages = Math.ceil(this.dataList.length / this.pageSize);
-
-    //         // slice data per current page
-    //         this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-    //         // create an array of pages to ng-repeat, + 1 for a correct number
-    //         this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
-    //     });
-    // }
+    initSearchPage () {
+        if (this.wddCacheService.getCachedFilter('filter_tab_search')) {
+            let param = {};
+            param.resetPage = false;
+            this.mapFilterSetted(param, this.wddCacheService.getCachedFilter('filter_tab_search'));
+        }
+    }
 
     changeTab (tab) {
         this.selectedTab = tab;
@@ -113,6 +106,10 @@ export class SearchController {
         let param = {};
         param.resetPage = true;
 
+        this.mapFilterSetted(param, arrayFilter);
+    }
+
+    mapFilterSetted (param, arrayFilter) {
         if (arrayFilter.process_owner_id) {
             param.process_owner_id = arrayFilter.process_owner_id;
         } else {
@@ -130,19 +127,6 @@ export class SearchController {
             param.array_filter_text = arrayFilter.arrayFilter;
         }
 
-        // this.dataService.getData(param)
-        // .then(searchData => {
-        //     this.rawData = angular.copy(searchData.data.OutputArray);
-        //     // this.dataList = searchData.data.OutputArray;
-        //     let tableEntity = getEntityTable();
-        //     this.rawDataEntity = tableEntity.data.OutputArray;
-        //     // let numPages = Math.ceil(this.dataList.length / this.pageSize);
-
-        //     // this.dataList = this.sliceDataToShow(this.currentPage, this.pageSize);
-
-        //     // this.pages = [...Array(numPages + 1).keys()].slice(1, numPages + 1);
-        // });
-
         this.$timeout(() => {
             this.showTab = true;
             this.reloadTableData({
@@ -150,131 +134,4 @@ export class SearchController {
             });
         });
     }
-
-    // getBootstrap () {
-    //     this.datasourceService.getBootstrap().then(res => {
-    //         this.filterBootstrap = {
-    //             processOwner: res.data.process_owner,
-    //             systemOwner: res.data.system_owner
-    //         };
-    //     });
-    // }
 }
-
-// function getEntityTable () {
-//     return {
-//         data: {
-//             OutputArray: [
-//                 {
-//                     term_type: {
-//                         label: 'Term type 1',
-//                         value: 1
-//                     },
-//                     term_name: {
-//                         label: 'Term name 1',
-//                         value: 1
-//                     },
-//                     description: {
-//                         label: 'Description 1',
-//                         value: 1
-//                     },
-//                     state: {
-//                         label: 'Stato 1',
-//                         value: 1
-//                     },
-//                     last_change: {
-//                         label: '30/06/2006',
-//                         value: 1
-//                     }
-//                 },
-//                 {
-//                     term_type: {
-//                         label: 'Term type 2',
-//                         value: 2
-//                     },
-//                     term_name: {
-//                         label: 'Term name 2',
-//                         value: 2
-//                     },
-//                     description: {
-//                         label: 'Description 2',
-//                         value: 2
-//                     },
-//                     state: {
-//                         label: 'Stato 2',
-//                         value: 2
-//                     },
-//                     last_change: {
-//                         label: '30/06/2006',
-//                         value: 2
-//                     }
-//                 },
-//                 {
-//                     term_type: {
-//                         label: 'Term type 3',
-//                         value: 3
-//                     },
-//                     term_name: {
-//                         label: 'Term name 3',
-//                         value: 3
-//                     },
-//                     description: {
-//                         label: 'Description 3',
-//                         value: 3
-//                     },
-//                     state: {
-//                         label: 'Stato 3',
-//                         value: 3
-//                     },
-//                     last_change: {
-//                         label: '30/06/2006',
-//                         value: 3
-//                     }
-//                 }, {
-//                     term_type: {
-//                         label: 'Term type 4',
-//                         value: 4
-//                     },
-//                     term_name: {
-//                         label: 'Term name 4',
-//                         value: 4
-//                     },
-//                     description: {
-//                         label: 'Description 4',
-//                         value: 4
-//                     },
-//                     state: {
-//                         label: 'Stato 4',
-//                         value: 4
-//                     },
-//                     last_change: {
-//                         label: '30/06/2006',
-//                         value: 4
-//                     }
-//                 },
-//                 {
-//                     term_type: {
-//                         label: 'Term type 5',
-//                         value: 5
-//                     },
-//                     term_name: {
-//                         label: 'Term name 5',
-//                         value: 5
-//                     },
-//                     description: {
-//                         label: 'Description 5',
-//                         value: 5
-//                     },
-//                     state: {
-//                         label: 'Stato 5',
-//                         value: 5
-//                     },
-//                     last_change: {
-//                         label: '30/06/2006',
-//                         value: 5
-//                     }
-//                 }
-//             ]
-//         }
-//     };
-// }

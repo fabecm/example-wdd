@@ -129,6 +129,7 @@ export class ModalService {
             controllerAs: 'vm',
             backdrop: 'static',
             keyboard: false,
+            size: 'lg',
             scope: angular.extend(this.$rootScope, {
                 workspaceId: workspaceId
             }),

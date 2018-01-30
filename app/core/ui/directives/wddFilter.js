@@ -1,6 +1,6 @@
 import template from './wddFilter.template.html';
 
-export function WddFilter ($log, $q, ClassificationService) {
+export function WddFilter ($log, $q, ClassificationService, WddCacheService, $state) {
     'ngInject';
     return {
         scope: {
@@ -8,8 +8,17 @@ export function WddFilter ($log, $q, ClassificationService) {
         },
         template: template,
         link: (scope) => {
+            scope.filterKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
             scope.filtersArray = [];
-            scope.filterSetted = [];
+            if (WddCacheService.getCachedFilter(scope.filterKey)) {
+                scope.filterSetted = WddCacheService.getCachedFilter(scope.filterKey).arrayFilter ? WddCacheService.getCachedFilter(scope.filterKey).arrayFilter : [];
+                scope.isFilterActive = WddCacheService.getCachedFilter(scope.filterKey).isFilterActive ? WddCacheService.getCachedFilter(scope.filterKey).isFilterActive : WddCacheService.getCachedFilter(scope.filterKey).isFilterActive;
+                scope.processOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).process_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).process_owner_id : undefined;
+                scope.systemOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).system_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).system_owner_id : undefined;
+                scope.statusChosen = WddCacheService.getCachedFilter(scope.filterKey).status_code ? WddCacheService.getCachedFilter(scope.filterKey).status_code : undefined;
+            } else {
+                scope.filterSetted = [];
+            }
 
             scope.promises = {};
 
@@ -23,19 +32,9 @@ export function WddFilter ($log, $q, ClassificationService) {
             scope.statusChosen = scope.filterStatus[0];
             scope.filterArrayBase = [];
 
-            // let getBootstrap = () => {
-            //     DatasourceService.getBootstrap().then(res => {
-            //         scope.filterBootstrap = {
-            //             processOwner: res.data.process_owner,
-            //             systemOwner: res.data.system_owner
-            //         };
-            //     });
-            // };
-
             let initFilter = () => {
                 scope.filtersArray = [{}];
                 scope.filterArrayBase = [{}];
-                // getBootstrap();
             };
             initFilter();
 
@@ -88,6 +87,14 @@ export function WddFilter ($log, $q, ClassificationService) {
 
                 param.arrayFilter = array.array_filter_text;
 
+                WddCacheService.cacheFilter(scope.filterKey, {
+                    process_owner_id: scope.processOwnerChosen,
+                    system_owner_id: scope.systemOwnerChosen,
+                    status_code: scope.statusChosen.label,
+                    arrayFilter: scope.filterSetted,
+                    isFilterActive: scope.isFilterActive
+                });
+
                 $log.debug(param);
                 scope.appliedFilter({
                     filterApplied: param
@@ -108,6 +115,7 @@ export function WddFilter ($log, $q, ClassificationService) {
                 scope.statusChosen = scope.filterStatus[0];
                 scope.filterSetted = [];
                 scope.filtersArray = scope.filterArrayBase;
+                WddCacheService.unCacheFilter(scope.filterKey);
             };
 
             scope.updateEntity = (filter, filterSetted) => {

@@ -21,7 +21,7 @@ export class ToBeMonitoredController {
         value: 'status'
     }, {
         label: 'Avanzamento',
-        value: 'step'
+        value: 'process'
     }];
 
     headerTableExpandable = [{
@@ -44,26 +44,24 @@ export class ToBeMonitoredController {
         value: 'status'
     }];
 
-    constructor ($q, $state, $timeout) {
+    constructor ($q, $state, $timeout, WddCacheService) {
         'ngInject';
         this.$q = $q;
         this.$state = $state;
         this.$timeout = $timeout;
+        this.wddCacheService = WddCacheService;
 
         this.initToBeMonitored();
     }
 
     initToBeMonitored () {
-        // getHeader(this.$q).then(headerRes => {
-        //     this.headerTable = headerRes;
-        // });
-        // getHeaderExpandable(this.$q).then(headerExpRes => {
-        //     this.headerTableExpandable = headerExpRes;
-        // });
-
+        let param = {};
+        if (this.wddCacheService.getCachedFilter('filter_tab_toBeMonitored')) {
+            param = this.wddCacheService.getMapDashboardFilter('filter_tab_toBeMonitored');
+            param.resetPage = false;
+        }
+        param.type = 'attivi';
         this.$timeout(() => {
-            let param = {};
-            param.type = 'attivi';
             this.reloadTableData({
                 filterSetted: param
             });
@@ -79,6 +77,7 @@ export class ToBeMonitoredController {
     filterChanged (filterApplied) {
         let param = filterApplied;
         param.type = 'attivi';
+        param.resetPage = true;
 
         this.$timeout(() => {
             this.reloadTableData({
@@ -87,48 +86,3 @@ export class ToBeMonitoredController {
         });
     }
 }
-
-// function getHeader ($q) {
-//     let defer = $q.defer();
-//     defer.resolve([{
-//         label: 'Workspace',
-//         value: 'workspace'
-//     }, {
-//         label: 'Descrizione',
-//         value: 'description'
-//     }, {
-//         label: 'Data Inizio',
-//         value: 'start_date'
-//     }, {
-//         label: 'Data Fine',
-//         value: 'end_date'
-//     }, {
-//         label: 'Stato',
-//         value: 'state'
-//     }, {
-//         label: 'Avanzamento',
-//         value: 'step'
-//     }]);
-//     return defer.promise;
-// }
-
-// function getHeaderExpandable ($q) {
-//     let defer = $q.defer();
-//     defer.resolve([{
-//         label: 'Data Field',
-//         value: 'data_field'
-//     }, {
-//         label: 'Data Table',
-//         value: 'data_table'
-//     }, {
-//         label: 'Data Source',
-//         value: 'data_source'
-//     }, {
-//         label: 'Technical Application',
-//         value: 'tech_appl'
-//     }, {
-//         label: 'System owner',
-//         value: 'system_owner'
-//     }]);
-//     return defer.promise;
-// }

@@ -3,14 +3,14 @@
         <h class="" id="modal-title">Richiesta documentazione dato</h>
     </div>
     <div class="wwd-modal__body__container" id="modal-body">
-        <div class="wwd-modal__body">
+        <div class="wwd-modal__body__new__workspace">
 
             <div class="row wwd-modal__row">
-                <div class="col-xs-4 wwd-modal__row__title">
+                <div class="col-xs-3 wwd-modal__row__titleNewWorkspace">
                     System Owner
 
                 </div>
-                <div class="col-xs-8 wwd-modal__row__input">
+                <div class="col-xs-9 wwd-modal__row__input">
                     <wdd-autocomplete ng-model="vm.systemOwnerSelected.value" type="newRequestSO" ng-change="vm.inputChanged('SO')" new-value="true"
                         promise="vm.systemOwnerPromise">
                     </wdd-autocomplete>
@@ -18,11 +18,11 @@
                 </div>
             </div>
             <div class="row wwd-modal__row">
-                <div class="col-xs-4 wwd-modal__row__title">
+                <div class="col-xs-3 wwd-modal__row__titleNewWorkspace">
                     Technical Application
 
                 </div>
-                <div class="col-xs-8 wwd-modal__row__input">
+                <div class="col-xs-9 wwd-modal__row__input">
                     <wdd-autocomplete ng-model="vm.technicalApplication.value" type="newRequestTA" ng-change="vm.inputChanged('TA')" new-value="true"
                         required-dependence="true" dipendence="{{ [vm.systemOwnerSelected.value] }}" is-editable="vm.isTechApplEditable()"
                         promise="vm.techApplPromise">
@@ -31,11 +31,11 @@
                 </div>
             </div>
             <div class="row wwd-modal__row">
-                <div class="col-xs-4 wwd-modal__row__title">
+                <div class="col-xs-3 wwd-modal__row__titleNewWorkspace">
                     Data Source
 
                 </div>
-                <div class="col-xs-8 wwd-modal__row__input">
+                <div class="col-xs-9 wwd-modal__row__input">
                     <wdd-autocomplete ng-model="vm.dataSource.value" type="newRequestDS" ng-change="vm.inputChanged('DS')" new-value="true" required-dependence="true"
                         dipendence="{{ [vm.technicalApplication.value] }}" is-editable="vm.isDataSourceEditable()" promise="vm.dataSourcePromise">
                     </wdd-autocomplete>
@@ -43,11 +43,11 @@
                 </div>
             </div>
             <div class="row wwd-modal__row">
-                <div class="col-xs-4 wwd-modal__row__title">
+                <div class="col-xs-3 wwd-modal__row__titleNewWorkspace">
                     Data Table
 
                 </div>
-                <div class="col-xs-8 wwd-modal__row__input">
+                <div class="col-xs-9 wwd-modal__row__input">
                     <wdd-autocomplete ng-model="vm.dataTable.value" type="newRequestDT" new-value="true" required-dependence="true" dipendence="{{ [vm.dataSource.value] }}"
                         is-editable="vm.areDataTableFieldEditable()" promise="vm.dataTablePromise">
                     </wdd-autocomplete>
@@ -55,11 +55,11 @@
                 </div>
             </div>
             <div class="row wwd-modal__row">
-                <div class="col-xs-4 wwd-modal__row__title">
+                <div class="col-xs-3 wwd-modal__row__titleNewWorkspace">
                     Data Field
 
                 </div>
-                <div class="col-xs-8 wwd-modal__row__input">
+                <div class="col-xs-9 wwd-modal__row__input">
                     <wdd-autocomplete ng-model="vm.dataField.value" type="newRequestDF" new-value="true" required-dependence="true" dipendence="{{ [vm.dataSource.value] }}"
                         is-editable="vm.areDataTableFieldEditable()" promise="vm.dataFieldPromise">
                     </wdd-autocomplete>
@@ -68,11 +68,11 @@
             </div>
 
             <div class="row wwd-modal__row">
-                <div class="col-xs-4 wwd-modal__row__title">
+                <div class="col-xs-3 wwd-modal__row__titleNewWorkspace">
                     Rilevanza Business
 
                 </div>
-                <div class="col-xs-8">
+                <div class="col-xs-9">
                     <input type="checkbox" ng-model="vm.rilevanzaBusiness.value">
                 </div>
             </div>

@@ -44,16 +44,19 @@ export class FilterWorkspace {
             case 'workspace':
                 path += this.checkProperty(dipendence[0], 'description_id');
                 path += this.checkProperty(dipendence[1], 'status_id');
+                path += this.checkProperty(dipendence[2], 'type');
                 return this.$http.get(`WDD/filter/workspace?workspaceType=${type}${path}`);
 
             case 'description':
                 path += this.checkProperty(dipendence[0], 'workspace_id');
                 path += this.checkProperty(dipendence[1], 'status_id');
+                path += this.checkProperty(dipendence[2], 'type');
                 return this.$http.get(`WDD/filter/workspace?workspaceType=${type}${path}`);
 
             case 'status':
                 path += this.checkProperty(dipendence[0], 'workspace_id');
                 path += this.checkProperty(dipendence[1], 'description_id');
+                path += this.checkProperty(dipendence[2], 'type');
                 return this.$http.get(`WDD/filter/workspace?workspaceType=${type}${path}`);
 
             default:

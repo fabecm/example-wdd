@@ -1,6 +1,6 @@
 import template from './wddTable.template.html';
 
-export function WddTable ($log, $timeout, $state, ModalService, TableService, WDDAlert, SessionService) {
+export function WddTable ($log, $timeout, $state, ModalService, TableService, WDDAlert, SessionService, WddCacheService) {
     'ngInject';
     return {
         scope: {
@@ -44,6 +44,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.isSelectAll = {};
             scope.filterApplied = {};
             scope.checkedElements = [];
+            scope.cacheKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
 
             scope.reloadData = (filter) => {
                 // $log.debug('filter', filter);
@@ -53,11 +54,13 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
                 if (filter && filter.filterSetted && filter.filterSetted.resetPage) {
                     scope.currentPage = 1;
+                } else if (filter && filter.filterSetted && !filter.filterSetted.resetPage && WddCacheService.getCachedFilter(scope.cacheKey)) {
+                    scope.currentPage = WddCacheService.getCachedFilter(scope.cacheKey).page;
                 }
 
                 const getTableDataPromise = TableService.getTableData(scope.tableKey, scope.filterApplied, scope.currentPage);
                 scope.promise = getTableDataPromise;
-
+                WddCacheService.cachePage(scope.cacheKey, scope.currentPage);
                 getTableDataPromise.then(data => {
                     scope.serviceResponse = data.dataTable;
                     scope.isErrored = false;
@@ -73,7 +76,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                                     field.workspace = {
                                         id: e.workspace.id
                                     };
-                                    if (field.status.label === scope.stateToAbleChildCheck) {
+                                    if (field.status && field.status.label === scope.stateToAbleChildCheck) {
                                         field.ableCheck = true;
                                     } else {
                                         field.ableCheck = false;
