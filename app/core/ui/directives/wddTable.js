@@ -76,7 +76,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                                     field.workspace = {
                                         id: e.workspace.id
                                     };
-                                    if (field.status.label === scope.stateToAbleChildCheck) {
+                                    if (field.status && field.status.label === scope.stateToAbleChildCheck) {
                                         field.ableCheck = true;
                                     } else {
                                         field.ableCheck = false;

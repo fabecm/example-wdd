@@ -45,7 +45,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                         let itemApplied = scope.listValues.find(item => item.id === ngModel.$modelValue);
 
                         if (itemApplied) {
-                            scope.model = itemApplied;
+                            scope.model = angular.copy(itemApplied);
                         } else if (scope.newValue) {
                             scope.model = newVal;
                         } else {
