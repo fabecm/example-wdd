@@ -74,23 +74,39 @@ doughnut-chart {
         flex-direction: column;
         flex: 1;
 
-        .chart-legend {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+        .container-block {
+            width: 100%;
             
-            .lf-block {
-                width: 50px;
-                text-align: right;
-                cursor: pointer;
-                font-size: 30px;
-            }
-            
-            .right-block {
-                width: calc(100% - 70px);
-                padding-left: 20px;
-                cursor: pointer;
-                font-size: 30px;
+            .chart-legend {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                
+                .lf-block {
+                    width: 50px;
+                    text-align: right;
+                    cursor: pointer;
+                    font-size: 30px;
+                    @media screen and (max-width: 1024px) {
+                        font-size: 20px;
+                    }
+                    @media screen and (max-width: 1280px) and (min-width: 1025px) {
+                        font-size: 28px;
+                    }
+                }
+                
+                .right-block {
+                    width: calc(100% - 70px);
+                    padding-left: 20px;
+                    cursor: pointer;
+                    font-size: 30px;
+                    @media screen and (max-width: 1024px) {
+                        font-size: 20px;
+                    }
+                    @media screen and (max-width: 1280px) and (min-width: 1025px) {
+                        font-size: 28px;
+                    }
+                }
             }
         }
     }
