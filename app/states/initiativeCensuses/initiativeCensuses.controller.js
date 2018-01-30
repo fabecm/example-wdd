@@ -43,22 +43,25 @@ export class InitiativeCensusesController {
         value: 'data_scadenza'
     }];
 
-    constructor ($state, $timeout, ModalService) {
+    constructor ($state, $timeout, ModalService, WddCacheService) {
         'ngInject';
         this.$timeout = $timeout;
         this.$state = $state;
         this.modalService = ModalService;
+        this.wddCacheService = WddCacheService;
 
         this.initInitiativeCensuses();
     }
 
     initInitiativeCensuses () {
-        this.$timeout(() => {
-            let param = {};
-            this.reloadTableData({
-                filterSetted: param
-            });
-        });
+        let param = {};
+        let filter = {};
+        if (this.wddCacheService.getCachedFilter('filter_tab_initiativeCensuses')) {
+            param.resetPage = false;
+            filter = this.wddCacheService.getCachedFilter('filter_tab_initiativeCensuses');
+        }
+
+        this.mapFilterSetted(param, filter);
     }
 
     changeChild () {
@@ -96,12 +99,15 @@ export class InitiativeCensusesController {
         });
     }
 
-
     filterChanged (filterApplied) {
-        let param = filterApplied;
-        this.filterApplied = filterApplied;
-
+        let param = {};
         param.resetPage = true;
+
+        this.mapFilterSetted(param, filterApplied);
+    }
+
+    mapFilterSetted (param, filterApplied) {
+        this.filterApplied = filterApplied;
 
         if (filterApplied.process_owner_id) {
             param.process_owner_id = filterApplied.process_owner_id;

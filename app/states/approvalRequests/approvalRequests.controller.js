@@ -43,21 +43,25 @@ export class ApprovalRequestsController {
         value: 'data_scadenza'
     }];
 
-    constructor ($timeout, $state, ModalService) {
+    constructor ($timeout, $state, ModalService, WddCacheService) {
         'ngInject';
         this.$timeout = $timeout;
         this.$state = $state;
         this.modalService = ModalService;
+        this.wddCacheService = WddCacheService;
 
         this.initApprovalRequest();
     }
 
     initApprovalRequest () {
-        this.$timeout(() => {
-            this.reloadTableData({
-                filterSetted: {}
-            });
-        });
+        let param = {};
+        let filter = {};
+        if (this.wddCacheService.getCachedFilter('filter_tab_approvalRequests')) {
+            param.resetPage = false;
+            filter = this.wddCacheService.getCachedFilter('filter_tab_approvalRequests');
+        }
+
+        this.mapFilterSetted(param, filter);
     }
 
     changeChild () {
@@ -118,6 +122,10 @@ export class ApprovalRequestsController {
         let param = {};
         param.resetPage = true;
 
+        this.mapFilterSetted(param, arrayFilter);
+    }
+
+    mapFilterSetted (param, arrayFilter) {
         if (arrayFilter.process_owner_id) {
             param.process_owner_id = arrayFilter.process_owner_id;
         } else {

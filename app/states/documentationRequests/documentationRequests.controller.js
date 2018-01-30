@@ -53,20 +53,25 @@ export class DocumentationRequestsController {
         value: 'status'
     }];
 
-    constructor (DataService, DatasourceService, $state, $timeout, ModalService) {
+    constructor (DataService, DatasourceService, $state, $timeout, ModalService, WddCacheService) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
         this.$state = $state;
         this.$timeout = $timeout;
         this.modalService = ModalService;
+        this.wddCacheService = WddCacheService;
 
         this.initDocumentationRequest();
     }
 
     initDocumentationRequest () {
+        let param = {};
+        if (this.wddCacheService.getCachedFilter('filter_tab_documentationRequests')) {
+            param = this.wddCacheService.getMapDashboardFilter('filter_tab_documentationRequests');
+            param.resetPage = false;
+        }
         this.$timeout(() => {
-            let param = {};
             this.reloadTableData({
                 filterSetted: param
             });
@@ -91,6 +96,7 @@ export class DocumentationRequestsController {
 
     filterChanged (filterApplied) {
         let param = filterApplied;
+        param.resetPage = true;
         this.filterApplied = filterApplied;
 
         this.$timeout(() => {

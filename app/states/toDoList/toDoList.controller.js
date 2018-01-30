@@ -43,11 +43,12 @@ export class ToDoListController {
         value: 'data_scadenza'
     }];
 
-    constructor ($state, $timeout, ModalService) {
+    constructor ($state, $timeout, ModalService, WddCacheService) {
         'ngInject';
         this.$state = $state;
         this.$timeout = $timeout;
         this.modalService = ModalService;
+        this.wddCacheService = WddCacheService;
 
         this.initToDoList();
     }
@@ -59,12 +60,14 @@ export class ToDoListController {
     }
 
     initToDoList () {
-        this.$timeout(() => {
-            let param = {};
-            this.reloadTableData({
-                filterSetted: param
-            });
-        });
+        let param = {};
+        let filter = {};
+        if (this.wddCacheService.getCachedFilter('filter_tab_toDoList')) {
+            param.resetPage = false;
+            filter = this.wddCacheService.getCachedFilter('filter_tab_toDoList');
+        }
+
+        this.mapFilterSetted(param, filter);
     }
 
     forwardToApprove (selectedItems) {
@@ -116,6 +119,10 @@ export class ToDoListController {
         let param = {};
         param.resetPage = true;
 
+        this.mapFilterSetted(param, arrayFilter);
+    }
+
+    mapFilterSetted (param, arrayFilter) {
         if (arrayFilter.process_owner_id) {
             param.process_owner_id = arrayFilter.process_owner_id;
         } else {
