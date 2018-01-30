@@ -9,10 +9,16 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
         template: template,
         link: (scope) => {
             scope.filterKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
-            console.log('FILTER_KEY: ', scope.filterKey);
             scope.filtersArray = [];
-            // scope.filterSetted = [];
-            scope.filterSetted = WddCacheService.getCachedFilter(scope.filterKey) ? WddCacheService.getCachedFilter(scope.filterKey) : [];
+            if (WddCacheService.getCachedFilter(scope.filterKey)) {
+                scope.filterSetted = WddCacheService.getCachedFilter(scope.filterKey).arrayFilter ? WddCacheService.getCachedFilter(scope.filterKey).arrayFilter : [];
+                scope.isFilterActive = WddCacheService.getCachedFilter(scope.filterKey).isFilterActive ? WddCacheService.getCachedFilter(scope.filterKey).isFilterActive : WddCacheService.getCachedFilter(scope.filterKey).isFilterActive;
+                scope.processOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).process_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).process_owner_id : undefined;
+                scope.systemOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).system_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).system_owner_id : undefined;
+                scope.statusChosen = WddCacheService.getCachedFilter(scope.filterKey).status_code ? WddCacheService.getCachedFilter(scope.filterKey).status_code : undefined;
+            } else {
+                scope.filterSetted = [];
+            }
 
             scope.promises = {};
 
@@ -36,16 +42,6 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 scope.isFilterActive = false;
                 scope.filtersArray.push([]);
             };
-
-            scope.$on('$destroy', () => {
-                WddCacheService.cacheFilter(scope.filterKey, {
-                    process_owner_id: scope.processOwnerChosen,
-                    system_owner_id: scope.systemOwnerChosen,
-                    status_code: scope.statusChosen,
-                    arrayFilter: scope.filterSetted,
-                    isFilterActive: scope.isFilterActive
-                });
-            });
 
             scope.removeFilter = (filter) => {
                 let indexElem = scope.filtersArray.indexOf(filter);
@@ -91,6 +87,14 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
 
                 param.arrayFilter = array.array_filter_text;
 
+                WddCacheService.cacheFilter(scope.filterKey, {
+                    process_owner_id: scope.processOwnerChosen,
+                    system_owner_id: scope.systemOwnerChosen,
+                    status_code: scope.statusChosen.label,
+                    arrayFilter: scope.filterSetted,
+                    isFilterActive: scope.isFilterActive
+                });
+
                 $log.debug(param);
                 scope.appliedFilter({
                     filterApplied: param
@@ -111,6 +115,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 scope.statusChosen = scope.filterStatus[0];
                 scope.filterSetted = [];
                 scope.filtersArray = scope.filterArrayBase;
+                WddCacheService.unCacheFilter(scope.filterKey);
             };
 
             scope.updateEntity = (filter, filterSetted) => {

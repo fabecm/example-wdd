@@ -1,6 +1,6 @@
 import template from './dashboardFilter.template.html';
 
-export function DashboardFilter ($log) {
+export function DashboardFilter ($log, $state, WddCacheService) {
     'ngInject';
     return {
         scope: {
@@ -9,11 +9,11 @@ export function DashboardFilter ($log) {
         template: template,
         link: (scope) => {
             scope.promises = {};
+            scope.filterKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
 
             scope.labelWorkspace = 'Workspace';
             scope.placeholderWorkspace = 'Seleziona workspace';
             scope.typeWorkspace = 'workspace';
-
 
             scope.labelDescription = 'Descrizione';
             scope.placeholderDescription = 'Seleziona descrizione';
@@ -22,6 +22,15 @@ export function DashboardFilter ($log) {
             scope.labelStatus = 'Stato';
             scope.placeholderStatus = 'Seleziona stato';
             scope.typeStatus = 'status';
+
+            if (WddCacheService.getCachedFilter(scope.filterKey)) {
+                scope.workspaceSelected = WddCacheService.getCachedFilter(scope.filterKey).workspaceSelected ? WddCacheService.getCachedFilter(scope.filterKey).workspaceSelected : {};
+                scope.isFilterActive = WddCacheService.getCachedFilter(scope.filterKey).isFilterActive ? WddCacheService.getCachedFilter(scope.filterKey).isFilterActive : WddCacheService.getCachedFilter(scope.filterKey).isFilterActive;
+                scope.descriptionSelected = WddCacheService.getCachedFilter(scope.filterKey).descriptionSelected ? WddCacheService.getCachedFilter(scope.filterKey).descriptionSelected : {};
+                scope.statusSelected = WddCacheService.getCachedFilter(scope.filterKey).statusSelected ? WddCacheService.getCachedFilter(scope.filterKey).statusSelected : {};
+                scope.startDate = WddCacheService.getCachedFilter(scope.filterKey).startDate ? WddCacheService.getCachedFilter(scope.filterKey).startDate : 'GG/MM/AAAA';
+                scope.endDate = WddCacheService.getCachedFilter(scope.filterKey).endDate ? WddCacheService.getCachedFilter(scope.filterKey).endDate : 'GG/MM/AAAA';
+            }
 
             // getStatusList(scope, FilterWorkspace);
 
@@ -39,6 +48,8 @@ export function DashboardFilter ($log) {
                 scope.startDate = 'GG/MM/AAAA';
                 scope.endDate = {};
                 scope.endDate = 'GG/MM/AAAA';
+
+                WddCacheService.unCacheFilter(scope.filterKey);
             };
 
             scope.setFilter = () => {
@@ -59,6 +70,14 @@ export function DashboardFilter ($log) {
                 if (scope.endDate !== 'GG/MM/AAAA') {
                     param.endDate = scope.endDate;
                 }
+
+                WddCacheService.cacheFilter(scope.filterKey, {
+                    workspaceSelected: scope.workspaceSelected,
+                    descriptionSelected: scope.descriptionSelected,
+                    statusSelected: scope.statusSelected,
+                    startDate: scope.startDate,
+                    endDate: scope.endDate
+                });
 
                 $log.debug(param);
                 scope.appliedFilter({

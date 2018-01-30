@@ -14,16 +14,16 @@ export class SessionService {
         return this.getApiEntry()
             .then(() => this.userService.getUser())
             .then(() => this.ruleProfileService.getRuleProfile())
-            .then(rules => {
-                const dashboardStatesEnabled = this.$state.get().filter(state => rules.dashboards.indexOf(state.pageId) >= 0);
-                let destinationPage = '';
-                if (dashboardStatesEnabled && dashboardStatesEnabled.length > 0) {
-                    destinationPage = dashboardStatesEnabled[0].name;
-                } else {
-                    destinationPage = 'tab.search';
-                }
-                this.$state.go(destinationPage);
-            })
+            // .then(rules => {
+            //     const dashboardStatesEnabled = this.$state.get().filter(state => rules.dashboards.indexOf(state.pageId) >= 0);
+            //     let destinationPage = '';
+            //     if (dashboardStatesEnabled && dashboardStatesEnabled.length > 0) {
+            //         destinationPage = dashboardStatesEnabled[0].name;
+            //     } else {
+            //         destinationPage = 'tab.search';
+            //     }
+            //     this.$state.go(destinationPage);
+            // })
             .catch(err => {
                 this.$log.debug(err);
             });
