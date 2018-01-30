@@ -113,7 +113,7 @@ export class DataDetailController {
             attribute.values[0].value = angular.copy(attribute.origin_value);
         });
     }
-    
+
     addEntity () {
         this.modalService.openNewWorkspaceRequests(this.workspaceId).then(() => {
             this.initDataDetails();
