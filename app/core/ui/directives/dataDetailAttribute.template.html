@@ -10,7 +10,7 @@
             <input id="attachFile" type="file" class="hiddenAttachFile" onchange="angular.element(this).scope().fileNameChanged(this.files)">
             <i class="icon icon-delete" ng-click="removeFile()"></i>
         </div>
-        <div class="file-manage" ng-if="canAddEntity && isEditable === 'false'">
+        <div class="file-manage" ng-if="canAddEntity && isEditable !== 'false'">
             <i class="icon icon-new" ng-click="addEntity()"></i>
             <i class="icon icon-delete" ng-click="removeEntity()"></i>
         </div>
@@ -51,11 +51,14 @@
         </div>
 
         <div ng-if="isCheckBox">
-            <div class="checkbox" ng-repeat="value in domainValue track by $index">
+            <div class="checkbox" ng-if="!hideCheckbox" ng-repeat="value in domainValue track by $index">
                 <label>
                     <input type="checkbox" name="opt_{{attributeName}}" ng-model="checkboxModel[value]" value="{{value}}" ng-focus="setFocusOnAttribute(true)"
                         ng-blur="setFocusOnAttribute(false)" ng-change="valueChanged()"> {{value.label}}
                 </label>
+            </div>
+            <div ng-if="hideCheckbox" ng-repeat="value in domainValue track by $index">
+                {{value.label}}
             </div>
         </div>
 

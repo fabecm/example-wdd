@@ -15,6 +15,7 @@ import { stateConfig as DashboardRequestConfig } from './dashboardRequest/dashbo
 import { stateConfig as DashboardUserRequestConfig } from './dashboardUserRequest/dashboardUserRequest.config';
 import { stateConfig as EntityCensusConfig } from './entityCensus/entityCensus.config';
 import { stateConfig as EntityApprovalRequestConfig } from './entityApprovalRequest/entityApprovalRequest.config';
+import { stateConfig as ErrorPageConfig } from './errorPage/errorPage.config';
 
 export default angular.module('wdd.states', [])
     .config(($stateProvider, $urlRouterProvider) => {
@@ -35,7 +36,8 @@ export default angular.module('wdd.states', [])
             .state('tab.dashboardRequest', DashboardRequestConfig)
             .state('tab.entityCensus', EntityCensusConfig)
             .state('tab.entityApprovalRequest', EntityApprovalRequestConfig)
-            .state('tab.dashboardUserRequest', DashboardUserRequestConfig);
+            .state('tab.dashboardUserRequest', DashboardUserRequestConfig)
+            .state('tab.errorPage', ErrorPageConfig);
 
         $urlRouterProvider.otherwise(SearchConfig.url);
     })

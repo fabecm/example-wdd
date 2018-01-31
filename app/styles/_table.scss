@@ -68,6 +68,9 @@
           // in design align is left
           // text-align: center;
           padding: 5px;
+          &.headerCentered{
+            text-align: center;
+          }
           &.baseHeaderIconWidth {
             width: 45px;
           }
@@ -476,11 +479,26 @@
   table {
     table-layout: fixed;
   }
-  th,
+  th {
+    // border: 1px solid #d7dfed;
+    padding: 6px 8px !important;
+    // text-transform: uppercase;
+    @media screen and (min-width: 1290px) {
+      font-size: 12px;
+    }
+    @media screen and (max-width: 1280px) {
+      font-size: 10px;
+    }
+    @media screen and (max-width: 1024px) {
+      font-size: 7px;
+    }
+    line-height: 1.1;
+    border-right: 1px solid #d7dfed;
+    text-align: center;
+  }
   td {
     // border: 1px solid #d7dfed;
     padding: 6px 8px !important;
-
     // text-transform: uppercase;
     font-size: 12px;
     line-height: 1.1;

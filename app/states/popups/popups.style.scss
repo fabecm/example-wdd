@@ -61,7 +61,7 @@
         &__title {
             font-size: 11px;
             color: #B3C5E0;
-            font-weight: 600;
+            // font-weight: 600;
 
             // stupid idea, but for that moment ok / kb
             margin-top: 10px;
@@ -70,6 +70,14 @@
                 color: #37475F;
                 font-size: 14px;
                 margin-top: 5px;
+            }
+
+            &__singleLine {
+                margin-top: 6px;
+            }
+
+            &__multipleLine {
+                margin-top: 0px;
             }
         }
 

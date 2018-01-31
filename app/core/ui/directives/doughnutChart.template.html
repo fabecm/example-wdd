@@ -8,7 +8,7 @@
 </div>
 
 <div class="chart-legend-container">
-    <div class="container-block">
+    <div class="container-block" ng-class="{'container-max-with': centeredLegend}">
         <div class="chart-legend" ng-style="{color: arrayValues[key].color}" ng-repeat="(key, legend) in labelArray" ng-click="goToChild(key)">
             <div class="lf-block">{{legend.value}}</div>
             <div class="right-block">{{legend.label}}</div>
