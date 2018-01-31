@@ -26,6 +26,7 @@ export class SessionService {
             // })
             .catch(err => {
                 this.$log.debug(err);
+                this.$state.go('tab.errorPage');
             });
     }
 
