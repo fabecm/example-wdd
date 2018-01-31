@@ -46,7 +46,19 @@
             }
         }
 
-        [disabled="disabled"] {
+        .textarea-disabled {
+            position: relative;
+            width: $custom-select-width;
+            height: #{$custom-select-height * 3};
+            border-radius: 5px;
+            overflow: hidden;
+            overflow-y: auto;
+            background-color: rgba(181, 180, 180, 0.3);
+            border: 1px solid #afc2de;
+            resize: none;
+        }
+
+        [disabled="disabled"], [readonly="readonly"] {
             background-color: rgba(181, 180, 180, 0.3);
         }
     }
