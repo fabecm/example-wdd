@@ -59,6 +59,9 @@ export function DataDetailAttribute () {
                     if (scope.attributeName === 'Data Source field input') {
                         scope.canAddEntity = true;
                     }
+                    if (scope.attributeName === 'Data Source field output') {
+                        scope.hideCheckbox = true;
+                    }
                     scope.isCheckBox = true;
                     break;
                 case 'FLAG':

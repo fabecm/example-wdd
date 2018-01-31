@@ -34,6 +34,12 @@
     .attribute-value {
         flex: 1;
 
+        @media screen and (max-width: 1280px) and (min-width: 1025px){
+            textarea.wdd-textarea, .wbb-select, .wdd-input-text, .checkbox {
+                width: 400px;
+            }
+        }
+
         .wdd-input-text, .wdd-textarea {
             &:focus {
                 box-shadow: 0 0 0pt 2pt #2a74de;
