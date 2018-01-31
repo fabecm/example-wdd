@@ -68,6 +68,9 @@
           // in design align is left
           // text-align: center;
           padding: 5px;
+          &.headerCentered{
+            text-align: center;
+          }
           &.baseHeaderIconWidth {
             width: 45px;
           }
@@ -491,6 +494,7 @@
     }
     line-height: 1.1;
     border-right: 1px solid #d7dfed;
+    text-align: center;
   }
   td {
     // border: 1px solid #d7dfed;
