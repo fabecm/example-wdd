@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 import template from './dashboardFilter.template.html';
 
 export function DashboardFilter ($log, $state, WddCacheService) {
@@ -10,6 +12,11 @@ export function DashboardFilter ($log, $state, WddCacheService) {
         template: template,
         link: (scope) => {
             scope.promises = {};
+
+            if ($(window).width() <= 1280) {
+                scope.showCollapser = true;
+            }
+
             scope.filterKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
 
             scope.labelWorkspace = 'Workspace';
@@ -53,7 +60,15 @@ export function DashboardFilter ($log, $state, WddCacheService) {
                 WddCacheService.unCacheFilter(scope.filterKey);
             };
 
+            scope.expandableFilter = () => {
+                scope.isFilterActive = !scope.isFilterActive;
+            };
+
             scope.setFilter = () => {
+                if (scope.showCollapser) {
+                    scope.isFilterActive = true;
+                }
+
                 let param = {};
 
                 if (scope.workspaceSelected) {
@@ -77,7 +92,8 @@ export function DashboardFilter ($log, $state, WddCacheService) {
                     descriptionSelected: scope.descriptionSelected,
                     statusSelected: scope.statusSelected,
                     startDate: scope.startDate,
-                    endDate: scope.endDate
+                    endDate: scope.endDate,
+                    isFilterActive: scope.isFilterActive
                 });
 
                 $log.debug(param);

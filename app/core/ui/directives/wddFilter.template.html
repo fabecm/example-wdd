@@ -1,17 +1,12 @@
 <div class="wdd-filter-container" wdd-spinner="[promises.getEntityPromise.$$state, promises.getAttributePromise.$$state, promises.processOwnerPromise.$$state, promises.systemOwnerPromise.$$state]">
     <div class="expandable">
         <button class="wdd-button icon-only" ng-click="expandableFilter()">
-            <!-- <i class="icon icon-espandi-tutto" ></i> -->
             <i class="icon" ng-class="{'icon-down-arrow': !isFilterActive, 'icon-right-arrow': isFilterActive}"></i>
         </button>
     </div>
     <div class="filter-section-row" ng-class="{'collapsed': isFilterActive}">
         <div class="collapsed-box" ng-show="isFilterActive">
             <span>Filtri</span>
-            <!-- <button class="wdd-button width-adapt" ng-click="showFilter()">
-                <i class="icon icon-down-arrow"></i>
-                Espandi
-            </button> -->
         </div>
         <div class="filter-row" ng-show="!isFilterActive">
             <wdd-autocomplete ng-model="processOwnerChosen" label="Process Owner" placeholder="Seleziona" type="processOwner" new-value="false" promise="promises.processOwnerPromise"></wdd-autocomplete>
