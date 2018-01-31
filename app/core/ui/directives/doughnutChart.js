@@ -14,12 +14,20 @@ export function DoughnutChart ($timeout, $state) {
         },
         template: template,
         link: (scope) => {
-            if ($(window).width() >= 1200) {
-                scope.width = 400;
-                scope.height = 400;
-            } else {
+            // if ($(window).width() >= 1200) {
+            //     scope.width = 400;
+            //     scope.height = 400;
+            // } else
+            if ($(window).width() >= 1025) {
                 scope.width = 300;
                 scope.height = 300;
+            } else {
+                scope.width = 250;
+                scope.height = 250;
+            }
+
+            if ($state.$current.name === 'tab.dashboardSO' || $state.$current.name === 'tab.dashboardRequest') {
+                scope.centeredLegend = true;
             }
 
             scope.chartId = random.number();
