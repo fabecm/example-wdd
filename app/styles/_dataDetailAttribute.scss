@@ -35,8 +35,8 @@
         flex: 1;
 
         @media screen and (max-width: 1280px) and (min-width: 1025px){
-            textarea.wdd-textarea, .wbb-select, .wdd-input-text, .checkbox {
-                width: 400px;
+            textarea.wdd-textarea, .wbb-select, .wdd-input-text, .checkbox, .textarea-disabled {
+                width: 400px !important;
             }
         }
 
