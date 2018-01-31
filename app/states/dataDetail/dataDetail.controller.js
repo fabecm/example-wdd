@@ -85,7 +85,7 @@ export class DataDetailController {
 
         entityToSave.relations = [];
         for (let i = 0; i < this.visibleDataDetails.length; i++) {
-            if (this.visibleDataDetails[i].term.termId && detail.term.termId !== this.visibleDataDetails[i].term.termId) {
+            if (this.visibleDataDetails[i].term && this.visibleDataDetails[i].term.termId && detail.term.termId !== this.visibleDataDetails[i].term.termId) {
                 entityToSave.relations.push({
                     termtype: this.visibleDataDetails[i].term.termtype,
                     name: this.visibleDataDetails[i].term.name,
