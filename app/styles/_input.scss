@@ -19,6 +19,10 @@
         }
     }
 
+    select::-ms-expand {
+        display: none;
+    }
+
     &[disabled="disabled"] {
         &:after {
             background: rgba(181, 180, 180, 0.0);
