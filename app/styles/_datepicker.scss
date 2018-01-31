@@ -1,0 +1,12 @@
+.uib-datepicker-popup.dropdown-menu {
+  width: 254px;
+  padding: 0px;
+}
+.dropdown-menu table {
+  table-layout: fixed;
+  width: 100%;
+}
+[uib-daypicker] table thead > tr:first-child th button, [uib-monthpicker] table thead tr th button, [uib-yearpicker] table thead tr th button {
+    background-color: #2a74de;
+    color: white;
+}
