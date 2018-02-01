@@ -6,44 +6,48 @@
     <div class="empty-response" ng-class="{'empty-response-child': isChild}" ng-if="isErrored">
         <h1>Errore nel recupero dei dati</h1>
     </div>
-    <table ng-class="{'expandable-table': expandable}">
-        <thead>
-            <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
-            <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
-                <div ng-if="isChecked">
-                    <input type="checkbox" ng-show="!isChild" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
-                    <input type="checkbox" ng-show="isChild && checkableChild.length > 0" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
-                </div>
-            </th>
-            <th class="headerCentered" ng-repeat="item in headerArray track by $index" resizable r-directions="['right']">
-                {{item.label}}
-            </th>
-            <th ng-if="hasIcon" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2, 'hasTreeIcon': iconNumber == 3}"></th>
-            <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
-        </thead>
-        <tbody>
+    <div class="table-holder-scroll">
+        <table ng-class="{'expandable-table': expandable}">
+            <thead>
+                <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
+                <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
+                    <div ng-if="isChecked">
+                        <input type="checkbox" ng-show="!isChild" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
+                        <input type="checkbox" ng-show="isChild && checkableChild.length > 0" ng-model="isSelectAll.value" ng-change="checkRowsSelection()"
+                        />
+                    </div>
+                </th>
+                <th class="headerCentered" ng-style="{'width': thLength + 'px', 'min-width': '50px'}" ng-repeat="item in headerArray track by $index"
+                    resizable r-directions="['right']">
+                    {{item.label}}
+                </th>
+                <th ng-if="hasIcon" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2, 'hasTreeIcon': iconNumber == 3}"></th>
+                <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
+            </thead>
+            <tbody>
 
-            <tr class="base-row" wdd-row ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
-                column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
-                has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
-                has-ternary-navigation-btn="ternaryNavigation" has-creation="hasCreation" is-from-child-table="isChild" check-row="checkValueChange({data: data})"
-                is-sas="isToSas"></tr>
+                <tr class="base-row" wdd-row ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
+                    column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
+                    has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
+                    has-ternary-navigation-btn="ternaryNavigation" has-creation="hasCreation" is-from-child-table="isChild" check-row="checkValueChange({data: data})"
+                    is-sas="isToSas"></tr>
 
-            <tr class="collapsable" ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse, 'odd': $index % 2 !== 0, 'even': $index % 2 === 0}">
-                <td class="expandable-container" colspan="{{childCollspan()}}">
-                    <wdd-table ng-if="data.data_fields" reload-data="vm.test" reload-data-form-child="reloadData()" service-response-obj="{{ {array: data.data_fields} }}" header-array-obj="{{ {array: headerArrayExpandable} }}"
-                        pagination-bool="{{ {boolean: pagination} }}" page-size-num="{{ {number: pageSize} }}" is-child="true"
-                        is-checked-bool="{{ {boolean: isChildChecked} }}"
-                        has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}"></wdd-table>
-                </td>
-            </tr>
+                <tr class="collapsable" ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse, 'odd': $index % 2 !== 0, 'even': $index % 2 === 0}">
+                    <td class="expandable-container" colspan="{{childCollspan()}}">
+                        <wdd-table ng-if="data.data_fields" reload-data="vm.test" reload-data-form-child="reloadData()" service-response-obj="{{ {array: data.data_fields} }}"
+                            header-array-obj="{{ {array: headerArrayExpandable} }}" pagination-bool="{{ {boolean: pagination} }}"
+                            page-size-num="{{ {number: pageSize} }}" is-child="true" is-checked-bool="{{ {boolean: isChildChecked} }}"
+                            has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}"></wdd-table>
+                    </td>
+                </tr>
 
-            <tr ng-if="!serviceResponse || serviceResponse.length === 0" ng-repeat="placeHLD in [0, 1, 2]">
-                <td class="dashboard-table-cell" ng-repeat="header in headerArray"></td>
-            </tr>
+                <tr ng-if="!serviceResponse || serviceResponse.length === 0" ng-repeat="placeHLD in [0, 1, 2]">
+                    <td class="dashboard-table-cell" ng-repeat="header in headerArray"></td>
+                </tr>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 
     <div class="under-table" ng-if="!isChild">
         <div class="left-side">

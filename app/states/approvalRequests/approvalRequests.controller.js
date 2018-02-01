@@ -25,10 +25,10 @@ export class ApprovalRequestsController {
         value: 'data_field'
     }, {
         label: 'Descrizione Data Field',
-        value: 'data_table'
+        value: 'data_field_description'
     }, {
         label: 'Data Table',
-        value: 'data_source_table'
+        value: 'data_table'
     }, {
         label: 'Technical Application',
         value: 'tech_application'

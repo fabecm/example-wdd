@@ -27,15 +27,21 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             }
 
             scope.$watch('dipendence', () => {
+                let isDipendenceOk = true;
                 try {
                     if (scope.dipendence) {
                         scope.dipendenceObj = JSON.parse(scope.dipendence);
+                        scope.dipendenceObj.forEach(dipendence => {
+                            if (!dipendence) {
+                                isDipendenceOk = false;
+                            }
+                        });
                     }
                 } catch (error) {
                     $log.debug(error);
                 }
 
-                if (scope.requiredDependence && !scope.dipendenceObj[0]) {
+                if (scope.requiredDependence && !isDipendenceOk) {
                     return;
                 }
                 scope.initAutocomplete();
