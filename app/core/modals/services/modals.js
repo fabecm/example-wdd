@@ -95,6 +95,7 @@ export class ModalService {
             controllerAs: 'vm',
             backdrop: 'static',
             keyboard: false,
+            size: 'md',
             resolve: {}
         });
 
@@ -110,6 +111,7 @@ export class ModalService {
             controllerAs: 'vm',
             backdrop: 'static',
             keyboard: false,
+            size: 'md',
             scope: angular.extend(this.$rootScope, {
                 test: 'parentScope',
                 workspaceId: workspaceId

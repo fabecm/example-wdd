@@ -45,6 +45,18 @@
         .createEntity wdd-autocomplete .wdd-autocomplete{
             width: 450px;
         }
+        .date-section {
+            padding-left: 30px;
+            .col-xs-6 {
+                padding-right: 0;
+                padding-left: 0;
+                width: 170px;
+            }
+            wdd-datepicker .wdd-datepicker{
+                padding-left: 0;
+                width: 140px;
+            }
+        }
         &__titleNewWorkspace {
             font-size: 11px;
             color: #000000;
