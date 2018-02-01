@@ -33,6 +33,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             disabledTertiaryLabelWithEmptyResponse: '@',
             hasCreationBtn: '@',
             reloadData: '=',
+            reloadDataFormChild: '&',
             tableKey: '@'
         },
         template: template,
@@ -354,7 +355,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     action: 'FORWARD',
                     text: ModalService.getForwardText()
                 };
-                ModalService.openActionModal(param);
+                ModalService.openActionModal(param).then(() => {
+                    scope.reloadDataFormChild();
+                });
             };
 
             try {
