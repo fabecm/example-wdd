@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import template from './wddTable.template.html';
 
 export function WddTable ($log, $timeout, $state, ModalService, TableService, WDDAlert, SessionService, WddCacheService) {
@@ -111,6 +112,11 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     });
 
                     initData(scope);
+
+                    setTimeout(function () {
+                        let tableLength = $(window).width() - 100;
+                        scope.thLength = tableLength / scope.childCollspan();
+                    });
                 }).catch(() => {
                     scope.isErrored = true;
                 });
