@@ -1,12 +1,44 @@
 .uib-datepicker-popup.dropdown-menu {
-  width: 254px;
+  width: 285.75px;
   padding: 0px;
 }
 .dropdown-menu table {
   table-layout: fixed;
   width: 100%;
 }
-[uib-daypicker] table thead > tr:first-child th button, [uib-monthpicker] table thead tr th button, [uib-yearpicker] table thead tr th button {
-    background-color: #2a74de;
-    color: white;
+[uib-daypicker] table thead > tr:first-child,
+[uib-monthpicker] table thead tr,
+[uib-yearpicker] table thead tr {
+  background-color: #2a74de;
+}
+
+[uib-daypicker] table thead > tr:first-child th button,
+[uib-monthpicker] table thead tr th button,
+[uib-yearpicker] table thead tr th button {
+  background-color: #2a74de;
+  color: white;
+  border: 0px;
+}
+
+[uib-daypicker] table thead > tr:first-child th button:hover,
+[uib-monthpicker] table thead tr th button:hover,
+[uib-yearpicker] table thead tr th button:hover {
+  background-color: #3a8def;
+  color: white;
+}
+
+[uib-yearpicker] table thead tr th button[disabled]:hover {
+  background-color: #3a8def;
+  color: white;
+}
+
+[uib-daypicker] table thead > tr:first-child th button:focus,
+[uib-monthpicker] table thead tr th button:focus,
+[uib-monthpicker] table thead tr th button:active,
+[uib-monthpicker] table thead tr th button:active:focus,
+[uib-yearpicker] table thead tr th button:focus,
+[uib-yearpicker] table thead tr th button:active,
+[uib-yearpicker] table thead tr th button:active:focus {
+  background-color: #2169bf;
+  color: white;
 }
