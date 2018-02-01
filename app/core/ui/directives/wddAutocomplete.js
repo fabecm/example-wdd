@@ -19,6 +19,8 @@ export function WddAutocomplete ($log, FilterWorkspace) {
         link: (scope, element, attribute, ngModel) => {
             scope.isListVisible = false;
             scope.model = {};
+            scope.idAutocomplete = 'wdd-autocomplete-' + scope.type;
+            scope.idClicker = 'autocomplete-clicker-' + scope.type;
 
             if (scope.type === 'newRequestSO' || scope.type === 'newRequestTA' || scope.type === 'newRequestDS' || scope.type === 'newRequestDT' || scope.type === 'newRequestDF') {
                 scope.showMoreValues = true;
@@ -79,7 +81,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
 
             $(document).click(function (e) {
                 e.stopPropagation();
-                if (e.target.id === 'autocomplete-clicker') {
+                if (e.target.id === scope.idClicker) {
                     return;
                 }
                 if ($(e.target).parents('#autocomplete-value-list').length === 0) {
@@ -87,6 +89,11 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     scope.$apply();
                 }
             });
+
+            // $('#autocomplete-clicker').click(function (e) {
+            //     e.stopPropagation();
+            //     console.log($(e.target).parents('#autocomplete-value-list'));
+            // });
 
             scope.$on('$destroy', function () {
                 $(document).off('click');

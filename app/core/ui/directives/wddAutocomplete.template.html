@@ -1,9 +1,9 @@
-<div class="wdd-autocomplete">
+<div id="{{ idAutocomplete }}" class="wdd-autocomplete">
     <div class="wdd-labeled-input">
         <label ng-if="label">{{label}}</label>
         <input class="wdd-input-text" ng-model="model.label" type="text" placeholder="{{placeholder}}" ng-change="changedLabel()"
             ng-model-options="{ debounce: 1000 }" ng-disabled="isEditable" />
-        <i id="autocomplete-clicker" class="icon icon-down-arrow" ng-class="{'adjust-icon': !label}" ng-click="showListValues()"></i>
+        <i id="{{ idClicker }}" class="icon icon-down-arrow" ng-class="{'adjust-icon': !label}" ng-click="showListValues()"></i>
     </div>
 
     <div id="autocomplete-value-list" class="container-list-values" ng-class="{'hide-container': !isListVisible}">
