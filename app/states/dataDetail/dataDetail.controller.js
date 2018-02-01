@@ -75,6 +75,18 @@ export class DataDetailController {
     saveChanges (detail) {
         let entityToSave = {};
 
+        if (!this.isDraft) {
+            entityToSave.createProcess = true;
+
+            if (detail.term.termtype !== 'DATA_FIELD') {
+                entityToSave.onlyEntity = true;
+            } else {
+                entityToSave.onlyEntity = false;
+            }
+        } else {
+            entityToSave.createProcess = false;
+        }
+
         entityToSave.term = detail.term;
         entityToSave.attributes = detail.attributes.map(att => {
             return {
