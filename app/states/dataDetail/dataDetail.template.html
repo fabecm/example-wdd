@@ -1,6 +1,6 @@
 <div class="wdd-secondary-header">
     <button class="wdd-button icon-only right-spacer" type="button" ng-click="vm.back()">
-        <i class="icon icon-left-arrow"></i>        
+        <i class="icon icon-left-arrow"></i>
     </button>
     <h2 class="title">Dettaglio Dato</h2>
 </div>
@@ -57,7 +57,8 @@
                     <label class="header-title-elem name-elem">{{detail.term.name}}</label>
                 </div>
                 <div class="header-label" ng-if="vm.isDraft">
-                    <label class="wdd-label complete" ng-class="{'complete': detail.status.light === 'complete'}" ng-if="!detail.toAdd">{{detail.status.label}}</label>
+                    <label class="wdd-label" ng-class="{'complete': detail.status.light === 'complete', 'incomplete': detail.status.light === 'incomplete'}"
+                        ng-if="!detail.toAdd">{{detail.status.label}}</label>
                     <label class="wdd-label" ng-if="detail.toAdd">Incompleto</label>
                 </div>
             </div>
@@ -81,10 +82,10 @@
 
             </div>
             <div class="footer" ng-if="!detail.toAdd">
-                <button class="wdd-button alt-color" ng-if="detail.term.deleting" >ELIMINA ENTITA'</button>
-                <button class="wdd-button alt-color" ng-if="vm.isDraft && !detail.term.deleting" >ELIMINA BOZZA</button>
+                <button class="wdd-button alt-color" ng-if="detail.term.deleting">ELIMINA ENTITA'</button>
+                <button class="wdd-button alt-color" ng-if="vm.isDraft && !detail.term.deleting">ELIMINA BOZZA</button>
                 <button class="wdd-button alt-color" ng-if="detail.term.updating" ng-disabled="detail.isLock" ng-click="vm.deleteChanges(detail)">ANNULLA MODIFICHE</button>
-                <button class="wdd-button"  ng-if="detail.term.updating" ng-disabled="detail.isLock" ng-click="vm.saveChanges(detail)">SALVA MODIFICHE</button>
+                <button class="wdd-button" ng-if="detail.term.updating" ng-disabled="detail.isLock" ng-click="vm.saveChanges(detail)">SALVA MODIFICHE</button>
             </div>
         </div>
     </div>
