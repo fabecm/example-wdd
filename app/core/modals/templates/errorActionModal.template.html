@@ -1,21 +1,21 @@
 <div class="wwd-modal" wdd-spinner="[vm.doActionPromise.$$state]">
-        <div class="wwd-modal__title">
-            <div class="" id="modal-title">Dati in errore</div>
-        </div>
-        <div class="wwd-modal__body__container" id="modal-body">
-            <div class="wwd-modal__body">
-                <div class="row wwd-modal__row">
-                    <div class="col-xs-12 wwd-modal__row__description">
-                        <span class="wwd-modal__row__title wwd-modal__row__title--dark">Attenzione i seguenti dati selezionati sono andati in errore:: </span>
-                        <div ng-repeat="elem in vm.errorList track by $index">
-                            - {{elem.termId}}
-                        </div>
+    <div class="wwd-modal__title">
+        <div class="" id="modal-title">Dati in errore</div>
+    </div>
+    <div class="wwd-modal__body__container" id="modal-body">
+        <div class="wwd-modal__body">
+            <div class="row wwd-modal__row">
+                <div class="col-xs-12 wwd-modal__row__description">
+                    <span class="wwd-modal__row__title wwd-modal__row__title--dark">Attenzione i seguenti dati selezionati sono andati in errore:: </span>
+                    <div ng-repeat="elem in vm.errorList track by $index">
+                        - {{elem.termId}}
                     </div>
                 </div>
             </div>
         </div>
-        <div class="wwd-modal__footer">
-            <button class="wdd-button" type="button" ng-click="vm.close()">Chiudi</button>
-        </div>
-    
     </div>
+    <div class="wwd-modal__footer">
+        <button class="wdd-button" type="button" ng-click="vm.close()">Chiudi</button>
+    </div>
+
+</div>
