@@ -43,7 +43,7 @@ export class SearchWorkspaceService {
             pageNumber: pageNumber,
             pageLength: pageLength,
             workspace_id: filterApplied.workspaceSelected,
-            description: filterApplied.descriptionSelected,
+            description_id: filterApplied.descriptionSelected,
             startDate: startDate,
             endDate: endDate,
             status: filterApplied.status,

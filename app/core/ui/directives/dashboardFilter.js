@@ -58,6 +58,12 @@ export function DashboardFilter ($log, $state, WddCacheService) {
                 scope.endDate = 'GG/MM/AAAA';
 
                 WddCacheService.unCacheFilter(scope.filterKey);
+
+                scope.setFilter();
+
+                if (scope.showCollapser) {
+                    scope.isFilterActive = false;
+                }
             };
 
             scope.expandableFilter = () => {

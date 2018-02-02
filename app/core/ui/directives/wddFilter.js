@@ -116,6 +116,9 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 scope.filterSetted = [];
                 scope.filtersArray = scope.filterArrayBase;
                 WddCacheService.unCacheFilter(scope.filterKey);
+
+                scope.setFilter();
+                scope.isFilterActive = false;
             };
 
             scope.updateEntity = (filter, filterSetted) => {
