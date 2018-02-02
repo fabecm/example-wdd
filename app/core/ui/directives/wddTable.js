@@ -131,13 +131,15 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     }
                     scope.serviceResponse = scope.sliceDataToShow();
                 } else {
-                    if (!scope.isSelectAll.value) {
+                    if (scope.isSelectAll.value) {
+                        scope.checkedElements = scope.serviceResponse.map(e => e.id_field);
+                    } else {
                         scope.checkedElements = [];
                     }
 
                     scope.serviceResponse.map(elem => {
                         // console.log(elem);
-                        const index = scope.checkedElements.findIndex((row_data) => row_data.id === elem.data_fields.id);
+                        const index = scope.checkedElements.findIndex((row_data) => row_data.id === elem.id_fields);
                         if (index >= 0) {
                             elem.isChecked = true;
                         } else {
@@ -168,6 +170,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 } else {
                     if (scope.isSelectAll.value) {
                         scope.isSelectAll.value = false;
+                    }
+                    if (row.data.isChecked && (scope.checkedElements.length + 1) === scope.serviceResponse.length) {
+                        scope.isSelectAll.value = true;
                     }
                     if (row.data.isChecked) {
                         scope.checkedElements.push(row.data);
@@ -339,14 +344,35 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             };
 
             scope.secondaryAction = () => {
+                if (scope.checkedElements && scope.checkedElements.length > 0) {
+                    scope.checkedElements = scope.checkedElements.map(e => {
+                        return ({
+                            id_field: e
+                        });
+                    });
+                }
                 scope.actionSecondaryLabel({selectedItems: scope.checkedElements});
             };
 
             scope.primaryAction = () => {
+                if (scope.checkedElements && scope.checkedElements.length > 0) {
+                    scope.checkedElements = scope.checkedElements.map(e => {
+                        return ({
+                            id_field: e
+                        });
+                    });
+                }
                 scope.actionPrimaryLabel({selectedItems: scope.checkedElements});
             };
 
             scope.tertiaryAction = () => {
+                if (scope.checkedElements && scope.checkedElements.length > 0) {
+                    scope.checkedElements = scope.checkedElements.map(e => {
+                        return ({
+                            id_field: e
+                        });
+                    });
+                }
                 scope.actionTertiaryLabel({selectedItems: scope.checkedElements});
             };
 
