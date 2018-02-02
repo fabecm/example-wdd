@@ -16,6 +16,7 @@ export class ModificationWorkspaceController {
     getWorkspaceDetails (workspaceId) {
         this.workspaceDetailsPromise = this.modalService.getWorkspaceIdDetails(workspaceId);
         this.workspaceDetailsPromise.then(w => {
+            this.workspaceForm.workspace_id = w.data.workspace_id;
             this.workspaceForm.short_description = w.data.short_description;
             this.originalShortDescription = angular.copy(w.data.short_description);
             this.workspaceForm.long_description = w.data.long_description;
