@@ -42,20 +42,20 @@ export function DashboardFilter ($log, $state, WddCacheService) {
 
             // getStatusList(scope, FilterWorkspace);
 
-            scope.startDate = 'GG/MM/AAAA';
+            // scope.startDate = 'GG/MM/AAAA';
             scope.labelStartDate = 'Data inizio dal';
 
-            scope.endDate = 'GG/MM/AAAA';
+            // scope.endDate = 'GG/MM/AAAA';
             scope.labelEndDate = 'Data fine al';
 
             scope.resetFilter = () => {
                 scope.workspaceSelected = {};
                 scope.descriptionSelected = {};
                 scope.statusSelected = {};
-                scope.startDate = {};
-                scope.startDate = 'GG/MM/AAAA';
-                scope.endDate = {};
-                scope.endDate = 'GG/MM/AAAA';
+                scope.startDate = undefined;
+                // scope.startDate = 'GG/MM/AAAA';
+                scope.endDate = undefined;
+                // scope.endDate = 'GG/MM/AAAA';
 
                 WddCacheService.unCacheFilter(scope.filterKey);
 
