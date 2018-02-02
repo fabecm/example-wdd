@@ -53,7 +53,7 @@
                         Utente Richiedente
                     </div>
                     <div class="col-xs-10">
-                        <wdd-autocomplete ng-model="vm.workspaceForm.utenteRichiedente.value" label="{{labelDescription}}" placeholder="{{placeholderDescription}}"
+                        <wdd-autocomplete ng-model="vm.responsibleUser.value" label="{{labelDescription}}" placeholder="{{placeholderDescription}}"
                             type="responsibleUser" new-value="false" is-editable="vm.lockUtenteRichiedente" promise="vm.utenteRichiedentePromise">
                         </wdd-autocomplete>
                     </div>
@@ -73,7 +73,7 @@
         </div>
         <div class="wwd-modal__footer">
             <button class="wdd-button" type="button" ng-click="vm.close()">Annulla</button>
-            <button ng-if="vm.showDeleteBtn" class="wdd-button alert-color" type="button" ng-click="vm.deleteWorkspace()" ng-disabled="vm.isDeleteDisable">Elimina</button>
+            <button ng-if="vm.showDeleteBtn" class="wdd-button" type="button" ng-click="vm.deleteWorkspace()" ng-disabled="vm.isDeleteDisable">Elimina</button>
             <button ng-if="vm.showSendBtn" class="wdd-button pull-right" type="button" ng-click="vm.sendWorkspace()" ng-disabled="vm.isSendDisabled()">Invia</button>
             <button ng-if="vm.showSaveBtn" class="wdd-button pull-right" type="submit" ng-disabled="vm.isSaveDisabled()">Salva</button>
         </div>

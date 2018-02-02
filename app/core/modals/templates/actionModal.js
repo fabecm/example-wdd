@@ -11,28 +11,36 @@ export class ActionModalController {
     }
 
     confirmChoice () {
-        let entities = this.actionParam.selectedItems.map(e => {
-            return ({
-                termId: e.id_field,
-                action: this.actionParam.action,
-                note: this.note
-            });
-        });
+        this.modalService.openConfirmationModal(this.modalService.getConfirmActionText()).then(selection => {
+            if (selection.choice) {
+                let entities = this.actionParam.selectedItems.map(e => {
+                    return ({
+                        termId: e.id_field,
+                        action: this.actionParam.action,
+                        note: this.note
+                    });
+                });
 
-        this.doActionPromise = this.modalService.doAction(entities);
-        this.doActionPromise.then(res => {
-            if (res.data.completed) {
-                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'action-done');
-            } else {
-                this.modalService.openErrorActionModal(res.data);
-                this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'action-error');
+                this.doActionPromise = this.modalService.doAction(entities);
+                this.doActionPromise.then(res => {
+                    if (res.data.completed) {
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'action-done');
+                    } else {
+                        this.modalService.openErrorActionModal(res.data);
+                        this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'action-error');
+                    }
+                }).finally(() => {
+                    this.$uibModalInstance.close();
+                });
             }
-        }).finally(() => {
-            this.$uibModalInstance.close();
         });
     }
 
     close () {
-        this.$uibModalInstance.dismiss();
+        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+            if (res.choice) {
+                this.$uibModalInstance.dismiss();
+            }
+        });
     }
 }

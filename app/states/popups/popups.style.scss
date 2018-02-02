@@ -4,7 +4,7 @@
         background-color: #37475F;
         color: white;
         text-transform: uppercase;
-        font-size: 11px;
+        font-size: 14px;
         font-weight: 600;
         height: 35px;
         border-radius: 6px 6px 0 0;
@@ -62,7 +62,7 @@
             }
         }
         &__titleNewWorkspace {
-            font-size: 11px;
+            font-size: 14px;
             color: #000000;
 
             // stupid idea, but for that moment ok / kb
@@ -75,7 +75,7 @@
             }
         }
         &__title {
-            font-size: 11px;
+            font-size: 14px;
             color: #B3C5E0;
             // font-weight: 600;
 
@@ -89,13 +89,13 @@
             }
 
             &__singleLine {
-                font-size: 11px;
-                margin-top: 8px;
+                font-size: 14px;
+                margin-top: 5px;
             }
 
             &__multipleLine {
-                font-size: 11px;
-                margin-top: 3px;
+                font-size: 14px;
+                margin-top: 0px;
             }
         }
 
