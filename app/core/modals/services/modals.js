@@ -150,7 +150,7 @@ export class ModalService {
             controllerAs: 'vm',
             backdrop: 'static',
             keyboard: false,
-            size: 'md',
+            size: 'lg',
             scope: angular.extend(this.$rootScope, {
                 termId: termId
             }),
