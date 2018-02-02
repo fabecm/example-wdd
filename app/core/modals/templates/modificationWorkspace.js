@@ -1,6 +1,7 @@
 export class ModificationWorkspaceController {
 
     workspaceForm = {};
+    responsibleUser = {};
 
     constructor (ModalService, $scope, $log, $uibModalInstance, WDDAlert) {
         'ngInject';
@@ -38,11 +39,11 @@ export class ModificationWorkspaceController {
                 this.fieldIsReadonly = true;
             }
 
-            this.workspaceForm.utenteRichiedente = {};
-            this.workspaceForm.utenteRichiedente.value = w.data.responsible_user.id;
+            // this.workspaceForm.utenteRichiedente = {};
+            this.responsibleUser.value = w.data.responsible_user.id;
             this.originalUtenteRichiedente = angular.copy(w.data.responsible_user.id);
 
-            if (this.workspaceForm.utenteRichiedente.value && this.workspaceForm.stato !== 'Creato') {
+            if (this.responsibleUser.value && this.workspaceForm.stato !== 'Creato') {
                 this.lockUtenteRichiedente = true;
             }
 
@@ -84,7 +85,7 @@ export class ModificationWorkspaceController {
             numChange += 1;
         }
 
-        if (this.workspaceForm.utenteRichiedente && this.workspaceForm.utenteRichiedente.value !== this.originalUtenteRichiedente) {
+        if (this.responsibleUser && this.responsibleUser.value !== this.originalUtenteRichiedente) {
             numChange += 1;
         }
 
@@ -133,7 +134,7 @@ export class ModificationWorkspaceController {
         //     numChange += 1;
         // }
 
-        if (!this.workspaceForm.utenteRichiedente || !this.workspaceForm.utenteRichiedente.value) {
+        if (!this.responsibleUser || !this.responsibleUser.value) {
             numUndefined += 1;
         }
         // if (this.workspaceForm.utenteRichiedente && this.workspaceForm.utenteRichiedente.value !== this.originalUtenteRichiedente) {
@@ -156,7 +157,11 @@ export class ModificationWorkspaceController {
     }
 
     close () {
-        this.$uibModalInstance.dismiss();
+        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+            if (res.choice) {
+                this.$uibModalInstance.dismiss();
+            }
+        });
     }
 
     saveWorkspace () {
@@ -166,41 +171,57 @@ export class ModificationWorkspaceController {
 
         this.workspaceForm.send = false;
 
-        this.updateWorkspace(this.workspaceForm);
+        this.updateWorkspace(this.workspaceForm, 'save');
     }
 
     sendWorkspace () {
-        if (this.workspaceForm.start_date && this.workspaceForm.end_date && this.workspaceForm.utenteRichiedente.value) {
+        if (this.workspaceForm.start_date && this.workspaceForm.end_date && this.responsibleUser.value) {
+            this.workspaceForm.responsible_user_id = this.responsibleUser.value;
             this.$log.debug('send', this.workspaceForm);
             this.workspaceForm.send = true;
-            this.updateWorkspace(this.workspaceForm);
+            this.updateWorkspace(this.workspaceForm, 'send');
         }
     }
 
     deleteWorkspace () {
-        this.deleteWorkspacePromise = this.modalService.deleteWorkspace(this.$scope.$parent.workspaceId);
-        this.deleteWorkspacePromise.then(res => {
-            if (res.data.result) {
-                this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'delete-workspace-done');
-            } else {
-                this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'delete-workspace-error');
+        this.modalService.openConfirmationModal(this.modalService.getDeleteActionText()).then(selection => {
+            if (selection.choice) {
+                this.deleteWorkspacePromise = this.modalService.deleteWorkspace(this.$scope.$parent.workspaceId);
+                this.deleteWorkspacePromise.then(res => {
+                    if (res.data.result) {
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'delete-workspace-done');
+                    } else {
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'delete-workspace-error');
+                    }
+                }).finally(() => {
+                    this.$uibModalInstance.close();
+                });
             }
-        }).finally(() => {
-            this.$uibModalInstance.close();
         });
     }
 
-    updateWorkspace (workspaceForm) {
-        this.createNewWorkspacePromise = this.modalService.createNewWorkspace(workspaceForm);
-        this.createNewWorkspacePromise.then(res => {
-            this.$log.debug(res);
-            if (res.data.result) {
-                this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'modification-workspace-done');
-            } else {
-                this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'modification-workspace-error');
+    updateWorkspace (workspaceForm, operation) {
+        let bodyModal = '';
+        if (operation === 'save') {
+            bodyModal = this.modalService.getSaveActionText();
+        } else if (operation === 'send') {
+            bodyModal = this.modalService.getSendActionText();
+        }
+
+        this.modalService.openConfirmationModal(bodyModal).then(selection => {
+            if (selection.choice) {
+                this.createNewWorkspacePromise = this.modalService.createNewWorkspace(workspaceForm);
+                this.createNewWorkspacePromise.then(res => {
+                    this.$log.debug(res);
+                    if (res.data.result) {
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'modification-workspace-done');
+                    } else {
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'modification-workspace-error');
+                    }
+                }).finally(() => {
+                    this.$uibModalInstance.close();
+                });
             }
-        }).finally(() => {
-            this.$uibModalInstance.close();
         });
     }
 }

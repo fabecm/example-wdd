@@ -20,6 +20,9 @@ import MassiveManagmentTemplate from '../templates/massiveManagmentModal.templat
 import { CreateEntityController } from '../templates/createEntity';
 import CreateEntityTemplate from '../templates/createEntity.template.html';
 
+import { ConfirmationModalController } from '../templates/confirmationModal';
+import ConfirmationModalTemplate from '../templates/confirmationModal.template.html';
+
 export class ModalService {
     constructor ($uibModal, $rootScope, $http) {
         'ngInject';
@@ -178,6 +181,24 @@ export class ModalService {
         return modalInstance.result;
     }
 
+    openConfirmationModal (param) {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: ConfirmationModalTemplate,
+            controller: ConfirmationModalController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            scope: angular.extend(this.$rootScope, {
+                param: param
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
     openActionModal (param) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
@@ -240,6 +261,48 @@ export class ModalService {
         let text = {
             title: 'Non di competenza',
             body: 'confermando i dati selezionati verranno segnalati come non di competenza. Vuoi procedere?'
+        };
+        return text;
+    }
+
+    getDeleteActionText () {
+        let text = {
+            body: 'Si desidera eliminare il workspace?'
+        };
+        return text;
+    }
+
+    getSaveActionText () {
+        let text = {
+            body: 'Si desidera salvare le modifiche apportate?'
+        };
+        return text;
+    }
+
+    getNewActionText () {
+        let text = {
+            body: 'Si desidera salvare le modifiche apportate?'
+        };
+        return text;
+    }
+
+    getCancelActionText () {
+        let text = {
+            body: 'Si desidera annullare le modifiche apportate?'
+        };
+        return text;
+    }
+
+    getConfirmActionText () {
+        let text = {
+            body: 'Si desidera confermare le modifiche apportate?'
+        };
+        return text;
+    }
+
+    getSendActionText () {
+        let text = {
+            body: 'Si desidera salvare le modifiche apportate ed inviare il workspace?'
         };
         return text;
     }

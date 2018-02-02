@@ -1,0 +1,19 @@
+<div class="wwd-modal" wdd-spinner="[vm.doActionPromise.$$state]">
+    <div class="wwd-modal__title">
+        <div class="" id="modal-title">ATTENZIONE</div>
+    </div>
+    <div class="wwd-modal__body__container" id="modal-body">
+        <div class="wwd-modal__body">
+            <div class="row wwd-modal__row">
+                <div class="col-xs-12 wwd-modal__row__description">
+                    {{ vm.confirmationText }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wwd-modal__footer">
+        <button class="wdd-button" type="button" ng-click="vm.action(false)">No</button>
+        <button class="wdd-button pull-right" type="button" ng-click="vm.action(true)">Si</button>
+    </div>
+
+</div>

@@ -19,7 +19,7 @@
         </div>
         <div class="wwd-modal__footer">
             <button class="wdd-button" type="button" ng-click="vm.close()">Annulla</button>
-            <button class="wdd-button pull-right" type="submit">Salva</button>
+            <button class="wdd-button pull-right" type="submit" ng-disabled="!vm.entityName.value">Salva</button>
         </div>
     </form>
 </div>
