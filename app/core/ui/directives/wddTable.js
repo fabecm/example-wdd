@@ -347,7 +347,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (scope.checkedElements && scope.checkedElements.length > 0) {
                     scope.checkedElements = scope.checkedElements.map(e => {
                         return ({
-                            id_field: e
+                            id_field: e.id_field.id
                         });
                     });
                 }
@@ -358,7 +358,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (scope.checkedElements && scope.checkedElements.length > 0) {
                     scope.checkedElements = scope.checkedElements.map(e => {
                         return ({
-                            id_field: e
+                            id_field: e.id_field.id
                         });
                     });
                 }
@@ -369,7 +369,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (scope.checkedElements && scope.checkedElements.length > 0) {
                     scope.checkedElements = scope.checkedElements.map(e => {
                         return ({
-                            id_field: e
+                            id_field: e.id_field.id
                         });
                     });
                 }
