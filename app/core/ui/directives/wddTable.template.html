@@ -27,7 +27,7 @@
             <tbody>
 
                 <tr class="base-row" wdd-row ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
-                    column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
+                    column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="(isChecked && data.ableCheck)" row-collapse="expandable"
                     has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
                     has-ternary-navigation-btn="ternaryNavigation" has-creation="hasCreation" is-from-child-table="isChild" check-row="checkValueChange({data: data})"
                     is-sas="isToSas"></tr>

@@ -26,12 +26,15 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             hasPrimaryLabel: '@',
             actionPrimaryLabel: '&',
             disabledPrimaryLabelWithEmptyResponse: '@',
+            ableStatusPrimaryLabel: '@',
             hasSecondaryLabel: '@',
             actionSecondaryLabel: '&',
             disabledSecondaryLabelWithEmptyResponse: '@',
+            ableStatusSecondaryLabel: '@',
             hasTertiaryLabel: '@',
             actionTertiaryLabel: '&',
             disabledTertiaryLabelWithEmptyResponse: '@',
+            ableStatusTertiaryLabel: '@',
             hasCreationBtn: '@',
             reloadData: '=',
             reloadDataFormChild: '&',
@@ -66,10 +69,22 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 getTableDataPromise.then(data => {
                     scope.serviceResponse = data.dataTable;
                     scope.isErrored = false;
+                    scope.checkedElements = [];
 
                     if (scope.serviceResponse !== null && scope.serviceResponse !== undefined && scope.serviceResponse.length === 0) {
                         WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE', 'empty-table');
                     }
+
+                    if (!scope.isChild && scope.serviceResponse && scope.serviceResponse.length > 0) {
+                        scope.serviceResponse.map(e => {
+                            if ((scope.ableStatusPrimaryLabel && scope.ableStatusPrimaryLabel === e.status.label) ||
+                                (scope.ableStatusSecondaryLabel && scope.ableStatusSecondaryLabel === e.status.label) ||
+                                (scope.ableStatusTertiaryLabel && scope.ableStatusTertiaryLabel === e.status.label)) {
+                                e.ableCheck = true;
+                            }
+                            return e;
+                        });
+                    }console.log(scope.serviceResponse);
 
                     if (scope.expandable && scope.serviceResponse && scope.serviceResponse.length > 0) {
                         scope.serviceResponse.map(e => {
