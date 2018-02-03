@@ -126,6 +126,42 @@ export class DataDetailController {
         });
     }
 
+    deleteEntity (detail) {
+        let deleteParam = {};
+        if (detail.term && detail.term.termId) {
+            deleteParam.term_id = detail.term.termId;
+        }
+        if (detail.term && detail.term.tempTermId) {
+            deleteParam.temp_term_id = detail.term.tempTermId;
+        }
+
+        let dataField;
+        this.visibleDataDetails.forEach(element => {
+            if (element.term.termtype === 'DATA_FIELD') {
+                dataField = element.term;
+            }
+        });
+
+        if (dataField) {
+            if (dataField.termId) {
+                deleteParam.data_field_term_id = dataField.termId;
+            }
+            if (dataField.tempTermId) {
+                deleteParam.data_field_temp_term_id = dataField.tempTermId;
+            }
+        }
+
+        this.deleteEntityPromise = this.detailsService.deleteEntity(deleteParam);
+        this.deleteEntityPromise.then(res => {
+            if (res.data.result) {
+                this.initDataDetails();
+                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'delete-entity-done');
+            } else {
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'delete-entity-error');
+            }
+        });
+    }
+
     addEntity () {
         this.modalService.openNewWorkspaceRequests(this.workspaceId).then(() => {
             this.initDataDetails();
