@@ -1,44 +1,27 @@
-<div class="ru-dashboard">
-    <div class="button-section">
-        <div class="left-section">
-            <div class="wbb-select select-child">
-                <select name="stato" ng-model="vm.pageChild" ng-change="vm.changeChild()">
-                    <!-- ? -->
-                    <option value="tab.toBeMonitored">Attivi</option>
-                    <option value="">Richiesta di approvazione entità</option>
-                </select>
-                <i class="icon icon-down-arrow"></i>
-            </div>
-        </div>
-        <div class="right-section">
-            <button class="wdd-button alt-color">
-                <i class="icon icon-excel"></i>
-                esporta
-            </button>
-        </div>
-    </div>
-    <dashboard-filter></dashboard-filter>
-
-    <div>
-        <wdd-table 
-            ng-if="vm.workspaceData && vm.headerTable" 
-            service-response-obj="{{ {array: vm.workspaceData} }}" 
-            header-array-obj="{{ {array: vm.headerTable} }}"
-            pagination-bool="{{ {boolean: vm.tablePagination} }}" 
-            page-size-num="{{ {number: vm.tablePageSize} }}" 
-            expandable-bool="{{ {boolean: vm.tableExpandable} }}"
-            header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}" 
-            is-child-checked-bool="true" 
-            
-
-            has-primary-navigation-btn="true"
-
-            path-primary-navigation="tab.dataDetail" 
-
-            has-secondary-label="Nuova entità" 
-            has-primary-label="Invia per approvazione"
-
-            action-secondary-label="vm.createNewWorkspace()">
-        </wdd-table>
+<div class="wdd-secondary-header">
+    <div class="btn-group wdd-dropdown" uib-dropdown is-open="status.isopen">
+        <button id="single-button" type="button" class="wdd-button dropdown" uib-dropdown-toggle ng-disabled="disabled">
+            Censimento di entità
+            <i class="icon icon-down-arrow"></i>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+            <li role="menuitem">
+                <a ui-sref="tab.toDoList">Richieste di documentazione</a>
+            </li>
+            <li role="menuitem">
+                <a ui-sref="tab.initiativeCensuses">Censimenti di iniziativa</a>
+            </li>
+            <li role="menuitem">
+                <a>Censimento di entità</a>
+            </li>
+        </ul>
     </div>
 </div>
+<div class="entity-census">
+    <dashboard-filter></dashboard-filter>
+
+    <wdd-table reload-data="vm.reloadTableData" table-key="entityCensus" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
+        page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}" header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
+        is-child-checked-bool="false" state-to-able-child-check="" path-primary-navigation="tab.dataDetail" has-primary-label="Nuova entità"
+        action-primary-label="vm.createNewEntity()" has-secondary-label="Invia per approvazione" action-secondary-label="vm.sendToApprove()"></wdd-table>
+</div> 

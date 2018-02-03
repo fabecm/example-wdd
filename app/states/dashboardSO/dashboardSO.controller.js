@@ -12,6 +12,11 @@ export class DashboardSOController {
         value: 0,
         color: '#00796B',
         childPage: 'tab.initiativeCensuses'
+    }, {
+        label: 'Censimenti di entità',
+        value: 0,
+        color: '#FF0000',
+        childPage: 'tab.entityCensus'
     }];
 
     headerTodoList = [{

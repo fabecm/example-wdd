@@ -4,6 +4,40 @@ export class EntityCensusController {
     tablePageSize = 10;
     tableExpandable = true;
 
+    headerTable = [{
+        label: 'Tipo entità',
+        value: 'type_entity'
+    }, {
+        label: 'Nome entità',
+        value: 'name_entity'
+    }, {
+        label: 'Descrizione',
+        value: 'description'
+    }, {
+        label: 'Stato',
+        value: 'status'
+    }];
+
+    headerTableExpandable = [{
+        label: 'Data Field',
+        value: 'data_field'
+    }, {
+        label: 'Data Table',
+        value: 'data_table'
+    }, {
+        label: 'Data Source',
+        value: 'data_source'
+    }, {
+        label: 'Technical Application',
+        value: 'tech_appl'
+    }, {
+        label: 'System Owner',
+        value: 'system_owner'
+    }, {
+        label: 'Stato',
+        value: 'status'
+    }];
+
     constructor (SearchWorkspaceService, $q, $state, ModalService) {
         'ngInject';
         this.searchWorkspaceService = SearchWorkspaceService;
@@ -11,19 +45,55 @@ export class EntityCensusController {
         this.$state = $state;
         this.modalService = ModalService;
 
-        this.initRuDashboard();
+        this.initEntityCensus();
     }
 
-    initRuDashboard () {
-        this.searchWorkspaceService.getWorkspaceRu().then(res => {
-            this.workspaceData = res.outputArray;
-            getHeader(this.$q).then(headerRes => {
-                this.headerTable = headerRes;
-            });
-            getHeaderExpandable(this.$q).then(headerExpRes => {
-                this.headerTableExpandable = headerExpRes;
-            });
-        });
+    initEntityCensus () {
+
+    }
+
+    // para,: arrayFilter
+    filterChanged () {
+        // let param = {};
+        // param.resetPage = true;
+
+        // this.mapFilterSetted(param, arrayFilter);
+    }
+
+    createNewEntity () {
+
+    }
+
+    sendToApprove () {
+
+    }
+
+    // params: param, arrayFilter
+    mapFilterSetted () {
+        // if (arrayFilter.process_owner_id) {
+        //     param.process_owner_id = arrayFilter.process_owner_id;
+        // } else {
+        //     param.process_owner_id = 0;
+        // }
+        // if (arrayFilter.system_owner_id) {
+        //     param.system_owner_id = arrayFilter.system_owner_id;
+        // } else {
+        //     param.system_owner_id = 0;
+        // }
+        // if (arrayFilter.status_code) {
+        //     param.status_code = arrayFilter.status_code;
+        // }
+        // if (arrayFilter.arrayFilter && arrayFilter.arrayFilter.length > 0) {
+        //     param.array_filter_text = arrayFilter.arrayFilter;
+        // }
+
+        // this.filterSetted = param;
+
+        // this.$timeout(() => {
+        //     this.reloadTableData({
+        //         filterSetted: param
+        //     });
+        // });
     }
 
     changeChild () {
@@ -32,40 +102,4 @@ export class EntityCensusController {
         }
     }
 
-    createNewWorkspace () {
-        this.modalService.openNewWorkspaceModal();
-    }
-}
-
-function getHeader ($q) {
-    let defer = $q.defer();
-    defer.resolve([{
-        label: 'Tipo entità',
-        value: 'workspace'
-    }, {
-        label: 'Nome entità',
-        value: 'description'
-    }, {
-        label: 'Descrizione',
-        value: 'start_date'
-    }, {
-        label: 'Stato',
-        value: 'state'
-    }]);
-    return defer.promise;
-}
-
-function getHeaderExpandable ($q) {
-    let defer = $q.defer();
-    defer.resolve([{
-        label: 'Tipo entità',
-        value: 'data_field'
-    }, {
-        label: 'Nome entità',
-        value: 'data_table'
-    }, {
-        label: 'Descrizione',
-        value: 'data_source'
-    }]);
-    return defer.promise;
 }
