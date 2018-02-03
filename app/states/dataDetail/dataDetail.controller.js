@@ -3,12 +3,13 @@ export class DataDetailController {
     listDataDetails = [];
     visibleDataDetails = [];
 
-    constructor (DetailsService, $stateParams, ModalService, WDDAlert) {
+    constructor (DetailsService, $stateParams, ModalService, WDDAlert, $log) {
         'ngInject';
         this.detailsService = DetailsService;
         this.$stateParams = $stateParams;
         this.modalService = ModalService;
         this.WDDAlert = WDDAlert;
+        this.$log = $log;
 
         this.isDraft = JSON.parse(this.$stateParams.isDraft);
 
@@ -73,6 +74,14 @@ export class DataDetailController {
     }
 
     saveChanges (detail) {
+        this.modalService.openConfirmationModal(this.modalService.getSaveActionText()).then(selection => {
+            if (selection.choice) {
+                this.confirmSaveChanges(detail);
+            }
+        });
+    }
+
+    confirmSaveChanges (detail) {
         let entityToSave = {};
 
         if (!this.isDraft) {
@@ -120,13 +129,37 @@ export class DataDetailController {
     }
 
     deleteChanges (detail) {
-        detail.isLock = true;
-        detail.attributes.map(attribute => {
-            attribute.values[0].value = angular.copy(attribute.origin_value);
+        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(selection => {
+            if (selection.choice) {
+                detail.isLock = true;
+                detail.attributes.map(attribute => {
+                    attribute.values[0].value = angular.copy(attribute.origin_value);
+                });
+            }
         });
     }
 
+    deleteDraft (detail) {
+        this.modalService.openConfirmationModal(this.modalService.getDeleteDraftDataDetailText()).then(selection => {
+            if (selection.choice) {
+                this.confirmDeleteDraft(detail);
+            }
+        });
+    }
+
+    confirmDeleteDraft (detail) {
+        this.$log.debug(detail);
+    }
+
     deleteEntity (detail) {
+        this.modalService.openConfirmationModal(this.modalService.getDeleteDataDetailText()).then(selection => {
+            if (selection.choice) {
+                this.confirmDeleteEntity(detail);
+            }
+        });
+    }
+
+    confirmDeleteEntity (detail) {
         let deleteParam = {};
         if (detail.term && detail.term.termId) {
             deleteParam.term_id = detail.term.termId;
