@@ -17,6 +17,10 @@
         }
         
         i {
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                /* IE10+ CSS styles go here */
+                margin-top: 33px;
+            }
             margin-top: 25px;
             line-height: $custom-select-height;
             cursor: pointer;

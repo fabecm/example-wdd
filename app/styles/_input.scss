@@ -49,6 +49,10 @@
     }
 
     i {
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            /* IE10+ CSS styles go here */
+            margin-top: 6px;
+        }
         line-height: $custom-select-height;
         content: '\e806';
         display: block;
