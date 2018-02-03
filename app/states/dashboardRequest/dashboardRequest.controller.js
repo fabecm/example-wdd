@@ -17,15 +17,12 @@ export class DashboardRequestController {
         value: 0,
         color: '#df5356',
         childPage: 'tab.automaticEvents'
+    }, {
+        label: 'Richieste approvazione entità',
+        value: 0,
+        color: '#FFCC00',
+        childPage: 'tab.entityApprovalRequest'
     }];
-
-    // To add in chartValues
-    // , {
-    //     label: 'Richieste di approvazione entità',
-    //     value: 0,
-    //     color: '#FB8C00',
-    //     childPage: ''
-    // }
 
     headerRichiestaDocumentazione = [{
         label: 'Workspace',
