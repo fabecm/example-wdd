@@ -126,7 +126,6 @@ export function WddAutocomplete ($log, FilterWorkspace) {
 
             scope.updateListValue = () => {
                 if (scope.model.label.length > 2) {
-
                     let provisionalLabel = scope.model.label;
                     ngModel.$setViewValue(undefined);
                     ngModel.$render(scope.model);

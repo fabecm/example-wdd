@@ -11,7 +11,7 @@ export class CreateEntityController {
         this.WDDAlert = WDDAlert;
         this.modalService = ModalService;
 
-        console.log(this.$scope.$parent);
+        // console.log(this.$scope.$parent);
 
         this.entityType = this.$scope.$parent.entityType;
         this.dataDetails = this.$scope.$parent.dataDetails;
@@ -30,7 +30,7 @@ export class CreateEntityController {
                 let termName;
                 let termId;
                 let tempTermId;
-                
+
                 if (parseInt(this.entityName.value, 10)) {
                     termId = this.entityName.value;
                 } else {
@@ -46,15 +46,16 @@ export class CreateEntityController {
 
                 let entityToSave = {};
                 entityToSave.term = {};
+                entityToSave.term.addNewEntityToRelation = true;
 
                 if (termName) {
                     // entityToSave.term.draft = true;
                     entityToSave.term.name = termName;
                 } else if (termId) {
-                    // entityToSave.term.draft = false;
+                    entityToSave.term.draft = false;
                     entityToSave.term.termId = termId;
                 } else if (tempTermId) {
-                    // entityToSave.term.draft = true;
+                    entityToSave.term.draft = true;
                     entityToSave.term.tempTermId = tempTermId;
                 }
                 entityToSave.term.termtype = this.entityType;
