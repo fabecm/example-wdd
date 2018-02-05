@@ -20,15 +20,15 @@ export function DashboardFilter ($log, $state, WddCacheService) {
             scope.filterKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
 
             scope.labelWorkspace = 'Workspace';
-            scope.placeholderWorkspace = 'Seleziona workspace';
+            scope.placeholderWorkspace = 'Tutti';
             scope.typeWorkspace = 'workspace';
 
             scope.labelDescription = 'Descrizione';
-            scope.placeholderDescription = 'Seleziona descrizione';
+            scope.placeholderDescription = 'Tutte';
             scope.typeDescrizione = 'description';
 
             scope.labelStatus = 'Stato';
-            scope.placeholderStatus = 'Seleziona stato';
+            scope.placeholderStatus = 'Tutti';
             scope.typeStatus = 'status';
 
             if (WddCacheService.getCachedFilter(scope.filterKey)) {

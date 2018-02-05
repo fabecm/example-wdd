@@ -1,5 +1,5 @@
 export class FilterWorkspace {
-    constructor ($http, $q, $log, DatasourceService, ClassificationService, WorkspaceService) {
+    constructor ($http, $q, $log, DatasourceService, ClassificationService, WorkspaceService, DetailsService) {
         'ngInject';
         this.$http = $http;
         this.$q = $q;
@@ -7,6 +7,7 @@ export class FilterWorkspace {
         this.datasourceService = DatasourceService;
         this.classificationService = ClassificationService;
         this.workspaceService = WorkspaceService;
+        this.detailsService = DetailsService;
     }
 
     updateList (type, stringSearched, dipendence) {
@@ -26,7 +27,7 @@ export class FilterWorkspace {
             case 'responsibleUser':
                 return this.getResponsibleUser(stringSearched).then(res => res.data.array);
             case 'entityName':
-                return this.$q.when([]);
+                return this.detailsService.getEntityNameType(dipendence, stringSearched).then(res => res.data.array);
             case 'newRequestSO':
             case 'newRequestTA':
             case 'newRequestDS':
