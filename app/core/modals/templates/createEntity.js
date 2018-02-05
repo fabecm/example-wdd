@@ -46,7 +46,7 @@ export class CreateEntityController {
 
                 let entityToSave = {};
                 entityToSave.term = {};
-                entityToSave.term.addNewEntityToRelation = true;
+                entityToSave.addNewEntityToRelation = true;
 
                 if (termName) {
                     // entityToSave.term.draft = true;
