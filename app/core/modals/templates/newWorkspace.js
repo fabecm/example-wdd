@@ -65,11 +65,11 @@ export class NewWorkspaceController {
                 this.createNewWorkspacePromise = this.modalService.createNewWorkspace(workspaceForm);
                 this.createNewWorkspacePromise.then(res => {
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'create-workspace-done');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace-done');
                     } else if (res.data.message === 'DESC_EXSIST') {
-                        this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'create-workspace-error');
+                        this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'workspace-error');
                     }else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'create-workspace-error');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace-error');
                     }
                 }).finally(() => {
                     this.$uibModalInstance.close();

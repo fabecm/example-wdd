@@ -2,7 +2,7 @@
     <div class="wdd-labeled-input">
         <label ng-if="label">{{label}}</label>
         <input class="wdd-input-text" ng-model="model.label" type="text" placeholder="{{placeholder}}" ng-change="changedLabel()"
-            ng-model-options="{ debounce: 1000 }" ng-disabled="isEditable" />
+            ng-model-options="{ debounce: 1000 }" ng-disabled="isEditable" ng-readonly="isReadonly"/>
         <i id="{{ idClicker }}" class="icon icon-down-arrow" ng-class="{'adjust-icon': !label}" ng-click="showListValues()"></i>
     </div>
 

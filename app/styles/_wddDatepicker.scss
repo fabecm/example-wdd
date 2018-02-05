@@ -22,6 +22,15 @@
         background: white;
         border: 1px solid #afc2de;
         width: 100%;
+
+        .wdd-button.icon-only {
+            i {
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                    /* IE10+ CSS styles go here */
+                    margin-top: 7px;
+                }
+            }
+        }
     }
 }
 

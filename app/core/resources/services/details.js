@@ -8,6 +8,10 @@ export class DetailsService {
         this.$q = $q;
     }
 
+    getEntityNameType (dipendence, stringSearched) {
+        return this.$http.get(`WDD/details/autocomplete/?term_type=${dipendence[0]}&label_search=${stringSearched}`);
+    }
+
     getDataFieldDetails (termId, isDraft) {
         return this.$http.get(`WDD/details/${termId}?draft=${isDraft}`);
     }

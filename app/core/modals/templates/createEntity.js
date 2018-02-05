@@ -11,6 +11,8 @@ export class CreateEntityController {
         this.WDDAlert = WDDAlert;
         this.modalService = ModalService;
 
+        console.log(this.$scope.$parent);
+
         this.entityType = this.$scope.$parent.entityType;
         this.dataDetails = this.$scope.$parent.dataDetails;
         this.isDraft = JSON.parse(this.$scope.$parent.isDraft);
@@ -25,50 +27,63 @@ export class CreateEntityController {
     saveEntity () {
         this.modalService.openConfirmationModal(this.modalService.getSaveActionText()).then(selection => {
             if (selection.choice) {
-                this.$timeout(() => {
-                    let termName;
-                    let termId;
-                    if (!this.entityName) {
-                        termName = this.getNewvalue();
+                let termName;
+                let termId;
+                let tempTermId;
+                
+                if (parseInt(this.entityName.value, 10)) {
+                    termId = this.entityName.value;
+                } else {
+                    let checkDraftId = this.entityName.value.substr(0, 1);
+                    let checkIntDraftId = this.entityName.value.substr(1);
+
+                    if (checkDraftId === 'D' && Number.isInteger(checkIntDraftId)) {
+                        tempTermId = this.entityName.value;
                     } else {
-                        termId = this.entityName;
+                        termName = this.entityName.value;
                     }
+                }
 
-                    let entityToSave = {};
-                    entityToSave.term = {};
+                let entityToSave = {};
+                entityToSave.term = {};
 
-                    if (termName) {
-                        entityToSave.term.name = termName;
-                    } else if (termId) {
-                        entityToSave.term.termId = termId;
+                if (termName) {
+                    // entityToSave.term.draft = true;
+                    entityToSave.term.name = termName;
+                } else if (termId) {
+                    // entityToSave.term.draft = false;
+                    entityToSave.term.termId = termId;
+                } else if (tempTermId) {
+                    // entityToSave.term.draft = true;
+                    entityToSave.term.tempTermId = tempTermId;
+                }
+                entityToSave.term.termtype = this.entityType;
+                entityToSave.attributes = [];
+
+                entityToSave.relations = [];
+                for (let i = 0; i < this.dataDetails.length; i++) {
+                    if ((this.dataDetails[i].term.termId || this.dataDetails[i].term.tempTermId) && this.entityType !== this.dataDetails[i].term.termtype) {
+                        entityToSave.relations.push({
+                            termtype: this.dataDetails[i].term.termtype,
+                            name: this.dataDetails[i].term.name,
+                            termId: this.dataDetails[i].term.termId,
+                            tempTermId: this.dataDetails[i].tempTermId,
+                            draft: this.dataDetails[i].term.draft,
+                            workspaceId: this.workspaceId
+                        });
                     }
-                    entityToSave.term.termtype = this.entityType;
-                    entityToSave.attributes = [];
-
-                    entityToSave.relations = [];
-                    for (let i = 0; i < this.dataDetails.length; i++) {
-                        if (this.dataDetails[i].term.termId && this.entityType !== this.dataDetails[i].term.termtype) {
-                            entityToSave.relations.push({
-                                termtype: this.dataDetails[i].term.termtype,
-                                name: this.dataDetails[i].term.name,
-                                termId: this.dataDetails[i].term.termId,
-                                draft: this.dataDetails[i].term.draft,
-                                workspaceId: this.workspaceId
-                            });
-                        }
+                }
+                this.saveEntityPromise = this.detailsService.saveEntity(entityToSave);
+                this.saveEntityPromise.then(res => {
+                    if (res.data.result) {
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CON SUCCESSO', 'save-entity-done');
+                    } else {
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'save-entity-error');
                     }
-                    this.saveEntityPromise = this.detailsService.saveEntity(entityToSave);
-                    this.saveEntityPromise.then(res => {
-                        if (res.data.result) {
-                            this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CON SUCCESSO', 'save-entity-done');
-                        } else {
-                            this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'save-entity-error');
-                        }
-                    });
-                }).then(() => {
-                    this.$uibModalInstance.close();
                 });
             }
+        }).finally(() => {
+            this.$uibModalInstance.close();
         });
     }
 
