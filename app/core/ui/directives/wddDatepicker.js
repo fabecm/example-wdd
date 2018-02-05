@@ -30,6 +30,8 @@ export function WddDatepicker () {
             ngModel.$render = () => {
                 if (ngModel.$modelValue) {
                     scope.model.date = ngModel.$modelValue;
+                } else {
+                    scope.model.date = undefined;
                 }
             };
 

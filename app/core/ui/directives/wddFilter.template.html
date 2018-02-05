@@ -9,8 +9,10 @@
             <span>Filtri</span>
         </div>
         <div class="filter-row" ng-show="!isFilterActive">
-            <wdd-autocomplete ng-model="processOwnerChosen" label="Process Owner" placeholder="Seleziona" type="processOwner" new-value="false" promise="promises.processOwnerPromise"></wdd-autocomplete>
-            <wdd-autocomplete ng-model="systemOwnerChosen" label="System Owner" placeholder="Seleziona" type="systemOwner" new-value="false" promise="promises.systemOwnerPromise"></wdd-autocomplete>
+            <wdd-autocomplete ng-model="processOwnerChosen" label="Process Owner" placeholder="Seleziona" type="processOwner" new-value="false"
+                promise="promises.processOwnerPromise" is-readonly="true"></wdd-autocomplete>
+            <wdd-autocomplete ng-model="systemOwnerChosen" label="System Owner" placeholder="Seleziona" type="systemOwner" new-value="false"
+                promise="promises.systemOwnerPromise" is-readonly="true"></wdd-autocomplete>
 
             <div class="wdd-labeled-input">
                 <label for="filterStatus">Stato</label>
@@ -23,10 +25,10 @@
         </div>
 
         <div class="filter-section" ng-repeat="item in filtersArray" ng-show="!isFilterActive">
-            <wdd-autocomplete ng-model="filterSetted[$index].entity" label="Entità" placeholder="Seleziona un'entità" type="entity" promise="promises.getEntityPromise" dipendence="{{ [filterSetted[$index].attribute] }}"
-                new-value="false"></wdd-autocomplete>
-            <wdd-autocomplete ng-model="filterSetted[$index].attribute" label="Attributo" placeholder="Seleziona un attributo" type="attribute" promise="promises.getAttributePromise"
-                dipendence="{{ [filterSetted[$index].entity] }}" new-value="false"></wdd-autocomplete>
+            <wdd-autocomplete ng-model="filterSetted[$index].entity" label="Entità" placeholder="Seleziona un'entità" type="entity" promise="promises.getEntityPromise"
+                dipendence="{{ [filterSetted[$index].attribute] }}" new-value="false" is-readonly="true"></wdd-autocomplete>
+            <wdd-autocomplete ng-model="filterSetted[$index].attribute" label="Attributo" placeholder="Seleziona un attributo" type="attribute"
+                promise="promises.getAttributePromise" dipendence="{{ [filterSetted[$index].entity] }}" new-value="false" is-readonly="true"></wdd-autocomplete>
 
             <div class="wdd-labeled-input">
                 <label for="text">Text</label>

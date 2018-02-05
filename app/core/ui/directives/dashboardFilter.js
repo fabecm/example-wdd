@@ -48,10 +48,17 @@ export function DashboardFilter ($log, $state, WddCacheService) {
             // scope.endDate = 'GG/MM/AAAA';
             scope.labelEndDate = 'Data fine al';
 
+            scope.ableSearchButton = () => {
+                if (!scope.workspaceSelected && !scope.descriptionSelected && !scope.statusSelected && !scope.startDate && !scope.endDate) {
+                    return true;
+                }
+                return false;
+            };
+
             scope.resetFilter = () => {
-                scope.workspaceSelected = {};
-                scope.descriptionSelected = {};
-                scope.statusSelected = {};
+                scope.workspaceSelected = undefined;
+                scope.descriptionSelected = undefined;
+                scope.statusSelected = undefined;
                 scope.startDate = undefined;
                 // scope.startDate = 'GG/MM/AAAA';
                 scope.endDate = undefined;

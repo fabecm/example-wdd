@@ -12,6 +12,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             dipendence: '@',
             newValue: '=',
             isEditable: '=',
+            isReadonly: '@',
             requiredDependence: '@',
             promise: '='
         },
@@ -95,11 +96,6 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     scope.$apply();
                 }
             });
-
-            // $('#autocomplete-clicker').click(function (e) {
-            //     e.stopPropagation();
-            //     console.log($(e.target).parents('#autocomplete-value-list'));
-            // });
 
             scope.$on('$destroy', function () {
                 $(document).off('click');
