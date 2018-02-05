@@ -189,9 +189,9 @@ export class ModificationWorkspaceController {
                 this.deleteWorkspacePromise = this.modalService.deleteWorkspace(this.$scope.$parent.workspaceId);
                 this.deleteWorkspacePromise.then(res => {
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'delete-workspace-done');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace-done');
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'delete-workspace-error');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace-error');
                     }
                 }).finally(() => {
                     this.$uibModalInstance.close();
@@ -214,9 +214,9 @@ export class ModificationWorkspaceController {
                 this.createNewWorkspacePromise.then(res => {
                     this.$log.debug(res);
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'modification-workspace-done');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace-done');
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'modification-workspace-error');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace-error');
                     }
                 }).finally(() => {
                     this.$uibModalInstance.close();
