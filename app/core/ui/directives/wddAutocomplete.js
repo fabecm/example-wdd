@@ -48,6 +48,13 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 scope.initAutocomplete();
             });
 
+            scope.$watch('model', (newVal) => {
+                if (!newVal) {
+                    ngModel.$setViewValue(undefined);
+                    ngModel.$render(scope.model);
+                }
+            });
+
             ngModel.$render = (newVal) => {
                 if(ngModel.$modelValue) {
                     if (scope.listValues) {
@@ -119,6 +126,12 @@ export function WddAutocomplete ($log, FilterWorkspace) {
 
             scope.updateListValue = () => {
                 if (scope.model.label.length > 2) {
+
+                    let provisionalLabel = scope.model.label;
+                    ngModel.$setViewValue(undefined);
+                    ngModel.$render(scope.model);
+                    scope.model.label = provisionalLabel;
+
                     const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendenceObj);
                     scope.promise = requestFilter;
                     requestFilter.then(res => {
