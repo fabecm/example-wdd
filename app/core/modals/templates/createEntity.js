@@ -68,7 +68,7 @@ export class CreateEntityController {
                             termtype: this.dataDetails[i].term.termtype,
                             name: this.dataDetails[i].term.name,
                             termId: this.dataDetails[i].term.termId,
-                            tempTermId: this.dataDetails[i].tempTermId,
+                            tempTermId: this.dataDetails[i].term.tempTermId,
                             draft: this.dataDetails[i].term.draft,
                             workspaceId: this.workspaceId
                         });
