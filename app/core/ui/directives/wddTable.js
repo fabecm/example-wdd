@@ -156,14 +156,22 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     scope.serviceResponse = scope.sliceDataToShow();
                 } else {
                     if (scope.isSelectAll.value) {
-                        scope.checkedElements = scope.serviceResponse.map(e => e.id_field);
+                        scope.checkedElements = scope.serviceResponse.filter(e => e.ableCheck).map(e => e.id_field);
                     } else {
                         scope.checkedElements = [];
+                        scope.serviceResponse.map(e => {
+                            if ((scope.ableStatusPrimaryLabel && scope.ableStatusPrimaryLabel === e.status.label) ||
+                                (scope.ableStatusSecondaryLabel && scope.ableStatusSecondaryLabel === e.status.label) ||
+                                (scope.ableStatusTertiaryLabel && scope.ableStatusTertiaryLabel === e.status.label)) {
+                                e.ableCheck = true;
+                            }
+                            return e;
+                        });
                     }
 
                     scope.serviceResponse.map(elem => {
                         // console.log(elem);
-                        const index = scope.checkedElements.findIndex((row_data) => row_data.id === elem.id_fields);
+                        const index = scope.checkedElements.findIndex((row_data) => row_data.id === elem.id_field.id);
                         if (index >= 0) {
                             elem.isChecked = true;
                         } else {
@@ -192,21 +200,19 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         }
                     }
                 } else {
-
                     if (scope.serviceResponse && scope.serviceResponse.length > 0) {
                         scope.serviceResponse.map(e => {
-                            if (row.status !== e.status) {
+                            if (row.data.status.label !== e.status.label) {
                                 e.ableCheck = false;
                             }
                             return e;
                         });
                     }
 
-
                     if (scope.isSelectAll.value) {
                         scope.isSelectAll.value = false;
                     }
-                    if (row.data.isChecked && (scope.checkedElements.length + 1) === scope.serviceResponse.length) {
+                    if (row.data.isChecked && (scope.checkedElements.length + 1) === scope.serviceResponse.filter(e => e.ableCheck).length) {
                         scope.isSelectAll.value = true;
                     }
                     if (row.data.isChecked) {
@@ -215,6 +221,16 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         const index = scope.checkedElements.findIndex((raw) => raw.id_field === row.data.id_field);
                         if (index >= 0) {
                             scope.checkedElements.splice(index, 1);
+                        }
+                        if (scope.checkedElements.length === 0) {
+                            scope.serviceResponse.map(e => {
+                                if ((scope.ableStatusPrimaryLabel && scope.ableStatusPrimaryLabel === e.status.label) ||
+                                    (scope.ableStatusSecondaryLabel && scope.ableStatusSecondaryLabel === e.status.label) ||
+                                    (scope.ableStatusTertiaryLabel && scope.ableStatusTertiaryLabel === e.status.label)) {
+                                    e.ableCheck = true;
+                                }
+                                return e;
+                            });
                         }
                     }
                 }
@@ -425,6 +441,45 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 ModalService.openActionModal(param).then(() => {
                     scope.reloadDataFormChild();
                 });
+            };
+
+            scope.disabledPrimaryLabel = () => {
+                if (scope.disabledPrimaryLabelWithEmptyResponse && scope.serviceResponse.length === 0) {
+                    return true;
+                }
+                if (scope.checkedElements.length === 0) {
+                    return true;
+                }
+                if (scope.checkedElements.length > 0 && scope.serviceResponse.filter(e => e.ableCheck)[0].status.label !== scope.ableStatusPrimaryLabel) {
+                    return true;
+                }
+                return false;
+            };
+
+            scope.disabledSecondaryLabel = () => {
+                if (scope.disabledSecondaryLabelWithEmptyResponse && scope.serviceResponse.length === 0) {
+                    return true;
+                }
+                if (scope.checkedElements.length === 0) {
+                    return true;
+                }
+                if (scope.checkedElements.length > 0 && scope.serviceResponse.filter(e => e.ableCheck)[0].status.label !== scope.ableStatusSecondaryLabel) {
+                    return true;
+                }
+                return false;
+            };
+
+            scope.disabledTertiaryLabel = () => {
+                if (scope.disabledTertiaryLabelWithEmptyResponse && scope.serviceResponse.length === 0) {
+                    return true;
+                }
+                if (scope.checkedElements.length === 0) {
+                    return true;
+                }
+                if (scope.checkedElements.length > 0 && scope.serviceResponse.filter(e => e.ableCheck)[0].status.label !== scope.ableStatusTertiaryLabel) {
+                    return true;
+                }
+                return false;
             };
 
             try {

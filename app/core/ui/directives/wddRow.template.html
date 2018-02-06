@@ -8,8 +8,8 @@
     <div ng-if="rowChecked && !isFromChildTable">
         <input type="checkbox" ng-model="rowData.isChecked" ng-change="checkData()" />
     </div>
-    <div ng-if="rowChecked && isFromChildTable && rowData.ableCheck">
-        <input type="checkbox" ng-model="rowData.isChecked" ng-change="checkData()" />
+    <div ng-if="rowChecked && isFromChildTable">
+        <input ng-show="rowData.ableCheck" type="checkbox" ng-model="rowData.isChecked" ng-change="checkData()" />
     </div>
 </td>
 
