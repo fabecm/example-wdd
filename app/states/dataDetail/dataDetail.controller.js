@@ -121,6 +121,7 @@ export class DataDetailController {
         this.saveEntityPromise.then(res => {
             if (res.data.result) {
                 this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'save-entity-done');
+                this.initDataDetails();
             } else {
                 this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'save-entity-error');
             }
