@@ -131,7 +131,13 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     setTimeout(function () {
                         let tableLength = $(window).width() - 100;
                         if (scope.tableKey === 'processHistory') {
-                            tableLength -= 50;
+                            if ($(window).width() === 1024) {
+                                tableLength -= 50;
+                            } else if ($(window).width() === 1280) {
+                                tableLength -= 300;
+                            } else if ($(window).width() > 1280) {
+                                tableLength -= 1000;
+                            }
                         }
                         scope.thLength = tableLength / scope.childCollspan();
                     });
