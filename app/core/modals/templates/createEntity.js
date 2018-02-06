@@ -81,10 +81,10 @@ export class CreateEntityController {
                     } else {
                         this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'save-entity-error');
                     }
+                }).finally(() => {
+                    this.$uibModalInstance.close();
                 });
             }
-        }).finally(() => {
-            this.$uibModalInstance.close();
         });
     }
 
