@@ -84,7 +84,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                             }
                             return e;
                         });
-                    }console.log(scope.serviceResponse);
+                    }
 
                     if (scope.expandable && scope.serviceResponse && scope.serviceResponse.length > 0) {
                         scope.serviceResponse.map(e => {
@@ -186,6 +186,17 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         }
                     }
                 } else {
+
+                    if (scope.serviceResponse && scope.serviceResponse.length > 0) {
+                        scope.serviceResponse.map(e => {
+                            if (row.status !== e.status) {
+                                e.ableCheck = false;
+                            }
+                            return e;
+                        });
+                    }
+
+
                     if (scope.isSelectAll.value) {
                         scope.isSelectAll.value = false;
                     }
