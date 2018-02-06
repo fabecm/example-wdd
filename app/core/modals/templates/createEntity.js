@@ -37,7 +37,7 @@ export class CreateEntityController {
                     let checkDraftId = this.entityName.value.substr(0, 1);
                     let checkIntDraftId = this.entityName.value.substr(1);
 
-                    if (checkDraftId === 'D' && Number.isInteger(checkIntDraftId)) {
+                    if (checkDraftId === 'D' && parseInt(checkIntDraftId, 10)) {
                         tempTermId = this.entityName.value;
                     } else {
                         termName = this.entityName.value;
@@ -77,14 +77,13 @@ export class CreateEntityController {
                 this.saveEntityPromise = this.detailsService.saveEntity(entityToSave);
                 this.saveEntityPromise.then(res => {
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CON SUCCESSO', 'save-entity-done');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CON SUCCESSO', 'save-entity');
+                        this.$uibModalInstance.close();
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'save-entity-error');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'save-entity');
                     }
                 });
             }
-        }).finally(() => {
-            this.$uibModalInstance.close();
         });
     }
 
