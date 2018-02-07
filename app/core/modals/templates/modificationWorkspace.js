@@ -214,12 +214,11 @@ export class ModificationWorkspaceController {
                 this.createNewWorkspacePromise.then(res => {
                     this.$log.debug(res);
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace-done');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace');
+                        this.$uibModalInstance.close();
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace-error');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace');
                     }
-                }).finally(() => {
-                    this.$uibModalInstance.close();
                 });
             }
         });
