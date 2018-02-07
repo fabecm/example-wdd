@@ -141,7 +141,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         }
                         scope.thLength = tableLength / scope.childCollspan();
                     });
-                }).catch(() => {
+                }).catch((err) => {
+                    $log.error(err);
                     scope.isErrored = true;
                 });
             };

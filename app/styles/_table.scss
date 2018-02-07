@@ -135,6 +135,15 @@
 
         &.base-row {
           height: 35px;
+
+          .align-action {
+            display: flex;
+
+            .check-holder {
+              margin-top: 5px;
+            }
+          }
+
           .icon-container {
             position: relative;
 

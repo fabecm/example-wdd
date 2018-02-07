@@ -17,6 +17,10 @@ export class DataService {
         return this.$http.post(`WDD/search/systemowner/initiative?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 
+    getSystemOwnerEntityCensuses (pageNumber, pageLength, params = {}) {
+        return this.$http.post(`WDD/search/systemowner/entity?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
+    }
+
     getDQApprovalRequest (pageNumber, pageLength, params = {}) {
         return this.$http.post(`WDD/search/dataquality/approval?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }

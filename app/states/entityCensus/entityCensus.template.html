@@ -21,7 +21,9 @@
     <entity-filter></entity-filter>
 
     <wdd-table reload-data="vm.reloadTableData" table-key="entityCensus" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
-        page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}" header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
+        page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}" is-checked-bool="{{ {boolean: true} }}"
+        has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail" header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
         is-child-checked-bool="false" state-to-able-child-check="" path-primary-navigation="tab.dataDetail" has-primary-label="Nuova entità"
-        action-primary-label="vm.createNewEntity()" has-secondary-label="Invia per approvazione" action-secondary-label="vm.sendToApprove()"></wdd-table>
-</div> 
+        disabled-primary-label-with-empty-response="false" action-primary-label="vm.createNewEntity()" has-secondary-label="Invia per approvazione"
+        disabled-secondary-label-with-empty-response="true" able-status-tertiary-label="status" action-secondary-label="vm.sendToApprove()"></wdd-table>
+</div>

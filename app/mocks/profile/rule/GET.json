@@ -1,0 +1,90 @@
+{
+  "rules": [
+    {
+      "action": { "label": "PROCESS_OWNER" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    },
+    {
+      "action": { "label": "DATA_TABLE" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    },
+    {
+      "action": { "label": "BUSINESS_DATA" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    },
+    {
+      "action": { "label": "BUSINESS_GLOSSARY" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    },
+    {
+      "action": { "label": "TECHNICAL_RULE" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    },
+    {
+      "action": { "label": "DATA_FIELD" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    },
+    {
+      "action": { "label": "PROGRAM" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "S" }
+    },
+    {
+      "action": { "label": "DATA_SOURCE" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "S" }
+    },
+    {
+      "action": { "label": "TECHNICAL_APPLICATION" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    },
+    {
+      "action": { "label": "SYSTEM_OWNER" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    },
+    {
+      "action": { "label": "WORKSPACE" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    },
+    {
+      "action": { "label": "BUSINESS_RULE" },
+      "creating": { "label": "S" },
+      "reading": { "label": "S" },
+      "updating": { "label": "S" },
+      "deleting": { "label": "N" }
+    }
+  ],
+  "dashboards": ["DSBOARD_SO", "DSBOARD_DQ", "DSBOARD_UR"],
+  "othersPage": ["CONSULT"]
+}

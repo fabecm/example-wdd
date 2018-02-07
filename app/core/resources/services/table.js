@@ -44,6 +44,14 @@ export class TableService {
                     });
                 });
 
+            case 'entityCensus':
+                return this.dataService.getSystemOwnerEntityCensuses(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.data_list,
+                        pages: res.data.page_count
+                    });
+                });
+
             case 'approvalRequest':
                 return this.dataService.getDQApprovalRequest(pageNumber, pageLength, filterApplied).then(res => {
                     return ({
