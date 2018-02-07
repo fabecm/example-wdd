@@ -288,7 +288,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 scope.currentPage = page;
                 scope.serviceResponse = undefined;
                 if (scope.isChild) {
-                    scope.serviceResponse = scope.sliceDataToShow();
+                    $timeout(() => {
+                        scope.serviceResponse = scope.sliceDataToShow();
+                    });
                 } else {
                     scope.reloadData();
                 }
@@ -302,7 +304,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 scope.currentPage -= 1;
                 scope.serviceResponse = undefined;
                 if (scope.isChild) {
-                    scope.serviceResponse = scope.sliceDataToShow();
+                    $timeout(() => {
+                        scope.serviceResponse = scope.sliceDataToShow();
+                    });
                 } else {
                     scope.reloadData();
                 }
@@ -316,7 +320,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 scope.currentPage += 1;
                 scope.serviceResponse = undefined;
                 if (scope.isChild) {
-                    scope.serviceResponse = scope.sliceDataToShow();
+                    $timeout(() => {
+                        scope.serviceResponse = scope.sliceDataToShow();
+                    });
                 } else {
                     scope.reloadData();
                 }
