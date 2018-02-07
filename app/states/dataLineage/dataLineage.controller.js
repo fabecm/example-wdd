@@ -16,23 +16,24 @@ export class DataLineageController {
     }
 
     initLineage () {
+        let draft = this.$stateParams.isDraft === 'true';
         if (this.$stateParams.type === 'F') {
-            this.getLineageField(this.$stateParams.id);
+            this.getLineageField(this.$stateParams.id, draft);
         } else if (this.$stateParams.type === 'R') {
-            this.getLineageRule(this.$stateParams.id);
+            this.getLineageRule(this.$stateParams.id, draft);
         }
     }
 
-    goToRuleState (termId) {
-        this.$state.go('.', {id: termId, type: 'R', isDraft: this.$stateParams.isDraft, workspaceId: this.$stateParams.workspaceId});
+    goToRuleState (termId, draft) {
+        this.$state.go('.', {id: termId, type: 'R', isDraft: draft, workspaceId: this.$stateParams.workspaceId});
     }
 
-    goToFieldState (termId) {
-        this.$state.go('.', {id: termId, type: 'F', isDraft: this.$stateParams.isDraft, workspaceId: this.$stateParams.workspaceId});
+    goToFieldState (termId, draft) {
+        this.$state.go('.', {id: termId, type: 'F', isDraft: draft, workspaceId: this.$stateParams.workspaceId});
     }
 
-    getLineageField (termId) {
-        this.getLineageFieldPromise = this.lineageService.getLineageField(termId);
+    getLineageField (termId, draft) {
+        this.getLineageFieldPromise = this.lineageService.getLineageField(termId, draft);
         this.getLineageFieldPromise.then(res => {
             this.lineageBoxes = Array(9);
 
@@ -93,8 +94,8 @@ export class DataLineageController {
         });
     }
 
-    getLineageRule (ruleId) {
-        this.getLineageRulePromise = this.lineageService.getLineageRule(ruleId);
+    getLineageRule (ruleId, draft) {
+        this.getLineageRulePromise = this.lineageService.getLineageRule(ruleId, draft);
         this.getLineageRulePromise.then(res => {
             this.lineageBoxes = Array(9);
 
@@ -145,7 +146,7 @@ export class DataLineageController {
         window.history.back();
     }
 
-    goToDataDetail (termId) {
-        this.$state.go('tab.dataDetail', {id: termId, isDraft: this.$stateParams.isDraft, workspaceId: this.$stateParams.workspaceId});
+    goToDataDetail (termId, draft) {
+        this.$state.go('tab.dataDetail', {id: termId, isDraft: draft, workspaceId: this.$stateParams.workspaceId});
     }
 }
