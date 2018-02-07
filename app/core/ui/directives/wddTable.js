@@ -36,6 +36,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             disabledTertiaryLabelWithEmptyResponse: '@',
             ableStatusTertiaryLabel: '@',
             hasCreationBtn: '@',
+            statusToDisabledCreation: '@',
             reloadData: '=',
             reloadDataFormChild: '&',
             tableKey: '@'

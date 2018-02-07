@@ -15,6 +15,7 @@ export function WddRow () {
             hasTernaryNavigationBtn: '=',
             hasInfoBtn: '=',
             hasCreation: '=',
+            statusToDisabledCreation: '=',
             isFromChildTable: '=',
             isSas: '=',
             checkRow: '&'
@@ -41,6 +42,13 @@ export function WddRow () {
                 };
 
                 scope.actionFunction({rowSelected: forRow});
+            };
+
+            scope.hideCreation = () => {
+                if (scope.rowData.status.label === scope.statusToDisabledCreation) {
+                    return false;
+                }
+                return true;
             };
 
             scope.checkData = () => {
