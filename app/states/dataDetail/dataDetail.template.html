@@ -59,7 +59,7 @@
                 <div class="header-label" ng-if="vm.isDraft">
                     <label class="wdd-label" ng-class="{'complete': detail.status.light === 'complete', 'incomplete': detail.status.light === 'incomplete'}"
                         ng-if="!detail.toAdd">{{detail.status.label}}</label>
-                    <label class="wdd-label" ng-if="detail.toAdd">Incompleto</label>
+                    <label class="wdd-label" ng-class="{'incomplete': detail.status.light === 'incomplete'}" ng-if="detail.toAdd">Incompleto</label>
                 </div>
             </div>
             <div class="body" ng-if="!detail.toAdd">
