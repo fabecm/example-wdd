@@ -31,8 +31,8 @@
 
     <wdd-table reload-data="vm.reloadTableData" table-key="automaticEvents" header-array-obj="{{ {array: vm.headerTable} }}"
         pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
-        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" action-primary-label="vm.approve(selectedItems)"
-        disabled-primary-label-with-empty-response="true" has-secondary-label="Inoltra selezionati" disabled-secondary-label-with-empty-response="true"
-        action-secondary-label="vm.forwardToApprove(selectedItems)"></wdd-table>
+        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" able-status-primary-label="Da controllare da evento"
+        action-primary-label="vm.approve(selectedItems)" disabled-primary-label-with-empty-response="true" has-secondary-label="Inoltra selezionati"
+        able-status-secondary-label="Da controllare da evento" disabled-secondary-label-with-empty-response="true" action-secondary-label="vm.forwardToApprove(selectedItems)"></wdd-table>
 
 </div>

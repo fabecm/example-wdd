@@ -444,6 +444,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             };
 
             scope.disabledPrimaryLabel = () => {
+                if (!scope.ableStatusPrimaryLabel) {
+                    return false;
+                }
                 if (scope.disabledPrimaryLabelWithEmptyResponse && scope.serviceResponse.length === 0) {
                     return true;
                 }
@@ -457,6 +460,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             };
 
             scope.disabledSecondaryLabel = () => {
+                if (!scope.ableStatusSecondaryLabel) {
+                    return false;
+                }
                 if (scope.disabledSecondaryLabelWithEmptyResponse && scope.serviceResponse.length === 0) {
                     return true;
                 }
@@ -470,6 +476,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             };
 
             scope.disabledTertiaryLabel = () => {
+                if (!scope.ableStatusTertiaryLabel) {
+                    return false;
+                }
                 if (scope.disabledTertiaryLabelWithEmptyResponse && scope.serviceResponse.length === 0) {
                     return true;
                 }
