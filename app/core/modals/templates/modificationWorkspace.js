@@ -216,6 +216,8 @@ export class ModificationWorkspaceController {
                     if (res.data.result) {
                         this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace');
                         this.$uibModalInstance.close();
+                    } else if (res.data.message === 'DESC_EXSIST') {
+                        this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'workspace');
                     } else {
                         this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace');
                     }

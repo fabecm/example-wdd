@@ -69,7 +69,7 @@ export class NewWorkspaceController {
                         this.$uibModalInstance.close();
                     } else if (res.data.message === 'DESC_EXSIST') {
                         this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'workspace');
-                    }else {
+                    } else {
                         this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace');
                     }
                 });
