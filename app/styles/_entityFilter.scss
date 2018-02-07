@@ -1,0 +1,127 @@
+.entity-filter {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(239, 239, 239, 0.5);
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
+
+    @media screen and (min-width: 1281px) {
+        height: 77px;
+    }
+
+    .expandable {
+        @media screen and (max-width: 1280px) {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            z-index: 1;
+        }
+
+        .wdd-button {
+            @media screen and (max-width: 1280px) {
+                top: 0;
+                position: absolute;
+                right: 0;
+                margin-right: 2px;
+            }
+        }
+    }
+
+    .collapsed-box {
+        @media screen and (max-width: 1280px) {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        span {
+            @media screen and (max-width: 1280px) {
+                height: 55px;
+                font-size: 20px;
+                color: #707c8e;
+            }
+        }
+        .wdd-button {
+            @media screen and (max-width: 1280px) {
+                float: right;
+            }
+        }
+    }
+
+
+    wdd-autocomplete, .wdd-labeled-input, .filter-action {
+        flex: 1;
+        width: 200px;
+    }
+
+    @media screen and (max-width: 1280px) {
+        flex-wrap: wrap;
+        height: 130px;
+
+        &.collapsed {
+            max-height: 48px;
+        }
+
+        wdd-autocomplete, .dash-filter-input, .filter-action, wdd-datepicker{
+            width: 33%;
+            height: 55px;
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: auto;
+            padding: 0 15px;
+        }
+        .wbb-select{
+            width: 100% !important;
+        }
+        .filter-action .wdd-button.last-button {
+            margin-right: 2px;
+        }
+        .wdd-autocomplete{
+            width: 100%;
+            .wdd-labeled-input{
+                width: 100%;
+                .wdd-input-text{
+                    width: 100%;
+                }
+            }
+        }
+        .wdd-datepicker{
+            padding: 0;
+        }
+        .filter-action{
+            flex: 1;
+            justify-content: flex-end !important;
+        }
+    }
+
+    .wdd-labeled-input {
+        .wdd-button.icon-only {
+            height: 25px;
+        }
+
+        .wbb-select {
+            width: 200px;
+        }
+    }
+
+    .filter-action {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        bottom: 1px;
+
+        .wdd-button {
+            margin-right: 10px;
+            min-width: 80px;
+            &.icon-only {
+                margin-left: 25px;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<div class="entity-filter" wdd-spinner="[promises.statusPromise.$$state, promises.entityPromise.$$state, promises.entityNamePromise.$$state, promises.descriptionPromise.$$state]"
+    ng-class="{'collapsed': isFilterActive}">
+    <div class="expandable" ng-if="showCollapser">
+        <button class="wdd-button icon-only" ng-click="expandableFilter()">
+            <i class="icon" ng-class="{'icon-down-arrow': !isFilterActive, 'icon-right-arrow': isFilterActive}"></i>
+        </button>
+    </div>
+    <div class="collapsed-box" ng-show="isFilterActive">
+        <span>Filtri</span>
+    </div>
+    <wdd-autocomplete ng-show="!isFilterActive" ng-model="entitySelected.value" label="{{labelEntity}}" placeholder="{{placeholderEntity}}"
+        type="entity" new-value="false" promise="promises.entityPromise" dipendence="{{ [entityNameSelected.value, descriptionSelected.value, statusSelected.value] }}"
+        is-readonly="true"></wdd-autocomplete>
+
+    <wdd-autocomplete ng-show="!isFilterActive" ng-model="entityNameSelected.value" label="{{labelEntityName}}" placeholder="{{placeholderEntityName}}"
+        type="entityName" new-value="false" promise="promises.entityNamePromise" dipendence="{{ [entitySelected.value, descriptionSelected.value, statusSelected.value] }}"
+        is-readonly="true"></wdd-autocomplete>
+
+    <wdd-autocomplete ng-show="!isFilterActive" ng-model="descriptionSelected.value" label="{{labelEntityDescription}}" placeholder="{{placeholderEntityDescription}}"
+        type="entityDescription" new-value="false" promise="promises.descriptionPromise" dipendence="{{ [entitySelected.value, entityNameSelected.value, statusSelected.value] }}"
+        is-readonly="true"></wdd-autocomplete>
+
+    <wdd-autocomplete ng-show="!isFilterActive" ng-model="statusSelected.value" label="{{labelStatus}}" placeholder="{{placeholderStatus}}"
+        type="status" new-value="false" promise="promises.statusPromise" dipendence="{{ [entitySelected.value, entityNameSelected.value, descriptionSelected.value] }}"
+        is-readonly="true"></wdd-autocomplete>
+
+    <div class="filter-action" ng-show="!isFilterActive">
+        <button class="wdd-button width-adapt" ng-click="resetFilter()">Pulisci</button>
+        <button class="wdd-button width-adapt last-button" ng-click="setFilter()" ng-disabled="ableSearchButton()">Ricerca</button>
+    </div>
+</div>
