@@ -12,6 +12,7 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             dipendence: '@',
             newValue: '=',
             isEditable: '=',
+            isReadonly: '@',
             requiredDependence: '@',
             promise: '='
         },
@@ -45,6 +46,13 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     return;
                 }
                 scope.initAutocomplete();
+            });
+
+            scope.$watch('model', (newVal) => {
+                if (!newVal) {
+                    ngModel.$setViewValue(undefined);
+                    ngModel.$render(scope.model);
+                }
             });
 
             ngModel.$render = (newVal) => {
@@ -96,11 +104,6 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 }
             });
 
-            // $('#autocomplete-clicker').click(function (e) {
-            //     e.stopPropagation();
-            //     console.log($(e.target).parents('#autocomplete-value-list'));
-            // });
-
             scope.$on('$destroy', function () {
                 $(document).off('click');
             });
@@ -123,6 +126,11 @@ export function WddAutocomplete ($log, FilterWorkspace) {
 
             scope.updateListValue = () => {
                 if (scope.model.label.length > 2) {
+                    let provisionalLabel = scope.model.label;
+                    ngModel.$setViewValue(undefined);
+                    ngModel.$render(scope.model);
+                    scope.model.label = provisionalLabel;
+
                     const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendenceObj);
                     scope.promise = requestFilter;
                     requestFilter.then(res => {

@@ -306,4 +306,18 @@ export class ModalService {
         };
         return text;
     }
+
+    getDeleteDataDetailText () {
+        let text = {
+            body: 'Si desidera eliminare l\'entità ?'
+        };
+        return text;
+    }
+
+    getDeleteDraftDataDetailText () {
+        let text = {
+            body: 'Si desidera eliminare la bozza dell\'entità?'
+        };
+        return text;
+    }
 }
