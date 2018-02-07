@@ -117,7 +117,9 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 scope.filtersArray = scope.filterArrayBase;
                 WddCacheService.unCacheFilter(scope.filterKey);
 
-                scope.setFilter();
+                if ($state.$current.name !== 'tab.search') {
+                    scope.setFilter();
+                }
                 scope.isFilterActive = false;
             };
 

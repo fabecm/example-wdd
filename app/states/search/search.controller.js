@@ -7,7 +7,7 @@ export class SearchController {
     currentPage = 1;
     // filterBootstrap = {};
 
-    showEntityView = false;
+    showEntityView = true;
 
     filterStatus = [{
         label: 'Tutti'
