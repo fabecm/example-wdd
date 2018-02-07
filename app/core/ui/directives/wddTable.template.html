@@ -12,7 +12,7 @@
                 <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
                 <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
                     <div ng-if="isChecked">
-                        <input type="checkbox" ng-show="!isChild" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
+                        <input type="checkbox" ng-show="!isChild && checkedElements.length > 0" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
                         <input type="checkbox" ng-show="isChild && checkableChild.length > 0" ng-model="isSelectAll.value" ng-change="checkRowsSelection()"
                         />
                     </div>
@@ -58,9 +58,9 @@
             </button>
         </div>
         <div class="right-side">
-            <button class="wdd-button" ng-if="hasTertiaryLabel" ng-click="tertiaryAction()" ng-disabled="disabledTertiaryLabelWithEmptyResponse && (serviceResponse.length === 0 || checkedElements.length === 0)">{{hasTertiaryLabel}}</button>
-            <button class="wdd-button" ng-if="hasSecondaryLabel" ng-click="secondaryAction()" ng-disabled="disabledSecondaryLabelWithEmptyResponse && (serviceResponse.length === 0 || checkedElements.length === 0)">{{hasSecondaryLabel}}</button>
-            <button class="wdd-button" ng-if="hasPrimaryLabel" ng-click="primaryAction()" ng-disabled="disabledPrimaryLabelWithEmptyResponse && (serviceResponse.length === 0 || checkedElements.length === 0)">{{hasPrimaryLabel}}</button>
+            <button class="wdd-button" ng-if="hasTertiaryLabel" ng-click="tertiaryAction()" ng-disabled="disabledTertiaryLabel()">{{hasTertiaryLabel}}</button>
+            <button class="wdd-button" ng-if="hasSecondaryLabel" ng-click="secondaryAction()" ng-disabled="disabledSecondaryLabel()">{{hasSecondaryLabel}}</button>
+            <button class="wdd-button" ng-if="hasPrimaryLabel" ng-click="primaryAction()" ng-disabled="disabledPrimaryLabel()">{{hasPrimaryLabel}}</button>
         </div>
     </div>
 
