@@ -43,12 +43,17 @@ export class ToDoListController {
         value: 'workspace_end_date'
     }];
 
-    constructor ($state, $timeout, ModalService, WddCacheService) {
+    constructor ($state, $timeout, ModalService, WddCacheService, RuleProfileService) {
         'ngInject';
         this.$state = $state;
         this.$timeout = $timeout;
         this.modalService = ModalService;
         this.wddCacheService = WddCacheService;
+        this.ruleProfileService = RuleProfileService;
+
+        if (this.ruleProfileService.ruleProfile.dashboards.length === 1 && this.ruleProfileService.ruleProfile.dashboards[0] === 'DSBOARD_SO') {
+            this.hideFirstFilterLine = true;
+        }
 
         this.initToDoList();
     }

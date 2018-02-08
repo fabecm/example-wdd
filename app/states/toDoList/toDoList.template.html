@@ -23,7 +23,7 @@
         <i class="icon icon-down-arrow"></i>
     </div> -->
 
-    <wdd-filter applied-filter="vm.filterChanged(filterApplied)"></wdd-filter>
+    <wdd-filter applied-filter="vm.filterChanged(filterApplied)" hide-first-line="{{ vm.hideFirstFilterLine }}"></wdd-filter>
 
     <wdd-table reload-data="vm.reloadTableData" table-key="toDoList" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
         page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail"
