@@ -1,0 +1,48 @@
+<div class="wwd-modal" wdd-spinner="[vm.entityVersionPromise.$$state]">
+    <div class="wwd-modal__title">
+        <div class="" id="modal-title">{{ vm.termDetail.name }}</div>
+    </div>
+    <form name="formEntityHistory">
+        <div class="wwd-modal__body__container" id="modal-body">
+            <div class="wwd-modal__body__new__workspace">
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-2 modal__row__titleNewWorkspace">
+                        Versione
+                    </div>
+                    <div class="col-xs-10  wwd-modal__row__input">
+                        <div class="wbb-select">
+                            <select ng-model="vm.version.value" ng-options="version.version as version.label for version in vm.versionList" ng-change="vm.versionChanged()">
+                                <option value="">Seleziona versione</option>
+                            </select>
+                            <i class="icon icon-down-arrow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="entity-history-version" ng-if="vm.attrList">
+                <hr />
+                <div class="left-column">
+                    <div class="attribute-body" ng-repeat="attr in vm.attrList | orderBy: 'position'" ng-if="attr.position % 2 != 0">
+                        <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
+                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}"
+                            is-editable="{{ attr.is_editable && $parent.detail.term.updating}}" add-entity-function="vm.addEntity()">
+                        </att>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div class="attribute-body" ng-repeat="attr in vm.attrList | orderBy: 'position'" ng-if="attr.position % 2 == 0">
+                        <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
+                            reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}"
+                            is-editable="{{ attr.is_editable && $parent.detail.term.updating}}" add-entity-function="vm.addEntity()">
+                        </att>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="wwd-modal__footer">
+            <button class="wdd-button" type="button" ng-click="vm.close()">Chiudi</button>
+        </div>
+    </form>
+</div>

@@ -82,6 +82,9 @@
 
             </div>
             <div class="footer" ng-if="!detail.toAdd">
+                <button ng-if="!detail.term.draft" class="wdd-button icon-only" ng-click="vm.openEntityHistoryModal(detail.term)">
+                    <i class="icon icon-info"></i>
+                </button>
                 <button class="wdd-button alt-color" ng-if="detail.term.deleting" ng-click="vm.deleteEntity(detail)">ELIMINA ENTITA'</button>
                 <button class="wdd-button alt-color" ng-if="vm.isDraft && !detail.term.deleting" ng-click="vm.deleteDraft(detail)">ELIMINA BOZZA</button>
                 <button class="wdd-button alt-color" ng-if="detail.term.updating" ng-disabled="detail.isLock" ng-click="vm.deleteChanges(detail)">ANNULLA MODIFICHE</button>

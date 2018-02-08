@@ -43,6 +43,20 @@
             justify-content: center;
         }
     }
+    &.entity-history-version {
+        background: white;
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+        flex-wrap: wrap;
+        .left-column, .right-column {
+            flex: 1;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+    }
     &__row {
         margin-top: 24px;
         margin-bottom: 24px;
@@ -106,6 +120,15 @@
             i.glyphicon {
                 padding: 7px 0 7px 15px;
                 color: rgb(000, 155, 000);
+            }
+
+            .wbb-select {
+                select {
+                    margin-top: 0px;
+                    height: 100%;
+                    width: 100%;
+                    border-bottom: 0px;
+                }
             }
         }
 

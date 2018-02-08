@@ -126,6 +126,11 @@ $header-data-detail: 40px;
 
                 .wdd-button {
                     margin-right: 20px;
+
+                    &.icon-only:first-child {
+                        flex: 1;
+                        justify-content: flex-start;
+                    }
                 }
             }
         }

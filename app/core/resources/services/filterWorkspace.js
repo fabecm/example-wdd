@@ -28,6 +28,11 @@ export class FilterWorkspace {
                 return this.getResponsibleUser(stringSearched).then(res => res.data.array);
             case 'entityName':
                 return this.detailsService.getEntityNameType(dipendence, stringSearched).then(res => res.data.array);
+            case 'entityVersion':
+                return this.detailsService.getEntityVersionList(dipendence).then(res => res.data.array.map(e => {
+                    e.label = `Versione ${e.version}`;
+                    return e;
+                }));
             case 'newRequestSO':
             case 'newRequestTA':
             case 'newRequestDS':

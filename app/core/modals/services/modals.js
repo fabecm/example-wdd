@@ -23,6 +23,9 @@ import CreateEntityTemplate from '../templates/createEntity.template.html';
 import { ConfirmationModalController } from '../templates/confirmationModal';
 import ConfirmationModalTemplate from '../templates/confirmationModal.template.html';
 
+import { EntityHistoryController } from '../templates/entityHistory';
+import EntityHistoryTemplate from '../templates/entityHistory.template.html';
+
 export class ModalService {
     constructor ($uibModal, $rootScope, $http) {
         'ngInject';
@@ -156,6 +159,25 @@ export class ModalService {
             size: 'lg',
             scope: angular.extend(this.$rootScope, {
                 termId: termId
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openEntityHistoryModal (termDetail) {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: EntityHistoryTemplate,
+            controller: EntityHistoryController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            size: 'lg',
+            scope: angular.extend(this.$rootScope, {
+                termDetail: termDetail
             }),
             resolve: {}
         });

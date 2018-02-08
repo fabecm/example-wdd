@@ -224,4 +224,8 @@ export class DataDetailController {
             return t;
         });
     }
+
+    openEntityHistoryModal (termDetail) {
+        this.modalService.openEntityHistoryModal(termDetail);
+    }
 }
