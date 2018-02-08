@@ -27,7 +27,7 @@
         </div>
 
         <div ng-if="isInput">
-            <input class="wdd-input-text" ng-model="model.value" ng-focus="setFocusOnAttribute(true)" ng-blur="setFocusOnAttribute(false)"
+            <input class="wdd-input-text" ng-model="model.value" type="text" ng-focus="setFocusOnAttribute(true)" ng-blur="setFocusOnAttribute(false)"
                 ng-change="valueChanged()" ng-disabled="isEditable === 'false'"/>
         </div>
 

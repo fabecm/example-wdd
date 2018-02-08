@@ -74,6 +74,10 @@ wdd-filter{
             display: flex;
             flex-direction: row;
             margin-right: 34px;
+            height: 55px;
+            &.correct-width {
+                width: 420px;
+            }
             > wdd-autocomplete{
                 margin: 0 5px;
                 flex: 1;
