@@ -84,7 +84,7 @@ export class DashboardSOController {
         this.systemOwnerPromise.then(chartData => {
             this.chartValues[0].value = chartData.data.array[0].value;
             this.chartValues[1].value = chartData.data.array[1].value;
-            // this.chartValues[2].value = chartData.data.array[2].value;
+            this.chartValues[2].value = chartData.data.array[2].value;
 
             this.dataAvailable = true;
         });

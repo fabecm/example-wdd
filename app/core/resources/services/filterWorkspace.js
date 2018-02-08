@@ -1,5 +1,5 @@
 export class FilterWorkspace {
-    constructor ($http, $q, $log, DatasourceService, ClassificationService, WorkspaceService, DetailsService) {
+    constructor ($http, $q, $log, DatasourceService, ClassificationService, WorkspaceService, DetailsService, FilterEntityService) {
         'ngInject';
         this.$http = $http;
         this.$q = $q;
@@ -8,6 +8,7 @@ export class FilterWorkspace {
         this.classificationService = ClassificationService;
         this.workspaceService = WorkspaceService;
         this.detailsService = DetailsService;
+        this.filterEntityService = FilterEntityService;
     }
 
     updateList (type, stringSearched, dipendence) {
@@ -28,11 +29,11 @@ export class FilterWorkspace {
                 return this.getResponsibleUser(stringSearched).then(res => res.data.array);
             case 'entityName':
                 return this.detailsService.getEntityNameType(dipendence, stringSearched).then(res => res.data.array);
-            case 'entityVersion':
-                return this.detailsService.getEntityVersionList(dipendence).then(res => res.data.array.map(e => {
-                    e.label = `Versione ${e.version}`;
-                    return e;
-                }));
+            case 'ENT_TYPE':
+            case 'ENT_NAME':
+            case 'ENT_DESCR':
+            case 'ENT_STATUS':
+                return this.filterEntityService.getFilterEntity(type, dipendence).then(res => res.data.output);
             case 'newRequestSO':
             case 'newRequestTA':
             case 'newRequestDS':
@@ -82,72 +83,4 @@ export class FilterWorkspace {
         return this.$http.get('WDD/filter/responsibleUser');
     }
 
-    // getDescription (stringSearched) {
-    //     this.$log.debug(stringSearched);
-    //     return getMockedDescription(this.$q);
-    // }
 }
-
-// function getMockedDescription ($q) {
-//     var deferred = $q.defer();
-
-//     var x = Date.now();
-
-//     if (x % 2 === 0) {
-//         deferred.resolve([{
-//             label: 'd5',
-//             value: 5
-//         }, {
-//             label: 'd6',
-//             value: 6
-//         }, {
-//             label: 'd7',
-//             value: 7
-//         }]);
-//     } else {
-//         deferred.resolve([{
-//             label: 'd8',
-//             value: 8
-//         }, {
-//             label: 'd9',
-//             value: 9
-//         }, {
-//             label: 'd0',
-//             value: 0
-//         }]);
-//     }
-
-//     return deferred.promise;
-// }
-
-// function getMockedWorkspace ($q) {
-//     var deferred = $q.defer();
-
-//     var x = Date.now();
-
-//     if (x % 2 === 0) {
-//         deferred.resolve([{
-//             label: 'w5',
-//             value: 5
-//         }, {
-//             label: 'w6',
-//             value: 6
-//         }, {
-//             label: 'w7',
-//             value: 7
-//         }]);
-//     } else {
-//         deferred.resolve([{
-//             label: 'w8',
-//             value: 8
-//         }, {
-//             label: 'w9',
-//             value: 9
-//         }, {
-//             label: 'w0',
-//             value: 0
-//         }]);
-//     }
-
-//     return deferred.promise;
-// }

@@ -59,8 +59,10 @@ export class EntityCensusController {
         this.mapFilterSetted(param, filter);
     }
 
-    // para,: arrayFilter
-    filterChanged () {
+    // param: arrayFilter
+    filterChanged (filterApplied) {
+
+        console.log(filterApplied);
         // let param = {};
         // param.resetPage = true;
 

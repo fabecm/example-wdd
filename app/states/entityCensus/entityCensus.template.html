@@ -18,7 +18,7 @@
     </div>
 </div>
 <div class="entity-census">
-    <entity-filter></entity-filter>
+    <entity-filter applied-filter="vm.filterChanged(filterApplied)" type-page="SO"></entity-filter>
 
     <wdd-table reload-data="vm.reloadTableData" table-key="entityCensus" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
         page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}" is-checked-bool="{{ {boolean: true} }}"

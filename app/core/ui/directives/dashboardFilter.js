@@ -117,12 +117,3 @@ export function DashboardFilter ($log, $state, WddCacheService) {
         }
     };
 }
-
-// function getStatusList (scope, FilterWorkspace) {
-//     let type = 'status';
-//     const statusPromise = FilterWorkspace.updateList(type);
-//     scope.promises.statusPromise = statusPromise;
-//     statusPromise.then(res => {
-//         scope.statusList = res;
-//     });
-// }

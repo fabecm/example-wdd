@@ -6,7 +6,8 @@ export function EntityFilter ($state, WddCacheService) {
     'ngInject';
     return {
         scope: {
-            appliedFilter: '&'
+            appliedFilter: '&',
+            typePage: '@'
         },
         template: template,
         link: (scope) => {

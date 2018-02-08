@@ -113,7 +113,7 @@ export class DashboardRequestController {
             this.chartValues[0].value = chartData.data.array[0].value;
             this.chartValues[1].value = chartData.data.array[1].value;
             this.chartValues[2].value = chartData.data.array[2].value;
-            // this.chartValues[3].value = chartData.data.array[3].value;
+            this.chartValues[3].value = chartData.data.array[3].value;
 
             this.dataAvailable = true;
         });
