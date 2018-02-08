@@ -3,10 +3,10 @@
         <div class="" id="modal-title">{{ vm.termDetail.name }}</div>
     </div>
     <form name="formEntityHistory">
-        <div class="wwd-modal__body__container" id="modal-body">
+        <div class="wwd-modal__body__container entity-version-holder" id="modal-body">
             <div class="wwd-modal__body__new__workspace">
                 <div class="row wwd-modal__row">
-                    <div class="col-xs-2 modal__row__titleNewWorkspace">
+                    <div class="col-xs-2 wdd-modal__row__title_singleLine entity-version-label">
                         Versione
                     </div>
                     <div class="col-xs-10  wwd-modal__row__input">
@@ -20,8 +20,9 @@
                 </div>
             </div>
 
+            <div class="separator" ng-if="vm.attrList"></div>
+
             <div class="entity-history-version" ng-if="vm.attrList">
-                <hr />
                 <div class="left-column">
                     <div class="attribute-body" ng-repeat="attr in vm.attrList | orderBy: 'position'" ng-if="attr.position % 2 != 0">
                         <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
