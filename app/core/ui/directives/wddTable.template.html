@@ -29,7 +29,7 @@
                 <tr class="base-row" wdd-row ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
                     column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
                     has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
-                    has-ternary-navigation-btn="ternaryNavigation" has-creation="hasCreation" is-from-child-table="isChild" check-row="checkValueChange({data: data})"
+                    has-ternary-navigation-btn="ternaryNavigation" has-creation="hasCreation" status-to-disabled-creation="statusToDisabledCreation" is-from-child-table="isChild" check-row="checkValueChange({data: data})"
                     is-sas="isToSas"></tr>
 
                 <tr class="collapsable" ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse, 'odd': $index % 2 !== 0, 'even': $index % 2 === 0}">

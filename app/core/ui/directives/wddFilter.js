@@ -4,7 +4,9 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
     'ngInject';
     return {
         scope: {
-            appliedFilter: '&'
+            appliedFilter: '&',
+            hideFirstLine: '@',
+            showStatusInput: '@'
         },
         template: template,
         link: (scope) => {
