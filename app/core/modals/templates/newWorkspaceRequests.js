@@ -93,7 +93,7 @@ export class NewWorkspaceRequestsController {
                     this.saveRequestDocumentationDataPromise = this.modalService.saveRequestDocumentationData(data);
                     this.saveRequestDocumentationDataPromise.then(res => {
                         if (res.data.result) {
-                            this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'new-data');
+                            this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'wdd-alert-newdata-save');
                             if (operation === 'save') {
                                 this.$uibModalInstance.close();
                             } else if (operation === 'new') {
@@ -101,7 +101,7 @@ export class NewWorkspaceRequestsController {
                                 this.modalService.openNewWorkspaceRequests();
                             }
                         } else {
-                            this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'new-data');
+                            this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'wdd-alert-newdata-save');
                         }
                     });
                 }

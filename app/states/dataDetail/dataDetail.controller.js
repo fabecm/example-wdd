@@ -120,10 +120,10 @@ export class DataDetailController {
         this.saveEntityPromise = this.detailsService.saveEntity(entityToSave);
         this.saveEntityPromise.then(res => {
             if (res.data.result) {
-                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'save-entity-done');
+                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'wdd-alert-save-entity');
                 this.initDataDetails();
             } else {
-                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'save-entity-error');
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'wdd-alert-save-entity');
             }
         });
         detail.isLock = true;
@@ -189,9 +189,9 @@ export class DataDetailController {
         this.deleteEntityPromise.then(res => {
             if (res.data.result) {
                 this.initDataDetails();
-                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'delete-entity-done');
+                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'wdd-alert-delete-entity');
             } else {
-                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'delete-entity-error');
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'wdd-alert-delete-entity');
             }
         });
     }

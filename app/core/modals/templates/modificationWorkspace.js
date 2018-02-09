@@ -189,9 +189,9 @@ export class ModificationWorkspaceController {
                 this.deleteWorkspacePromise = this.modalService.deleteWorkspace(this.$scope.$parent.workspaceId);
                 this.deleteWorkspacePromise.then(res => {
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace-done');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'wdd-alert-workspace-delete');
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace-error');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'wdd-alert-workspace-delete');
                     }
                 }).finally(() => {
                     this.$uibModalInstance.close();
@@ -214,12 +214,12 @@ export class ModificationWorkspaceController {
                 this.createNewWorkspacePromise.then(res => {
                     this.$log.debug(res);
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'wdd-alert-workspace-save');
                         this.$uibModalInstance.close();
                     } else if (res.data.message === 'DESC_EXSIST') {
-                        this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'workspace');
+                        this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'wdd-alert-workspace-save');
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'wdd-alert-workspace-save');
                     }
                 });
             }
