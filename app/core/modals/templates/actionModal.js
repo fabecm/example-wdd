@@ -24,11 +24,11 @@ export class ActionModalController {
                 this.doActionPromise = this.modalService.doAction(entities);
                 this.doActionPromise.then(res => {
                     if (res.data.completed) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'wdd-alert-action-continueProcess');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'action-continueProcess');
                         this.$uibModalInstance.close();
                     } else {
                         this.modalService.openErrorActionModal(res.data);
-                        this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'wdd-alert-action-continueProcess');
+                        this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'action-continueProcess');
                     }
                 });
             }

@@ -77,10 +77,10 @@ export class CreateEntityController {
                 this.saveEntityPromise = this.detailsService.saveEntity(entityToSave);
                 this.saveEntityPromise.then(res => {
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CON SUCCESSO', 'wdd-alert-save-entity');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CON SUCCESSO', 'save-entity');
                         this.$uibModalInstance.close();
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'wdd-alert-save-entity');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'save-entity');
                     }
                 }).finally(() => {
                     this.$uibModalInstance.close();
