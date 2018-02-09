@@ -98,7 +98,7 @@ export class NewWorkspaceRequestsController {
                                 this.$uibModalInstance.close();
                             } else if (operation === 'new') {
                                 this.$uibModalInstance.close();
-                                this.modalService.openNewWorkspaceRequests();
+                                this.modalService.openNewWorkspaceRequests(this.workspaceId);
                             }
                         } else {
                             this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'newdata-save');
