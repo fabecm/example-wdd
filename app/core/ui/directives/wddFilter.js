@@ -13,17 +13,6 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             scope.filterKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
             scope.filtersArray = [];
             scope.values = {};
-            if (WddCacheService.getCachedFilter(scope.filterKey)) {
-                scope.filterSetted = WddCacheService.getCachedFilter(scope.filterKey).arrayFilter ? WddCacheService.getCachedFilter(scope.filterKey).arrayFilter : [];
-                scope.isFilterActive = WddCacheService.getCachedFilter(scope.filterKey).isFilterActive ? WddCacheService.getCachedFilter(scope.filterKey).isFilterActive : WddCacheService.getCachedFilter(scope.filterKey).isFilterActive;
-                scope.values.processOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).process_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).process_owner_id : undefined;
-                scope.values.systemOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).system_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).system_owner_id : undefined;
-                scope.values.statusChosen = WddCacheService.getCachedFilter(scope.filterKey).status_code ? WddCacheService.getCachedFilter(scope.filterKey).status_code : undefined;
-            } else {
-                scope.filterSetted = [];
-            }
-
-            scope.promises = {};
             scope.filterStatus = [{
                 id: 0,
                 label: 'Tutti'
@@ -35,8 +24,21 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 label: 'Produzione'
             }];
 
-            scope.values.statusChosen = {};
-            scope.values.statusChosen.label = angular.copy(scope.filterStatus[0].label);
+            if (WddCacheService.getCachedFilter(scope.filterKey)) {
+                scope.filterSetted = WddCacheService.getCachedFilter(scope.filterKey).arrayFilter ? WddCacheService.getCachedFilter(scope.filterKey).arrayFilter : [];
+                scope.isFilterActive = WddCacheService.getCachedFilter(scope.filterKey).isFilterActive ? WddCacheService.getCachedFilter(scope.filterKey).isFilterActive : WddCacheService.getCachedFilter(scope.filterKey).isFilterActive;
+                scope.values.processOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).process_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).process_owner_id : undefined;
+                scope.values.systemOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).system_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).system_owner_id : undefined;
+                scope.values.statusChosen = {};
+                scope.values.statusChosen.label = WddCacheService.getCachedFilter(scope.filterKey).status_code ? WddCacheService.getCachedFilter(scope.filterKey).status_code : 'Tutti';
+            } else {
+                scope.filterSetted = [];
+                scope.values.statusChosen = {};
+                scope.values.statusChosen.label = angular.copy(scope.filterStatus[0].label);
+            }
+
+            scope.promises = {};
+
             scope.filterArrayBase = [];
 
             let initFilter = () => {
@@ -97,7 +99,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 WddCacheService.cacheFilter(scope.filterKey, {
                     process_owner_id: scope.values.processOwnerChosen,
                     system_owner_id: scope.values.systemOwnerChosen,
-                    status_code: scope.values.statusChosen,
+                    status_code: scope.values.statusChosen.label,
                     arrayFilter: scope.filterSetted,
                     isFilterActive: scope.isFilterActive
                 });
