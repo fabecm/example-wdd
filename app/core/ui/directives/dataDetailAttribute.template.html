@@ -21,9 +21,10 @@
         <div ng-if="isTextArea">
             <textarea class="wdd-textarea" ng-if="isEditable === 'true'" ng-model="model.value" ng-focus="setFocusOnAttribute(true)" ng-blur="setFocusOnAttribute(false)"
                 ng-change="valueChanged()"></textarea>
-            <div class="textarea-disabled" ng-if="isEditable === 'false'">
+            <div class="textarea-disabled" ng-if="isEditable === 'false' && model.value">
                 {{model.value}}
             </div>
+            <div class="textarea-disabled" ng-if="isEditable === 'false' && !model.value"></div>
         </div>
 
         <div ng-if="isInput">
