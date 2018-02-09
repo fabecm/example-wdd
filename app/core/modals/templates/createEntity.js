@@ -91,7 +91,6 @@ export class CreateEntityController {
 
     close () {
         if (this.entityName.value) {
-
             this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
                 if (res.choice) {
                     this.$uibModalInstance.dismiss();

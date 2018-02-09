@@ -158,7 +158,6 @@ export class ModificationWorkspaceController {
 
     close () {
         if ((this.showSendBtn && !this.isSendDisabled()) || (this.showSaveBtn && !this.isSaveDisabled())) {
-
             this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
                 if (res.choice) {
                     this.$uibModalInstance.dismiss();
