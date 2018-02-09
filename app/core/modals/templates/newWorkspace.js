@@ -37,11 +37,20 @@ export class NewWorkspaceController {
     }
 
     close () {
-        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
-            if (res.choice) {
-                this.$uibModalInstance.dismiss();
-            }
-        });
+        if (this.workspaceForm.short_description
+            || this.workspaceForm.long_description
+            || this.workspaceForm.start_date
+            || this.workspaceForm.end_date
+            || (this.responsibleUser && this.responsibleUser.value)
+            || this.workspaceForm.note) {
+            this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+                if (res.choice) {
+                    this.$uibModalInstance.dismiss();
+                }
+            });
+        } else {
+            this.$uibModalInstance.dismiss();
+        }
     }
 
     sendWorkspace () {

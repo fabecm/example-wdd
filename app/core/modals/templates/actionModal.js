@@ -36,10 +36,14 @@ export class ActionModalController {
     }
 
     close () {
-        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
-            if (res.choice) {
-                this.$uibModalInstance.dismiss();
-            }
-        });
+        if (this.note) {
+            this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+                if (res.choice) {
+                    this.$uibModalInstance.dismiss();
+                }
+            });
+        } else {
+            this.$uibModalInstance.dismiss();
+        }
     }
 }

@@ -90,10 +90,15 @@ export class CreateEntityController {
     }
 
     close () {
-        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
-            if (res.choice) {
-                this.$uibModalInstance.dismiss();
-            }
-        });
+        if (this.entityName.value) {
+
+            this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+                if (res.choice) {
+                    this.$uibModalInstance.dismiss();
+                }
+            });
+        } else {
+            this.$uibModalInstance.dismiss();
+        }
     }
 }

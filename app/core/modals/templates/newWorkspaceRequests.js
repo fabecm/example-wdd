@@ -51,11 +51,15 @@ export class NewWorkspaceRequestsController {
     }
 
     close () {
-        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
-            if (res.choice) {
-                this.$uibModalInstance.dismiss();
-            }
-        });
+        if (this.systemOwnerSelected && this.systemOwnerSelected.value) {
+            this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+                if (res.choice) {
+                    this.$uibModalInstance.dismiss();
+                }
+            });
+        } else {
+            this.$uibModalInstance.dismiss();
+        }
     }
 
     saveRequestDocumentationData (operation) {
