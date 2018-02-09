@@ -18,7 +18,7 @@ export class DataService {
     }
 
     getSystemOwnerEntityCensuses (pageNumber, pageLength, params = {}) {
-        return this.$http.post(`WDD/search/systemowner/entity?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
+        return this.$http.post(`WDD/search/systemowner/entityapproval?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 
     getDQApprovalRequest (pageNumber, pageLength, params = {}) {
