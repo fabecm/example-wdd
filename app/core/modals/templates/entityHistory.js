@@ -24,7 +24,6 @@ export class EntityHistoryController {
         }
         this.detailsService.getEntityVersion(this.termDetail.termId, this.version.value).then(res => {
             this.attrList = res.data.array;
-            console.log(this.attrList);
         });
     }
 
