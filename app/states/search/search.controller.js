@@ -94,6 +94,7 @@ export class SearchController {
         if (this.wddCacheService.getCachedFilter('filter_tab_search')) {
             let param = {};
             param.resetPage = false;
+            this.selectedTab = this.wddCacheService.getCachedFilter('filter_tab_search').tab ? this.wddCacheService.getCachedFilter('filter_tab_search').tab : 0;
             this.mapFilterSetted(param, this.wddCacheService.getCachedFilter('filter_tab_search'));
         }
     }
@@ -101,10 +102,12 @@ export class SearchController {
     changeTab (tab) {
         this.selectedTab = tab;
         if (this.selectedTab === 0) {
+            this.wddCacheService.cacheSearchTab('filter_tab_search', 0);
             this.reloadTableData({
                 filterSetted: this.filterApplied
             });
         } else if (this.selectedTab === 1) {
+            this.wddCacheService.cacheSearchTab('filter_tab_search', 1);
             this.reloadTableEntity({
                 filterSetted: this.filterApplied
             });

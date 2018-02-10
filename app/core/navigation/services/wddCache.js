@@ -17,6 +17,13 @@ export class WddCacheService {
         this.filterCached[key].page = page;
     }
 
+    cacheSearchTab (key, tab) {
+        if (!this.filterCached[key]) {
+            this.filterCached[key] = {};
+        }
+        this.filterCached[key].tab = tab;
+    }
+
     getCachedFilter (key) {
         return this.filterCached[key];
     }
