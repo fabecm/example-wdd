@@ -53,7 +53,11 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             scope.filterArrayBase = [];
 
             let initFilter = () => {
-                scope.filtersArray = [{}];
+                if (scope.filterSetted.length > 0) {
+                    scope.filtersArray = scope.filterSetted;
+                } else {
+                    scope.filtersArray = [{}];
+                }
                 scope.filterArrayBase = [{}];
             };
             initFilter();
