@@ -37,11 +37,20 @@ export class NewWorkspaceController {
     }
 
     close () {
-        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
-            if (res.choice) {
-                this.$uibModalInstance.dismiss();
-            }
-        });
+        if (this.workspaceForm.short_description
+            || this.workspaceForm.long_description
+            || this.workspaceForm.start_date
+            || this.workspaceForm.end_date
+            || (this.responsibleUser && this.responsibleUser.value)
+            || this.workspaceForm.note) {
+            this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+                if (res.choice) {
+                    this.$uibModalInstance.dismiss();
+                }
+            });
+        } else {
+            this.$uibModalInstance.dismiss();
+        }
     }
 
     sendWorkspace () {
@@ -65,12 +74,12 @@ export class NewWorkspaceController {
                 this.createNewWorkspacePromise = this.modalService.createNewWorkspace(workspaceForm);
                 this.createNewWorkspacePromise.then(res => {
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace-save');
                         this.$uibModalInstance.close();
                     } else if (res.data.message === 'DESC_EXSIST') {
-                        this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'workspace');
+                        this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'workspace-save');
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace-save');
                     }
                 });
             }

@@ -157,11 +157,15 @@ export class ModificationWorkspaceController {
     }
 
     close () {
-        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
-            if (res.choice) {
-                this.$uibModalInstance.dismiss();
-            }
-        });
+        if ((this.showSendBtn && !this.isSendDisabled()) || (this.showSaveBtn && !this.isSaveDisabled())) {
+            this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+                if (res.choice) {
+                    this.$uibModalInstance.dismiss();
+                }
+            });
+        } else {
+            this.$uibModalInstance.dismiss();
+        }
     }
 
     saveWorkspace () {
@@ -189,9 +193,9 @@ export class ModificationWorkspaceController {
                 this.deleteWorkspacePromise = this.modalService.deleteWorkspace(this.$scope.$parent.workspaceId);
                 this.deleteWorkspacePromise.then(res => {
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace-done');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace-delete');
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace-error');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace-delete');
                     }
                 }).finally(() => {
                     this.$uibModalInstance.close();
@@ -214,12 +218,12 @@ export class ModificationWorkspaceController {
                 this.createNewWorkspacePromise.then(res => {
                     this.$log.debug(res);
                     if (res.data.result) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CORRETTAMENTE', 'workspace-save');
                         this.$uibModalInstance.close();
                     } else if (res.data.message === 'DESC_EXSIST') {
-                        this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'workspace');
+                        this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message_type}`, 'workspace-save');
                     } else {
-                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace');
+                        this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'workspace-save');
                     }
                 });
             }

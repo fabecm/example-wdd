@@ -42,7 +42,7 @@ export class DashboardSOController {
         value: 'status'
     }, {
         label: 'Data Scadenza',
-        value: 'data_scadenza'
+        value: 'workspace_end_date'
     }];
 
     headerInitiativeCensuses = [{

@@ -24,11 +24,11 @@ export class ActionModalController {
                 this.doActionPromise = this.modalService.doAction(entities);
                 this.doActionPromise.then(res => {
                     if (res.data.completed) {
-                        this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'action');
+                        this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'action-continueProcess');
                         this.$uibModalInstance.close();
                     } else {
                         this.modalService.openErrorActionModal(res.data);
-                        this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'action');
+                        this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'action-continueProcess');
                     }
                 });
             }
@@ -36,10 +36,14 @@ export class ActionModalController {
     }
 
     close () {
-        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
-            if (res.choice) {
-                this.$uibModalInstance.dismiss();
-            }
-        });
+        if (this.note) {
+            this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+                if (res.choice) {
+                    this.$uibModalInstance.dismiss();
+                }
+            });
+        } else {
+            this.$uibModalInstance.dismiss();
+        }
     }
 }

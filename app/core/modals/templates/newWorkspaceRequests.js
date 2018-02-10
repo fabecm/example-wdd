@@ -51,11 +51,15 @@ export class NewWorkspaceRequestsController {
     }
 
     close () {
-        this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
-            if (res.choice) {
-                this.$uibModalInstance.dismiss();
-            }
-        });
+        if (this.systemOwnerSelected && this.systemOwnerSelected.value) {
+            this.modalService.openConfirmationModal(this.modalService.getCancelActionText()).then(res => {
+                if (res.choice) {
+                    this.$uibModalInstance.dismiss();
+                }
+            });
+        } else {
+            this.$uibModalInstance.dismiss();
+        }
     }
 
     saveRequestDocumentationData (operation) {
@@ -93,15 +97,15 @@ export class NewWorkspaceRequestsController {
                     this.saveRequestDocumentationDataPromise = this.modalService.saveRequestDocumentationData(data);
                     this.saveRequestDocumentationDataPromise.then(res => {
                         if (res.data.result) {
-                            this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'new-data');
+                            this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'newdata-save');
                             if (operation === 'save') {
                                 this.$uibModalInstance.close();
                             } else if (operation === 'new') {
                                 this.$uibModalInstance.close();
-                                this.modalService.openNewWorkspaceRequests();
+                                this.modalService.openNewWorkspaceRequests(this.workspaceId);
                             }
                         } else {
-                            this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'new-data');
+                            this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'newdata-save');
                         }
                     });
                 }

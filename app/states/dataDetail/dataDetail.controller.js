@@ -106,11 +106,15 @@ export class DataDetailController {
 
         entityToSave.relations = [];
         for (let i = 0; i < this.visibleDataDetails.length; i++) {
-            if (this.visibleDataDetails[i].term && this.visibleDataDetails[i].term.termId && detail.term.termId !== this.visibleDataDetails[i].term.termId) {
+            // if (this.visibleDataDetails[i].term && this.visibleDataDetails[i].term.termId && detail.term.termId !== this.visibleDataDetails[i].term.termId) {
+            if (this.visibleDataDetails[i] && this.visibleDataDetails[i].term &&
+                ((this.visibleDataDetails[i].term.termId && detail.term.termId !== this.visibleDataDetails[i].term.termId) ||
+                (this.visibleDataDetails[i].term.tempTermId && detail.tempTermId !== this.visibleDataDetails[i].term.tempTermId))) {
                 entityToSave.relations.push({
                     termtype: this.visibleDataDetails[i].term.termtype,
                     name: this.visibleDataDetails[i].term.name,
                     termId: this.visibleDataDetails[i].term.termId,
+                    tempTermId: this.visibleDataDetails[i].term.tempTermId,
                     draft: this.visibleDataDetails[i].term.draft,
                     workspaceId: this.workspaceId
                 });
@@ -120,13 +124,13 @@ export class DataDetailController {
         this.saveEntityPromise = this.detailsService.saveEntity(entityToSave);
         this.saveEntityPromise.then(res => {
             if (res.data.result) {
-                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'save-entity-done');
+                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'save-entity');
                 this.initDataDetails();
+                detail.isLock = true;
             } else {
-                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'save-entity-error');
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'save-entity');
             }
         });
-        detail.isLock = true;
     }
 
     deleteChanges (detail) {
@@ -189,9 +193,9 @@ export class DataDetailController {
         this.deleteEntityPromise.then(res => {
             if (res.data.result) {
                 this.initDataDetails();
-                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'delete-entity-done');
+                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'delete-entity');
             } else {
-                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'delete-entity-error');
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'delete-entity');
             }
         });
     }
