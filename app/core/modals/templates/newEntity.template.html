@@ -1,0 +1,35 @@
+<div class="wwd-modal" wdd-spinner="[vm.saveEntityPromise.$$state]">
+    <div class="wwd-modal__title">
+        <div class="" id="modal-title">NUOVA ENTITA'</div>
+    </div>
+    <form name="formCreateEntity" ng-submit="vm.saveEntity()">
+        <div class="wwd-modal__body__container" id="modal-body">
+            <div class="wwd-modal__body">
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-1 wwd-modal__row__titleNewWorkspace">
+                        Entità
+                    </div>
+                    <div class="col-xs-11 createEntity">
+                        <wdd-autocomplete ng-model="vm.entityType.value" placeholder="Seleziona entità" type="entity" new-value="false" is-readonly="true"
+                            promise="vm.entityTypePromise" dipendence="[]"></wdd-autocomplete>
+                    </div>
+                </div>
+                <div class="row wwd-modal__row">
+                    <div class="col-xs-1 wwd-modal__row__titleNewWorkspace">
+                        Nome
+                    </div>
+                    <div class="col-xs-11 createEntity">
+                        <wdd-autocomplete ng-model="vm.entityName.value" placeholder="Seleziona nome" type="entityName" new-value="true" promise="vm.entityNamePromise"
+                            required-dependence="true" dipendence="{{ [vm.entityType.value] }}"></wdd-autocomplete>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="wwd-modal__footer">
+            <button class="wdd-button" type="button" ng-click="vm.close()">Annulla</button>
+            <button class="wdd-button pull-right" type="submit" ng-disabled="!vm.entityName.value">Salva</button>
+        </div>
+    </form>
+</div>

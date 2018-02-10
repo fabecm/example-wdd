@@ -74,7 +74,13 @@ export class EntityCensusController {
     }
 
     createNewEntity () {
-
+        this.modalService.openNewEntity().then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterApplied
+                });
+            });
+        });
     }
 
     sendToApprove (selectedItems) {

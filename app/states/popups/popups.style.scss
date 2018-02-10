@@ -93,6 +93,10 @@
         margin-bottom: 24px;
         .createEntity wdd-autocomplete .wdd-autocomplete{
             width: 450px;
+
+            [readonly] {
+                background-color: rgba(181, 180, 180, 0.0);
+            }
         }
         .date-section {
             padding-left: 30px;

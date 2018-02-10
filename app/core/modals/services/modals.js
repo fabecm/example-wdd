@@ -26,6 +26,9 @@ import ConfirmationModalTemplate from '../templates/confirmationModal.template.h
 import { EntityHistoryController } from '../templates/entityHistory';
 import EntityHistoryTemplate from '../templates/entityHistory.template.html';
 
+import { NewEntityController } from '../templates/newEntity';
+import NewEntityTemplate from '../templates/newEntity.template.html';
+
 export class ModalService {
     constructor ($uibModal, $rootScope, $http) {
         'ngInject';
@@ -71,6 +74,25 @@ export class ModalService {
                 workspaceId: workspaceId,
                 isDraft: isDraft
             }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openNewEntity () {
+        let modalInstance = this.$uibModal.open({
+            template: NewEntityTemplate,
+            controller: NewEntityController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            // scope: angular.extend(this.$rootScope, {
+            //     entityType: entityType,
+            //     dataDetails: dataDetails,
+            //     workspaceId: workspaceId,
+            //     isDraft: isDraft
+            // }),
             resolve: {}
         });
 

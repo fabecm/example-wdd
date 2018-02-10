@@ -71,7 +71,13 @@ export class EntityApprovalRequestController {
     }
 
     createNewEntity () {
-
+        this.modalService.openNewEntity().then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterApplied
+                });
+            });
+        });
     }
 
     reject (selectedItems) {
