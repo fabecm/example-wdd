@@ -19,8 +19,10 @@
                         Nome
                     </div>
                     <div class="col-xs-11 createEntity">
-                        <wdd-autocomplete ng-model="vm.entityName.value" placeholder="Seleziona nome" type="entityName" new-value="true" promise="vm.entityNamePromise"
-                            required-dependence="true" dipendence="{{ [vm.entityType.value] }}"></wdd-autocomplete>
+                        <!-- <wdd-autocomplete ng-model="vm.entityName.value" placeholder="Seleziona nome" type="entityName" new-value="true" promise="vm.entityNamePromise"
+                            required-dependence="true" dipendence="{{ [vm.entityType.value] }}"></wdd-autocomplete> -->
+
+                        <input class="wdd-input-text" ng-model="vm.entityName" type="text" name="entityName" placeholder="Inserisci nome">
                     </div>
                 </div>
 
@@ -29,7 +31,7 @@
         </div>
         <div class="wwd-modal__footer">
             <button class="wdd-button" type="button" ng-click="vm.close()">Annulla</button>
-            <button class="wdd-button pull-right" type="submit" ng-disabled="!vm.entityName.value">Salva</button>
+            <button class="wdd-button pull-right" type="submit" ng-disabled="vm.disabledSaveEntity()">Salva</button>
         </div>
     </form>
 </div>
