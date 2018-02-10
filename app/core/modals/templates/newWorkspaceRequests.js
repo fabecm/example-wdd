@@ -7,6 +7,7 @@ export class NewWorkspaceRequestsController {
         this.WDDAlert = WDDAlert;
 
         this.workspaceId = $scope.$parent.workspaceId;
+        this.techRuleId = $scope.$parent.techRuleId;
     }
 
     inputChanged (type) {
@@ -92,6 +93,10 @@ export class NewWorkspaceRequestsController {
 
                     if (this.dataTable && this.dataTable.value) {
                         data.datatable_id = this.dataTable.value;
+                    }
+
+                    if (this.techRuleId) {
+                        data.tech_rule_id = this.techRuleId;
                     }
 
                     this.saveRequestDocumentationDataPromise = this.modalService.saveRequestDocumentationData(data);

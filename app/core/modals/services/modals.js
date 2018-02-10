@@ -125,7 +125,7 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openNewWorkspaceRequests (workspaceId) {
+    openNewWorkspaceRequests (workspaceId, techRuleId) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -136,7 +136,8 @@ export class ModalService {
             keyboard: false,
             size: 'lg',
             scope: angular.extend(this.$rootScope, {
-                workspaceId: workspaceId
+                workspaceId: workspaceId,
+                techRuleId: techRuleId
             }),
             resolve: {}
         });
