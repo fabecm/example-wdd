@@ -25,7 +25,18 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             }];
 
             if (WddCacheService.getCachedFilter(scope.filterKey)) {
-                scope.filterSetted = WddCacheService.getCachedFilter(scope.filterKey).arrayFilter ? WddCacheService.getCachedFilter(scope.filterKey).arrayFilter : [];
+                let listFilter = WddCacheService.getCachedFilter(scope.filterKey).arrayFilter ? WddCacheService.getCachedFilter(scope.filterKey).arrayFilter : [];
+                if (listFilter.length > 0) {
+                    scope.filterSetted = listFilter.map((filter) => {
+                        return {
+                            entity: filter.entity_id,
+                            attribute: filter.attribute_id,
+                            text: filter.text
+                        };
+                    });
+                } else {
+                    scope.filterSetted = listFilter;
+                }
                 scope.isFilterActive = WddCacheService.getCachedFilter(scope.filterKey).isFilterActive ? WddCacheService.getCachedFilter(scope.filterKey).isFilterActive : WddCacheService.getCachedFilter(scope.filterKey).isFilterActive;
                 scope.values.processOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).process_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).process_owner_id : undefined;
                 scope.values.systemOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).system_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).system_owner_id : undefined;
@@ -100,7 +111,13 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                     process_owner_id: scope.values.processOwnerChosen,
                     system_owner_id: scope.values.systemOwnerChosen,
                     status_code: scope.values.statusChosen.label,
-                    arrayFilter: scope.filterSetted,
+                    arrayFilter: scope.filterSetted.map((filter) => {
+                        return {
+                            entity_id: filter.entity,
+                            attribute_id: filter.attribute,
+                            text: filter.text
+                        };
+                    }),
                     isFilterActive: scope.isFilterActive
                 });
 
