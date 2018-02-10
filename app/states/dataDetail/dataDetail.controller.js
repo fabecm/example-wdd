@@ -201,7 +201,14 @@ export class DataDetailController {
     }
 
     addEntity () {
-        this.modalService.openNewWorkspaceRequests(this.workspaceId).then(() => {
+        let techRuleId;
+        let techRule = this.visibleDataDetails.filter(data => data.term.termtype === 'TECHNICAL_RULE')[0];
+        if (techRule.term.termId) {
+            techRuleId = techRule.term.termId;
+        } else if (techRule.term.tempTermId) {
+            techRuleId = techRule.term.tempTermId;
+        }
+        this.modalService.openNewWorkspaceRequests(this.workspaceId, techRuleId).then(() => {
             this.initDataDetails();
         });
     }
