@@ -74,10 +74,10 @@ export class SearchController {
         value: 'description'
     }, {
         label: 'Stato',
-        value: 'state'
+        value: 'status'
     }, {
         label: 'Ultima Modifica',
-        value: 'last_change'
+        value: 'modified_date'
     }];
 
     constructor (DataService, DatasourceService, $timeout, WddCacheService) {
@@ -100,6 +100,15 @@ export class SearchController {
 
     changeTab (tab) {
         this.selectedTab = tab;
+        if (this.selectedTab === 0) {
+            this.reloadTableData({
+                filterSetted: this.filterApplied
+            });
+        } else if (this.selectedTab === 1) {
+            this.reloadTableEntity({
+                filterSetted: this.filterApplied
+            });
+        }
     }
 
     filterChanged (arrayFilter) {
@@ -127,11 +136,19 @@ export class SearchController {
             param.array_filter_text = arrayFilter.arrayFilter;
         }
 
+        this.filterApplied = param;
+
         this.$timeout(() => {
             this.showTab = true;
-            this.reloadTableData({
-                filterSetted: param
-            });
+            if (this.selectedTab === 0) {
+                this.reloadTableData({
+                    filterSetted: param
+                });
+            } else if (this.selectedTab === 1) {
+                this.reloadTableEntity({
+                    filterSetted: param
+                });
+            }
         });
     }
 }
