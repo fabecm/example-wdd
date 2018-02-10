@@ -15,7 +15,7 @@ export class DashboardSOController {
     }, {
         label: 'Censimenti di entità',
         value: 0,
-        color: '#FF0000',
+        color: '#df5356',
         childPage: 'tab.entityCensus'
     }];
 
@@ -71,6 +71,20 @@ export class DashboardSOController {
         value: 'data_scadenza'
     }];
 
+    headerEntityCensus = [{
+        label: 'Tipo entità',
+        value: 'type_entity'
+    }, {
+        label: 'Nome entità',
+        value: 'name_entity'
+    }, {
+        label: 'Descrizione',
+        value: 'description'
+    }, {
+        label: 'Stato',
+        value: 'status'
+    }];
+
     constructor (DashboardsService, TableService) {
         'ngInject';
         this.dashboardsService = DashboardsService;
@@ -98,6 +112,10 @@ export class DashboardSOController {
         this.initiativeCensusesPromise = this.tableService.getTableData('initiativeCensuses', {}, 1, 3);
         this.initiativeCensusesPromise.then(res => {
             this.tableInitiativeCensuses = res.dataTable;
+        });
+        this.entityCensusPromise = this.tableService.getTableData('entityCensus', {}, 1, 3);
+        this.entityCensusPromise.then(res => {
+            this.tableEntityCensus = res.dataTable;
         });
     }
 }

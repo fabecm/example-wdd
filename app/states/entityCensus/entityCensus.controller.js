@@ -50,57 +50,45 @@ export class EntityCensusController {
 
     initEntityCensus () {
         let param = {};
-        let filter = {};
         if (this.wddCacheService.getCachedFilter('filter_tab_entityCensus')) {
+            param = this.wddCacheService.getCachedFilter('filter_tab_entityCensus');
             param.resetPage = false;
-            filter = this.wddCacheService.getCachedFilter('filter_tab_entityCensus');
         }
-
-        this.mapFilterSetted(param, filter);
+        this.$timeout(() => {
+            this.reloadTableData({
+                filterSetted: param
+            });
+        });
     }
 
-    // param: arrayFilter
     filterChanged (filterApplied) {
+        let param = filterApplied;
+        param.resetPage = true;
+        this.filterApplied = filterApplied;
 
-        console.log(filterApplied);
-        // let param = {};
-        // param.resetPage = true;
-
-        // this.mapFilterSetted(param, arrayFilter);
+        this.$timeout(() => {
+            this.reloadTableData({
+                filterSetted: param
+            });
+        });
     }
 
     createNewEntity () {
 
     }
 
-    sendToApprove () {
-
-    }
-
-    // params: param, arrayFilter
-    mapFilterSetted (param) {
-        // if (arrayFilter.process_owner_id) {
-        //     param.process_owner_id = arrayFilter.process_owner_id;
-        // } else {
-        //     param.process_owner_id = 0;
-        // }
-        // if (arrayFilter.system_owner_id) {
-        //     param.system_owner_id = arrayFilter.system_owner_id;
-        // } else {
-        //     param.system_owner_id = 0;
-        // }
-        // if (arrayFilter.status_code) {
-        //     param.status_code = arrayFilter.status_code;
-        // }
-        // if (arrayFilter.arrayFilter && arrayFilter.arrayFilter.length > 0) {
-        //     param.array_filter_text = arrayFilter.arrayFilter;
-        // }
-
-        // this.filterSetted = param;
-
-        this.$timeout(() => {
-            this.reloadTableData({
-                filterSetted: param
+    sendToApprove (selectedItems) {
+        let param = {
+            selectedItems: selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getForwardText()
+        };
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.showTab = true;
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
             });
         });
     }
