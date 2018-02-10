@@ -20,7 +20,7 @@ export class DashboardRequestController {
     }, {
         label: 'Richieste approvazione entità',
         value: 0,
-        color: '#FFCC00',
+        color: '#B71C1C',
         childPage: 'tab.entityApprovalRequest'
     }];
 
@@ -99,6 +99,20 @@ export class DashboardRequestController {
         value: 'status'
     }];
 
+    headerEntityApprovalRequest = [{
+        label: 'Tipo entità',
+        value: 'type_entity'
+    }, {
+        label: 'Nome entità',
+        value: 'name_entity'
+    }, {
+        label: 'Descrizione',
+        value: 'description'
+    }, {
+        label: 'Stato',
+        value: 'status'
+    }];
+
     constructor (DashboardsService, TableService) {
         'ngInject';
         this.dashboardsService = DashboardsService;
@@ -133,6 +147,11 @@ export class DashboardRequestController {
         this.automaticEventsPromise = this.tableService.getTableData('automaticEvents', {}, 1, 3);
         this.automaticEventsPromise.then(res => {
             this.tableAutomaticEvents = res.dataTable;
+        });
+
+        this.entityApprovalRequestPromise = this.tableService.getTableData('entityApprovalRequest', {}, 1, 3);
+        this.entityApprovalRequestPromise.then(res => {
+            this.tableEntityApprovalRequest = res.dataTable;
         });
     }
 
