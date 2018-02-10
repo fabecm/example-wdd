@@ -9,6 +9,10 @@ export class DataService {
         return this.$http.post(`WDD/search/fulltext?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 
+    getEntityData (pageNumber, pageLength, params = {}) {
+        return this.$http.post(`WDD/search/fulltext/entity?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
+    }
+
     getSystemOwnerTodoList (pageNumber, pageLength, params = {}) {
         return this.$http.post(`WDD/search/systemowner/todo?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
@@ -27,5 +31,9 @@ export class DataService {
 
     getDQAutomaticEvents (pageNumber, pageLength, params = {}) {
         return this.$http.post(`WDD/search/dataquality/event?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
+    }
+
+    getDQEntityApprovalRequest (pageNumber, pageLength, params = {}) {
+        return this.$http.post(`WDD/search/dataquality/entityapproval?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 }
