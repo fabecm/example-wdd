@@ -29,6 +29,10 @@
     // button:first-child { 
     //     margin-right: 20px;
     // }
-
+    .action-holder {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 5px;
+    }
 
 }
