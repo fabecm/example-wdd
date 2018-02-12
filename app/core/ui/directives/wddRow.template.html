@@ -1,7 +1,7 @@
 <!-- <td class="first-column-child-table" ng-if="isFromChildTable"></td> -->
 <td ng-if="action">
     <div ng-if="rowCollapse">
-        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[0])">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[0])" ng-class="{'has-checkable-child': rowData.hasCheckableChild}">
             <i class="icon" ng-class="{'icon-right-arrow': rowData.workspace.collapse, 'icon-down-arrow': !rowData.workspace.collapse}"></i>
         </button>
     </div>

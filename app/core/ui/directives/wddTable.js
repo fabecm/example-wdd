@@ -90,20 +90,23 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     if (scope.expandable && scope.serviceResponse && scope.serviceResponse.length > 0) {
                         scope.serviceResponse.map(e => {
                             if (e.data_fields && e.data_fields.length > 0) {
+                                let hasCheckableChild = false;
                                 e.data_fields = e.data_fields.map(field => {
                                     field.workspace = {
                                         id: e.workspace.id
                                     };
                                     if (field.status && field.status.label === scope.stateToAbleChildCheck) {
                                         field.ableCheck = true;
+                                        hasCheckableChild = true;
                                     } else {
                                         field.ableCheck = false;
                                     }
                                     return field;
                                 });
+                                e.hasCheckableChild = hasCheckableChild;
                             }
                             return e;
-                        });
+                        });console.log(scope.serviceResponse);
                     }
 
                     scope.pageNumber = data.pages;
