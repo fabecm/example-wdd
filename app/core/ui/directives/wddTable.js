@@ -402,46 +402,49 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             };
 
             scope.secondaryAction = () => {
+                let idChecked;
                 if (scope.checkedElements && scope.checkedElements.length > 0) {
-                    scope.checkedElements = scope.checkedElements.map(e => {
+                    idChecked = scope.checkedElements.map(e => {
                         return ({
                             id_field: e.id_field.id
                         });
                     });
                 }
-                scope.actionSecondaryLabel({selectedItems: scope.checkedElements});
+                scope.actionSecondaryLabel({selectedItems: idChecked});
             };
 
             scope.primaryAction = () => {
+                let idChecked;
                 if (scope.checkedElements && scope.checkedElements.length > 0) {
-                    scope.checkedElements = scope.checkedElements.map(e => {
+                    idChecked = scope.checkedElements.map(e => {
                         return ({
                             id_field: e.id_field.id
                         });
                     });
                 }
-                scope.actionPrimaryLabel({selectedItems: scope.checkedElements});
+                scope.actionPrimaryLabel({selectedItems: idChecked});
             };
 
             scope.tertiaryAction = () => {
+                let idChecked;
                 if (scope.checkedElements && scope.checkedElements.length > 0) {
-                    scope.checkedElements = scope.checkedElements.map(e => {
+                    idChecked = scope.checkedElements.map(e => {
                         return ({
                             id_field: e.id_field.id
                         });
                     });
                 }
-                scope.actionTertiaryLabel({selectedItems: scope.checkedElements});
+                scope.actionTertiaryLabel({selectedItems: idChecked});
             };
 
             scope.forwardCheckedItems = () => {
-                scope.checkedElements = scope.checkedElements.map(e => {
+                let idChecked = scope.checkedElements.map(e => {
                     return ({
                         id_field: e
                     });
                 });
                 let param = {
-                    selectedItems: scope.checkedElements,
+                    selectedItems: idChecked,
                     action: 'FORWARD',
                     text: ModalService.getForwardText()
                 };
