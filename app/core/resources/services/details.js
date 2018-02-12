@@ -30,6 +30,10 @@ export class DetailsService {
         return this.$http.get(`WDD/delete/entity${path}`);
     }
 
+    deleteEntityDraft (param) {
+        return this.$http.get(`WDD/delete/draft?temp_term_id=${param.temp_term_id}&data_field_temp_term_id=${param.data_field_temp_term_id}`);
+    }
+
     checkProperty (property, label) {
         if (property) {
             if (this.firstParam) {
