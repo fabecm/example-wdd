@@ -7,7 +7,7 @@ export class NewWorkspaceRequestsController {
         this.WDDAlert = WDDAlert;
 
         this.workspaceId = $scope.$parent.workspaceId;
-        this.techRuleId = $scope.$parent.techRuleId;
+        this.termTechRule = $scope.$parent.termTechRule;
     }
 
     inputChanged (type) {
@@ -95,11 +95,15 @@ export class NewWorkspaceRequestsController {
                         data.datatable_id = this.dataTable.value;
                     }
 
-                    if (this.techRuleId) {
-                        data.tech_rule_id = this.techRuleId;
+                    if (this.termTechRule) {
+                        data.tech_rule_id = this.termTechRule.termId;
+                        data.temp_tech_rule_id = this.termTechRule.tempTermId;
+                        data.tech_rule_name = this.termTechRule.name;
+                        this.saveRequestDocumentationDataPromise = this.modalService.addTechnicalRuleData(data);
+                    } else {
+                        this.saveRequestDocumentationDataPromise = this.modalService.saveRequestDocumentationData(data);
                     }
 
-                    this.saveRequestDocumentationDataPromise = this.modalService.saveRequestDocumentationData(data);
                     this.saveRequestDocumentationDataPromise.then(res => {
                         if (res.data.result) {
                             this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'newdata-save');
@@ -109,6 +113,8 @@ export class NewWorkspaceRequestsController {
                                 this.$uibModalInstance.close();
                                 this.modalService.openNewWorkspaceRequests(this.workspaceId);
                             }
+                        } else if (res.data.message_type === 'SHOW_ERROR') {
+                            this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message}`, 'newdata-save');
                         } else {
                             this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'newdata-save');
                         }

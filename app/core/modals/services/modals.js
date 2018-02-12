@@ -49,6 +49,10 @@ export class ModalService {
         return this.$http.post('WDD/newdata/save', data);
     }
 
+    addTechnicalRuleData (data) {
+        return this.$http.post('WDD/technicalRule/addData', data);
+    }
+
     doAction (data) {
         return this.$http.post('WDD/action/continueProcess', data);
     }
@@ -150,7 +154,7 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openNewWorkspaceRequests (workspaceId, techRuleId) {
+    openNewWorkspaceRequests (workspaceId, termTechRule) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -162,7 +166,7 @@ export class ModalService {
             size: 'lg',
             scope: angular.extend(this.$rootScope, {
                 workspaceId: workspaceId,
-                techRuleId: techRuleId
+                termTechRule: termTechRule
             }),
             resolve: {}
         });
