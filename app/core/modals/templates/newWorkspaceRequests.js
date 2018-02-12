@@ -109,6 +109,8 @@ export class NewWorkspaceRequestsController {
                                 this.$uibModalInstance.close();
                                 this.modalService.openNewWorkspaceRequests(this.workspaceId);
                             }
+                        } else if (res.data.message_type === 'SHOW_ERROR') {
+                            this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message}`, 'newdata-save');
                         } else {
                             this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'newdata-save');
                         }
