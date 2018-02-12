@@ -23,6 +23,8 @@ export class FilterWorkspace {
                 return this.datasourceService.getBootstrap().then(res => res.data.system_owner);
             case 'entity':
                 return this.classificationService.getEntity(dipendence, stringSearched).then(res => res.data.array);
+            case 'entityNoFather':
+                return this.classificationService.getEntityNoFather(stringSearched).then(res => res.data.array);
             case 'attribute':
                 return this.classificationService.getAttribute(dipendence, stringSearched).then(res => res.data.array);
             case 'responsibleUser':
