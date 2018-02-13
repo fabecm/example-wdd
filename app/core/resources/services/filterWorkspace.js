@@ -10,7 +10,13 @@ export class FilterWorkspace {
         this.detailsService = DetailsService;
     }
 
-    updateList (type, stringSearched, dipendence) {
+    updateList (type, search, dipendence) {
+        let stringSearched;
+        if (search) {
+            stringSearched = search.replace(new RegExp('%', 'g'), '%25');
+        } else {
+            stringSearched = search;
+        }
         switch (type) {
             case 'workspace':
             case 'description':

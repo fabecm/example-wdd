@@ -17,7 +17,11 @@ export class WorkspaceService {
             case 'newRequestDT':
                 return this.$http.get(`WDD/filter/newdata?type=datatable&systemowner_id=${dipendence[0]}&techapp_id=${dipendence[1]}&datasource_id=${dipendence[2]}&label_search=${stringSearched}`);
             case 'newRequestDF':
-                return this.$http.get(`WDD/filter/newdata?type=datafield&systemowner_id=${dipendence[0]}&techapp_id=${dipendence[1]}&datasource_id=${dipendence[2]}&label_search=${stringSearched}`);
+                let datatable = '';
+                if (dipendence[3]) {
+                    datatable += `&datatable_id=${dipendence[3]}`
+                }
+                return this.$http.get(`WDD/filter/newdata?type=datafield&systemowner_id=${dipendence[0]}&techapp_id=${dipendence[1]}&datasource_id=${dipendence[2]}${datatable}&label_search=${stringSearched}`);
             default:
                 return this.$q.when([]);
         }

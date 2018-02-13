@@ -106,7 +106,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                                 e.hasCheckableChild = hasCheckableChild;
                             }
                             return e;
-                        });console.log(scope.serviceResponse);
+                        });
                     }
 
                     scope.pageNumber = data.pages;
