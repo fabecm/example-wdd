@@ -1,6 +1,6 @@
 import template from './wddFilter.template.html';
 
-export function WddFilter ($log, $q, ClassificationService, WddCacheService, $state) {
+export function WddFilter ($log, $q, ClassificationService, WddCacheService, $state, UserService, RuleProfileService) {
     'ngInject';
     return {
         scope: {
@@ -187,6 +187,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                     scope.setFilter();
                 }
                 scope.isFilterActive = false;
+                scope.lockSystemOwner();
             };
 
             scope.updateEntity = (filter, filterSetted) => {
@@ -202,6 +203,23 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                     filter.attribute = res.data;
                 });
             };
+
+            scope.lockSO = false;
+            scope.lockSystemOwner = () => {
+                let dashboards = RuleProfileService.ruleProfile.dashboards;
+                let mySystemOwnerId = UserService.getSystemOwnerId();
+
+                if (dashboards.length === 1 && dashboards[0] === 'DSBOARD_SO') {
+                    if (scope.values.statusChosen.label === 'Bozza' || scope.values.statusChosen.label === 'Tutti') {
+                        scope.lockSO = true;
+                        scope.values.systemOwnerChosen = {};
+                        scope.values.systemOwnerChosen.value = mySystemOwnerId;
+                    } else {
+                        scope.lockSO = false;
+                    }
+                }
+            };
+            scope.lockSystemOwner();
         }
     };
 }

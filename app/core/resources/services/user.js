@@ -9,14 +9,18 @@ export class UserService {
     }
 
     getUser () {
-        if(Boolean(true) === true) {
+        if(Boolean(false) === true) {
             return getMockedData(this.$q).then(res => {
                 this.user = res.data;
             });
         }
-        return this.$http.get('WDD/users').then(res => {
+        return this.$http.get('WDD/security/user').then(res => {
             this.user = res.data;
         });
+    }
+
+    getSystemOwnerId () {
+        return this.user.webSealUser.systemOwnerTermId;
     }
 
     getLevel () {
