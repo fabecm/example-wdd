@@ -20,14 +20,17 @@
         </ul>
     </div>
 </div>
-<div>
+<div class="entity-approval-request">
     <entity-filter applied-filter="vm.filterChanged(filterApplied)" type-page="DQ"></entity-filter>
 
-    <wdd-table reload-data="vm.reloadTableData" table-key="entityApprovalRequest" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
-        page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}" is-checked-bool="{{ {boolean: true} }}"
-        has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail" header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
-        is-child-checked-bool="false" state-to-able-child-check="" has-primary-label="Nuova entità" disabled-primary-label-with-empty-response="false"
-        action-primary-label="vm.createNewEntity()" has-secondary-label="Approva" disabled-secondary-label-with-empty-response="true"
+    <wdd-table reload-data="vm.reloadTableData" table-key="entityApprovalRequest" header-array-obj="{{ {array: vm.headerTable} }}"
+        pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}"
+        is-checked-bool="{{ {boolean: true} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail" header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
+        is-child-checked-bool="false" state-to-able-child-check="" has-secondary-label="Approva" disabled-secondary-label-with-empty-response="true"
         able-status-secondary-label="In approvazione" action-secondary-label="vm.sendToApprove(selectedItems)" has-tertiary-label="Rifiuta"
         able-status-tertiary-label="In approvazione" disabled-tertiary-label-with-empty-response="true" action-tertiary-label="vm.reject(selectedItems)"></wdd-table>
+
+    <div class="action-holder">
+        <button class="wdd-button" ng-click="vm.createNewEntity()">Nuova entità</button>
+    </div>
 </div>
