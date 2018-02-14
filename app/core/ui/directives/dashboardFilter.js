@@ -38,6 +38,16 @@ export function DashboardFilter ($log, $state, WddCacheService) {
                 scope.statusSelected = WddCacheService.getCachedFilter(scope.filterKey).statusSelected ? WddCacheService.getCachedFilter(scope.filterKey).statusSelected : {};
                 scope.startDate = WddCacheService.getCachedFilter(scope.filterKey).startDate ? WddCacheService.getCachedFilter(scope.filterKey).startDate : 'GG/MM/AAAA';
                 scope.endDate = WddCacheService.getCachedFilter(scope.filterKey).endDate ? WddCacheService.getCachedFilter(scope.filterKey).endDate : 'GG/MM/AAAA';
+            } else {
+                scope.workspaceSelected = {
+                    value: -1
+                };
+                scope.descriptionSelected = {
+                    value: -1
+                };
+                scope.statusSelected = {
+                    value: -1
+                };
             }
 
             // getStatusList(scope, FilterWorkspace);
@@ -56,9 +66,9 @@ export function DashboardFilter ($log, $state, WddCacheService) {
             };
 
             scope.resetFilter = () => {
-                scope.workspaceSelected = undefined;
-                scope.descriptionSelected = undefined;
-                scope.statusSelected = undefined;
+                scope.workspaceSelected.value = -1;
+                scope.descriptionSelected.value = -1;
+                scope.statusSelected.value = -1;
                 scope.startDate = undefined;
                 // scope.startDate = 'GG/MM/AAAA';
                 scope.endDate = undefined;
@@ -84,13 +94,13 @@ export function DashboardFilter ($log, $state, WddCacheService) {
 
                 let param = {};
 
-                if (scope.workspaceSelected) {
+                if (scope.workspaceSelected && scope.workspaceSelected.value !== -1) {
                     param.workspaceSelected = scope.workspaceSelected.value;
                 }
-                if (scope.descriptionSelected) {
+                if (scope.descriptionSelected && scope.descriptionSelected.value !== -1) {
                     param.descriptionSelected = scope.descriptionSelected.value;
                 }
-                if (scope.statusSelected) {
+                if (scope.statusSelected && scope.statusSelected.value !== -1) {
                     param.status = scope.statusSelected.value;
                 }
                 if (scope.startDate !== 'GG/MM/AAAA') {
@@ -117,12 +127,3 @@ export function DashboardFilter ($log, $state, WddCacheService) {
         }
     };
 }
-
-// function getStatusList (scope, FilterWorkspace) {
-//     let type = 'status';
-//     const statusPromise = FilterWorkspace.updateList(type);
-//     scope.promises.statusPromise = statusPromise;
-//     statusPromise.then(res => {
-//         scope.statusList = res;
-//     });
-// }
