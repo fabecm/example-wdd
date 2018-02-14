@@ -30,8 +30,10 @@ export class NewEntityController {
             if (res.data.result) {
                 this.WDDAlert.showAlert('success', 'OPERAZIONE ESEGUITA CON SUCCESSO', 'save-entity');
                 this.$uibModalInstance.close();
+            } else if (res.data.message_type === 'SHOW_ERROR') {
+                this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message}`, 'save-entity');
             } else {
-                this.WDDAlert.showAlert('error', 'OPERAZIONE NON ESEGUITA', 'save-entity');
+                this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'save-entity');
             }
         }).finally(() => {
             this.$uibModalInstance.close();
