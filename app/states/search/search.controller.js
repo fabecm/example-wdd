@@ -110,12 +110,12 @@ export class SearchController {
     }
 
     mapFilterSetted (param, arrayFilter) {
-        if (arrayFilter.process_owner_id) {
+        if (arrayFilter.process_owner_id && arrayFilter.process_owner_id !== -1) {
             param.process_owner_id = arrayFilter.process_owner_id;
         } else {
             param.process_owner_id = 0;
         }
-        if (arrayFilter.system_owner_id) {
+        if (arrayFilter.system_owner_id && arrayFilter.system_owner_id !== -1) {
             param.system_owner_id = arrayFilter.system_owner_id;
         } else {
             param.system_owner_id = 0;

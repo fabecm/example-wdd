@@ -29,8 +29,8 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 if (listFilter.length > 0) {
                     scope.filterSetted = listFilter.map((filter) => {
                         return {
-                            entity: filter.entity_id,
-                            attribute: filter.attribute_id,
+                            entity: !filter.entity_id ? -1 : filter.entity_id,
+                            attribute: !filter.attribute_id ? -1 : filter.attribute_id,
                             text: filter.text
                         };
                     });
@@ -38,19 +38,42 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                     scope.filterSetted = listFilter;
                 }
                 scope.isFilterActive = WddCacheService.getCachedFilter(scope.filterKey).isFilterActive ? WddCacheService.getCachedFilter(scope.filterKey).isFilterActive : WddCacheService.getCachedFilter(scope.filterKey).isFilterActive;
-                scope.values.processOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).process_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).process_owner_id : undefined;
-                scope.values.systemOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).system_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).system_owner_id : undefined;
+                // scope.values.processOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).process_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).process_owner_id : undefined;
+
+                if (WddCacheService.getCachedFilter(scope.filterKey).process_owner_id) {
+                    scope.values.processOwnerChosen = {};
+                    scope.values.processOwnerChosen.value = WddCacheService.getCachedFilter(scope.filterKey).process_owner_id;
+                } else {
+                    scope.values.processOwnerChosen = {};
+                    scope.values.processOwnerChosen.value = -1;
+                }
+
+                if (WddCacheService.getCachedFilter(scope.filterKey).system_owner_id) {
+                    scope.values.systemOwnerChosen = {};
+                    scope.values.systemOwnerChosen.value = WddCacheService.getCachedFilter(scope.filterKey).system_owner_id;
+                } else {
+                    scope.values.systemOwnerChosen = {};
+                    scope.values.systemOwnerChosen.value = -1;
+                }
+
+                // scope.values.systemOwnerChosen = WddCacheService.getCachedFilter(scope.filterKey).system_owner_id ? WddCacheService.getCachedFilter(scope.filterKey).system_owner_id : undefined;
                 scope.values.statusChosen = {};
                 scope.values.statusChosen.label = WddCacheService.getCachedFilter(scope.filterKey).status_code ? WddCacheService.getCachedFilter(scope.filterKey).status_code : 'Tutti';
             } else {
                 scope.filterSetted = [];
                 scope.values.statusChosen = {};
                 scope.values.statusChosen.label = angular.copy(scope.filterStatus[0].label);
+
+                scope.values.processOwnerChosen = {};
+                scope.values.processOwnerChosen.value = -1;
+
+                scope.values.systemOwnerChosen = {};
+                scope.values.systemOwnerChosen.value = -1;
             }
 
             scope.promises = {};
 
-            scope.filterArrayBase = [];
+            // scope.filterArrayBase = [];
 
             let initFilter = (reset) => {
                 if (!reset && scope.filterSetted.length > 0) {
@@ -59,6 +82,10 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                     scope.filtersArray = [{}];
                 } else {
                     scope.filtersArray = [{}];
+                    scope.filterSetted = [{
+                        entity: -1,
+                        attribute: -1
+                    }];
                 }
                 scope.filterArrayBase = [{}];
             };
@@ -67,6 +94,10 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             scope.addNewFilter = () => {
                 scope.isFilterActive = false;
                 scope.filtersArray.push([]);
+                scope.filterSetted.push({
+                    entity: -1,
+                    attribute: -1
+                });
             };
 
             scope.removeFilter = (filter) => {
@@ -105,8 +136,8 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 let array = {};
                 array.array_filter_text = scope.filterSetted.map((filter) => {
                     return {
-                        entity_id: filter.entity,
-                        attribute_id: filter.attribute,
+                        entity_id: filter.entity === -1 ? undefined : filter.entity,
+                        attribute_id: filter.attribute === -1 ? undefined : filter.attribute,
                         text: filter.text
                     };
                 });
@@ -114,13 +145,13 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 param.arrayFilter = array.array_filter_text;
 
                 WddCacheService.cacheFilter(scope.filterKey, {
-                    process_owner_id: scope.values.processOwnerChosen,
-                    system_owner_id: scope.values.systemOwnerChosen,
+                    process_owner_id: scope.values.processOwnerChosen.value,
+                    system_owner_id: scope.values.systemOwnerChosen.value,
                     status_code: scope.values.statusChosen.label,
                     arrayFilter: scope.filterSetted.map((filter) => {
                         return {
-                            entity_id: filter.entity,
-                            attribute_id: filter.attribute,
+                            entity_id: filter.entity === -1 ? undefined : filter.entity,
+                            attribute_id: filter.attribute === -1 ? undefined : filter.attribute,
                             text: filter.text
                         };
                     }),
@@ -142,10 +173,13 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             };
 
             scope.resetFilter = () => {
-                scope.values.processOwnerChosen = undefined;
-                scope.values.systemOwnerChosen = undefined;
+                scope.values.processOwnerChosen.value = -1;
+                scope.values.systemOwnerChosen.value = -1;
                 scope.values.statusChosen = angular.copy(scope.filterStatus[0]);
-                scope.filterSetted = [];
+                scope.filterSetted = [{
+                    entity: -1,
+                    attribute: -1
+                }];
                 scope.filtersArray = scope.filterArrayBase;
                 WddCacheService.unCacheFilter(scope.filterKey);
 

@@ -114,6 +114,9 @@ export function DataDetailAttribute () {
             };
 
             scope.valueChanged = () => {
+                if (scope.attributeName === 'Data Source field input') {
+                    return;
+                }
                 ngModel.$setViewValue(scope.model.value);
                 ngModel.$render();
                 scope.unlockAction();
