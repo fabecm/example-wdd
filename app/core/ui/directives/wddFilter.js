@@ -52,9 +52,11 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
 
             scope.filterArrayBase = [];
 
-            let initFilter = () => {
-                if (scope.filterSetted.length > 0) {
+            let initFilter = (reset) => {
+                if (!reset && scope.filterSetted.length > 0) {
                     scope.filtersArray = scope.filterSetted;
+                } else if (reset && scope.filterSetted.length === 1) {
+                    scope.filtersArray = [{}];
                 } else {
                     scope.filtersArray = [{}];
                 }
@@ -70,7 +72,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             scope.removeFilter = (filter) => {
                 let indexElem = scope.filtersArray.indexOf(filter);
                 if (scope.filtersArray.length === 1) {
-                    initFilter();
+                    initFilter(true);
                     scope.filterSetted.splice(indexElem, 1);
                 } else {
                     scope.filtersArray.splice(indexElem, 1);
