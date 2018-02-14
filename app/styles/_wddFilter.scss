@@ -76,14 +76,17 @@ wdd-filter{
             margin-right: 34px;
             height: 55px;
             &.correct-width {
-                @media screen and (min-width: 1281px) {
-                    width: 1017px;
-                }
                 @media screen and (max-width: 1024px) {
                     width: 420px;
                 }
                 @media screen and (max-width: 1280px) and (min-width: 1025px) {
                     width: 590px;
+                }
+                @media screen and (max-width: 1438) and (min-width: 1281px) {
+                    width: 1017px;
+                }
+                @media screen and (min-width: 1439){
+                    width: 645px
                 }
             }
             > wdd-autocomplete{
