@@ -127,8 +127,10 @@ export class DataDetailController {
                 this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'save-entity');
                 this.initDataDetails();
                 detail.isLock = true;
+            } else if (res.data.message_type === 'SHOW_ERROR') {
+                this.WDDAlert.showAlert('error', `OPERAZIONE NON ESEGUITA-${res.data.message}`, 'save-entity');
             } else {
-                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'save-entity');
+                this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'save-entity');
             }
         });
     }
