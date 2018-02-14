@@ -154,6 +154,26 @@ export class DataDetailController {
 
     confirmDeleteDraft (detail) {
         this.$log.debug(detail);
+        let deleteDraft = {};
+        deleteDraft.temp_term_id = detail.term.tempTermId;
+
+        let dataField;
+        this.visibleDataDetails.forEach(element => {
+            if (element.term.termtype === 'DATA_FIELD') {
+                dataField = element.term;
+            }
+        });
+        deleteDraft.data_field_temp_term_id = dataField.tempTermId;
+
+        this.deleteEntityDraftPromise = this.detailsService.deleteEntityDraft(deleteDraft);
+        this.deleteEntityDraftPromise.then(res => {
+            if (res.data.result) {
+                this.initDataDetails();
+                this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'delete-draft');
+            } else {
+                this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'delete-draft');
+            }
+        });
     }
 
     deleteEntity (detail) {

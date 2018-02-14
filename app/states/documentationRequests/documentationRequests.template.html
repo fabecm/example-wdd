@@ -21,20 +21,16 @@
     </div>
 </div>
 <div class="documentation-requests">
-    <!-- <div class="wbb-select select-child">
-        <select name="stato" ng-model="vm.pageChild" ng-change="vm.changeChild()">
-            <option value="">Richieste di documentazione</option>
-            <option value="tab.approvalRequests">Richieste di approvazione</option>
-            <option value="tab.automaticEvents">Eventi automatici</option>
-        </select>
-        <i class="icon icon-down-arrow"></i>
-    </div> -->
 
     <dashboard-filter applied-filter="vm.filterChanged(filterApplied)"></dashboard-filter>
 
     <wdd-table reload-data="vm.reloadTableData" table-key="searchWorkspace" header-array-obj="{{ {array: vm.headerTable} }}"
         pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}"
         header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}" is-child-checked-bool="true" state-to-able-child-check="Da controllare"
-        has-info-btn="true" path-primary-navigation="tab.dataDetail" has-primary-label="Nuovo workspace" action-primary-label="vm.createNewWorkspace()"></wdd-table>
+        has-info-btn="true" path-primary-navigation="tab.dataDetail"></wdd-table>
+
+    <div class="action-holder">
+        <button class="wdd-button" ng-click="vm.createNewWorkspace()">Nuovo workspace</button>
+    </div>
 
 </div>

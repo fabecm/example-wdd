@@ -42,7 +42,10 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     $log.debug(error);
                 }
 
-                if (scope.requiredDependence && !isDipendenceOk) {
+                if (scope.requiredDependence && !isDipendenceOk && scope.type !== 'newRequestDF') {
+                    return;
+                }
+                if (scope.type === 'newRequestDF' && !scope.dipendenceObj[0] && !scope.dipendenceObj[1] && !scope.dipendenceObj[2]) {
                     return;
                 }
                 scope.initAutocomplete();

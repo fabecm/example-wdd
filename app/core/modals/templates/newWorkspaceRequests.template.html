@@ -61,7 +61,7 @@
 
                 </div>
                 <div class="col-xs-10 wwd-modal__row__input">
-                    <wdd-autocomplete ng-model="vm.dataField.value" type="newRequestDF" new-value="true" required-dependence="true" dipendence="{{ [vm.systemOwnerSelected.value, vm.technicalApplication.value, vm.dataSource.value] }}"
+                    <wdd-autocomplete ng-model="vm.dataField.value" type="newRequestDF" new-value="true" required-dependence="true" dipendence="{{ [vm.systemOwnerSelected.value, vm.technicalApplication.value, vm.dataSource.value, vm.dataTable.value] }}"
                         is-editable="vm.areDataTableFieldEditable()" promise="vm.dataFieldPromise">
                     </wdd-autocomplete>
                     <i class="glyphicon glyphicon-ok" ng-if="vm.dataField.value"></i>

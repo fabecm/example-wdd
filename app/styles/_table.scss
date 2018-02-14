@@ -2,13 +2,14 @@
   border-radius: 5px;
   // overflow: hidden;
   box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
+  
   width: 100%;
   position: relative;
 
   .table-holder-scroll {
     overflow-x: auto;
     overflow-y: hidden;
+    cursor: default;
   }
 
   .empty-response-child {
@@ -126,6 +127,10 @@
             &.icon-centered {
               text-align: center;
             }
+          }
+
+          .wdd-button.icon-only.has-checkable-child {
+            color: #f18423
           }
         }
 
@@ -466,6 +471,7 @@
 .dashboard-table {
   width: 100%;
   margin-bottom: 20px;
+  cursor: pointer;
   position: relative;
   // important for tests
   .missing-data{
