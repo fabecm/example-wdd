@@ -22,17 +22,47 @@ export class FilterWorkspace {
             case 'workspace':
             case 'description':
             case 'status':
-                return this.getFilterWorkspace(type, stringSearched, dipendence).then(res => res.data.array);
+                return this.getFilterWorkspace(type, stringSearched, dipendence).then(res => {
+                    res.data.array.unshift({
+                        label: 'Tutti',
+                        id: -1
+                    });
+                    return res.data.array;
+                });
             case 'processOwner':
-                return this.datasourceService.getBootstrap().then(res => res.data.process_owner);
+                return this.datasourceService.getBootstrap().then(res => {
+                    res.data.process_owner.unshift({
+                        label: 'Tutti',
+                        id: -1
+                    });
+                    return res.data.process_owner;
+                });
             case 'systemOwner':
-                return this.datasourceService.getBootstrap().then(res => res.data.system_owner);
+                return this.datasourceService.getBootstrap().then(res => {
+                    res.data.system_owner.unshift({
+                        label: 'Tutti',
+                        id: -1
+                    });
+                    return res.data.system_owner;
+                });
             case 'entity':
-                return this.classificationService.getEntity(dipendence, stringSearched).then(res => res.data.array);
+                return this.classificationService.getEntity(dipendence, stringSearched).then(res => {
+                    res.data.array.unshift({
+                        label: 'Tutti',
+                        id: -1
+                    });
+                    return res.data.array;
+                });
             case 'entityNoFather':
                 return this.classificationService.getEntityNoFather(stringSearched).then(res => res.data.array);
             case 'attribute':
-                return this.classificationService.getAttribute(dipendence, stringSearched).then(res => res.data.array);
+                return this.classificationService.getAttribute(dipendence, stringSearched).then(res => {
+                    res.data.array.unshift({
+                        label: 'Tutti',
+                        id: -1
+                    });
+                    return res.data.array;
+                });
             case 'responsibleUser':
                 return this.getResponsibleUser(stringSearched).then(res => res.data.array);
             case 'entityName':
@@ -57,20 +87,20 @@ export class FilterWorkspace {
         let path = '';
         switch (type) {
             case 'workspace':
-                path += this.checkProperty(dipendence[0], 'description_id');
-                path += this.checkProperty(dipendence[1], 'status_id');
+                path += dipendence[0] !== -1 ? this.checkProperty(dipendence[0], 'description_id') : '';
+                path += dipendence[1] !== -1 ? this.checkProperty(dipendence[1], 'status_id') : '';
                 path += this.checkProperty(dipendence[2], 'type');
                 return this.$http.get(`WDD/filter/workspace?workspaceType=${type}${path}`);
 
             case 'description':
-                path += this.checkProperty(dipendence[0], 'workspace_id');
-                path += this.checkProperty(dipendence[1], 'status_id');
+                path += dipendence[0] !== -1 ? this.checkProperty(dipendence[0], 'workspace_id') : '';
+                path += dipendence[1] !== -1 ? this.checkProperty(dipendence[1], 'status_id') : '';
                 path += this.checkProperty(dipendence[2], 'type');
                 return this.$http.get(`WDD/filter/workspace?workspaceType=${type}${path}`);
 
             case 'status':
-                path += this.checkProperty(dipendence[0], 'workspace_id');
-                path += this.checkProperty(dipendence[1], 'description_id');
+                path += dipendence[0] !== -1 ? this.checkProperty(dipendence[0], 'workspace_id') : '';
+                path += dipendence[1] !== -1 ? this.checkProperty(dipendence[1], 'description_id') : '';
                 path += this.checkProperty(dipendence[2], 'type');
                 return this.$http.get(`WDD/filter/workspace?workspaceType=${type}${path}`);
 

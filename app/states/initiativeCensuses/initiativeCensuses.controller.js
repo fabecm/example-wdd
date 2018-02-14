@@ -114,12 +114,12 @@ export class InitiativeCensusesController {
     mapFilterSetted (param, filterApplied) {
         this.filterApplied = filterApplied;
 
-        if (filterApplied.process_owner_id) {
+        if (filterApplied.process_owner_id && filterApplied.process_owner_id !== -1) {
             param.process_owner_id = filterApplied.process_owner_id;
         } else {
             param.process_owner_id = 0;
         }
-        if (filterApplied.system_owner_id) {
+        if (filterApplied.system_owner_id && filterApplied.system_owner_id !== -1) {
             param.system_owner_id = filterApplied.system_owner_id;
         } else {
             param.system_owner_id = 0;

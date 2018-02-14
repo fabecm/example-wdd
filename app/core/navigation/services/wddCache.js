@@ -32,13 +32,13 @@ export class WddCacheService {
         let filterMapped = {};
         let filter = this.getCachedFilter(key);
 
-        if (filter.workspaceSelected) {
+        if (filter.workspaceSelected && filter.workspaceSelected.value !== -1) {
             filterMapped.workspaceSelected = filter.workspaceSelected.value;
         }
-        if (filter.descriptionSelected) {
+        if (filter.descriptionSelected && filter.descriptionSelected.value !== -1) {
             filterMapped.descriptionSelected = filter.descriptionSelected.value;
         }
-        if (filter.statusSelected) {
+        if (filter.statusSelected && filter.statusSelected.value !== -1) {
             filterMapped.status = filter.statusSelected.value;
         }
         if (filter.startDate !== 'GG/MM/AAAA') {

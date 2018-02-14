@@ -9,7 +9,7 @@ export class ClassificationService {
     getEntity (attribute, stringSearched) {
         let id = '';
         let text = '';
-        if (attribute[0]) {
+        if (attribute[0] && attribute[0] !== -1) {
             id = `&id=${attribute[0]}`;
         }
         if (stringSearched) {
@@ -21,7 +21,7 @@ export class ClassificationService {
     getAttribute (entity, stringSearched) {
         let id = '';
         let text = '';
-        if (entity[0]) {
+        if (entity[0] && entity[0] !== -1) {
             id = `&id=${entity[0]}`;
         }
         if (stringSearched) {
