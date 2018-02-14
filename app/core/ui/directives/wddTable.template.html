@@ -12,7 +12,8 @@
                 <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
                 <th ng-if="expandable || isChecked" class="baseHeaderIconWidth">
                     <div ng-if="isChecked">
-                        <input type="checkbox" ng-show="!isChild && checkedElements.length > 0" ng-model="isSelectAll.value" ng-change="checkRowsSelection()" />
+                        <input type="checkbox" ng-show="!isChild && checkedElements.length > 0" ng-model="isSelectAll.value" ng-change="checkRowsSelection()"
+                        />
                         <input type="checkbox" ng-show="isChild && checkableChild.length > 0" ng-model="isSelectAll.value" ng-change="checkRowsSelection()"
                         />
                     </div>
@@ -29,15 +30,15 @@
                 <tr class="base-row" wdd-row ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
                     column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
                     has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
-                    has-ternary-navigation-btn="ternaryNavigation" has-creation="hasCreation" status-to-disabled-creation="statusToDisabledCreation" is-from-child-table="isChild" check-row="checkValueChange({data: data})"
-                    is-sas="isToSas"></tr>
+                    has-ternary-navigation-btn="ternaryNavigation" has-creation="hasCreation" status-to-disabled-creation="statusToDisabledCreation"
+                    is-from-child-table="isChild" check-row="checkValueChange({data: data})" is-sas="isToSas"></tr>
 
                 <tr class="collapsable" ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse, 'odd': $index % 2 !== 0, 'even': $index % 2 === 0}">
                     <td class="expandable-container" colspan="{{childCollspan()}}">
                         <wdd-table ng-if="data.data_fields" reload-data="vm.test" reload-data-form-child="reloadData()" service-response-obj="{{ {array: data.data_fields} }}"
                             header-array-obj="{{ {array: headerArrayExpandable} }}" pagination-bool="{{ {boolean: pagination} }}"
                             page-size-num="{{ {number: pageSize} }}" is-child="true" is-checked-bool="{{ {boolean: isChildChecked} }}"
-                            has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}"></wdd-table>
+                            is-child-checked-bool="{{ {boolean: isChildChecked} }}" has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}"></wdd-table>
                     </td>
                 </tr>
 
