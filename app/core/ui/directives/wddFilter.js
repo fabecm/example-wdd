@@ -185,6 +185,8 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
 
                 if ($state.$current.name !== 'tab.search') {
                     scope.setFilter();
+                } else {
+                    $state.go($state.$current.name, {}, {reload: true});
                 }
                 scope.isFilterActive = false;
                 scope.lockSystemOwner();
