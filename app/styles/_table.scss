@@ -308,6 +308,7 @@
     margin: 0 2px;
     border-radius: 4px;
     color: #2a74de;
+    cursor: pointer;
 
     &.current-page {
       background-color: #2a74de;
@@ -318,6 +319,7 @@
     margin-left: 6px;
     margin-right: 6px;
     text-transform: uppercase;
+    cursor: pointer;
     a,
     a:focus,
     a:hover {
