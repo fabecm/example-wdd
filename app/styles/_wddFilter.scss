@@ -76,14 +76,27 @@ wdd-filter{
             margin-right: 34px;
             height: 55px;
             &.correct-width {
-                @media screen and (min-width: 1281px) {
-                    width: 1017px;
+                width: 64.5%;
+                @media screen and (min-width: 1537px) {
+                    width: 65.2%;
+                }
+                @media screen and (max-width: 1536px) and (min-width: 1361px) {
+                    width: 64.6%;
+                }
+                @media screen and (max-width: 1536px) and (min-width: 1361px) {
+                    width: 64%;
+                }
+                @media screen and (max-width: 1360px) and (min-width: 1281px) {
+                    width: 64.3%;
                 }
                 @media screen and (max-width: 1024px) {
-                    width: 420px;
+                    width: 63%;
                 }
-                @media screen and (max-width: 1280px) and (min-width: 1025px) {
-                    width: 590px;
+                @media screen and (max-width: 1152px) and (min-width: 1025px) {
+                    width: 63.6%;
+                }
+                @media screen and (max-width: 1280px) and (min-width: 1153px) {
+                    width: 64.1%;
                 }
             }
             > wdd-autocomplete{
