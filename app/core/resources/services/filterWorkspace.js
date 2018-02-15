@@ -71,7 +71,13 @@ export class FilterWorkspace {
             case 'ENT_NAME':
             case 'ENT_DESCR':
             case 'ENT_STATUS':
-                return this.filterEntityService.getFilterEntity(type, dipendence).then(res => res.data.output);
+                return this.filterEntityService.getFilterEntity(type, dipendence).then(res => {
+                    res.data.output.unshift({
+                        label: 'Tutti',
+                        id: -1
+                    });
+                    return res.data.output;
+                });
             case 'newRequestSO':
             case 'newRequestTA':
             case 'newRequestDS':

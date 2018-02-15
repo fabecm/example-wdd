@@ -41,6 +41,19 @@ export function EntityFilter ($state, WddCacheService) {
                 scope.entityNameSelected = WddCacheService.getCachedFilter(scope.filterKey).entityNameSelected ? WddCacheService.getCachedFilter(scope.filterKey).entityNameSelected : {};
                 scope.descriptionSelected = WddCacheService.getCachedFilter(scope.filterKey).descriptionSelected ? WddCacheService.getCachedFilter(scope.filterKey).descriptionSelected : {};
                 scope.statusSelected = WddCacheService.getCachedFilter(scope.filterKey).statusSelected ? WddCacheService.getCachedFilter(scope.filterKey).statusSelected : {};
+            } else {
+                scope.entitySelected = {
+                    value: -1
+                };
+                scope.entityNameSelected = {
+                    value: -1
+                };
+                scope.descriptionSelected = {
+                    value: -1
+                };
+                scope.statusSelected = {
+                    value: -1
+                };
             }
 
             scope.ableSearchButton = () => {
@@ -76,16 +89,16 @@ export function EntityFilter ($state, WddCacheService) {
 
                 let param = {};
 
-                if (scope.entitySelected) {
+                if (scope.entitySelected && scope.entitySelected.value !== -1) {
                     param.entitySelected = scope.entitySelected.value;
                 }
-                if (scope.entityNameSelected) {
+                if (scope.entityNameSelected && scope.entityNameSelected.value !== -1) {
                     param.entityNameSelected = scope.entityNameSelected.value;
                 }
-                if (scope.descriptionSelected) {
+                if (scope.descriptionSelected && scope.descriptionSelected.value !== -1) {
                     param.descriptionSelected = scope.descriptionSelected.value;
                 }
-                if (scope.statusSelected) {
+                if (scope.statusSelected && scope.statusSelected.value !== -1) {
                     param.status = scope.statusSelected.value;
                 }
 

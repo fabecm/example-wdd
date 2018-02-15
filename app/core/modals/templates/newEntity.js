@@ -15,7 +15,7 @@ export class NewEntityController {
     saveEntity () {
         let data = {};
         data.term = {};
-        data.term.termType = this.entityType.value;
+        data.term.termtype = this.entityType.value;
         data.term.name = this.entityName;
 
         data.createProcess = true;
@@ -35,8 +35,6 @@ export class NewEntityController {
             } else {
                 this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'save-entity');
             }
-        }).finally(() => {
-            this.$uibModalInstance.close();
         });
     }
 
