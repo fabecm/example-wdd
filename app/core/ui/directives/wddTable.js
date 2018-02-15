@@ -74,6 +74,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
                     if (scope.serviceResponse !== null && scope.serviceResponse !== undefined && scope.serviceResponse.length === 0) {
                         WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE', 'empty-table');
+                    } else {
+                        WDDAlert.removeEmptyTableAlert();
                     }
 
                     if (!scope.isChild && scope.serviceResponse && scope.serviceResponse.length > 0) {
