@@ -20,7 +20,7 @@ export class DashboardRequestController {
     }, {
         label: 'Richieste approvazione entità',
         value: 0,
-        color: '#b24042',
+        color: '#FB8C00',
         childPage: 'tab.entityApprovalRequest'
     }];
 
