@@ -42,7 +42,7 @@ export class EntityApprovalRequestController {
     initEntityApprovalRequest () {
         let param = {};
         if (this.wddCacheService.getCachedFilter('filter_tab_entityApprovalRequest')) {
-            param = this.wddCacheService.getCachedFilter('filter_tab_entityApprovalRequest');
+            param = this.wddCacheService.getMapEntityFilter('filter_tab_entityApprovalRequest');
             param.resetPage = false;
         }
         this.$timeout(() => {

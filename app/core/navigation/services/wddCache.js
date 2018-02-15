@@ -51,6 +51,26 @@ export class WddCacheService {
         return filterMapped;
     }
 
+    getMapEntityFilter (key) {
+        let filterMapped = {};
+        let filter = this.getCachedFilter(key);
+
+        if (filter.entitySelected && filter.entitySelected.value !== -1) {
+            filterMapped.entitySelected = filter.entitySelected.value;
+        }
+        if (filter.entityNameSelected && filter.entityNameSelected.value !== -1) {
+            filterMapped.entityNameSelected = filter.entityNameSelected.value;
+        }
+        if (filter.descriptionSelected && filter.descriptionSelected.value !== -1) {
+            filterMapped.descriptionSelected = filter.descriptionSelected.value;
+        }
+        if (filter.statusSelected && filter.statusSelected.value !== -1) {
+            filterMapped.status = filter.statusSelected.value;
+        }
+
+        return filterMapped;
+    }
+
     unCacheFilter (key) {
         this.filterCached[key] = undefined;
     }

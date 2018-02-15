@@ -51,7 +51,7 @@ export class EntityCensusController {
     initEntityCensus () {
         let param = {};
         if (this.wddCacheService.getCachedFilter('filter_tab_entityCensus')) {
-            param = this.wddCacheService.getCachedFilter('filter_tab_entityCensus');
+            param = this.wddCacheService.getMapEntityFilter('filter_tab_entityCensus');
             param.resetPage = false;
         }
         this.$timeout(() => {
