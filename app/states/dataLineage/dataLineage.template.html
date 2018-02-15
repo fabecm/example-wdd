@@ -20,9 +20,10 @@
                 <div ng-class="{'interactive': box.operation}" ng-if="!box.data.label && box.data.length && box.data[0]" ng-repeat="item in box.data track by $index"
                     ng-click="box.operation(item.id, item.draft)">
 
-                    <div ng-if="!box.showType" ng-class="{'content-bold': box.contentBold}" tooltip-placement="top" tooltip-class="tooltip-test"
-                        uib-tooltip="{{item.label}}" tooltip-enable="false" show-tooltip>
-                        {{item.label}}
+                    <div ng-if="!box.showType" ng-class="{'content-bold': box.contentBold}">
+                        <li ng-if="box.title === 'Program'">{{item.label}}</li>
+                        <div ng-if="box.title !== 'Program'" tooltip-placement="top" tooltip-class="tooltip-test"
+                        uib-tooltip="{{item.label}}" tooltip-enable="false" show-tooltip>{{item.label}}</div>
                     </div>
                     <div class="holder-type" ng-if="box.showType">
                         <label class="label-type">{{item.value}}</label>
@@ -32,7 +33,7 @@
                 </div>
 
                 <div class="holder-description" ng-if="box.hasDescription && box.data.rule">
-                    <span class="description-label" class>Descrizione</span>
+                    <span class="description-label" class>Regola</span>
                     <div class="description-box">{{box.data.rule}}</div>
                 </div>
             </div>

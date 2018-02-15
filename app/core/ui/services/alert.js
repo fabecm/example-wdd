@@ -31,4 +31,8 @@ export class WddAlert {
     removeAlert () {
         return $('wdd-alert').remove();
     }
+
+    removeEmptyTableAlert () {
+        return $('#wdd-alert-empty-table').remove();
+    }
 }

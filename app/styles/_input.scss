@@ -17,6 +17,10 @@
         &:focus {
             outline: 0;
         }
+        &:focus::-ms-value {
+            color: #000000;
+            background: #ffffff;
+        }
     }
 
     select::-ms-expand {
@@ -96,6 +100,7 @@ input.wdd-input-text {
     overflow: hidden;
     background: white;
     border: 1px solid #afc2de;
+    padding: 5px 10px;
 
     &:focus {
         outline: 0;
