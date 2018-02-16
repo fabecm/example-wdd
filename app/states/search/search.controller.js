@@ -146,10 +146,12 @@ export class SearchController {
         this.$timeout(() => {
             this.showTab = true;
             if (this.selectedTab === 0) {
+                this.wddCacheService.cacheSearchTab('filter_tab_search', 0);
                 this.reloadTableData({
                     filterSetted: param
                 });
             } else if (this.selectedTab === 1) {
+                this.wddCacheService.cacheSearchTab('filter_tab_search', 1);
                 this.reloadTableEntity({
                     filterSetted: param
                 });
