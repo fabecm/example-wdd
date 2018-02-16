@@ -74,11 +74,26 @@ export class DataDetailController {
     }
 
     saveChanges (detail) {
-        this.modalService.openConfirmationModal(this.modalService.getSaveActionText()).then(selection => {
-            if (selection.choice) {
-                this.confirmSaveChanges(detail);
+        let numSaveAbled = 0;
+        angular.forEach(this.visibleDataDetails, d => {
+            if (!d.isLock) {
+                numSaveAbled++;
             }
         });
+
+        if (numSaveAbled > 1) {
+            this.modalService.openConfirmationModal(this.modalService.getAlertSaveActionText()).then(selection => {
+                if (selection.choice) {
+                    this.confirmSaveChanges(detail);
+                }
+            });
+        } else {
+            this.modalService.openConfirmationModal(this.modalService.getSaveActionText()).then(selection => {
+                if (selection.choice) {
+                    this.confirmSaveChanges(detail);
+                }
+            });
+        }
     }
 
     confirmSaveChanges (detail) {

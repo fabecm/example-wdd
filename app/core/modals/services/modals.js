@@ -328,6 +328,13 @@ export class ModalService {
         return text;
     }
 
+    getAlertSaveActionText () {
+        let text = {
+            body: 'Risultano più entità modificate, solo l\'entità corrente verrà salvata per le altre si perderanno le modifiche. Continuare con il salvataggio?'
+        };
+        return text;
+    }
+
     getNewActionText () {
         let text = {
             body: 'Si desidera salvare le modifiche apportate?'
