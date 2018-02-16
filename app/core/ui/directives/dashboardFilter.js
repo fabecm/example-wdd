@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 import template from './dashboardFilter.template.html';
 
-export function DashboardFilter ($log, $state, WddCacheService) {
+export function DashboardFilter ($log, $state, WddCacheService, WDDAlert) {
     'ngInject';
     return {
         scope: {
@@ -88,6 +88,7 @@ export function DashboardFilter ($log, $state, WddCacheService) {
             };
 
             scope.setFilter = () => {
+                WDDAlert.removeAlert();
                 if (scope.showCollapser) {
                     scope.isFilterActive = true;
                 }

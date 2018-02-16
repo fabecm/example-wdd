@@ -1,6 +1,6 @@
 import template from './wddFilter.template.html';
 
-export function WddFilter ($log, $q, ClassificationService, WddCacheService, $state, UserService, RuleProfileService) {
+export function WddFilter ($log, $q, ClassificationService, WddCacheService, $state, UserService, RuleProfileService, WDDAlert) {
     'ngInject';
     return {
         scope: {
@@ -119,6 +119,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             };
 
             scope.setFilter = () => {
+                WDDAlert.removeAlert();
                 scope.isFilterActive = true;
 
                 let param = {};
@@ -158,7 +159,6 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                     isFilterActive: scope.isFilterActive
                 });
 
-                $log.debug(param);
                 scope.appliedFilter({
                     filterApplied: param
                 });
