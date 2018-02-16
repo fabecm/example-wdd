@@ -1,12 +1,12 @@
 <div ng-show="promise.$$state.status == 0" wdd-spinner="[promise.$$state]" spinner-style="floating" style="height: 400px;width: 100%;"></div>
 <div class="wdd-table" ng-if="serviceResponse && promise.$$state.status != 0" ng-class="{'child-table': isChild}">
-    <div class="empty-response" ng-class="{'empty-response-child': isChild}" ng-if="serviceResponse.length === 0">
+    <div class="empty-response" ng-class="{'empty-response-child': isChild}" ng-if="serviceResponse.length === 0 && !isErrored">
         <h1>Nessun dato presente</h1>
     </div>
     <div class="empty-response" ng-class="{'empty-response-child': isChild}" ng-if="isErrored">
         <h1>Errore nel recupero dei dati</h1>
     </div>
-    <div class="table-holder-scroll" ng-if="serviceResponse.length !== 0">
+    <div class="table-holder-scroll" ng-if="serviceResponse.length !== 0 && !isErrored">
         <table ng-class="{'expandable-table': expandable}">
             <thead>
                 <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
@@ -50,7 +50,7 @@
         </table>
     </div>
 
-    <div class="under-table" ng-if="!isChild && serviceResponse.length !== 0">
+    <div class="under-table" ng-if="!isChild && serviceResponse.length !== 0 && !isErrored">
         <div class="left-side">
             <button class="wdd-button icon-only" tooltip-placement="right" tooltip-class="tooltip-test" uib-tooltip="Esporta" tooltip-enable="false"
                 show-tooltip ng-csv="printRecordSelected()" lazy-load="true" filename="{{ selectedFilename }}" csv-column-order="selectedColmnOrder"
@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <div ng-if="pagination && serviceResponse.length !== 0" class="table-footer">
+    <div ng-if="pagination && serviceResponse.length !== 0 && !isErrored" class="table-footer">
         <div class="pagi-text" ng-click="changingPage(1)">
             <span>
                 <<</span>

@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 import template from './entityFilter.template.html';
 
-export function EntityFilter ($state, WddCacheService) {
+export function EntityFilter ($state, WddCacheService, WDDAlert) {
     'ngInject';
     return {
         scope: {
@@ -83,6 +83,7 @@ export function EntityFilter ($state, WddCacheService) {
             };
 
             scope.setFilter = () => {
+                WDDAlert.removeAlert();
                 if (scope.showCollapser) {
                     scope.isFilterActive = true;
                 }
