@@ -1,29 +1,29 @@
+import $ from 'jquery';
 export class MassiveManagmentModalController {
 
     fileToUpload = {};
 
-    constructor ($uibModalInstance, $scope) {
+    constructor ($uibModalInstance, $scope, $timeout, SessionService, $sce, $http) {
         'ngInject';
         this.$uibModalInstance = $uibModalInstance;
         this.scope = $scope;
-    }
+        this.$http = $http;
 
-    importFile () {
-        document.getElementById('uploadFile').click();
-    }
-
-    fileNameChanged (files) {
-        let file = {
-            label: files[0].name,
-            selected: false,
-            removed: false
-        };
-        this.fileToUpload = file;
-        this.scope.$apply();
+        $timeout(() => {
+            $('#MSSV_Input').bind('change', changeEvent => {
+                this.file = changeEvent.target.files[0];
+                $scope.$apply();
+            });
+        }, 0);
     }
 
     sendFile () {
-        // console.log(this.fileToUpload);
+        var fd = new FormData();
+        fd.append('file', this.file);
+        this.$http.post('WDD/uploadFile', fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        });
     }
 
     close () {
