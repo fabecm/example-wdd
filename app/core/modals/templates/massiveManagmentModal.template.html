@@ -13,7 +13,7 @@
             </div>
 
             <div class="row wwd-modal__row">
-                <button class="wdd-button alt-color">
+                <button class="wdd-button">
                     <i class="icon icon-download"></i>
                     Template
                 </button>
@@ -26,26 +26,28 @@
             </div>
 
             <div class="row wwd-modal__row">
-                <button class="wdd-button alt-color" ng-click="vm.importFile()">
+                <label for="MSSV_Input" class="wdd-button">
                     <i class="icon icon-upload"></i>
                     Importa
-                </button>
-                <input type="file" id="uploadFile" ng-hide="true" onchange="angular.element(this)[0].scope().fileNameChanged(this.files)" />
+                </label>
+                <input type="file" id="MSSV_Input" ng-hide="true" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
             </div>
 
-            <div class="row wwd-modal__row" ng-hide="true">
+            <div class="row wwd-modal__row" ng-show="vm.file">
                 <div class="col-xs-12 wwd-modal__row__description">
                     Attenzione: verrà caricato il seguente file:
+                    <br />
+                    {{ vm.file.name | json }}
                 </div>
-                <pre>{{ vm.fileToUpload | json }}</pre>
             </div>
 
         </div>
     </div>
 
+
     <div class="wwd-modal__footer">
         <button class="wdd-button pull-right" type="button" ng-click="vm.sendFile()">Invia</button>
-        <button class="wdd-button pull-right" type="button" ng-click="vm.close()">Annulla</button>
+        <button class="wdd-button" type="button" ng-click="vm.close()">Annulla</button>
     </div>
 
 </div>
