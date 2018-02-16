@@ -80,12 +80,13 @@ export class SearchController {
         value: 'modified_date'
     }];
 
-    constructor (DataService, DatasourceService, $timeout, WddCacheService) {
+    constructor (DataService, DatasourceService, $timeout, WddCacheService, WDDAlert) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
         this.$timeout = $timeout;
         this.wddCacheService = WddCacheService;
+        this.wddAlert = WDDAlert;
 
         this.initSearchPage();
     }
@@ -101,6 +102,7 @@ export class SearchController {
 
     changeTab (tab) {
         this.selectedTab = tab;
+        this.wddAlert.removeAlert();
         if (this.selectedTab === 0) {
             this.wddCacheService.cacheSearchTab('filter_tab_search', 0);
             this.reloadTableData({
