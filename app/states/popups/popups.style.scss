@@ -73,6 +73,12 @@
                         flex-direction: column;
                         flex-wrap: wrap;
 
+                        // @media screen and (max-width: 1280px) and (min-width: 1025) {
+                        //     textarea.wdd-textarea, .wbb-select, .wdd-input-text, .checkbox, .textarea-disabled {
+                        //         width: 300px !important;
+                        //     }
+                        // }
+
                         select {
                             border-bottom: 0px;
                             margin-top: 0px;
