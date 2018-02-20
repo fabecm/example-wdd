@@ -26,9 +26,9 @@
         </div>
 
         <div class="filter-section" ng-repeat="item in filtersArray" ng-show="!isFilterActive">
-            <wdd-autocomplete ng-model="filterSetted[$index].entity" label="Entità" placeholder="Seleziona un'entità" type="entity" promise="promises.getEntityPromise"
+            <wdd-autocomplete ng-model="filterSetted[$index].entity" label="Entità" placeholder="Seleziona un'entità" type="entity-{{$index}}" promise="promises.getEntityPromise"
                 dipendence="{{ [filterSetted[$index].attribute] }}" new-value="false" is-readonly="true"></wdd-autocomplete>
-            <wdd-autocomplete ng-model="filterSetted[$index].attribute" label="Attributo" placeholder="Seleziona un attributo" type="attribute"
+            <wdd-autocomplete ng-model="filterSetted[$index].attribute" label="Attributo" placeholder="Seleziona un attributo" type="attribute-{{$index}}"
                 promise="promises.getAttributePromise" dipendence="{{ [filterSetted[$index].entity] }}" new-value="false" is-readonly="true"></wdd-autocomplete>
 
             <div class="wdd-labeled-input">

@@ -77,7 +77,15 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             };
 
             scope.initAutocomplete = () => {
-                const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendenceObj);
+                let typeSelected = '';
+                if (scope.type.indexOf('entity') !== -1) {
+                    typeSelected = scope.type.substring(0, 5);
+                } else if (scope.type.indexOf('attribute') !== -1) {
+                    typeSelected = scope.type.substring(0, 8);
+                } else {
+                    typeSelected = scope.type;
+                }
+                const requestFilter = FilterWorkspace.updateList(typeSelected, scope.model.label, scope.dipendenceObj);
                 scope.promise = requestFilter;
                 requestFilter.then(res => {
                     scope.listValues = res;
@@ -107,9 +115,9 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 }
             });
 
-            scope.$on('$destroy', function () {
-                $(document).off('click');
-            });
+            // scope.$on('$destroy', function () {
+            //     $(document).off('click');
+            // });
 
             scope.changedLabel = () => {
                 // ngModel.$setViewValue(scope.model.label);

@@ -125,6 +125,10 @@ export function DashboardFilter ($log, $state, WddCacheService, WDDAlert) {
                     filterApplied: param
                 });
             };
+
+            scope.$on('$destroy', function () {
+                $(document).off('click');
+            });
         }
     };
 }
