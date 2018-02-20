@@ -115,6 +115,10 @@ export function EntityFilter ($state, WddCacheService, WDDAlert) {
                     filterApplied: param
                 });
             };
+
+            scope.$on('$destroy', function () {
+                $(document).off('click');
+            });
         }
     };
 }
