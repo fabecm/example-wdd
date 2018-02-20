@@ -10,7 +10,8 @@ export class EntityHistoryController {
     }
 
     initEntityHistory () {
-        this.detailsService.getEntityVersionList(this.termDetail.termId).then(res => {
+        this.entityVersionListPromise = this.detailsService.getEntityVersionList(this.termDetail.termId);
+        this.entityVersionListPromise.then(res => {
             this.versionList = res.data.array.map(e => {
                 e.label = `Versione ${e.version}`;
                 return e;
@@ -22,7 +23,8 @@ export class EntityHistoryController {
         if (!this.version.value) {
             return;
         }
-        this.detailsService.getEntityVersion(this.termDetail.termId, this.version.value).then(res => {
+        this.entityVersionPromise = this.detailsService.getEntityVersion(this.termDetail.termId, this.version.value);
+        this.entityVersionPromise.then(res => {
             this.attrList = res.data.array;
         });
     }
