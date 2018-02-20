@@ -35,5 +35,9 @@
             max-height: 600px;
             overflow-y: scroll;
         }
+        @media screen and (max-width: 1280px) and (min-width: 1025px) {
+            max-height: 750px;
+            overflow-y: auto;
+        }
     }
 }

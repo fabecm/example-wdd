@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import template from './wddFilter.template.html';
 
 export function WddFilter ($log, $q, ClassificationService, WddCacheService, $state, UserService, RuleProfileService, WDDAlert) {
@@ -222,6 +223,10 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 }
             };
             scope.lockSystemOwner();
+
+            scope.$on('$destroy', function () {
+                $(document).off('click');
+            });
         }
     };
 }
