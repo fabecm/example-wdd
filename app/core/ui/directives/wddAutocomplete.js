@@ -79,9 +79,9 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             scope.initAutocomplete = () => {
                 let typeSelected = '';
                 if (scope.type.indexOf('entity') !== -1) {
-                    typeSelected = scope.type.substring(0, 5);
+                    typeSelected = scope.type.substring(0, 6);
                 } else if (scope.type.indexOf('attribute') !== -1) {
-                    typeSelected = scope.type.substring(0, 8);
+                    typeSelected = scope.type.substring(0, 9);
                 } else {
                     typeSelected = scope.type;
                 }

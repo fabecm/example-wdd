@@ -78,7 +78,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
 
             let initFilter = (reset) => {
                 if (!reset && scope.filterSetted.length > 0) {
-                    scope.filtersArray = scope.filterSetted;
+                    scope.filtersArray = angular.copy(scope.filterSetted);
                 } else if (reset && scope.filterSetted.length === 1) {
                     scope.filtersArray = [{}];
                 } else {
@@ -90,7 +90,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 }
                 scope.filterArrayBase = [{}];
             };
-            initFilter();
+            initFilter(false);
 
             scope.addNewFilter = () => {
                 scope.isFilterActive = false;

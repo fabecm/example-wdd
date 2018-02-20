@@ -266,6 +266,13 @@ export class ModalService {
         return modalInstance.result;
     }
 
+    getNavigationAlertText () {
+        let text = {
+            body: 'Risultano modifiche non salvate, proseguendo andranno perse. Continuare?'
+        };
+        return text;
+    }
+
     getApproveText () {
         let text = {
             title: 'Approvazione Dati',
