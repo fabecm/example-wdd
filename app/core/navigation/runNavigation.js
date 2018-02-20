@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export function RunNavigation (SessionService, $transitions, $log, WDDAlert) {
+export function RunNavigation (SessionService, $transitions, $log, WDDAlert, EnabledButtonService) {
     'ngInject';
 
     $transitions.onStart({}, function (transition) {
@@ -9,7 +9,13 @@ export function RunNavigation (SessionService, $transitions, $log, WDDAlert) {
         if(!transition.from().name) {
             return SessionService.init();
         }
+
         WDDAlert.removeAlert();
+
+        if (transition.from().name === 'tab.dataDetail' && EnabledButtonService.getResultStatus()) {
+            return EnabledButtonService.openModalAlert();
+        }
+
         return true;
     });
 
