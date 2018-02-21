@@ -16,8 +16,6 @@ export class EnabledButtonService {
         } else {
             this.enabledButton[key].isDisabled = isDisabled;
         }
-
-        console.log(this.enabledButton);
     }
 
     getResultStatus () {

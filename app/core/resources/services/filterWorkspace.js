@@ -46,10 +46,12 @@ export class FilterWorkspace {
                 });
             case 'entity':
                 return this.classificationService.getEntity(dipendence, stringSearched).then(res => {
-                    res.data.array.unshift({
-                        label: 'Tutti',
-                        id: -1
-                    });
+                    if (res.data.array) {
+                        res.data.array.unshift({
+                            label: 'Tutti',
+                            id: -1
+                        });
+                    }
                     return res.data.array;
                 });
             case 'attribute':
