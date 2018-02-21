@@ -5,6 +5,7 @@ export class ErrorActionModalController {
         this.$scope = $scope;
 
         this.errorList = this.$scope.$parent.infoParam.processList;
+        this.text = this.$scope.$parent.text;
 
         // console.log('Modal error', this.errorList);
     }

@@ -27,7 +27,11 @@ export class ActionModalController {
                         this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'action-continueProcess');
                         this.$uibModalInstance.close();
                     } else {
-                        this.modalService.openErrorActionModal(res.data);
+                        let text = {
+                            title: 'Dati in errore',
+                            body: 'Attenzione i seguenti dati selezionati sono andati in errore:'
+                        };
+                        this.modalService.openErrorActionModal(res.data, text);
                         this.WDDAlert.showAlert('error', 'SI E\' VERIFICATO UN ERRORE', 'action-continueProcess');
                     }
                 });
