@@ -3,8 +3,6 @@ export function HttpRequestInterceptor ($injector, $q) {
 
     return {
         request: function (config) {
-            // let path = 'http://mbcl26001510:8080/edd-serviceWeb';
-            // let path = 'http://GPLLL0062:8080/edd-serviceWeb';
             if (config.url.indexOf('WDD/') === 0) {
                 let url = config.url.slice(3);
                 config.url = $injector.get('SessionService').apiEntry + url;
@@ -20,7 +18,13 @@ export function HttpRequestInterceptor ($injector, $q) {
             if (endpoint.indexOf('?') >= 0) {
                 endpoint = endpoint.substring(0, endpoint.indexOf('?'));
             }
-            const text = `${message} - (${endpoint})`;
+
+            let text = '';
+            if (rejection.data && rejection.data.message_type === 'SHOW_ERROR') {
+                text = rejection.data.message;
+            } else {
+                text = `${message} - (${endpoint})`;
+            }
             const key = endpoint.substring(1).replace(/\//g, '-');
             $injector.get('WDDAlert').showAlert('error', text, key);
             return $q.reject(rejection);
