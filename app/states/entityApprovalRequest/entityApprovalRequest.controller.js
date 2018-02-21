@@ -6,10 +6,10 @@ export class EntityApprovalRequestController {
 
     headerTable = [{
         label: 'Tipo entità',
-        value: 'type_entity'
+        value: 'term_type'
     }, {
         label: 'Nome entità',
-        value: 'name_entity'
+        value: 'term_name'
     }, {
         label: 'Descrizione',
         value: 'description'
@@ -20,10 +20,10 @@ export class EntityApprovalRequestController {
 
     headerTableExpandable = [{
         label: 'Tipo entità',
-        value: 'type_entity'
+        value: 'term_type'
     }, {
         label: 'Nome entità',
-        value: 'name_entity'
+        value: 'term_name'
     }, {
         label: 'Descrizione',
         value: 'description'
