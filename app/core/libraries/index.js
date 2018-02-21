@@ -7,6 +7,7 @@ import 'angular-ui-bootstrap';
 import 'angular-sanitize';
 import 'ng-csv';
 import 'angular-resizable';
+import 'file-saver';
 
 export default angular.module('wdd.core.libraries', [
     'ui.router',

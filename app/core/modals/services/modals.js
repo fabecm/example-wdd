@@ -23,6 +23,9 @@ import CreateEntityTemplate from '../templates/createEntity.template.html';
 import { ConfirmationModalController } from '../templates/confirmationModal';
 import ConfirmationModalTemplate from '../templates/confirmationModal.template.html';
 
+import ExcelTemplate from '../../../public/CaricamentoMassivo_V1.xlsx';
+import { saveAs } from 'file-saver';
+
 export class ModalService {
     constructor ($uibModal, $rootScope, $http) {
         'ngInject';
@@ -91,6 +94,32 @@ export class ModalService {
         });
 
         return modalInstance.result;
+    }
+
+    getExcelByteArray () {
+        return this.$http({
+            method: 'GET',
+            url: ExcelTemplate,
+            responseType: 'arraybuffer'
+        });
+    }
+
+    downloadExcelTemplate () {
+        this.getExcelByteArray().then((res) => {
+            let data = res.data;
+            let contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+            let urlCreator = window.URL || window.webkitURL || window.mozURL || window.msURL;
+
+            if (urlCreator) {
+                try {
+                    let file = new File([data], 'CaricamentoMassivo_V1.xlsx', { type: contentType });
+                    saveAs(file);
+                } catch (err) {
+                    let fileBlob = new Blob([data], { type: contentType });
+                    window.navigator.msSaveBlob(fileBlob, 'CaricamentoMassivo_V1.xlsx');
+                }
+            }
+        });
     }
 
     openNewWorkspaceModal () {
@@ -168,7 +197,7 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openErrorActionModal (param) {
+    openErrorActionModal (param, text) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -178,7 +207,8 @@ export class ModalService {
             backdrop: 'static',
             keyboard: false,
             scope: angular.extend(this.$rootScope, {
-                infoParam: param
+                infoParam: param,
+                text: text
             }),
             resolve: {}
         });

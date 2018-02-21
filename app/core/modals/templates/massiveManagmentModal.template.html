@@ -13,7 +13,7 @@
             </div>
 
             <div class="row wwd-modal__row">
-                <button class="wdd-button">
+                <button class="wdd-button" ng-click="vm.downloadTemplate()">
                     <i class="icon icon-download"></i>
                     Template
                 </button>
@@ -46,7 +46,7 @@
 
 
     <div class="wwd-modal__footer">
-        <button class="wdd-button pull-right" type="button" ng-click="vm.sendFile()">Invia</button>
+        <button class="wdd-button pull-right" type="button" ng-click="vm.sendFile()" ng-disabled="!vm.file">Invia</button>
         <button class="wdd-button" type="button" ng-click="vm.close()">Annulla</button>
     </div>
 
