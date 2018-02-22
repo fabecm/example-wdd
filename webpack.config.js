@@ -41,8 +41,8 @@ module.exports = function(env) {
         },
         devtool: 'inline-source-map',
         entry: {
-            wdd: './app/app.js',
-            'wdd.vendor': ['angular', 'jquery', 'moment', 'angular-ui-bootstrap', 'angular-sanitize', 'ng-csv', 'angular-resizable', 'file-saver']
+            wdd: './app/app.js'
+            // 'wdd.vendor': ['angular', 'jquery', 'moment', 'angular-ui-bootstrap', 'angular-sanitize', 'ng-csv', 'angular-resizable', 'file-saver']
         },
 
         output: {
@@ -113,10 +113,10 @@ module.exports = function(env) {
         },
         plugins: [
             autoprefixer,
-            new webpack.optimize.CommonsChunkPlugin({
-                name: 'wdd.vendor',
-                minChunks: Infinity
-            }),
+            // new webpack.optimize.CommonsChunkPlugin({
+            //     name: 'wdd.vendor',
+            //     minChunks: Infinity
+            // }),
             new HtmlWebpackPlugin({
                 template: path.join(srcDirPath, 'index.html'),
                 filename: 'index.html',
