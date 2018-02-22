@@ -22,7 +22,7 @@
     <wdd-table reload-data="vm.reloadTableData" table-key="initiativeCensuses" header-array-obj="{{ {array: vm.headerTable} }}"
         pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
         path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Inoltra selezionati"
-        able-status-primary-label="In modifica" disabled-primary-label-with-empty-response="true" action-primary-label="vm.forwardToApprove(selectedItems)">
+        able-status-primary-label="{{ vm.forwardToApproveStatus }}" disabled-primary-label-with-empty-response="true" action-primary-label="vm.forwardToApprove(selectedItems)">
     </wdd-table>
     <!-- <wdd-table reload-data="vm.reloadTableData" table-key="initiativeCensuses" header-array-obj="{{ {array: vm.headerTable} }}"
         pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"

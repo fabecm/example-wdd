@@ -43,6 +43,10 @@ export class ToDoListController {
         value: 'workspace_end_date'
     }];
 
+    takeInEditStatus = ['Bozza', 'Bozza da evento'];
+    forwardSelectedStatus = ['In modifica', 'In modifica da evento'];
+    notOfCompetenceStatus = ['In modifica', 'In modifica da evento'];
+
     constructor ($state, $timeout, ModalService, WddCacheService, RuleProfileService) {
         'ngInject';
         this.$state = $state;

@@ -80,9 +80,14 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
                     if (!scope.isChild && scope.serviceResponse && scope.serviceResponse.length > 0) {
                         scope.serviceResponse.map(e => {
-                            if ((scope.ableStatusPrimaryLabel && scope.ableStatusPrimaryLabel === e.status.label) ||
-                                (scope.ableStatusSecondaryLabel && scope.ableStatusSecondaryLabel === e.status.label) ||
-                                (scope.ableStatusTertiaryLabel && scope.ableStatusTertiaryLabel === e.status.label)) {
+                            // if ((scope.ableStatusPrimaryLabel && scope.ableStatusPrimaryLabel === e.status.label) ||
+                            //     (scope.ableStatusSecondaryLabel && scope.ableStatusSecondaryLabel === e.status.label) ||
+                            //     (scope.ableStatusTertiaryLabel && scope.ableStatusTertiaryLabel === e.status.label)) {
+                            //     e.ableCheck = true;
+                            // }
+                            if ((scope.arrayStatusPrimaryLabel && scope.checkStatus(scope.arrayStatusPrimaryLabel, e.status.label)) ||
+                                (scope.arrayStatusSecondaryLabel && scope.checkStatus(scope.arrayStatusSecondaryLabel, e.status.label)) ||
+                                (scope.arrayStatusTertiaryLabel && scope.checkStatus(scope.arrayStatusTertiaryLabel, e.status.label))) {
                                 e.ableCheck = true;
                             }
                             return e;
@@ -166,9 +171,14 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     } else {
                         scope.checkedElements = [];
                         scope.serviceResponse.map(e => {
-                            if ((scope.ableStatusPrimaryLabel && scope.ableStatusPrimaryLabel === e.status.label) ||
-                                (scope.ableStatusSecondaryLabel && scope.ableStatusSecondaryLabel === e.status.label) ||
-                                (scope.ableStatusTertiaryLabel && scope.ableStatusTertiaryLabel === e.status.label)) {
+                            // if ((scope.ableStatusPrimaryLabel && scope.ableStatusPrimaryLabel === e.status.label) ||
+                            //     (scope.ableStatusSecondaryLabel && scope.ableStatusSecondaryLabel === e.status.label) ||
+                            //     (scope.ableStatusTertiaryLabel && scope.ableStatusTertiaryLabel === e.status.label)) {
+                            //     e.ableCheck = true;
+                            // }
+                            if ((scope.arrayStatusPrimaryLabel && scope.checkStatus(scope.arrayStatusPrimaryLabel, e.status.label)) ||
+                            (scope.arrayStatusSecondaryLabel && scope.checkStatus(scope.arrayStatusSecondaryLabel, e.status.label)) ||
+                            (scope.arrayStatusTertiaryLabel && scope.checkStatus(scope.arrayStatusTertiaryLabel, e.status.label))) {
                                 e.ableCheck = true;
                             }
                             return e;
@@ -230,9 +240,14 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         }
                         if (scope.checkedElements.length === 0) {
                             scope.serviceResponse.map(e => {
-                                if ((scope.ableStatusPrimaryLabel && scope.ableStatusPrimaryLabel === e.status.label) ||
-                                    (scope.ableStatusSecondaryLabel && scope.ableStatusSecondaryLabel === e.status.label) ||
-                                    (scope.ableStatusTertiaryLabel && scope.ableStatusTertiaryLabel === e.status.label)) {
+                                // if ((scope.ableStatusPrimaryLabel && scope.ableStatusPrimaryLabel === e.status.label) ||
+                                //     (scope.ableStatusSecondaryLabel && scope.ableStatusSecondaryLabel === e.status.label) ||
+                                //     (scope.ableStatusTertiaryLabel && scope.ableStatusTertiaryLabel === e.status.label)) {
+                                //     e.ableCheck = true;
+                                // }
+                                if ((scope.arrayStatusPrimaryLabel && scope.checkStatus(scope.arrayStatusPrimaryLabel, e.status.label)) ||
+                                (scope.arrayStatusSecondaryLabel && scope.checkStatus(scope.arrayStatusSecondaryLabel, e.status.label)) ||
+                                (scope.arrayStatusTertiaryLabel && scope.checkStatus(scope.arrayStatusTertiaryLabel, e.status.label))) {
                                     e.ableCheck = true;
                                 }
                                 return e;
@@ -458,6 +473,13 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 });
             };
 
+            scope.checkStatus = (array, label) => {
+                if (array.length > 0) {
+                    return array.filter(e => e === label).length > 0;
+                }
+                return false;
+            };
+
             scope.disabledPrimaryLabel = () => {
                 if (!scope.ableStatusPrimaryLabel) {
                     return false;
@@ -468,7 +490,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (scope.checkedElements.length === 0) {
                     return true;
                 }
-                if (scope.checkedElements.length > 0 && scope.serviceResponse.filter(e => e.ableCheck)[0].status.label !== scope.ableStatusPrimaryLabel) {
+                // if (scope.checkedElements.length > 0 && scope.serviceResponse.filter(e => e.ableCheck)[0].status.label !== scope.ableStatusPrimaryLabel) {
+                if (scope.checkedElements.length > 0 && !scope.checkStatus(scope.arrayStatusPrimaryLabel, scope.serviceResponse.filter(e => e.ableCheck)[0].status.label)) {
                     return true;
                 }
                 return false;
@@ -484,7 +507,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (scope.checkedElements.length === 0) {
                     return true;
                 }
-                if (scope.checkedElements.length > 0 && scope.serviceResponse.filter(e => e.ableCheck)[0].status.label !== scope.ableStatusSecondaryLabel) {
+                // if (scope.checkedElements.length > 0 && scope.serviceResponse.filter(e => e.ableCheck)[0].status.label !== scope.ableStatusSecondaryLabel) {
+                if (scope.checkedElements.length > 0 && !scope.checkStatus(scope.arrayStatusSecondaryLabel, scope.serviceResponse.filter(e => e.ableCheck)[0].status.label)) {
                     return true;
                 }
                 return false;
@@ -500,7 +524,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (scope.checkedElements.length === 0) {
                     return true;
                 }
-                if (scope.checkedElements.length > 0 && scope.serviceResponse.filter(e => e.ableCheck)[0].status.label !== scope.ableStatusTertiaryLabel) {
+                // if (scope.checkedElements.length > 0 && scope.serviceResponse.filter(e => e.ableCheck)[0].status.label !== scope.ableStatusTertiaryLabel) {
+                if (scope.checkedElements.length > 0 && !scope.checkStatus(scope.arrayStatusTertiaryLabel, scope.serviceResponse.filter(e => e.ableCheck)[0].status.label)) {
                     return true;
                 }
                 return false;
@@ -545,6 +570,15 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 }
                 if (scope.hasCreationBtn) {
                     scope.hasCreation = JSON.parse(scope.hasCreationBtn);
+                }
+                if (scope.ableStatusPrimaryLabel) {
+                    scope.arrayStatusPrimaryLabel = JSON.parse(scope.ableStatusPrimaryLabel);
+                }
+                if (scope.ableStatusSecondaryLabel) {
+                    scope.arrayStatusSecondaryLabel = JSON.parse(scope.ableStatusSecondaryLabel);
+                }
+                if (scope.ableStatusTertiaryLabel) {
+                    scope.arrayStatusTertiaryLabel = JSON.parse(scope.ableStatusTertiaryLabel);
                 }
             } catch (error) {
                 $log.debug(error);
