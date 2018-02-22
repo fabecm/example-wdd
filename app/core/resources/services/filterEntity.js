@@ -9,30 +9,30 @@ export class FilterEntityService {
         switch (type) {
             case 'ENT_TYPE':
                 bodyParam = {
-                    term_name: dipendence[1],
-                    description: dipendence[2],
-                    status_id: dipendence[3]
+                    term_name: dipendence[1] !== -1 ? dipendence[1] : null,
+                    description: dipendence[2] !== -1 ? dipendence[2] : null,
+                    status_id: dipendence[3] !== -1 ? dipendence[3] : null
                 };
                 break;
             case 'ENT_NAME':
                 bodyParam = {
-                    term_type: dipendence[1],
-                    description: dipendence[2],
-                    status_id: dipendence[3]
+                    term_type: dipendence[1] !== -1 ? dipendence[1] : null,
+                    description: dipendence[2] !== -1 ? dipendence[2] : null,
+                    status_id: dipendence[3] !== -1 ? dipendence[3] : null
                 };
                 break;
             case 'ENT_DESCR':
                 bodyParam = {
-                    term_type: dipendence[1],
-                    term_name: dipendence[2],
-                    status_id: dipendence[3]
+                    term_type: dipendence[1] !== -1 ? dipendence[1] : null,
+                    term_name: dipendence[2] !== -1 ? dipendence[2] : null,
+                    status_id: dipendence[3] !== -1 ? dipendence[3] : null
                 };
                 break;
             case 'ENT_STATUS':
                 bodyParam = {
-                    term_type: dipendence[1],
-                    term_name: dipendence[2],
-                    description: dipendence[3]
+                    term_type: dipendence[1] !== -1 ? dipendence[1] : null,
+                    term_name: dipendence[2] !== -1 ? dipendence[2] : null,
+                    description: dipendence[3] !== -1 ? dipendence[3] : null
                 };
                 break;
             default:
