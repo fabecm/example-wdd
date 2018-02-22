@@ -87,7 +87,7 @@
             <span>>></span>
         </div>
 
-        <div class="isChildButton" ng-if="isChild">
+        <div class="isChildButton" ng-if="isChild && isChildChecked.boolean">
             <button class="wdd-button" ng-disabled="checkedElements.length === 0" ng-click="forwardCheckedItems()">
                 <i class="icon icon-share"></i>
                 Inoltra selezionati
