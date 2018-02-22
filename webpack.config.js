@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 var apiMocker = require('connect-api-mocker');
 
@@ -40,7 +41,8 @@ module.exports = function(env) {
         },
         devtool: 'inline-source-map',
         entry: {
-            wdd: './app/app.js'
+            wdd: './app/app.js',
+            'wdd.vendor': ['angular', 'jquery', 'moment', 'angular-ui-bootstrap', 'angular-sanitize', 'ng-csv', 'angular-resizable', 'file-saver']
         },
 
         output: {
@@ -111,6 +113,10 @@ module.exports = function(env) {
         },
         plugins: [
             autoprefixer,
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'wdd.vendor',
+                minChunks: Infinity
+            }),
             new HtmlWebpackPlugin({
                 template: path.join(srcDirPath, 'index.html'),
                 filename: 'index.html',
@@ -138,6 +144,13 @@ module.exports = function(env) {
         config.devServer.setup = function (app) {
             app.use('/edd-uiAppl', apiMocker('app/mocks/'));
         };
+    }
+
+    if (BUILD) {
+        //  if (BUILD && PROD) {
+        config.plugins.push(
+            new UglifyJsPlugin()
+        );
     }
 
     if (BUILD) {
