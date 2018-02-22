@@ -43,6 +43,10 @@ export class ApprovalRequestsController {
         value: 'data_scadenza'
     }];
 
+    takeChargeStatus = ['Da approvare', 'Da approvare da evento', 'Da approvare da iniziativa'];
+    approveStatus = ['In approvazione', 'In approvazione da evento', 'In approvazione da iniziativa'];
+    rejectStatus = ['In approvazione', 'In approvazione da evento', 'In approvazione da iniziativa'];
+
     constructor ($timeout, $state, ModalService, WddCacheService) {
         'ngInject';
         this.$timeout = $timeout;
