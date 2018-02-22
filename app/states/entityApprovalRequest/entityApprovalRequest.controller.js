@@ -29,6 +29,9 @@ export class EntityApprovalRequestController {
         value: 'description'
     }];
 
+    approveStatus = ['In approvazione'];
+    rejectStatus = ['In approvazione'];
+
     constructor ($state, $timeout, ModalService, WddCacheService) {
         'ngInject';
         this.$state = $state;
