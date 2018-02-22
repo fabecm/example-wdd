@@ -38,6 +38,8 @@ export class EntityCensusController {
         value: 'status'
     }];
 
+    sendToApproveStatus = ['In modifica'];
+
     constructor ($state, $timeout, ModalService, WddCacheService) {
         'ngInject';
         this.$state = $state;

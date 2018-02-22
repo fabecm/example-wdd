@@ -101,10 +101,10 @@ export class DashboardRequestController {
 
     headerEntityApprovalRequest = [{
         label: 'Tipo entità',
-        value: 'type_entity'
+        value: 'term_type'
     }, {
         label: 'Nome entità',
-        value: 'name_entity'
+        value: 'term_name'
     }, {
         label: 'Descrizione',
         value: 'description'

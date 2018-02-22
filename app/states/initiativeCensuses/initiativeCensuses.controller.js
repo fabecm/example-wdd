@@ -43,6 +43,8 @@ export class InitiativeCensusesController {
         value: 'data_scadenza'
     }];
 
+    forwardToApproveStatus = ['In modifica da iniziativa'];
+
     constructor ($state, $timeout, ModalService, WddCacheService, RuleProfileService) {
         'ngInject';
         this.$timeout = $timeout;

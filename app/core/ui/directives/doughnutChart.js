@@ -1,7 +1,6 @@
 import $ from 'jquery';
 
 import ChartJs from 'chart.js';
-import { random } from 'faker';
 import template from './doughnutChart.template.html';
 
 export function DoughnutChart ($timeout, $state) {
@@ -30,7 +29,7 @@ export function DoughnutChart ($timeout, $state) {
                 scope.centeredLegend = true;
             }
 
-            scope.chartId = random.number();
+            scope.chartId = `chart-${Math.floor((Math.random() * 100) + 1)}`;
             $timeout(() => {
                 scope.chart = document.getElementById(scope.chartId);
 

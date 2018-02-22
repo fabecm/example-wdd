@@ -21,21 +21,13 @@
     </div>
 </div>
 <div class="automatic-events">
-    <!-- <div class="wbb-select select-child">
-        <select name="stato" ng-model="vm.pageChild" ng-change="vm.changeChild()">
-            <option value="tab.documentationRequests">Richieste di documentazione</option>
-            <option value="tab.approvalRequests">Richieste di approvazione</option>
-            <option value="">Eventi automatici</option>
-        </select>
-        <i class="icon icon-down-arrow"></i>
-    </div> -->
 
     <wdd-filter applied-filter="vm.filterChanged(filterApplied)"></wdd-filter>
 
     <wdd-table reload-data="vm.reloadTableData" table-key="automaticEvents" header-array-obj="{{ {array: vm.headerTable} }}"
         pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
-        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" able-status-primary-label="Da controllare da evento"
+        path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" able-status-primary-label="{{ vm.approveStatus }}"
         action-primary-label="vm.approve(selectedItems)" disabled-primary-label-with-empty-response="true" has-secondary-label="Inoltra selezionati"
-        able-status-secondary-label="Da controllare da evento" disabled-secondary-label-with-empty-response="true" action-secondary-label="vm.forwardToApprove(selectedItems)"></wdd-table>
+        able-status-secondary-label="{{ vm.forwardToApproveStatus }}" disabled-secondary-label-with-empty-response="true" action-secondary-label="vm.forwardToApprove(selectedItems)"></wdd-table>
 
 </div>

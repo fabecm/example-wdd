@@ -21,22 +21,14 @@
     </div>
 </div>
 <div class="approval-request">
-    <!-- <div class="wbb-select select-child">
-        <select name="stato" ng-model="vm.pageChild" ng-change="vm.changeChild()">
-            <option value="tab.documentationRequests">Richieste di documentazione</option>
-            <option value="">Richieste di approvazione</option>
-            <option value="tab.automaticEvents">Eventi automatici</option>
-        </select>
-        <i class="icon icon-down-arrow"></i>
-    </div> -->
 
     <wdd-filter applied-filter="vm.filterChanged(filterApplied)"></wdd-filter>
 
     <wdd-table reload-data="vm.reloadTableData" table-key="approvalRequest" header-array-obj="{{ {array: vm.headerTable} }}"
         pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
         path-primary-navigation="tab.dataDetail" is-checked-bool="{{ {boolean: true} }}" has-primary-label="Approva" action-primary-label="vm.approve(selectedItems)"
-        able-status-primary-label="In approvazione" disabled-primary-label-with-empty-response="true" has-secondary-label="Rifiuta"
-        action-secondary-label="vm.reject(selectedItems)" able-status-secondary-label="In approvazione" disabled-secondary-label-with-empty-response="true"
-        has-tertiary-label="Prendi in carico" action-tertiary-label="vm.takeCharge(selectedItems)" able-status-tertiary-label="Da approvare"
+        able-status-primary-label="{{ vm.approveStatus }}" disabled-primary-label-with-empty-response="true" has-secondary-label="Rifiuta"
+        action-secondary-label="vm.reject(selectedItems)" able-status-secondary-label="{{ vm.rejectStatus }}" disabled-secondary-label-with-empty-response="true"
+        has-tertiary-label="Prendi in carico" action-tertiary-label="vm.takeCharge(selectedItems)" able-status-tertiary-label="{{ vm.takeChargeStatus }}"
         disabled-tertiary-label-with-empty-response="true"></wdd-table>
 </div>
