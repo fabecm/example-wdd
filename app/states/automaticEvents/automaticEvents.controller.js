@@ -50,6 +50,9 @@ export class AutomaticEventsController {
         value: 'status'
     }];
 
+    approveStatus = ['Da controllare da evento'];
+    forwardToApproveStatus = ['Da controllare da evento'];
+
     constructor ($timeout, $state, ModalService, WddCacheService) {
         'ngInject';
         this.$timeout = $timeout;
