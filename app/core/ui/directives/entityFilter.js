@@ -91,16 +91,16 @@ export function EntityFilter ($state, WddCacheService, WDDAlert) {
                 let param = {};
 
                 if (scope.entitySelected && scope.entitySelected.value !== -1) {
-                    param.entitySelected = scope.entitySelected.value;
+                    param.termType = scope.entitySelected.value;
                 }
                 if (scope.entityNameSelected && scope.entityNameSelected.value !== -1) {
-                    param.entityNameSelected = scope.entityNameSelected.value;
+                    param.termName = scope.entityNameSelected.value;
                 }
                 if (scope.descriptionSelected && scope.descriptionSelected.value !== -1) {
-                    param.descriptionSelected = scope.descriptionSelected.value;
+                    param.description = scope.descriptionSelected.value;
                 }
                 if (scope.statusSelected && scope.statusSelected.value !== -1) {
-                    param.status = scope.statusSelected.value;
+                    param.statusId = scope.statusSelected.value;
                 }
 
                 WddCacheService.cacheFilter(scope.filterKey, {

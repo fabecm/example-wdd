@@ -56,16 +56,16 @@ export class WddCacheService {
         let filter = this.getCachedFilter(key);
 
         if (filter.entitySelected && filter.entitySelected.value !== -1) {
-            filterMapped.entitySelected = filter.entitySelected.value;
+            filterMapped.termType = filter.entitySelected.value;
         }
         if (filter.entityNameSelected && filter.entityNameSelected.value !== -1) {
-            filterMapped.entityNameSelected = filter.entityNameSelected.value;
+            filterMapped.termName = filter.entityNameSelected.value;
         }
         if (filter.descriptionSelected && filter.descriptionSelected.value !== -1) {
-            filterMapped.descriptionSelected = filter.descriptionSelected.value;
+            filterMapped.description = filter.descriptionSelected.value;
         }
         if (filter.statusSelected && filter.statusSelected.value !== -1) {
-            filterMapped.status = filter.statusSelected.value;
+            filterMapped.statusId = filter.statusSelected.value;
         }
 
         return filterMapped;
