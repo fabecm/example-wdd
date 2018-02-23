@@ -90,9 +90,9 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 requestFilter.then(res => {
                     scope.listValues = res;
 
-                    if (!scope.originalList) {
-                        scope.originalList = angular.copy(scope.listValues);
-                    }
+                    // if (!scope.originalList) {
+                    scope.originalList = angular.copy(scope.listValues);
+                    // }
 
                     ngModel.$render();
                 });
