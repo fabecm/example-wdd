@@ -470,7 +470,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     text: ModalService.getForwardText()
                 };
                 ModalService.openActionModal(param).then(() => {
-                    scope.reloadDataFormChild();
+                    $timeout(() => {
+                        scope.reloadDataFormChild();
+                    });
                 });
             };
 
