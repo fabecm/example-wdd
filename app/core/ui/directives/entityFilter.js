@@ -64,10 +64,10 @@ export function EntityFilter ($state, WddCacheService, WDDAlert) {
             };
 
             scope.resetFilter = () => {
-                scope.entitySelected = -1;
-                scope.entityNameSelected = -1;
-                scope.descriptionSelected = -1;
-                scope.statusSelected = -1;
+                scope.entitySelected.value = -1;
+                scope.entityNameSelected.value = -1;
+                scope.descriptionSelected.value = -1;
+                scope.statusSelected.value = -1;
 
                 WddCacheService.unCacheFilter(scope.filterKey);
 
