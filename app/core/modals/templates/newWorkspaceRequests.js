@@ -8,6 +8,7 @@ export class NewWorkspaceRequestsController {
 
         this.workspaceId = $scope.$parent.workspaceId;
         this.termTechRule = $scope.$parent.termTechRule;
+        this.isInitiativeCensus = $scope.$parent.isInitiativeCensus;
     }
 
     inputChanged (type) {
@@ -82,7 +83,8 @@ export class NewWorkspaceRequestsController {
                         system_owner_id: this.systemOwnerSelected.value,
                         techapp_id: this.technicalApplication.value,
                         datasource_id: this.dataSource.value,
-                        datafield_id: this.dataField.value
+                        datafield_id: this.dataField.value,
+                        initiative_census_so: this.isInitiativeCensus
                     };
 
                     if (this.rilevanzaBusiness && this.rilevanzaBusiness.value) {

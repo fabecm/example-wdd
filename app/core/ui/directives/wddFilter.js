@@ -14,16 +14,24 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             scope.filterKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
             scope.filtersArray = [];
             scope.values = {};
-            scope.filterStatus = [{
-                id: 0,
-                label: 'Tutti'
-            }, {
-                id: 1,
-                label: 'Bozza'
-            }, {
-                id: 2,
-                label: 'Produzione'
-            }];
+
+            if (UserService.getGroup() === 'G_EDD_SO' || UserService.getGroup() === 'G_EDD_DQ') {
+                scope.filterStatus = [{
+                    id: 0,
+                    label: 'Tutti'
+                }, {
+                    id: 1,
+                    label: 'Bozza'
+                }, {
+                    id: 2,
+                    label: 'Produzione'
+                }];
+            } else {
+                scope.filterStatus = [{
+                    id: 2,
+                    label: 'Produzione'
+                }];
+            }
 
             if (WddCacheService.getCachedFilter(scope.filterKey)) {
                 let listFilter = WddCacheService.getCachedFilter(scope.filterKey).arrayFilter ? WddCacheService.getCachedFilter(scope.filterKey).arrayFilter : [];

@@ -39,7 +39,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             statusToDisabledCreation: '@',
             reloadData: '=',
             reloadDataFormChild: '&',
-            tableKey: '@'
+            tableKey: '@',
+            promise: '=?'
         },
         template: template,
         link: (scope) => {

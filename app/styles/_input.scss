@@ -31,6 +31,10 @@
         &:after {
             background: rgba(181, 180, 180, 0.0);
         }
+        select {
+            background-color: rgba(181, 180, 180, 0.3);
+            pointer-events: none;
+        }
     }
 
     &:after {

@@ -6,10 +6,10 @@ export class WorkspaceService {
         this.$http = $http;
     }
 
-    getFieldValues (type, stringSearched = '', dipendence) {
+    getFieldValues (type, stringSearched = '', dipendence, isInitiativeCensus = false) {
         switch (type) {
             case 'newRequestSO':
-                return this.$http.get(`WDD/filter/newdata?type=systemowner&label_search=${stringSearched}`);
+                return this.$http.get(`WDD/filter/newdata?type=systemowner&label_search=${stringSearched}&initiative_census_so=${isInitiativeCensus}`);
             case 'newRequestTA':
                 return this.$http.get(`WDD/filter/newdata?type=techapp&systemowner_id=${dipendence[0]}&label_search=${stringSearched}`);
             case 'newRequestDS':

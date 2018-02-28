@@ -11,7 +11,7 @@ export class FilterWorkspace {
         this.filterEntityService = FilterEntityService;
     }
 
-    updateList (type, search, dipendence) {
+    updateList (type, search, dipendence, isInitiativeCensus) {
         let stringSearched;
         if (search) {
             stringSearched = search.replace(new RegExp('%', 'g'), '%25');
@@ -85,7 +85,7 @@ export class FilterWorkspace {
             case 'newRequestDS':
             case 'newRequestDT':
             case 'newRequestDF':
-                return this.workspaceService.getFieldValues(type, stringSearched, dipendence).then(res => res.data.array);
+                return this.workspaceService.getFieldValues(type, stringSearched, dipendence, isInitiativeCensus).then(res => res.data.array);
             default:
                 return this.$q.when([]);
         }

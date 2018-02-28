@@ -97,7 +97,7 @@ export class InitiativeCensusesController {
     }
 
     createNewData () {
-        this.modalService.openNewWorkspaceRequests().then(() => {
+        this.modalService.openNewWorkspaceRequests(undefined, undefined, true).then(() => {
             this.$timeout(() => {
                 this.reloadTableData({
                     filterSetted: this.filterApplied

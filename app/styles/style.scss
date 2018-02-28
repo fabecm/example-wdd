@@ -45,3 +45,7 @@ body {
 input::-ms-clear {
     display: none;
 }
+
+i.icon.icon-disabled{
+    pointer-events: none;
+}

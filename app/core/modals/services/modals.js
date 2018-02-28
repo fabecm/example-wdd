@@ -183,7 +183,7 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openNewWorkspaceRequests (workspaceId, termTechRule) {
+    openNewWorkspaceRequests (workspaceId, termTechRule, isInitiativeCensus) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -195,7 +195,8 @@ export class ModalService {
             size: 'lg',
             scope: angular.extend(this.$rootScope, {
                 workspaceId: workspaceId,
-                termTechRule: termTechRule
+                termTechRule: termTechRule,
+                isInitiativeCensus: isInitiativeCensus
             }),
             resolve: {}
         });
