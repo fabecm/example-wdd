@@ -27,6 +27,12 @@ export class UserService {
         return this.user.credentials.livello;
     }
 
+    getAutorities () {
+        let authorities = [];
+        this.user.credentials.authorities.map(e => authorities.push(e.authority));
+        return authorities;
+    }
+
     getGroup () {
         return this.user.credentials.groups;
     }

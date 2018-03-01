@@ -1,4 +1,4 @@
-<div ng-show="promise.$$state.status == 0" wdd-spinner="[promise.$$state]" spinner-style="floating" style="height: 400px;width: 100%;"></div>
+<div ng-show="promise.$$state.status == 0" wdd-spinner="[promise.$$state]" spinner-style="{{ textSpinner ? 'onlyText' : 'floating' }}" ng-style="{'height': textSpinner ? '30px' : '400px'}" style="width: 100%;"></div>
 <div class="wdd-table" ng-if="serviceResponse && promise.$$state.status != 0" ng-class="{'child-table': isChild}">
     <div class="empty-response" ng-class="{'empty-response-child': isChild}" ng-if="serviceResponse.length === 0 && !isErrored">
         <h1>Nessun dato presente</h1>

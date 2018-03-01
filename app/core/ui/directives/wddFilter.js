@@ -15,7 +15,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             scope.filtersArray = [];
             scope.values = {};
 
-            if (UserService.getGroup() === 'G_EDD_SO' || UserService.getGroup() === 'G_EDD_DQ') {
+            if (UserService.getAutorities().indexOf('ROLE_SO') >= 0 || UserService.getAutorities().indexOf('ROLE_DQ') >= 0) {
                 scope.filterStatus = [{
                     id: 0,
                     label: 'Tutti'

@@ -16,7 +16,9 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             requiredDependence: '@',
             promise: '=',
             preselectIfOne: '@',
-            isInitiativeCensus: '='
+            isInitiativeCensus: '=',
+            isBsrlOrTcrl: '=', // is business role or technical rule
+            dfTermId: '=' // Data field term id
         },
         template: template,
         link: (scope, element, attribute, ngModel) => {
@@ -88,13 +90,18 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 } else {
                     typeSelected = scope.type;
                 }
-                const requestFilter = FilterWorkspace.updateList(typeSelected, scope.model.label, scope.dipendenceObj, scope.isInitiativeCensus);
+                const requestFilter = FilterWorkspace.updateList(typeSelected, scope.model.label, scope.dipendenceObj, {
+                    isInitiativeCensus: scope.isInitiativeCensus,
+                    isBSRLorTCRL: scope.isBsrlOrTcrl,
+                    dfTermId: scope.dfTermId
+                });
                 scope.promise = requestFilter;
                 requestFilter.then(res => {
                     scope.listValues = res;
 
-                    if (scope.preselectIfOne === 'true' && scope.listValues.length === 1) {
-                        scope.itemSelected(scope.listValues[0], true);
+                    let testerArrayLength = angular.copy(res).filter(e => Number(e.id) !== -1);
+                    if (scope.preselectIfOne === 'true' && testerArrayLength.length === 1) {
+                        scope.itemSelected(testerArrayLength[0], true);
                     }
                     // if (!scope.originalList) {
                     scope.originalList = angular.copy(scope.listValues);
@@ -150,7 +157,11 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     ngModel.$render(scope.model);
                     scope.model.label = provisionalLabel;
 
-                    const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendenceObj, scope.isInitiativeCensus);
+                    const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendenceObj, {
+                        isInitiativeCensus: scope.isInitiativeCensus,
+                        isBSRLorTCRL: scope.isBsrlOrTcrl,
+                        dfTermId: scope.dfTermId
+                    });
                     scope.promise = requestFilter;
                     requestFilter.then(res => {
                         scope.listValues = res;

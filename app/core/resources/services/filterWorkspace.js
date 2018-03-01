@@ -11,7 +11,10 @@ export class FilterWorkspace {
         this.filterEntityService = FilterEntityService;
     }
 
-    updateList (type, search, dipendence, isInitiativeCensus) {
+    updateList (type, search, dipendence, options) {
+        let isInitiativeCensus = options.isInitiativeCensus;
+        let isBSRLorTCRL = options.isBSRLorTCRL;
+        let dfTermId = options.dfTermId;
         let stringSearched;
         if (search) {
             stringSearched = search.replace(new RegExp('%', 'g'), '%25');
@@ -46,7 +49,7 @@ export class FilterWorkspace {
                     return res.data.system_owner;
                 });
             case 'entity':
-                return this.classificationService.getEntity(dipendence, stringSearched).then(res => {
+                return this.classificationService.getEntity(dipendence, stringSearched, isBSRLorTCRL ? dfTermId : undefined).then(res => {
                     if (res.data.array) {
                         res.data.array.unshift({
                             label: 'Tutti',

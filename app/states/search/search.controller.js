@@ -103,6 +103,7 @@ export class SearchController {
     changeTab (tab) {
         this.selectedTab = tab;
         this.wddAlert.removeAlert();
+        this.showTabsWhileReloading = true;
         if (this.selectedTab === 0) {
             this.wddCacheService.cacheSearchTab('filter_tab_search', 0);
             this.reloadTableData({
@@ -120,10 +121,14 @@ export class SearchController {
         let param = {};
         param.resetPage = true;
 
+        this.showTabsWhileReloading = false;
+
         this.mapFilterSetted(param, arrayFilter);
     }
 
     mapFilterSetted (param, arrayFilter) {
+        this.showTabsWhileReloading = false;
+
         if (arrayFilter.process_owner_id && arrayFilter.process_owner_id !== -1) {
             param.process_owner_id = arrayFilter.process_owner_id;
         } else {

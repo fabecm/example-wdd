@@ -359,6 +359,13 @@ export class ModalService {
         return text;
     }
 
+    getAutomaticSaveActionText () {
+        let text = {
+            body: 'Si desidera salvare le modifiche apportate?'
+        };
+        return text;
+    }
+
     getSaveActionText () {
         let text = {
             body: 'Si desidera salvare le modifiche apportate?'

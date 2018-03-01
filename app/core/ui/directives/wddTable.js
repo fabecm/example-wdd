@@ -40,7 +40,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             reloadData: '=',
             reloadDataFormChild: '&',
             tableKey: '@',
-            promise: '=?'
+            promise: '=?',
+            textSpinner: '@?'
         },
         template: template,
         link: (scope) => {
