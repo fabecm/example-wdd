@@ -31,7 +31,7 @@ export class SessionService {
     }
 
     getApiEntry () {
-        if(Boolean(true) === true) {
+        if(Boolean(false) === true) {
             return getMockedData(this.$q).then(apiEndpoint => {
                 this.apiEntry = apiEndpoint.contextPath;
                 this.endPointSas = 'http://itam.hbl.local/jsasdqm/SASLineage/';
