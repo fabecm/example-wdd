@@ -185,7 +185,11 @@ export class DataDetailController {
         this.deleteEntityDraftPromise = this.detailsService.deleteEntityDraft(deleteDraft);
         this.deleteEntityDraftPromise.then(res => {
             if (res.data.result) {
-                this.initDataDetails();
+                if (detail.term.termtype === 'DATA_FIELD') {
+                    this.back();
+                } else {
+                    this.initDataDetails();
+                }
                 this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'delete-draft');
             } else {
                 this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'delete-draft');
