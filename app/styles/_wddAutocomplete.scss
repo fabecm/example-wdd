@@ -12,6 +12,10 @@
     .wdd-labeled-input {
         padding: 0px;
 
+        .autocomplete-wrapper{
+            position: relative;
+        }
+
         input[disabled=disabled] {
             background-color: rgba(181, 180, 180, 0.3);
         }
@@ -21,7 +25,7 @@
                 /* IE10+ CSS styles go here */
                 margin-top: 33px;
             }
-            margin-top: 25px;
+            //margin-top: 25px;
             line-height: $custom-select-height;
             cursor: pointer;
             content: '\e806';
@@ -29,8 +33,9 @@
             position: absolute;
             right: 12px;
             font-size: 15px;
+            height: 30px;
             top: 0;
-            bottom: 0;
+            right: 5px;
             color: #2a74de;
             z-index: 1;
 
