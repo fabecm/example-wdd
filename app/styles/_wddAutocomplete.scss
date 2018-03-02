@@ -21,10 +21,10 @@
         }
         
         i {
-            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-                /* IE10+ CSS styles go here */
-                margin-top: 33px;
-            }
+            // @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            //     /* IE10+ CSS styles go here */
+            //     margin-top: 33px;
+            // }
             //margin-top: 25px;
             line-height: $custom-select-height;
             cursor: pointer;
@@ -38,14 +38,17 @@
             right: 5px;
             color: #2a74de;
             z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            &.adjust-icon {
-                margin-top: 4px;
-                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-                    /* IE10+ CSS styles go here */
-                    margin-top: 9px;
-                }
-            }
+            // &.adjust-icon {
+            //     margin-top: 4px;
+            //     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            //         /* IE10+ CSS styles go here */
+            //         margin-top: 9px;
+            //     }
+            // }
         }
     }
         
