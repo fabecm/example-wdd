@@ -41,7 +41,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             reloadDataFormChild: '&',
             tableKey: '@',
             promise: '=?',
-            textSpinner: '@?'
+            textSpinner: '@?',
+            tableIsEmpty: '=?'
         },
         template: template,
         link: (scope) => {
@@ -76,6 +77,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
                     if (scope.serviceResponse !== null && scope.serviceResponse !== undefined && scope.serviceResponse.length === 0) {
                         WDDAlert.showAlert('warning', 'NESSUN DATO DA VISUALIZZARE', 'empty-table');
+                        scope.tableIsEmpty = true;
                     } else {
                         WDDAlert.removeEmptyTableAlert();
                     }

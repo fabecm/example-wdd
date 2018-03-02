@@ -4,6 +4,8 @@ export class RuDashboardController {
     tablePageSize = 10;
     tableExpandable = true;
 
+    tableIsEmpty = false;
+
     headerTable = [{
         label: 'Workspace',
         value: 'workspace'
