@@ -48,7 +48,7 @@
                     <button ng-if="!detail.toAdd" class="wdd-button icon-only" ng-click="vm.showAttributeBody(detail)">
                         <i class="icon" ng-class="{'icon-right-arrow': !detail.isOpened, 'icon-down-arrow': detail.isOpened}"></i>
                     </button>
-                    <button ng-if="detail.toAdd && detail.term.creating" class="wdd-button icon-only" ng-click="vm.createEtity(detail.term.termtype)">
+                    <button ng-if="detail.toAdd && detail.term.creating" class="wdd-button icon-only" ng-click="vm.createEtity(detail.term.termtype)" ng-disabled="vm.checkIfSuspendedModification(detail)">
                         <i class="icon icon-new"></i>
                     </button>
                 </div>
@@ -63,23 +63,23 @@
                 </div>
             </div>
             <div class="body" ng-if="!detail.toAdd">
-                <div class="left-column">
+                <!-- <div class="click-blocker" ng-class="{'active-block': vm.checkIfSuspendedModification(detail)}"></div> -->
+                <fieldset class="left-column" ng-disabled="vm.checkIfSuspendedModification(detail)">
                     <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 != 0">
                         <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
                             reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}"
                             is-editable="{{ attr.is_editable && $parent.detail.term.updating}}" add-entity-function="vm.addEntity()">
                         </att>
                     </div>
-                </div>
-                <div class="right-column">
+                </fieldset>
+                <fieldset class="right-column" ng-disabled="vm.checkIfSuspendedModification(detail)">
                     <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 == 0">
                         <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
                             reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}"
                             is-editable="{{ attr.is_editable && $parent.detail.term.updating}}" add-entity-function="vm.addEntity()">
                         </att>
                     </div>
-                </div>
-
+                </fieldset>
             </div>
             <div class="footer" ng-if="!detail.toAdd">
                 <button ng-if="!detail.term.draft" class="wdd-button icon-only" ng-click="vm.openEntityHistoryModal(detail.term)">

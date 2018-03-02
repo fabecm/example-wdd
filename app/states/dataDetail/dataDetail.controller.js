@@ -52,6 +52,13 @@ export class DataDetailController {
         this.modalService.openProcessHistoryModal(this.$stateParams.id);
     }
 
+    checkIfSuspendedModification (thisDetail) {
+        const filtered = this.visibleDataDetails.find(e => {
+            return (e.term.termtype !== thisDetail.term.termtype) && !e.isLock;
+        });
+        return !!filtered;
+    }
+
     createEtity (termtype) {
         this.modalService.openCreateEntity(termtype, this.visibleDataDetails, this.workspaceId, this.isDraft).then(() => {
             this.initDataDetails();

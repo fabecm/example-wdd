@@ -4,3 +4,5 @@ target
 etc
 
 \.DS_Store
+
+npm-debug\.log
