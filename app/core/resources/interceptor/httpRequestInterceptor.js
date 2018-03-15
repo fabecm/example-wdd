@@ -22,6 +22,8 @@ export function HttpRequestInterceptor ($injector, $q) {
             let text = '';
             if (rejection.data && rejection.data.message_type === 'SHOW_ERROR') {
                 text = rejection.data.message;
+            } else if (Number(rejection.status) === 400) {
+                text = rejection.data.result.message;
             } else {
                 // text = `${message} - (${endpoint})`;
                 text = `${message}`;

@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="body" ng-if="!detail.toAdd">
-                <!-- <div class="click-blocker" ng-class="{'active-block': vm.checkIfSuspendedModification(detail)}"></div> -->
+                <div class="click-blocker" ng-class="{'active-block': vm.checkIfSuspendedModification(detail)}"></div>
                 <fieldset class="left-column" ng-disabled="vm.checkIfSuspendedModification(detail)">
                     <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 != 0">
                         <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}"
