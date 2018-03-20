@@ -76,6 +76,14 @@ export class TableService {
                     });
                 });
 
+            case 'relationModal':
+                return this.dataService.getRelationModal(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.datalist,
+                        pages: res.data.page_count
+                    });
+                });
+
             case 'automaticEvents':
                 return this.dataService.getDQAutomaticEvents(pageNumber, pageLength, filterApplied).then(res => {
                     return ({

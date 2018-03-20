@@ -124,7 +124,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 let filtered = scope.filterSetted.filter(fil => {
                     return fil.text && (fil.text.length > 2);
                 });
-                return scope.filtersArray.length > 0 && filtered.length === scope.filtersArray.length;
+                return scope.filtersArray.length > 0 && filtered.length === scope.filtersArray.length && (scope.values.processOwnerChosen.value || scope.values.systemOwnerChosen.value);
             };
 
             scope.setFilter = () => {

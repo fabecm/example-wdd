@@ -1,0 +1,97 @@
+<div class="wwd-modal" wdd-spinner="[vm.getDataFieldDetailsPromise.$$state]">
+    <div class="wwd-modal__title">
+        <div class="" id="modal-title">Dettaglio Dato</div>
+    </div>
+    <div class="wwd-modal__body__container" id="modal-body">
+        <div class="data-detail-page">
+            <div class="detail-row">
+                <div class="left-side">
+                    <button class="wdd-button" ng-click="vm.changeAllDetailStatus(true)" ng-if="vm.checkDetailStatus()">
+                <i class="icon icon-espandi-tutto"></i>
+                ESPANDI TUTTO
+            </button>
+                    <button class="wdd-button" ng-click="vm.changeAllDetailStatus(false)" ng-if="!vm.checkDetailStatus()">
+                <i class="icon icon-espandi-tutto"></i>
+                COMPRIMI TUTTO
+            </button>
+                </div>
+                <div class="center">
+                    <label>{{vm.visibleDataDetails[0].term.name}}</label>
+                </div>
+                <div class="right-side">
+
+                </div>
+            </div>
+            <div class="process-steps" ng-if="vm.processes" ng-click="vm.showProcessHistory()">
+                <div class="process-steps__container">
+                    <div class="step" ng-repeat="pro in vm.processes" ng-class="{'step--complete': pro.id <= vm.currentProcess.id}">
+                        <div class="title">
+                            {{ pro.label }}
+                        </div>
+                        <div class="bar">
+                            <div class="dot">
+                                <div class="dot-in-dot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="details-container" wdd-spinner="[vm.getDataFieldDetailsPromise.$$state, vm.saveEntityPromise.$$state, vm.deleteEntityPromise.$$state]">
+                <div class="detail-container" ng-if="vm.visibleDataDetails && detail.term.reading" ng-repeat="(key, detail) in vm.visibleDataDetails track by $index" ng-class="{'active': detail.isOpened}">
+                    <div class="header">
+                        <div class="header-icon">
+                            <button ng-if="!detail.toAdd" class="wdd-button icon-only" ng-click="vm.showAttributeBody(detail)">
+                        <i class="icon" ng-class="{'icon-right-arrow': !detail.isOpened, 'icon-down-arrow': detail.isOpened}"></i>
+                    </button>
+                            <button ng-if="detail.toAdd && detail.term.creating" class="wdd-button icon-only" ng-click="vm.createEtity(detail.term.termtype)" ng-disabled="vm.checkIfSuspendedModification(detail)">
+                        <i class="icon icon-new"></i>
+                    </button>
+                        </div>
+                        <div class="header-title">
+                            <label class="header-title-elem type-elem">{{detail.term.termtype}}</label>
+                            <label class="header-title-elem name-elem">{{detail.term.name}}</label>
+                        </div>
+                        <div class="header-label" ng-if="vm.isDraft">
+                            <label class="wdd-label" ng-class="{'complete': detail.status.light === 'complete', 'incomplete': detail.status.light === 'incomplete'}" ng-if="!detail.toAdd">{{detail.status.label}}</label>
+                            <label class="wdd-label" ng-class="{'incomplete': detail.status.light === 'incomplete'}" ng-if="detail.toAdd">Incompleto</label>
+                        </div>
+                    </div>
+                    <div class="body" ng-if="!detail.toAdd">
+                        <div class="click-blocker" ng-class="{'active-block': vm.checkIfSuspendedModification(detail)}"></div>
+                        <fieldset class="left-column" ng-disabled="vm.checkIfSuspendedModification(detail)">
+                            <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 != 0">
+                                <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}" reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}"
+                                    is-editable="{{ attr.is_editable && $parent.detail.term.updating}}" add-entity-function="vm.addEntity()">
+                                </att>
+                            </div>
+                        </fieldset>
+                        <fieldset class="right-column" ng-disabled="vm.checkIfSuspendedModification(detail)">
+                            <div class="attribute-body" ng-repeat="attr in detail.attributes | orderBy: 'position'" ng-if="attr.position % 2 == 0">
+                                <att ng-model="attr.values[0].value" attribute-name="attr.name" frontend-type="{{attr.ftype}}" domain-obj-value="{{ {array: attr.domain_values} }}" reset-attribute="vm.resetChanges(resetFunction)" unlock-action="vm.unlockAction(key)" is-required="{{ attr.is_required }}"
+                                    is-editable="{{ attr.is_editable && $parent.detail.term.updating}}" add-entity-function="vm.addEntity()">
+                                </att>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="footer" ng-if="!detail.toAdd">
+                        <button ng-if="!detail.term.draft" class="wdd-button icon-only" ng-click="vm.openEntityHistoryModal(detail.term)">
+                    <i class="icon icon-info"></i>
+                </button>
+                        <button class="wdd-button alt-color" ng-if="detail.term.deleting && false" ng-click="vm.deleteEntity(detail)">ELIMINA ENTITA'</button>
+                        <button class="wdd-button alt-color" ng-if="detail.term.draft && detail.term.deleting" ng-click="vm.deleteDraft(detail)">ELIMINA BOZZA</button>
+                        <button class="wdd-button alt-color" ng-if="detail.term.updating" ng-disabled="detail.isLock" ng-click="vm.deleteChanges(detail)">ANNULLA MODIFICHE</button>
+                        <button class="wdd-button" ng-if="detail.term.updating" ng-disabled="detail.isLock" ng-click="vm.saveChanges(detail)" enabled-button is-disabled="detail.isLock" id-button="save-button-{{key}}">SALVA MODIFICHE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="wwd-modal__footer">
+        <button class="wdd-button" type="button" ng-click="vm.close()">Chiudi</button>
+    </div>
+
+</div>

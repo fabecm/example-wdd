@@ -29,6 +29,11 @@ import EntityHistoryTemplate from '../templates/entityHistory.template.html';
 import { NewEntityController } from '../templates/newEntity';
 import NewEntityTemplate from '../templates/newEntity.template.html';
 
+import { RelationsModalController } from '../templates/relationsModal';
+import RelationModalTemplate from '../templates/relationsModal.template.html';
+
+import { DataDetailController } from '../../../states/dataDetail/dataDetail.controller';
+import DataDetailTemplate from '../templates/dataDetailModal.template.html';
 import ExcelTemplate from '../../../public/CaricamentoMassivo_V1.xlsx';
 import { saveAs } from 'file-saver';
 
@@ -100,6 +105,42 @@ export class ModalService {
             //     workspaceId: workspaceId,
             //     isDraft: isDraft
             // }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openMDDataDetail (id, isDraft, workspaceId) {
+        let modalInstance = this.$uibModal.open({
+            template: DataDetailTemplate,
+            controller: DataDetailController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            size: 'lg',
+            keyboard: false,
+            scope: angular.extend(this.$rootScope, {
+                id: id,
+                isDraft: isDraft,
+                workspaceId: workspaceId
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openRelationsModal (termId, termType) {
+        let modalInstance = this.$uibModal.open({
+            template: RelationModalTemplate,
+            controller: RelationsModalController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            scope: angular.extend(this.$rootScope, {
+                termId: termId,
+                termType: termType
+            }),
             resolve: {}
         });
 

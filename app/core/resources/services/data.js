@@ -36,4 +36,8 @@ export class DataService {
     getDQEntityApprovalRequest (pageNumber, pageLength, params = {}) {
         return this.$http.post(`WDD/search/dataquality/entityapproval?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
+
+    getRelationModal (pageNumber, pageLength, params = {}) {
+        return this.$http.post(`WDD/search/relation?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
+    }
 }

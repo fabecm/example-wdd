@@ -120,6 +120,10 @@ export class FilterWorkspace {
         }
     }
 
+    getRelativeFiler (type) {
+        return this.$http.get(`WDD/filter/relation?term_type=${type}`);
+    }
+
     checkProperty (property, label) {
         if (property) {
             return `&${label}=${property}`;

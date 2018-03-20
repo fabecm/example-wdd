@@ -42,7 +42,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             tableKey: '@',
             promise: '=?',
             textSpinner: '@?',
-            tableIsEmpty: '=?'
+            tableIsEmpty: '=?',
+            hasRelationModal: '@?'
         },
         template: template,
         link: (scope) => {
@@ -354,11 +355,11 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 }
             };
 
-            if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreationBtn) {
+            if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreationBtn || scope.hasRelationModal) {
                 scope.hasIcon = true;
             }
 
-            scope.iconNumber = Number(!!scope.hasPrimaryNavigationBtn) + Number(!!scope.hasSecondaryNavigationBtn) + Number(!!scope.hasTernaryNavigationBtn);
+            scope.iconNumber = Number(!!scope.hasPrimaryNavigationBtn) + Number((!!scope.hasSecondaryNavigationBtn) || !!scope.hasRelationModal) + Number(!!scope.hasTernaryNavigationBtn);
 
             if (scope.hasPrimaryLabel || scope.hasSecondaryLabel) {
                 scope.hasUnderTable = true;
@@ -396,6 +397,10 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
+                    if (scope.pathPrimaryNavigation === 'tab.dataDetail') {
+                        ModalService.openMDDataDetail(fieldId, scope.serviceResponse[row.key].draft, workspaceId);
+                        return;
+                    }
                     $state.go(scope.pathPrimaryNavigation, {
                         id: fieldId,
                         isDraft: scope.serviceResponse[row.key].draft,
@@ -423,6 +428,10 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         `${SessionService.objectIdSas}`,
                         `${scope.serviceResponse[row.key].id_field.id}`];
                     window.open(pathSas.join(''), '_blank');
+                } else if (row.action === 'showRelation') {
+                    ModalService.openRelationsModal(scope.serviceResponse[row.key].id_field.id, scope.serviceResponse[row.key].term_type.id).then(() => {
+                        scope.reloadData();
+                    });
                 }
             };
 

@@ -31,7 +31,7 @@
                     column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
                     has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
                     has-ternary-navigation-btn="ternaryNavigation" has-creation="hasCreation" status-to-disabled-creation="statusToDisabledCreation"
-                    is-from-child-table="isChild" check-row="checkValueChange({data: data})" is-sas="isToSas"></tr>
+                    is-from-child-table="isChild" check-row="checkValueChange({data: data})" is-sas="isToSas" has-relation-modal="hasRelationModal"></tr>
 
                 <tr class="collapsable" ng-if="expandable" ng-repeat-end="" ng-class="{'collapse': data.workspace.collapse, 'odd': $index % 2 !== 0, 'even': $index % 2 === 0}">
                     <td class="expandable-container" colspan="{{childCollspan()}}">
