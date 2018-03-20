@@ -4,24 +4,99 @@ export class EntityCensusController {
     tablePageSize = 10;
     tableExpandable = true;
 
-    constructor (SearchWorkspaceService, $q, $state, ModalService) {
-        'ngInject';
-        this.searchWorkspaceService = SearchWorkspaceService;
-        this.$q = $q;
-        this.$state = $state;
-        this.modalService = ModalService;
+    headerTable = [{
+        label: 'Tipo entità',
+        value: 'term_type'
+    }, {
+        label: 'Nome entità',
+        value: 'term_name'
+    }, {
+        label: 'Descrizione',
+        value: 'description'
+    }, {
+        label: 'Stato',
+        value: 'status'
+    }];
 
-        this.initRuDashboard();
+    headerTableExpandable = [{
+        label: 'Data Field',
+        value: 'data_field'
+    }, {
+        label: 'Data Table',
+        value: 'data_table'
+    }, {
+        label: 'Data Source',
+        value: 'data_source'
+    }, {
+        label: 'Technical Application',
+        value: 'tech_appl'
+    }, {
+        label: 'System Owner',
+        value: 'system_owner'
+    }, {
+        label: 'Stato',
+        value: 'status'
+    }];
+
+    sendToApproveStatus = ['In modifica'];
+
+    constructor ($state, $timeout, ModalService, WddCacheService) {
+        'ngInject';
+        this.$state = $state;
+        this.$timeout = $timeout;
+        this.modalService = ModalService;
+        this.wddCacheService = WddCacheService;
+
+        this.initEntityCensus();
     }
 
-    initRuDashboard () {
-        this.searchWorkspaceService.getWorkspaceRu().then(res => {
-            this.workspaceData = res.outputArray;
-            getHeader(this.$q).then(headerRes => {
-                this.headerTable = headerRes;
+    initEntityCensus () {
+        let param = {};
+        if (this.wddCacheService.getCachedFilter('filter_tab_entityCensus')) {
+            param = this.wddCacheService.getMapEntityFilter('filter_tab_entityCensus');
+            param.resetPage = false;
+        }
+        this.$timeout(() => {
+            this.reloadTableData({
+                filterSetted: param
             });
-            getHeaderExpandable(this.$q).then(headerExpRes => {
-                this.headerTableExpandable = headerExpRes;
+        });
+    }
+
+    filterChanged (filterApplied) {
+        let param = filterApplied;
+        param.resetPage = true;
+        this.filterApplied = filterApplied;
+
+        this.$timeout(() => {
+            this.reloadTableData({
+                filterSetted: param
+            });
+        });
+    }
+
+    createNewEntity () {
+        this.modalService.openNewEntity().then(() => {
+            this.$timeout(() => {
+                this.reloadTableData({
+                    filterSetted: this.filterApplied
+                });
+            });
+        });
+    }
+
+    sendToApprove (selectedItems) {
+        let param = {
+            selectedItems: selectedItems,
+            action: 'FORWARD',
+            text: this.modalService.getForwardText()
+        };
+        this.modalService.openActionModal(param).then(() => {
+            this.$timeout(() => {
+                this.showTab = true;
+                this.reloadTableData({
+                    filterSetted: this.filterSetted
+                });
             });
         });
     }
@@ -32,40 +107,4 @@ export class EntityCensusController {
         }
     }
 
-    createNewWorkspace () {
-        this.modalService.openNewWorkspaceModal();
-    }
-}
-
-function getHeader ($q) {
-    let defer = $q.defer();
-    defer.resolve([{
-        label: 'Tipo entità',
-        value: 'workspace'
-    }, {
-        label: 'Nome entità',
-        value: 'description'
-    }, {
-        label: 'Descrizione',
-        value: 'start_date'
-    }, {
-        label: 'Stato',
-        value: 'state'
-    }]);
-    return defer.promise;
-}
-
-function getHeaderExpandable ($q) {
-    let defer = $q.defer();
-    defer.resolve([{
-        label: 'Tipo entità',
-        value: 'data_field'
-    }, {
-        label: 'Nome entità',
-        value: 'data_table'
-    }, {
-        label: 'Descrizione',
-        value: 'data_source'
-    }]);
-    return defer.promise;
 }

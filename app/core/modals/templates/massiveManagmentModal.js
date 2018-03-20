@@ -22,10 +22,11 @@ export class MassiveManagmentModalController {
     sendFile () {
         var fd = new FormData();
         fd.append('file', this.file);
-        this.$http.post('WDD/uploadFile', fd, {
+        this.uploadPromise = this.$http.post('WDD/uploadFile', fd, {
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
-        }).then(res => {
+        });
+        this.uploadPromise.then(res => {
             if (res.data.result) {
                 this.wddAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'uploadFile');
                 this.$uibModalInstance.close();

@@ -1,0 +1,39 @@
+<div class="wwd-modal">
+    <div class="wwd-modal__title">
+        <div class="" id="modal-title">Vista Relazioni</div>
+    </div>
+    <div class="wwd-modal__body__container" id="modal-body">
+        <div class="wwd-modal__processHistory">
+
+            <div class="wdd-filter-container">
+                <div class="expandable">
+                    <button class="wdd-button icon-only" ng-click="expandableFilter()">
+                        <i class="icon" ng-class="{'icon-down-arrow': !isFilterActive, 'icon-right-arrow': isFilterActive}"></i>
+                    </button>
+                </div>
+                <div class="filter-row" ng-show="!isFilterActive">
+                    <div class="filter-reduced-wrapper">
+                        <label class="wdd-checkbox" for="{{checkbox.id}}" ng-repeat="checkbox in vm.checkboxFilters">
+                            <input type="checkbox" class="checkbox-input" id="{{checkbox.id}}" ng-model="checkbox.enabled">
+                            {{ checkbox.label }}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-action" ng-show="!isFilterActive" style="width: 250px;">
+                    <div class="filter-action-buttons">
+                        <button class="wdd-button width-adapt" style="margin-right: 3px;" ng-click="vm.resetFilter()">Pulisci</button>
+                        <button class="wdd-button width-adapt" style="margin-right: 3px;" ng-click="vm.setFilter()">Ricerca</button>
+                    </div>
+                </div>
+            </div>
+
+            <wdd-table reload-data="vm.reloadTableData" table-key="relationModal" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}"></wdd-table>
+        </div>
+
+    </div>
+    <div class="wwd-modal__footer">
+        <button class="wdd-button" type="button" ng-click="vm.close()">Chiudi</button>
+    </div>
+
+</div>

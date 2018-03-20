@@ -4,7 +4,8 @@
 <div class="search-page">
     <wdd-filter applied-filter="vm.filterChanged(filterApplied)" show-status-input="true"></wdd-filter>
 
-    <div class="tabbed-tables">
+    <!-- <div class="spinner-search" ng-show="!vm.showTabsWhileReloading && ((vm.firstTable.$$state && vm.firstTable.$$state.status == 0) || (vm.secondTable.$$state && vm.secondTable.$$state.status == 0))" wdd-spinner="[vm.firstTable.$$state, vm.secondTable.$$state]" spinner-style="floating"></div> -->
+    <div class="tabbed-tables" >
         <div class="table-tab-holder wdd-primary-header" ng-show="vm.showTab" ng-style="{ 'width': vm.showEntityView ? '500px': '250px' }">
             <div class="table-tab wdd-tab" ng-class="{'selected': vm.selectedTab == 0}" ng-click="vm.changeTab(0)">
                 <span>Vista Dato</span>
@@ -16,13 +17,13 @@
         <div ng-show="vm.selectedTab == 0">
             <wdd-table reload-data="vm.reloadTableData" table-key="searchPage" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
                 page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail"
-                has-secondary-navigation-btn="true" path-secondary-navigation="tab.dataLineage" has-ternary-navigation-btn="true" path-ternary-navigation="tab.dataLineage" is-to-sas="true"></wdd-table>
+                has-secondary-navigation-btn="true" path-secondary-navigation="tab.dataLineage" has-ternary-navigation-btn="true"
+                path-ternary-navigation="tab.dataLineage" is-to-sas="true" promise="vm.firstTable" text-spinner="true"></wdd-table>
         </div>
         <div ng-show="vm.selectedTab == 1">
-            <wdd-table ng-if="vm.rawDataEntity && vm.rawDataEntity.length && vm.headerEntityTable" service-response-obj="{{ {array: vm.rawDataEntity} }}"
-                header-array-obj="{{ {array: vm.headerEntityTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
-                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" has-secondary-navigation-btn="true"
-                is-to-sas="true"></wdd-table>
+            <wdd-table reload-data="vm.reloadTableEntity" table-key="searchEntity" header-array-obj="{{ {array: vm.headerEntityTable} }}"
+                pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
+                path-primary-navigation="tab.dataDetail" has-ternary-navigation-btn="true" has-relation-modal="true" is-to-sas="true" promise="vm.secondTable" text-spinner="true"></wdd-table>
         </div>
     </div>
 </div>

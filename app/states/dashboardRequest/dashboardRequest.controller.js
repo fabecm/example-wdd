@@ -17,15 +17,12 @@ export class DashboardRequestController {
         value: 0,
         color: '#df5356',
         childPage: 'tab.automaticEvents'
+    }, {
+        label: 'Richieste approvazione entità',
+        value: 0,
+        color: '#FB8C00',
+        childPage: 'tab.entityApprovalRequest'
     }];
-
-    // To add in chartValues
-    // , {
-    //     label: 'Richieste di approvazione entità',
-    //     value: 0,
-    //     color: '#FB8C00',
-    //     childPage: ''
-    // }
 
     headerRichiestaDocumentazione = [{
         label: 'Workspace',
@@ -102,6 +99,20 @@ export class DashboardRequestController {
         value: 'status'
     }];
 
+    headerEntityApprovalRequest = [{
+        label: 'Tipo entità',
+        value: 'term_type'
+    }, {
+        label: 'Nome entità',
+        value: 'term_name'
+    }, {
+        label: 'Descrizione',
+        value: 'description'
+    }, {
+        label: 'Stato',
+        value: 'status'
+    }];
+
     constructor (DashboardsService, TableService) {
         'ngInject';
         this.dashboardsService = DashboardsService;
@@ -116,7 +127,7 @@ export class DashboardRequestController {
             this.chartValues[0].value = chartData.data.array[0].value;
             this.chartValues[1].value = chartData.data.array[1].value;
             this.chartValues[2].value = chartData.data.array[2].value;
-            // this.chartValues[3].value = chartData.data.array[3].value;
+            this.chartValues[3].value = chartData.data.array[3].value;
 
             this.dataAvailable = true;
         });
@@ -136,6 +147,11 @@ export class DashboardRequestController {
         this.automaticEventsPromise = this.tableService.getTableData('automaticEvents', {}, 1, 3);
         this.automaticEventsPromise.then(res => {
             this.tableAutomaticEvents = res.dataTable;
+        });
+
+        this.entityApprovalRequestPromise = this.tableService.getTableData('entityApprovalRequest', {}, 1, 3);
+        this.entityApprovalRequestPromise.then(res => {
+            this.tableEntityApprovalRequest = res.dataTable;
         });
     }
 

@@ -1,5 +1,5 @@
 export class FilterWorkspace {
-    constructor ($http, $q, $log, DatasourceService, ClassificationService, WorkspaceService, DetailsService) {
+    constructor ($http, $q, $log, DatasourceService, ClassificationService, WorkspaceService, DetailsService, FilterEntityService) {
         'ngInject';
         this.$http = $http;
         this.$q = $q;
@@ -8,9 +8,13 @@ export class FilterWorkspace {
         this.classificationService = ClassificationService;
         this.workspaceService = WorkspaceService;
         this.detailsService = DetailsService;
+        this.filterEntityService = FilterEntityService;
     }
 
-    updateList (type, search, dipendence) {
+    updateList (type, search, dipendence, options) {
+        let isInitiativeCensus = options.isInitiativeCensus;
+        let isBSRLorTCRL = options.isBSRLorTCRL;
+        let dfTermId = options.dfTermId;
         let stringSearched;
         if (search) {
             stringSearched = search.replace(new RegExp('%', 'g'), '%25');
@@ -45,7 +49,7 @@ export class FilterWorkspace {
                     return res.data.system_owner;
                 });
             case 'entity':
-                return this.classificationService.getEntity(dipendence, stringSearched).then(res => {
+                return this.classificationService.getEntity(dipendence, stringSearched, isBSRLorTCRL ? dfTermId : undefined).then(res => {
                     if (res.data.array) {
                         res.data.array.unshift({
                             label: 'Tutti',
@@ -54,6 +58,8 @@ export class FilterWorkspace {
                     }
                     return res.data.array;
                 });
+            case 'entityNoFather':
+                return this.classificationService.getEntityNoFather(stringSearched).then(res => res.data.array);
             case 'attribute':
                 return this.classificationService.getAttribute(dipendence, stringSearched).then(res => {
                     res.data.array.unshift({
@@ -66,12 +72,23 @@ export class FilterWorkspace {
                 return this.getResponsibleUser(stringSearched).then(res => res.data.array);
             case 'entityName':
                 return this.detailsService.getEntityNameType(dipendence, stringSearched).then(res => res.data.array);
+            case 'ENT_TYPE':
+            case 'ENT_NAME':
+            case 'ENT_DESCR':
+            case 'ENT_STATUS':
+                return this.filterEntityService.getFilterEntity(type, dipendence).then(res => {
+                    res.data.output.unshift({
+                        label: 'Tutti',
+                        id: -1
+                    });
+                    return res.data.output;
+                });
             case 'newRequestSO':
             case 'newRequestTA':
             case 'newRequestDS':
             case 'newRequestDT':
             case 'newRequestDF':
-                return this.workspaceService.getFieldValues(type, stringSearched, dipendence).then(res => res.data.array);
+                return this.workspaceService.getFieldValues(type, stringSearched, dipendence, isInitiativeCensus).then(res => res.data.array);
             default:
                 return this.$q.when([]);
         }
@@ -103,6 +120,10 @@ export class FilterWorkspace {
         }
     }
 
+    getRelativeFiler (type) {
+        return this.$http.get(`WDD/filter/relation?term_type=${type}`);
+    }
+
     checkProperty (property, label) {
         if (property) {
             return `&${label}=${property}`;
@@ -115,72 +136,4 @@ export class FilterWorkspace {
         return this.$http.get('WDD/filter/responsibleUser');
     }
 
-    // getDescription (stringSearched) {
-    //     this.$log.debug(stringSearched);
-    //     return getMockedDescription(this.$q);
-    // }
 }
-
-// function getMockedDescription ($q) {
-//     var deferred = $q.defer();
-
-//     var x = Date.now();
-
-//     if (x % 2 === 0) {
-//         deferred.resolve([{
-//             label: 'd5',
-//             value: 5
-//         }, {
-//             label: 'd6',
-//             value: 6
-//         }, {
-//             label: 'd7',
-//             value: 7
-//         }]);
-//     } else {
-//         deferred.resolve([{
-//             label: 'd8',
-//             value: 8
-//         }, {
-//             label: 'd9',
-//             value: 9
-//         }, {
-//             label: 'd0',
-//             value: 0
-//         }]);
-//     }
-
-//     return deferred.promise;
-// }
-
-// function getMockedWorkspace ($q) {
-//     var deferred = $q.defer();
-
-//     var x = Date.now();
-
-//     if (x % 2 === 0) {
-//         deferred.resolve([{
-//             label: 'w5',
-//             value: 5
-//         }, {
-//             label: 'w6',
-//             value: 6
-//         }, {
-//             label: 'w7',
-//             value: 7
-//         }]);
-//     } else {
-//         deferred.resolve([{
-//             label: 'w8',
-//             value: 8
-//         }, {
-//             label: 'w9',
-//             value: 9
-//         }, {
-//             label: 'w0',
-//             value: 0
-//         }]);
-//     }
-
-//     return deferred.promise;
-// }

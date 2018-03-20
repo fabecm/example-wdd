@@ -7,7 +7,7 @@ export class SearchController {
     currentPage = 1;
     // filterBootstrap = {};
 
-    showEntityView = false;
+    showEntityView = true;
 
     filterStatus = [{
         label: 'Tutti'
@@ -74,18 +74,19 @@ export class SearchController {
         value: 'description'
     }, {
         label: 'Stato',
-        value: 'state'
+        value: 'status'
     }, {
         label: 'Ultima Modifica',
-        value: 'last_change'
+        value: 'modified_date'
     }];
 
-    constructor (DataService, DatasourceService, $timeout, WddCacheService) {
+    constructor (DataService, DatasourceService, $timeout, WddCacheService, WDDAlert) {
         'ngInject';
         this.datasourceService = DatasourceService;
         this.dataService = DataService;
         this.$timeout = $timeout;
         this.wddCacheService = WddCacheService;
+        this.wddAlert = WDDAlert;
 
         this.initSearchPage();
     }
@@ -94,22 +95,40 @@ export class SearchController {
         if (this.wddCacheService.getCachedFilter('filter_tab_search')) {
             let param = {};
             param.resetPage = false;
+            this.selectedTab = this.wddCacheService.getCachedFilter('filter_tab_search').tab ? this.wddCacheService.getCachedFilter('filter_tab_search').tab : 0;
             this.mapFilterSetted(param, this.wddCacheService.getCachedFilter('filter_tab_search'));
         }
     }
 
     changeTab (tab) {
         this.selectedTab = tab;
+        this.wddAlert.removeAlert();
+        this.showTabsWhileReloading = true;
+        if (this.selectedTab === 0) {
+            this.wddCacheService.cacheSearchTab('filter_tab_search', 0);
+            this.reloadTableData({
+                filterSetted: this.filterApplied
+            });
+        } else if (this.selectedTab === 1) {
+            this.wddCacheService.cacheSearchTab('filter_tab_search', 1);
+            this.reloadTableEntity({
+                filterSetted: this.filterApplied
+            });
+        }
     }
 
     filterChanged (arrayFilter) {
         let param = {};
         param.resetPage = true;
 
+        this.showTabsWhileReloading = false;
+
         this.mapFilterSetted(param, arrayFilter);
     }
 
     mapFilterSetted (param, arrayFilter) {
+        this.showTabsWhileReloading = false;
+
         if (arrayFilter.process_owner_id && arrayFilter.process_owner_id !== -1) {
             param.process_owner_id = arrayFilter.process_owner_id;
         } else {
@@ -127,11 +146,21 @@ export class SearchController {
             param.array_filter_text = arrayFilter.arrayFilter;
         }
 
+        this.filterApplied = param;
+
         this.$timeout(() => {
             this.showTab = true;
-            this.reloadTableData({
-                filterSetted: param
-            });
+            if (this.selectedTab === 0) {
+                this.wddCacheService.cacheSearchTab('filter_tab_search', 0);
+                this.reloadTableData({
+                    filterSetted: param
+                });
+            } else if (this.selectedTab === 1) {
+                this.wddCacheService.cacheSearchTab('filter_tab_search', 1);
+                this.reloadTableEntity({
+                    filterSetted: param
+                });
+            }
         });
     }
 }

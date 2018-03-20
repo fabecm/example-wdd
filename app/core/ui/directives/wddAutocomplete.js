@@ -14,12 +14,17 @@ export function WddAutocomplete ($log, FilterWorkspace) {
             isEditable: '=',
             isReadonly: '@',
             requiredDependence: '@',
-            promise: '='
+            promise: '=',
+            preselectIfOne: '@',
+            isInitiativeCensus: '=',
+            isBsrlOrTcrl: '=', // is business role or technical rule
+            dfTermId: '=' // Data field term id
         },
         template: template,
         link: (scope, element, attribute, ngModel) => {
             scope.isListVisible = false;
             scope.model = {};
+            scope.blockUserActions = false;
             scope.idAutocomplete = 'wdd-autocomplete-' + scope.type;
             scope.idClicker = 'autocomplete-clicker-' + scope.type;
 
@@ -85,14 +90,22 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 } else {
                     typeSelected = scope.type;
                 }
-                const requestFilter = FilterWorkspace.updateList(typeSelected, scope.model.label, scope.dipendenceObj);
+                const requestFilter = FilterWorkspace.updateList(typeSelected, scope.model.label, scope.dipendenceObj, {
+                    isInitiativeCensus: scope.isInitiativeCensus,
+                    isBSRLorTCRL: scope.isBsrlOrTcrl,
+                    dfTermId: scope.dfTermId
+                });
                 scope.promise = requestFilter;
                 requestFilter.then(res => {
                     scope.listValues = res;
 
-                    if (!scope.originalList) {
-                        scope.originalList = angular.copy(scope.listValues);
+                    let testerArrayLength = angular.copy(res).filter(e => Number(e.id) !== -1);
+                    if (scope.preselectIfOne === 'true' && testerArrayLength.length === 1) {
+                        scope.itemSelected(testerArrayLength[0], true);
                     }
+                    // if (!scope.originalList) {
+                    scope.originalList = angular.copy(scope.listValues);
+                    // }
 
                     ngModel.$render();
                 });
@@ -127,12 +140,14 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                 scope.updateListValue();
             };
 
-            scope.itemSelected = (item) => {
+            scope.itemSelected = (item, forceSkip) => {
                 scope.model.label = angular.copy(item.label);
                 ngModel.$setViewValue(item.id);
                 ngModel.$setValidity('incomplete', true);
                 ngModel.$render(item);
-                scope.showListValues();
+                if (!forceSkip) {
+                    scope.showListValues();
+                }
             };
 
             scope.updateListValue = () => {
@@ -142,7 +157,11 @@ export function WddAutocomplete ($log, FilterWorkspace) {
                     ngModel.$render(scope.model);
                     scope.model.label = provisionalLabel;
 
-                    const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendenceObj);
+                    const requestFilter = FilterWorkspace.updateList(scope.type, scope.model.label, scope.dipendenceObj, {
+                        isInitiativeCensus: scope.isInitiativeCensus,
+                        isBSRLorTCRL: scope.isBsrlOrTcrl,
+                        dfTermId: scope.dfTermId
+                    });
                     scope.promise = requestFilter;
                     requestFilter.then(res => {
                         scope.listValues = res;

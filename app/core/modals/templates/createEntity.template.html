@@ -10,8 +10,8 @@
                         Nome
                     </div>
                     <div class="col-xs-11 createEntity">
-                        <wdd-autocomplete ng-model="vm.entityName.value" placeholder="Seleziona nome" type="entityName" new-value="true" promise="vm.entityNamePromise"
-                            dipendence="{{ [vm.entityType] }}"></wdd-autocomplete>
+                        <wdd-autocomplete ng-model="vm.entityName.value" placeholder="Seleziona nome" type="entityName" new-value="vm.isAutomaticSave ? false : true" promise="vm.entityNamePromise"
+                            dipendence="{{ [vm.entityType] }}" preselect-if-one="true" is-bsrl-or-tcrl="vm.isAutomaticSave" df-term-id="vm.dataFieldDetails[0].term.tempTermId"></wdd-autocomplete>
                     </div>
                 </div>
 

@@ -3,18 +3,26 @@ export class DataDetailController {
     listDataDetails = [];
     visibleDataDetails = [];
 
-    constructor (DetailsService, $stateParams, ModalService, WDDAlert, $log) {
+    constructor (DetailsService, $stateParams, ModalService, WDDAlert, $log, $scope, $uibModalInstance) {
         'ngInject';
         this.detailsService = DetailsService;
         this.$stateParams = $stateParams;
+        this.$scope = $scope;
         this.modalService = ModalService;
         this.WDDAlert = WDDAlert;
         this.$log = $log;
+        this.$uibModalInstance = $uibModalInstance;
 
-        this.isDraft = JSON.parse(this.$stateParams.isDraft);
+        this.params = {
+            id: this.$stateParams.id ? this.$stateParams.id : this.$scope.$parent.id,
+            isDraft: this.$stateParams.isDraft ? this.$stateParams.isDraft : this.$scope.$parent.isDraft,
+            workspaceId: this.$stateParams.workspaceId ? this.$stateParams.workspaceId : this.$scope.$parent.workspaceId
+        };
+
+        this.isDraft = JSON.parse(this.params.isDraft);
 
         if (this.isDraft) {
-            this.workspaceId = JSON.parse(this.$stateParams.workspaceId);
+            this.workspaceId = JSON.parse(this.params.workspaceId);
         } else {
             this.workspaceId = 1;
         }
@@ -23,7 +31,7 @@ export class DataDetailController {
     }
 
     initDataDetails () {
-        this.getDataFieldDetailsPromise = this.detailsService.getDataFieldDetails(this.$stateParams.id, this.$stateParams.isDraft);
+        this.getDataFieldDetailsPromise = this.detailsService.getDataFieldDetails(this.params.id, this.params.isDraft);
         this.getDataFieldDetailsPromise.then(res => {
             this.listDataDetails = res.data.array;
             this.visibleDataDetails = res.data.array.map(data => {
@@ -49,13 +57,24 @@ export class DataDetailController {
     }
 
     showProcessHistory () {
-        this.modalService.openProcessHistoryModal(this.$stateParams.id);
+        this.modalService.openProcessHistoryModal(this.params.id);
+    }
+
+    checkIfSuspendedModification (thisDetail) {
+        const filtered = this.visibleDataDetails.find(e => {
+            return (e.term.termtype !== thisDetail.term.termtype) && !e.isLock;
+        });
+        return !!filtered;
     }
 
     createEtity (termtype) {
         this.modalService.openCreateEntity(termtype, this.visibleDataDetails, this.workspaceId, this.isDraft).then(() => {
             this.initDataDetails();
         });
+    }
+
+    close () {
+        this.$uibModalInstance.dismiss();
     }
 
     unlockAction (index) {
@@ -185,7 +204,11 @@ export class DataDetailController {
         this.deleteEntityDraftPromise = this.detailsService.deleteEntityDraft(deleteDraft);
         this.deleteEntityDraftPromise.then(res => {
             if (res.data.result) {
-                this.initDataDetails();
+                if (detail.term.termtype === 'DATA_FIELD') {
+                    this.back();
+                } else {
+                    this.initDataDetails();
+                }
                 this.WDDAlert.showAlert('success', 'OPERAZIONE EFFETTUATA CON SUCCESSO', 'delete-draft');
             } else {
                 this.WDDAlert.showAlert('error', 'OPERAZIONE NON EFFETTUATA', 'delete-draft');
@@ -265,5 +288,9 @@ export class DataDetailController {
             t.isOpened = shouldOpen;
             return t;
         });
+    }
+
+    openEntityHistoryModal (termDetail) {
+        this.modalService.openEntityHistoryModal(termDetail);
     }
 }

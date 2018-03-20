@@ -1,0 +1,98 @@
+{
+    "page_count": 6,
+    "data_list": [
+        {
+            "workspace": {
+                "label": "2018-02-24 AB",
+                "id": "581"
+            },
+            "data_field": {
+                "label": "CAMPO_SICUREZZA_3"
+            },
+            "data_field_description": {
+                "label": "CAMPO_SICUREZZA_3"
+            },
+            "data_table": {
+                "label": "TAB_SICUREZZA"
+            },
+            "data_source": {
+                "label": "DS_SICUREZZA"
+            },
+            "tech_application": {
+                "label": "NBS"
+            },
+            "system_owner": {
+                "label": "UBIS-PRICING & SALES APPLICATIONS"
+            },
+            "id_field": {
+                "id": "D7001"
+            },
+            "draft": true,
+            "status": {
+                "label": "Da inviare in produzione"
+            }
+        },
+        {
+            "workspace": {
+                "label": "AAA_WS_TEST",
+                "id": "541"
+            },
+            "data_field": {
+                "label": "DATA FIELD3 GESTIONE LISTINI"
+            },
+            "data_field_description": {
+                "label": "DATA FIELD3 GESTIONE LISTINI"
+            },
+            "data_table": {
+                "label": "DATA TABLE GESTIONE LISTINI"
+            },
+            "data_source": {
+                "label": "DATA SOURCE GESTIONE LISTINI"
+            },
+            "tech_application": {
+                "label": "GSL"
+            },
+            "system_owner": {
+                "label": "UBIS-PRICING & SALES APPLICATIONS"
+            },
+            "id_field": {
+                "id": "D6886"
+            },
+            "draft": true,
+            "status": {
+                "label": "Da inviare in produzione"
+            }
+        },
+        {
+            "workspace": {
+                "label": "AB test 12-02-2018 v2",
+                "id": "442"
+            },
+            "data_field": {
+                "label": "CAMPO my GEODE"
+            },
+            "data_field_description": {
+                "label": "CAMPO my GEODE"
+            },
+            "data_table": {
+                "label": "DD - DT - TABELLA my GEODE"
+            },
+            "data_source": {
+                "label": "DD - DS - DATABASE my GEODE"
+            },
+            "tech_application": {
+                "label": "DD - TA - SIE"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-FRONT OFFICE & PROPRIETARY TRADING APPLICATIONS"
+            },
+            "id_field": {
+                "id": "D5130"
+            },
+            "draft": true,
+            "status": {
+                "label": "In approvazione"
+            }
+        }
+    ]
+}

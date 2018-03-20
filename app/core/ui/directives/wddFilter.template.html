@@ -16,7 +16,7 @@
 
             <div class="wdd-labeled-input" ng-show="showStatusInput">
                 <label for="filterStatus">Stato</label>
-                <div class="wbb-select">
+                <div class="wbb-select" ng-disabled="filterStatus.length === 1">
                     <select name="filterStatus" ng-model="values.statusChosen.label" ng-options="opt.label as opt.label for opt in filterStatus"
                         ng-change="lockSystemOwner()">
                     </select>

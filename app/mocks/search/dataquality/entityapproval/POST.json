@@ -1,0 +1,87 @@
+{
+    "page_count": 2,
+    "data_list": [
+        {
+            "id_field": {
+                "id": "D6847"
+            },
+            "term_name": {
+                "label": "DD - BD - PROVA_BUSINESS _DATA"
+            },
+            "term_type": {
+                "label": "BUSINESS DATA"
+            },
+            "description": {},
+            "status": {
+                "label": "In approvazione",
+                "id": 3
+            },
+            "workspace": {
+                "id": 501
+            },
+            "draft": true,
+            "data_fields": []
+        },
+        {
+            "id_field": {
+                "id": "D6884"
+            },
+            "term_name": {
+                "label": "DD - BR - FOTOTOT-RK-NDG.SGS"
+            },
+            "term_id": {
+                "id": 1077177
+            },
+            "term_type": {
+                "label": "BUSINESS RULE"
+            },
+            "description": {
+                "label": "Regola di business per il dato FOTOTOT-RK-NDG (codice NDG processato.) alimentato dal settoriale SGS_PROVA MODIFICA CON IL DQ"
+            },
+            "status": {
+                "label": "Da inviare in produzione da iniziativa",
+                "id": 4
+            },
+            "workspace": {
+                "id": 501
+            },
+            "draft": true,
+            "data_fields": [
+                {
+                    "id_field": "1079995",
+                    "term_name": {
+                        "label": "DD - TR - FOTOTOT-RK-NDG - %%%.SGS.AM708S.IYFOTOTT"
+                    },
+                    "term_type": {
+                        "label": "TECHNICAL RULE"
+                    },
+                    "description": {
+                        "label": "Regola tecnica estrazione dato FOTOTOT-RK-NDG (codice NDG processato.)"
+                    },
+                    "draft": false
+                }
+            ]
+        },
+        {
+            "id_field": {
+                "id": "D6848"
+            },
+            "term_name": {
+                "label": "DD - BR - PROVA_BR"
+            },
+            "term_type": {
+                "label": "BUSINESS RULE"
+            },
+            "description": {},
+            "status": {
+                "label": "In approvazione",
+                "id": 3
+            },
+            "workspace": {
+                "id": 501
+            },
+            "draft": true,
+            "data_fields": []
+        }
+    ]
+}

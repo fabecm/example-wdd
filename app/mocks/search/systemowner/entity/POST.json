@@ -1,0 +1,44 @@
+{
+  "page_count": 1,
+  "data_list": [
+    {
+      "workspace": { "id": 0 },
+      "type_entity": { "label": "type_entity" },
+      "name_entity": { "label": "name_entity" },
+      "description": { "label": "description" },
+      "data_fields": [{
+        "workspace": { "id": 0 },
+        "data_field": { "label": "data_field", "id": "0" },
+        "data_table": { "label": "data_table", "id": "0" },
+        "data_source": { "label": "data_source", "id": "0" },
+        "tech_application": { "label": "tech_application", "id": "0" },
+        "system_owner": { "label": "system_owner", "id": "0" },
+        "id_field": { "id": "D779" },
+        "draft": true,
+        "status": { "label": "status" }
+      }],
+      "id_field": { "id": "D868" },
+      "draft": true,
+      "status": { "label": "status" }
+    }, {
+      "workspace": { "id": 0 },
+      "type_entity": { "label": "type_entity" },
+      "name_entity": { "label": "name_entity" },
+      "description": { "label": "description" },
+      "data_fields": [{
+        "workspace": { "id": 0 },
+        "data_field": { "label": "data_field", "id": "0" },
+        "data_table": { "label": "data_table", "id": "0" },
+        "data_source": { "label": "data_source", "id": "0" },
+        "tech_application": { "label": "tech_application", "id": "0" },
+        "system_owner": { "label": "system_owner", "id": "0" },
+        "id_field": { "id": "D779" },
+        "draft": true,
+        "status": { "label": "status" }
+      }],
+      "id_field": { "id": "D868" },
+      "draft": true,
+      "status": { "label": "status" }
+    }
+  ]
+}

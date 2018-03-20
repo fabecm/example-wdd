@@ -9,6 +9,15 @@ $color_mine_shaft_approx: white;
     bottom: 0;
     z-index: 3;
 	background: rgba(rgb(107, 107, 107), .4);
+
+	.spinner-text{
+		width: 100%;
+		height: 30px;
+		font-size: 20px;
+		text-align: center;
+		color: white;
+		line-height: 30px;
+	}
 	
 	&.floating{
 		background: transparent;

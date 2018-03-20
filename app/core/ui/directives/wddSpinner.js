@@ -11,9 +11,13 @@ export function WddSpinner ($compile) {
             if (position !== 'absolute' && position !== 'relative') {
                 elem.css('position', 'relative');
             }
+            if (scope.spinnerStyle === 'onlyText') {
+                scope.showText = true;
+            }
             elem.append($compile(`
                 <div class="wdd-spinner" ng-class="spinnerStyle" ng-if="checkPromises()">
-                    <div class="sk-circle">
+                    <div ng-show="showText" class="spinner-text">Caricamento in corso...</div>
+                    <div ng-hide="showText" class="sk-circle">
                         <div class="sk-circle1 sk-child"></div>
                         <div class="sk-circle2 sk-child"></div>
                         <div class="sk-circle3 sk-child"></div>

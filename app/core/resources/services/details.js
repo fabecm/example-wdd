@@ -12,6 +12,14 @@ export class DetailsService {
         return this.$http.get(`WDD/details/autocomplete/?term_type=${dipendence[0]}&label_search=${stringSearched}`);
     }
 
+    getEntityVersionList (term_id) {
+        return this.$http.get(`WDD/entity/version/${term_id}`);
+    }
+
+    getEntityVersion (term_id, version_number) {
+        return this.$http.get(`WDD/entity/history?term_id=${term_id}&version_number=${version_number}`);
+    }
+
     getDataFieldDetails (termId, isDraft) {
         return this.$http.get(`WDD/details/${termId}?draft=${isDraft}`);
     }

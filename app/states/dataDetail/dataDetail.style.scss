@@ -105,6 +105,18 @@ $header-data-detail: 40px;
                 flex-direction: row;
                 padding: 5px;
                 flex-wrap: wrap;
+                position: relative;
+                .click-blocker{
+                    position: absolute;
+                    background: rgba(0, 0, 0, .3);
+                    &.active-block{
+                        width: calc(100% + 2.5px);
+                        top: -2.5px;
+                        left: -2.5px;
+                        height: calc(100% + 2.5px);
+                        z-index: 100;
+                    }
+                }
                 .left-column, .right-column {
                     flex: 1;
                     background: white;
@@ -127,6 +139,11 @@ $header-data-detail: 40px;
 
                 .wdd-button {
                     margin-right: 20px;
+
+                    &.icon-only:first-child {
+                        flex: 1;
+                        justify-content: flex-start;
+                    }
                 }
             }
         }
@@ -212,8 +229,11 @@ $header-data-detail: 40px;
             padding-top: 5px;
             padding-bottom: 5px;
             min-height: 50px;
-            font-weight: 700;
-            // font-size: 12px;
+            // font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
         }
         &:first-child{
             .bar {

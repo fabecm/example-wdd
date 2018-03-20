@@ -20,6 +20,14 @@ export class TableService {
                     });
                 });
 
+            case 'searchEntity':
+                return this.dataService.getEntityData(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.outputArray,
+                        pages: res.data.page_count
+                    });
+                });
+
             case 'searchWorkspace':
                 return this.searchWorkspaceService.getWorkspace(pageNumber, pageLength, filterApplied).then(res => {
                     return ({
@@ -44,10 +52,34 @@ export class TableService {
                     });
                 });
 
+            case 'entityCensus':
+                return this.dataService.getSystemOwnerEntityCensuses(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.data_list,
+                        pages: res.data.page_count
+                    });
+                });
+
+            case 'entityApprovalRequest':
+                return this.dataService.getDQEntityApprovalRequest(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.data_list,
+                        pages: res.data.page_count
+                    });
+                });
+
             case 'approvalRequest':
                 return this.dataService.getDQApprovalRequest(pageNumber, pageLength, filterApplied).then(res => {
                     return ({
                         dataTable: res.data.data_list,
+                        pages: res.data.page_count
+                    });
+                });
+
+            case 'relationModal':
+                return this.dataService.getRelationModal(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.datalist,
                         pages: res.data.page_count
                     });
                 });

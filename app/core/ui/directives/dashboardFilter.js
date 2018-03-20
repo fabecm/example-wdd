@@ -120,7 +120,6 @@ export function DashboardFilter ($log, $state, WddCacheService, WDDAlert) {
                     isFilterActive: scope.isFilterActive
                 });
 
-                $log.debug(param);
                 scope.appliedFilter({
                     filterApplied: param
                 });

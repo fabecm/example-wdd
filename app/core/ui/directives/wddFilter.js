@@ -14,16 +14,24 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
             scope.filterKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
             scope.filtersArray = [];
             scope.values = {};
-            scope.filterStatus = [{
-                id: 0,
-                label: 'Tutti'
-            }, {
-                id: 1,
-                label: 'Bozza'
-            }, {
-                id: 2,
-                label: 'Produzione'
-            }];
+
+            if (UserService.getAutorities().indexOf('ROLE_SO') >= 0 || UserService.getAutorities().indexOf('ROLE_DQ') >= 0) {
+                scope.filterStatus = [{
+                    id: 0,
+                    label: 'Tutti'
+                }, {
+                    id: 1,
+                    label: 'Bozza'
+                }, {
+                    id: 2,
+                    label: 'Produzione'
+                }];
+            } else {
+                scope.filterStatus = [{
+                    id: 2,
+                    label: 'Produzione'
+                }];
+            }
 
             if (WddCacheService.getCachedFilter(scope.filterKey)) {
                 let listFilter = WddCacheService.getCachedFilter(scope.filterKey).arrayFilter ? WddCacheService.getCachedFilter(scope.filterKey).arrayFilter : [];
@@ -116,7 +124,7 @@ export function WddFilter ($log, $q, ClassificationService, WddCacheService, $st
                 let filtered = scope.filterSetted.filter(fil => {
                     return fil.text && (fil.text.length > 2);
                 });
-                return scope.filtersArray.length > 0 && filtered.length === scope.filtersArray.length;
+                return scope.filtersArray.length > 0 && filtered.length === scope.filtersArray.length && (scope.values.processOwnerChosen.value || scope.values.systemOwnerChosen.value);
             };
 
             scope.setFilter = () => {

@@ -12,6 +12,7 @@
 @import 'doughnutChart';
 @import 'wddAutocomplete';
 @import 'dashboardFilter';
+@import 'entityFilter';
 @import 'wddDatepicker';
 @import 'workspaceProgress';
 
@@ -43,4 +44,8 @@ body {
 
 input::-ms-clear {
     display: none;
+}
+
+i.icon.icon-disabled{
+    pointer-events: none;
 }

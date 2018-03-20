@@ -17,6 +17,13 @@ export class WddCacheService {
         this.filterCached[key].page = page;
     }
 
+    cacheSearchTab (key, tab) {
+        if (!this.filterCached[key]) {
+            this.filterCached[key] = {};
+        }
+        this.filterCached[key].tab = tab;
+    }
+
     getCachedFilter (key) {
         return this.filterCached[key];
     }
@@ -39,6 +46,26 @@ export class WddCacheService {
         }
         if (filter.endDate !== 'GG/MM/AAAA') {
             filterMapped.endDate = filter.endDate;
+        }
+
+        return filterMapped;
+    }
+
+    getMapEntityFilter (key) {
+        let filterMapped = {};
+        let filter = this.getCachedFilter(key);
+
+        if (filter.entitySelected && filter.entitySelected.value !== -1) {
+            filterMapped.termType = filter.entitySelected.value;
+        }
+        if (filter.entityNameSelected && filter.entityNameSelected.value !== -1) {
+            filterMapped.termName = filter.entityNameSelected.value;
+        }
+        if (filter.descriptionSelected && filter.descriptionSelected.value !== -1) {
+            filterMapped.description = filter.descriptionSelected.value;
+        }
+        if (filter.statusSelected && filter.statusSelected.value !== -1) {
+            filterMapped.statusId = filter.statusSelected.value;
         }
 
         return filterMapped;

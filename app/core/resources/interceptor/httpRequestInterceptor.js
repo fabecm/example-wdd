@@ -11,7 +11,7 @@ export function HttpRequestInterceptor ($injector, $q) {
             return config;
         },
         responseError: function (rejection) {
-            const message = rejection.statusText ? rejection.statusText: 'ERRORE NEL RECUPERO DEI DATI';
+            const message = 'SI È VERIFICATO UN ERRORE';
             const url = rejection.config.url;
             const apiBase = $injector.get('SessionService').apiEntry;
             let endpoint = url.substring(url.indexOf(apiBase) + apiBase.length, url.length);
@@ -22,8 +22,11 @@ export function HttpRequestInterceptor ($injector, $q) {
             let text = '';
             if (rejection.data && rejection.data.message_type === 'SHOW_ERROR') {
                 text = rejection.data.message;
+            } else if (Number(rejection.status) === 400) {
+                text = rejection.data.result.message;
             } else {
-                text = `${message} - (${endpoint})`;
+                // text = `${message} - (${endpoint})`;
+                text = `${message}`;
             }
             const key = endpoint.substring(1).replace(/\//g, '-');
             $injector.get('WDDAlert').showAlert('error', text, key);

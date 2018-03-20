@@ -1,5 +1,7 @@
 document.body.innerHTML += '<ui-view></ui-view>';
 
+import './public/test.xlsx';
+
 import './styles/style.scss';
 
 import core from './core';

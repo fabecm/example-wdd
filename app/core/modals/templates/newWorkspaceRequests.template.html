@@ -11,8 +11,8 @@
 
                 </div>
                 <div class="col-xs-10 wwd-modal__row__input">
-                    <wdd-autocomplete ng-model="vm.systemOwnerSelected.value" type="newRequestSO" ng-change="vm.inputChanged('SO')" new-value="true"
-                        promise="vm.systemOwnerPromise">
+                    <wdd-autocomplete ng-model="vm.systemOwnerSelected.value" type="newRequestSO" ng-change="vm.inputChanged('SO')"
+                        promise="vm.systemOwnerPromise" preselect-if-one="true" is-initiative-census="vm.isInitiativeCensus">
                     </wdd-autocomplete>
                     <i class="glyphicon glyphicon-ok" ng-if="vm.systemOwnerSelected.value"></i>
                 </div>
@@ -23,9 +23,9 @@
 
                 </div>
                 <div class="col-xs-10 wwd-modal__row__input">
-                    <wdd-autocomplete ng-model="vm.technicalApplication.value" type="newRequestTA" ng-change="vm.inputChanged('TA')" new-value="true"
+                    <wdd-autocomplete ng-model="vm.technicalApplication.value" type="newRequestTA" ng-change="vm.inputChanged('TA')"
                         required-dependence="true" dipendence="{{ [vm.systemOwnerSelected.value] }}" is-editable="vm.isTechApplEditable()"
-                        promise="vm.techApplPromise">
+                        promise="vm.techApplPromise" preselect-if-one="true" is-initiative-census="vm.isInitiativeCensus">
                     </wdd-autocomplete>
                     <i class="glyphicon glyphicon-ok" ng-if="vm.technicalApplication.value"></i>
                 </div>

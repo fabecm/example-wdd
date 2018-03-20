@@ -23,6 +23,17 @@ import CreateEntityTemplate from '../templates/createEntity.template.html';
 import { ConfirmationModalController } from '../templates/confirmationModal';
 import ConfirmationModalTemplate from '../templates/confirmationModal.template.html';
 
+import { EntityHistoryController } from '../templates/entityHistory';
+import EntityHistoryTemplate from '../templates/entityHistory.template.html';
+
+import { NewEntityController } from '../templates/newEntity';
+import NewEntityTemplate from '../templates/newEntity.template.html';
+
+import { RelationsModalController } from '../templates/relationsModal';
+import RelationModalTemplate from '../templates/relationsModal.template.html';
+
+import { DataDetailController } from '../../../states/dataDetail/dataDetail.controller';
+import DataDetailTemplate from '../templates/dataDetailModal.template.html';
 import ExcelTemplate from '../../../public/CaricamentoMassivo_V1.xlsx';
 import { saveAs } from 'file-saver';
 
@@ -74,6 +85,61 @@ export class ModalService {
                 dataDetails: dataDetails,
                 workspaceId: workspaceId,
                 isDraft: isDraft
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openNewEntity () {
+        let modalInstance = this.$uibModal.open({
+            template: NewEntityTemplate,
+            controller: NewEntityController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            // scope: angular.extend(this.$rootScope, {
+            //     entityType: entityType,
+            //     dataDetails: dataDetails,
+            //     workspaceId: workspaceId,
+            //     isDraft: isDraft
+            // }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openMDDataDetail (id, isDraft, workspaceId) {
+        let modalInstance = this.$uibModal.open({
+            template: DataDetailTemplate,
+            controller: DataDetailController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            size: 'lg',
+            keyboard: false,
+            scope: angular.extend(this.$rootScope, {
+                id: id,
+                isDraft: isDraft,
+                workspaceId: workspaceId
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openRelationsModal (termId, termType) {
+        let modalInstance = this.$uibModal.open({
+            template: RelationModalTemplate,
+            controller: RelationsModalController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            scope: angular.extend(this.$rootScope, {
+                termId: termId,
+                termType: termType
             }),
             resolve: {}
         });
@@ -158,7 +224,7 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openNewWorkspaceRequests (workspaceId, termTechRule) {
+    openNewWorkspaceRequests (workspaceId, termTechRule, isInitiativeCensus) {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -170,7 +236,8 @@ export class ModalService {
             size: 'lg',
             scope: angular.extend(this.$rootScope, {
                 workspaceId: workspaceId,
-                termTechRule: termTechRule
+                termTechRule: termTechRule,
+                isInitiativeCensus: isInitiativeCensus
             }),
             resolve: {}
         });
@@ -190,6 +257,25 @@ export class ModalService {
             size: 'lg',
             scope: angular.extend(this.$rootScope, {
                 termId: termId
+            }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openEntityHistoryModal (termDetail) {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: EntityHistoryTemplate,
+            controller: EntityHistoryController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
+            size: 'lg',
+            scope: angular.extend(this.$rootScope, {
+                termDetail: termDetail
             }),
             resolve: {}
         });
@@ -310,6 +396,13 @@ export class ModalService {
     getDeleteActionText () {
         let text = {
             body: 'Si desidera eliminare il workspace?'
+        };
+        return text;
+    }
+
+    getAutomaticSaveActionText () {
+        let text = {
+            body: 'Si desidera salvare le modifiche apportate?'
         };
         return text;
     }

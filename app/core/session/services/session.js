@@ -14,16 +14,21 @@ export class SessionService {
         return this.getApiEntry()
             .then(() => this.userService.getUser())
             .then(() => this.ruleProfileService.getRuleProfile())
-            // .then(rules => {
-            //     const dashboardStatesEnabled = this.$state.get().filter(state => rules.dashboards.indexOf(state.pageId) >= 0);
-            //     let destinationPage = '';
-            //     if (dashboardStatesEnabled && dashboardStatesEnabled.length > 0) {
-            //         destinationPage = dashboardStatesEnabled[0].name;
-            //     } else {
-            //         destinationPage = 'tab.search';
-            //     }
-            //     this.$state.go(destinationPage);
-            // })
+            .then(rules => {
+                const dashboardStatesEnabled = this.$state.get().filter(state => rules.dashboards.indexOf(state.pageId) >= 0);
+                let destinationPage = '';
+
+                if ((this.userService.getAutorities()[0] === 'ROLE_SO') && dashboardStatesEnabled.find(e => e.name === 'tab.dashboardSO')) {
+                    destinationPage = 'tab.dashboardSO';
+                } else if ((this.userService.getAutorities()[0] === 'ROLE_DQ') && dashboardStatesEnabled.find(e => e.name === 'tab.dashboardRequest')) {
+                    destinationPage = 'tab.dashboardRequest';
+                } else if ((this.userService.getAutorities()[0] === 'ROLE_UR') && dashboardStatesEnabled.find(e => e.name === 'tab.dashboardUserRequest')) {
+                    destinationPage = 'tab.dashboardUserRequest';
+                } else {
+                    destinationPage = 'tab.search';
+                }
+                this.$state.go(destinationPage);
+            })
             .catch(err => {
                 this.$log.debug(err);
                 this.$state.go('tab.errorPage');
@@ -31,7 +36,7 @@ export class SessionService {
     }
 
     getApiEntry () {
-        if(Boolean(true) === true) {
+        if(Boolean(false) === true) {
             return getMockedData(this.$q).then(apiEndpoint => {
                 this.apiEntry = apiEndpoint.contextPath;
                 this.endPointSas = 'http://itam.hbl.local/jsasdqm/SASLineage/';
@@ -53,6 +58,7 @@ function getMockedData ($q) {
     deferred.resolve({
         // contextPath: 'http://MBCL26001510:8080/edd-serviceAppl'
         contextPath: 'http://10.238.9.61:8080/edd-serviceWeb'
+        // contextPath: 'http://localhost:8080/edd-serviceAppl'
     });
 
     return deferred.promise;

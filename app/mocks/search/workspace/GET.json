@@ -1,390 +1,472 @@
 {
-    "page_count": 1,
+    "page_count": 15,
     "datalist": [
         {
             "workspace": {
-                "label": "testtt",
-                "id": 22
+                "label": "2018-02-24 AB",
+                "id": 581
             },
             "description": {
-                "label": "Long"
+                "label": "2018-02-24 AB DESCRIZIONE"
             },
             "start_date": {
-                "date": "2017-12-22"
+                "date": "2018-02-01"
             },
             "end_date": {
-                "date": "2017-12-22"
+                "date": "2018-03-09"
+            },
+            "status": {
+                "label": "Bozza"
             },
             "process": {
                 "label": "0%"
             },
             "data_fields": [
                 {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "3786"
+                    "data_field": {
+                        "label": "CAMPO_SICUREZZA_3"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "1558"
+                    "id_field": "D7001",
+                    "data_table": {
+                        "label": "TAB_SICUREZZA"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "4828"
+                    "data_source": {
+                        "label": "DS_SICUREZZA"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "4656"
+                    "tech_appl": {
+                        "label": "NBS"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "9149"
+                    "system_owner": {
+                        "label": "UBIS-PRICING & SALES APPLICATIONS"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "8447"
+                    "draft": true,
+                    "status": {
+                        "label": "Da inviare in produzione"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "CAMPO_SICUREZZA_4"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "2904"
+                    "id_field": "D7021",
+                    "data_table": {
+                        "label": "TAB_SICUREZZA"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "9741"
+                    "data_source": {
+                        "label": "DS_SICUREZZA"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "7280"
+                    "tech_appl": {
+                        "label": "NBS"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "8902"
+                    "system_owner": {
+                        "label": "UBIS-PRICING & SALES APPLICATIONS"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "3258"
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "CAMPO_SICUREZZA_5"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "9854"
+                    "id_field": "D7022",
+                    "data_table": {
+                        "label": "TAB_SICUREZZA"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "8710"
+                    "data_source": {
+                        "label": "DS_SICUREZZA"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "8991"
+                    "tech_appl": {
+                        "label": "NBS"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "1273"
+                    "system_owner": {
+                        "label": "UBIS-PRICING & SALES APPLICATIONS"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "7720"
-                    },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "4750"
-                    },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "5378"
-                    },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "1805"
-                    },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "9283"
-                    },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "6655"
-                    },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "7067"
-                    },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "1201"
-                    },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }, {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "3429"
-                    },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
                 }
             ]
         },
         {
             "workspace": {
-                "label": "ttt",
-                "id": 23
+                "label": "26 gennaio 2019",
+                "id": 81
             },
             "description": {
-                "label": "UPDATED"
+                "label": "prova in integrazione del 26 gennaio 2018"
             },
             "start_date": {
-                "date": "2017-12-22"
+                "date": "2018-01-25"
             },
             "end_date": {
-                "date": "2017-12-22"
+                "date": "2018-02-04"
+            },
+            "status": {
+                "label": "Bozza"
             },
             "process": {
                 "label": "0%"
             },
             "data_fields": [
                 {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "1026670"
+                    "data_field": {
+                        "label": "FLG_SGN"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    "id_field": "D6901",
+                    "data_table": {
+                        "label": "TPTMMSA - DPTB"
+                    },
+                    "data_source": {
+                        "label": "DPTB"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "FLG_SGN_SIMONE"
+                    },
+                    "id_field": "D7201",
+                    "data_table": {
+                        "label": "TPTMMSA"
+                    },
+                    "data_source": {
+                        "label": "DPTB"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
                 }
             ]
         },
         {
             "workspace": {
-                "label": "Manutenzione",
-                "id": 101
+                "label": "AAA_WS_TEST",
+                "id": 541
             },
             "description": {
-                "label": "Manutenzione"
+                "label": "AAA_WS_TEST DESC"
             },
             "start_date": {
-                "date": "2018-01-01"
+                "date": "2018-02-22"
             },
             "end_date": {
-                "date": "9999-12-31"
+                "date": "2018-03-02"
+            },
+            "status": {
+                "label": "Bozza"
             },
             "process": {
                 "label": "0%"
             },
             "data_fields": [
                 {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "1026670"
+                    "data_field": {
+                        "label": "DATA FIELD2 GESTIONE LISTINI"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }
-            ]
-        },
-        {
-            "workspace": {
-                "label": "test6",
-                "id": 16
-            },
-            "description": {
-                "label": "Longtest6"
-            },
-            "start_date": {
-                "date": "2017-12-04"
-            },
-            "end_date": {
-                "date": "2017-12-22"
-            },
-            "process": {
-                "label": "0%"
-            },
-            "data_fields": [
+                    "id_field": "D6885",
+                    "data_table": {
+                        "label": "DATA TABLE GESTIONE LISTINI"
+                    },
+                    "data_source": {
+                        "label": "DATA SOURCE GESTIONE LISTINI"
+                    },
+                    "tech_appl": {
+                        "label": "GSL"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-PRICING & SALES APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Bozza"
+                    }
+                },
                 {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "1026670"
+                    "data_field": {
+                        "label": "DATA FIELD3 GESTIONE LISTINI"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }
-            ]
-        },
-        {
-            "workspace": {
-                "label": "test7",
-                "id": 17
-            },
-            "description": {
-                "label": "longtest7"
-            },
-            "start_date": {
-                "date": "2017-12-21"
-            },
-            "end_date": {
-                "date": "2017-12-22"
-            },
-            "process": {
-                "label": "0%"
-            },
-            "data_fields": [
+                    "id_field": "D6886",
+                    "data_table": {
+                        "label": "DATA TABLE GESTIONE LISTINI"
+                    },
+                    "data_source": {
+                        "label": "DATA SOURCE GESTIONE LISTINI"
+                    },
+                    "tech_appl": {
+                        "label": "GSL"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-PRICING & SALES APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Da inviare in produzione"
+                    }
+                },
                 {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "1026670"
+                    "data_field": {
+                        "label": "DATA FIELD5 GESTIONE LISTINI"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
-                }
-            ]
-        },
-        {
-            "workspace": {
-                "label": "test9",
-                "id": 19
-            },
-            "description": {
-                "label": "Longest9"
-            },
-            "start_date": {
-                "date": "2017-12-21"
-            },
-            "end_date": {
-                "date": "2017-12-23"
-            },
-            "process": {
-                "label": "0%"
-            },
-            "data_fields": [
+                    "id_field": "D6893",
+                    "data_table": {
+                        "label": "DATA TABLE GESTIONE LISTINI"
+                    },
+                    "data_source": {
+                        "label": "DATA SOURCE GESTIONE LISTINI"
+                    },
+                    "tech_appl": {
+                        "label": "GSL"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-PRICING & SALES APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
                 {
-                    "data_fields": {
-                        "label": "DD - DF - DAT_CONTABILE_X8 - DPTB.TPTMSPM",
-                        "id": "1026670"
+                    "data_field": {
+                        "label": "DATA FIELD6 GESTIONE LISTINI"
                     },
-                    "data_table": "DD - DT - TPTMSPM - DPTB",
-                    "data_source": "DD - DS - DPTB",
-                    "tech_appl": "DD - TA - PTB",
-                    "system_owner": "DD - SO - UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    "id_field": "D6894",
+                    "data_table": {
+                        "label": "DATA TABLE GESTIONE LISTINI"
+                    },
+                    "data_source": {
+                        "label": "DATA SOURCE GESTIONE LISTINI"
+                    },
+                    "tech_appl": {
+                        "label": "GSL"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-PRICING & SALES APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "DATA FIELD7 GESTIONE LISTINI"
+                    },
+                    "id_field": "D6895",
+                    "data_table": {
+                        "label": "DATA TABLE GESTIONE LISTINI"
+                    },
+                    "data_source": {
+                        "label": "DATA SOURCE GESTIONE LISTINI"
+                    },
+                    "tech_appl": {
+                        "label": "GSL"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-PRICING & SALES APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "TEST MASSIVO FRANCESCO 1"
+                    },
+                    "id_field": "D7182",
+                    "data_table": {},
+                    "data_source": {
+                        "label": "DPTB"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "TEST MASSIVO FRANCESCO 2"
+                    },
+                    "id_field": "D7183",
+                    "data_table": {},
+                    "data_source": {
+                        "label": "DPTB"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "TEST MASSIVO FRANCESCO 3"
+                    },
+                    "id_field": "D7184",
+                    "data_table": {},
+                    "data_source": {
+                        "label": "DPTB"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "TEST MASSIVO FRANCESCO 4"
+                    },
+                    "id_field": "D7185",
+                    "data_table": {},
+                    "data_source": {
+                        "label": "DPTB"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "TEST MASSIVO FRANCESCO 5"
+                    },
+                    "id_field": "D7186",
+                    "data_table": {},
+                    "data_source": {
+                        "label": "DPTB"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "TEST MASSIVO FRANCESCO 6"
+                    },
+                    "id_field": "D7187",
+                    "data_table": {},
+                    "data_source": {
+                        "label": "DPTB"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "TEST MASSIVO FRANCESCO 7"
+                    },
+                    "id_field": "D7188",
+                    "data_table": {},
+                    "data_source": {
+                        "label": "DPTB"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "TEST_CARICO_MASSIVO_SIMONE_1"
+                    },
+                    "id_field": "D7181",
+                    "data_table": {},
+                    "data_source": {
+                        "label": "%%%.SI2.MR501S.SOSP101"
+                    },
+                    "tech_appl": {
+                        "label": "PTB"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-REGULATORY & ACCOUNTING APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
+                },
+                {
+                    "data_field": {
+                        "label": "data field7 gestione listini"
+                    },
+                    "id_field": "D6921",
+                    "data_table": {},
+                    "data_source": {
+                        "label": "DATA SOURCE GESTIONE LISTINI"
+                    },
+                    "tech_appl": {
+                        "label": "GSL"
+                    },
+                    "system_owner": {
+                        "label": "UBIS-PRICING & SALES APPLICATIONS"
+                    },
+                    "draft": true,
+                    "status": {
+                        "label": "Censito"
+                    }
                 }
             ]
         }

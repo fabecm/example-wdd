@@ -1,45 +1,36 @@
-<div class="ru-dashboard">
-    <div class="button-section">
-        <div class="left-section">
-            <div class="wbb-select select-child">
-                <select name="stato" ng-model="vm.pageChild" ng-change="vm.changeChild()">
-                    <option value="tab.toBeMonitored">Censimento di entità</option>
-                    <option value="">Censimento di entità</option>
-                </select>
-                <i class="icon icon-down-arrow"></i>
-            </div>
-        </div>
-        <div class="right-section">
-            <button class="wdd-button alt-color">
-                <i class="icon icon-excel"></i>
-                esporta
-            </button>
-        </div>
+<div class="wdd-secondary-header">
+    <div class="btn-group wdd-dropdown" uib-dropdown is-open="status.isopen">
+        <button id="single-button" type="button" class="wdd-button dropdown" uib-dropdown-toggle ng-disabled="disabled">
+            Richieste approvazione entità
+            <i class="icon icon-down-arrow"></i>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+            <li role="menuitem">
+                <a ui-sref="tab.documentationRequests">Richieste di documentazione</a>
+            </li>
+            <li role="menuitem">
+                <a ui-sref="tab.approvalRequests">Richieste di approvazione</a>
+            </li>
+            <li role="menuitem">
+                <a ui-sref="tab.automaticEvents">Eventi automatici</a>
+            </li>
+            <li role="menuitem">
+                <a>Richieste approvazione entità</a>
+            </li>
+        </ul>
     </div>
-    <dashboard-filter></dashboard-filter>
+</div>
+<div class="entity-approval-request">
+    <entity-filter applied-filter="vm.filterChanged(filterApplied)" type-page="DQ"></entity-filter>
 
-    <div>
-        <wdd-table 
-            ng-if="vm.workspaceData && vm.headerTable" 
-            service-response-obj="{{ {array: vm.workspaceData} }}" 
-            header-array-obj="{{ {array: vm.headerTable} }}"
-            pagination-bool="{{ {boolean: vm.tablePagination} }}" 
-            page-size-num="{{ {number: vm.tablePageSize} }}" 
-            expandable-bool="{{ {boolean: vm.tableExpandable} }}"
-            header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
+    <wdd-table reload-data="vm.reloadTableData" table-key="entityApprovalRequest" header-array-obj="{{ {array: vm.headerTable} }}"
+        pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}"
+        is-checked-bool="{{ {boolean: true} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail" header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
+        is-child-checked-bool="false" state-to-able-child-check="" has-secondary-label="Approva" disabled-secondary-label-with-empty-response="true"
+        able-status-secondary-label="{{ vm.approveStatus }}" action-secondary-label="vm.sendToApprove(selectedItems)" has-tertiary-label="Rifiuta"
+        able-status-tertiary-label="{{ vm.rejectStatus }}" disabled-tertiary-label-with-empty-response="true" action-tertiary-label="vm.reject(selectedItems)"></wdd-table>
 
-            
-            has-primary-navigation-btn="true"
-            
-
-            
-            path-primary-navigation="tab.dataDetail" 
-
-            has-secondary-label="Nuova entità" 
-            has-primary-label="Approva"
-           
-
-            action-secondary-label="vm.createNewWorkspace()">
-        </wdd-table>
+    <div class="action-holder">
+        <button class="wdd-button" ng-click="vm.createNewEntity()">Nuova entità</button>
     </div>
 </div>
