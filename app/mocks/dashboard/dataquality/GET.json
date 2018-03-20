@@ -1,16 +1,20 @@
 {
     "array": [
         {
-            "value": 23,
+            "value": 45,
             "id": "Richieste di documentazione"
         },
         {
-            "value": 10,
+            "value": 17,
             "id": "Richieste di approvazione"
         },
         {
-            "value": 5,
+            "value": 618,
             "id": "Eventi Automatici"
+        },
+        {
+            "value": 5,
+            "id": "Richieste di approvazione entità"
         }
     ]
 }

@@ -1,1 +1,52 @@
-{}
+{
+    "authorities": [
+        {
+            "authority": "ROLE_DQ"
+        }
+    ],
+    "authenticated": true,
+    "webSealUser": {
+        "password": "",
+        "username": "UL08241",
+        "authorities": [
+            {
+                "authority": "ROLE_DQ"
+            }
+        ],
+        "accountNonExpired": true,
+        "accountNonLocked": true,
+        "credentialsNonExpired": true,
+        "enabled": true,
+        "groups": "\"JKINTERR\",\"G_MUTUI\",\"GAINTERR\",\"GBINTERR\",\"GCINTERR\",\"G6INTERR\",\"GDINTERR\",\"GL10\",\"GL00\",\"G_MIMOSA_G2\",\"G_PILUBIDESK\",\"G_ASSIC_CINT\",\"G_SCI_OPERATORE\",\"GLPORTSIC\",\"G_VDP_OPER\",\"GLPORTALENORMATIVA\",\"G_DIAARI_ADMIN\",\"G_EVEARI_CONSUL\",\"GLTOJWEB_ADMIN\",\"GLTOJWEB_USER\",\"GLTOJWEB_RESPSETTORE_DELEGATO\",\"G_EDD_DATAQUALITY\",\"G_SASDQM_DATAMAN_LINK\"",
+        "bankCode": "9",
+        "officeCode": "03144",
+        "surname": "",
+        "ownerinSas": false,
+        "systemOwnerUo": 626,
+        "systemOwnerTermId": 1090253,
+        "comp_app_referente_ist": 9
+    },
+    "credentials": {
+        "password": "",
+        "username": "UL08241",
+        "authorities": [
+            {
+                "authority": "ROLE_DQ"
+            }
+        ],
+        "accountNonExpired": true,
+        "accountNonLocked": true,
+        "credentialsNonExpired": true,
+        "enabled": true,
+        "groups": "\"JKINTERR\",\"G_MUTUI\",\"GAINTERR\",\"GBINTERR\",\"GCINTERR\",\"G6INTERR\",\"GDINTERR\",\"GL10\",\"GL00\",\"G_MIMOSA_G2\",\"G_PILUBIDESK\",\"G_ASSIC_CINT\",\"G_SCI_OPERATORE\",\"GLPORTSIC\",\"G_VDP_OPER\",\"GLPORTALENORMATIVA\",\"G_DIAARI_ADMIN\",\"G_EVEARI_CONSUL\",\"GLTOJWEB_ADMIN\",\"GLTOJWEB_USER\",\"GLTOJWEB_RESPSETTORE_DELEGATO\",\"G_EDD_DATAQUALITY\",\"G_SASDQM_DATAMAN_LINK\"",
+        "bankCode": "9",
+        "officeCode": "03144",
+        "surname": "",
+        "ownerinSas": false,
+        "systemOwnerUo": 626,
+        "systemOwnerTermId": 1090253,
+        "comp_app_referente_ist": 9
+    },
+    "principal": "UL08241",
+    "name": "UL08241"
+}

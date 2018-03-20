@@ -1,0 +1,80 @@
+{
+    "page_count": 50,
+    "data_list": [
+        {
+            "workspace": {
+                "id": "1"
+            },
+            "data_field": {
+                "label": "ANARAD-SRESIDN"
+            },
+            "data_table": {
+                "label": "EMANARAD"
+            },
+            "data_source": {
+                "label": "DMES"
+            },
+            "tech_application": {
+                "label": "MEZ"
+            },
+            "programs": [],
+            "id_field": {
+                "id": "D6445"
+            },
+            "draft": true,
+            "status": {
+                "label": "Da controllare da evento"
+            }
+        },
+        {
+            "workspace": {
+                "id": "1"
+            },
+            "data_field": {
+                "label": "ANARAD-SRESIDN"
+            },
+            "data_table": {
+                "label": "EMANARAD"
+            },
+            "data_source": {
+                "label": "DMES"
+            },
+            "tech_application": {
+                "label": "MEZ"
+            },
+            "programs": [],
+            "id_field": {
+                "id": "D6445"
+            },
+            "draft": true,
+            "status": {
+                "label": "Da controllare da evento"
+            }
+        },
+        {
+            "workspace": {
+                "id": "1"
+            },
+            "data_field": {
+                "label": "ANARAD-SRESIDN"
+            },
+            "data_table": {
+                "label": "EMANARAD"
+            },
+            "data_source": {
+                "label": "DMES"
+            },
+            "tech_application": {
+                "label": "MEZ"
+            },
+            "programs": [],
+            "id_field": {
+                "id": "D6445"
+            },
+            "draft": true,
+            "status": {
+                "label": "Da controllare da evento"
+            }
+        }
+    ]
+}
