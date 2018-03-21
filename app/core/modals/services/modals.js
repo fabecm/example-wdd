@@ -37,6 +37,9 @@ import DataDetailTemplate from '../templates/dataDetailModal.template.html';
 import ExcelTemplate from '../../../public/CaricamentoMassivo_V1.xlsx';
 import { saveAs } from 'file-saver';
 
+import { CheckboxesModalController } from '../templates/checkboxesModal';
+import CheckboxesModalTemplate from '../templates/checkboxesModal.template.html';
+
 export class ModalService {
     constructor ($uibModal, $rootScope, $http) {
         'ngInject';
@@ -333,6 +336,21 @@ export class ModalService {
             scope: angular.extend(this.$rootScope, {
                 actionParam: param
             }),
+            resolve: {}
+        });
+
+        return modalInstance.result;
+    }
+
+    openCheckboxesModal (param) {
+        let modalInstance = this.$uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            template: CheckboxesModalTemplate,
+            controller: CheckboxesModalController,
+            controllerAs: 'vm',
+            backdrop: 'static',
+            keyboard: false,
             resolve: {}
         });
 
