@@ -8,11 +8,6 @@
         </div>
         <div class="wwd-modal__processHistory">
             <div class="wdd-filter-container">
-                <div class="expandable">
-                    <button class="wdd-button icon-only" ng-click="expandableFilter()">
-                        <i class="icon" ng-class="{'icon-down-arrow': !isFilterActive, 'icon-right-arrow': isFilterActive}"></i>
-                    </button>
-                </div>
                 <div class="filter-row" style="width: 100%;" ng-show="!isFilterActive">
                     <div class="filter-reduced-wrapper">
                         <label class="wdd-checkbox" for="{{checkbox.id}}" ng-repeat="checkbox in vm.checkboxFilters">
