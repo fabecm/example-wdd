@@ -27,6 +27,7 @@ export class RelationsModalController {
 
         this.termId = $scope.$parent.termId;
         this.termType = $scope.$parent.termType;
+        this.termName = $scope.$parent.termName;
         this.baseCheckboxFilter = undefined;
 
         FilterWorkspace.getRelativeFiler(this.termType).then(res => {

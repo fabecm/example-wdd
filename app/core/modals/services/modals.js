@@ -120,6 +120,7 @@ export class ModalService {
             controller: DataDetailController,
             controllerAs: 'vm',
             backdrop: 'static',
+            windowClass: 'dataDetailWindow',
             size: 'lg',
             keyboard: false,
             scope: angular.extend(this.$rootScope, {
@@ -133,7 +134,7 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openRelationsModal (termId, termType) {
+    openRelationsModal (termId, termType, termName) {
         let modalInstance = this.$uibModal.open({
             template: RelationModalTemplate,
             controller: RelationsModalController,
@@ -143,7 +144,8 @@ export class ModalService {
             keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 termId: termId,
-                termType: termType
+                termType: termType,
+                termName: termName
             }),
             resolve: {}
         });
@@ -342,7 +344,7 @@ export class ModalService {
         return modalInstance.result;
     }
 
-    openCheckboxesModal (param) {
+    openCheckboxesModal () {
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',

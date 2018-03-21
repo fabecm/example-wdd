@@ -50,25 +50,27 @@ i.icon.icon-disabled{
     pointer-events: none;
 }
 
-.modal-dialog.modal-lg{
-    height: 90%;
-    .modal-content{
-        height: 100%;
-        .wwd-modal{
+.dataDetailWindow{
+    .modal-dialog.modal-lg{
+        height: 90%;
+        .modal-content{
             height: 100%;
-            .wwd-modal__body__container{
-                height: calc(100% - 75px);
-                .detail-row{
-                    flex-shrink: 0;
+            .wwd-modal{
+                height: 100%;
+                .wwd-modal__body__container{
+                    height: calc(100% - 75px);
+                    .detail-row{
+                        flex-shrink: 0;
+                    }
                 }
-            }
-            .wwd-modal__footer{
-                height: 35px;
-                margin: 0 20px;
-                padding-top: 10px;
-                flex-shrink: 0;
-                display: flex;
-                align-items: center;
+                .wwd-modal__footer{
+                    height: 35px;
+                    margin: 0 20px;
+                    padding-top: 10px;
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                }
             }
         }
     }

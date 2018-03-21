@@ -1,0 +1,263 @@
+{
+    "page_count": 4,
+    "outputArray": [
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - BR - DT_AGGIORNAMENTO.MOF",
+                "id": "1077057"
+            },
+            "term_id": {
+                "id": 1077057
+            },
+            "term_type": {
+                "label": "BUSINESS RULE",
+                "id": "BUSINESS_RULE"
+            },
+            "term_name": {
+                "label": "DD - BR - DT_AGGIORNAMENTO.MOF"
+            },
+            "description": {
+                "label": "Regola di business per il dato DT_AGGIORNAMENTO (data di ingresso a forborne del rapporto) alimentato dal settoriale MOF"
+            },
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        },
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - DF - FILIALE - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1081261"
+            },
+            "term_id": {
+                "id": 1081261
+            },
+            "term_type": {
+                "label": "DATA FIELD",
+                "id": "DATA_FIELD"
+            },
+            "term_name": {
+                "label": "DD - DF - FILIALE - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+            },
+            "description": {
+                "label": "Codice filiale"
+            },
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        },
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - DF - DT_AGGIORNAMENTO - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1088141"
+            },
+            "term_id": {
+                "id": 1088141
+            },
+            "term_type": {
+                "label": "DATA FIELD",
+                "id": "DATA_FIELD"
+            },
+            "term_name": {
+                "label": "DD - DF - DT_AGGIORNAMENTO - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+            },
+            "description": {
+                "label": "DT_AGGIORNAMENTO - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+            },
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        },
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - TA - MOF",
+                "id": "1079485"
+            },
+            "term_id": {
+                "id": 1079485
+            },
+            "term_type": {
+                "label": "TECHNICAL APPLICATION",
+                "id": "TECHNICAL_APPLICATION"
+            },
+            "term_name": {
+                "label": "DD - TA - MOF"
+            },
+            "description": {
+                "label": "MOF"
+            },
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        },
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - TR - DT_INGRESSO_FORB - UBIRAT.TIRFOR",
+                "id": "1079799"
+            },
+            "term_id": {
+                "id": 1079799
+            },
+            "term_type": {
+                "label": "TECHNICAL RULE",
+                "id": "TECHNICAL_RULE"
+            },
+            "term_name": {
+                "label": "DD - TR - DT_INGRESSO_FORB - UBIRAT.TIRFOR"
+            },
+            "description": {
+                "label": "Regola tecnica estrazione dato DT_INGRESSO_FORB (Data di apertura del forborne)"
+            },
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        },
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - TR - DT_AGGIORNAMENTO - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1079781"
+            },
+            "term_id": {
+                "id": 1079781
+            },
+            "term_type": {
+                "label": "TECHNICAL RULE",
+                "id": "TECHNICAL_RULE"
+            },
+            "term_name": {
+                "label": "DD - TR - DT_AGGIORNAMENTO - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+            },
+            "description": {
+                "label": "Regola tecnica estrazione dato DT_AGGIORNAMENTO (data di ingresso a forborne del rapporto)"
+            },
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        },
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - DS - MOF",
+                "id": "1078953"
+            },
+            "term_id": {
+                "id": 1078953
+            },
+            "term_type": {
+                "label": "DATA SOURCE",
+                "id": "DATA_SOURCE"
+            },
+            "term_name": {
+                "label": "DD - DS - MOF"
+            },
+            "description": {},
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        },
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - DF - STATO_ATTRIBUTO_FB - MOF.T_RAPPORTI_LOM",
+                "id": "1083363"
+            },
+            "term_id": {
+                "id": 1083363
+            },
+            "term_type": {
+                "label": "DATA FIELD",
+                "id": "DATA_FIELD"
+            },
+            "term_name": {
+                "label": "DD - DF - STATO_ATTRIBUTO_FB - MOF.T_RAPPORTI_LOM"
+            },
+            "description": {
+                "label": "Stato dell'attributo del forborne: indica lo stato forborne del rapporto"
+            },
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        },
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - DF - UPD_TIMESTAMP - MOF.T_RAPPORTI_BPI",
+                "id": "1083359"
+            },
+            "term_id": {
+                "id": 1083359
+            },
+            "term_type": {
+                "label": "DATA FIELD",
+                "id": "DATA_FIELD"
+            },
+            "term_name": {
+                "label": "DD - DF - UPD_TIMESTAMP - MOF.T_RAPPORTI_BPI"
+            },
+            "description": {
+                "label": "Data di ultima modifica del record di rapporto"
+            },
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        },
+        {
+            "draft": false,
+            "id_field": {
+                "label": "DD - DF - DT_INGRESSO_FB - MOF.T_RAPPORTI_BPI",
+                "id": "1083355"
+            },
+            "term_id": {
+                "id": 1083355
+            },
+            "term_type": {
+                "label": "DATA FIELD",
+                "id": "DATA_FIELD"
+            },
+            "term_name": {
+                "label": "DD - DF - DT_INGRESSO_FB - MOF.T_RAPPORTI_BPI"
+            },
+            "description": {
+                "label": "Data di ingresso del rapporto a forborne"
+            },
+            "status": {
+                "label": "Produzione"
+            },
+            "modified_date": {
+                "date": "2018-02-16"
+            }
+        }
+    ]
+}

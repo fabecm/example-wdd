@@ -43,7 +43,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             promise: '=?',
             textSpinner: '@?',
             tableIsEmpty: '=?',
-            hasRelationModal: '@?'
+            hasRelationModal: '@?',
+            dontResize: '@?'
         },
         template: template,
         link: (scope) => {
@@ -144,19 +145,21 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
                     initData(scope);
 
-                    setTimeout(function () {
-                        let tableLength = $(window).width() - 100;
-                        if (scope.tableKey === 'processHistory') {
-                            if ($(window).width() === 1024) {
-                                tableLength -= 50;
-                            } else if ($(window).width() === 1280) {
-                                tableLength -= 300;
-                            } else if ($(window).width() > 1280) {
-                                tableLength -= 1000;
+                    if (!scope.dontResize) {
+                        setTimeout(function () {
+                            let tableLength = $(window).width() - 100;
+                            if (scope.tableKey === 'processHistory') {
+                                if ($(window).width() === 1024) {
+                                    tableLength -= 50;
+                                } else if ($(window).width() === 1280) {
+                                    tableLength -= 300;
+                                } else if ($(window).width() > 1280) {
+                                    tableLength -= 1000;
+                                }
                             }
-                        }
-                        scope.thLength = tableLength / scope.childCollspan();
-                    });
+                            scope.thLength = tableLength / scope.childCollspan();
+                        });
+                    }
                 }).catch((err) => {
                     $log.error(err);
                     scope.isErrored = true;
@@ -429,7 +432,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         `${scope.serviceResponse[row.key].id_field.id}`];
                     window.open(pathSas.join(''), '_blank');
                 } else if (row.action === 'showRelation') {
-                    ModalService.openRelationsModal(scope.serviceResponse[row.key].id_field.id, scope.serviceResponse[row.key].term_type.id).then(() => {
+                    ModalService.openRelationsModal(scope.serviceResponse[row.key].id_field.id, scope.serviceResponse[row.key].term_type.id, scope.serviceResponse[row.key].term_name.label).then(() => {
                         scope.reloadData();
                     });
                 }

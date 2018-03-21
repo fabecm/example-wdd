@@ -2,9 +2,11 @@
     <div class="wwd-modal__title">
         <div class="" id="modal-title">Vista Relazioni</div>
     </div>
-    <div class="wwd-modal__body__container" id="modal-body">
+    <div class="wwd-modal__body__container" id="modal-body" style="flex-direction: column;">
+        <div>
+            <h5>{{ vm.termType }} - {{ vm.termName }}</h5>
+        </div>
         <div class="wwd-modal__processHistory">
-
             <div class="wdd-filter-container">
                 <div class="expandable">
                     <button class="wdd-button icon-only" ng-click="expandableFilter()">
@@ -31,9 +33,9 @@
             </div>
 
             <wdd-table reload-data="vm.reloadTableData" table-key="relationModal"
-                header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
-                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
-                path-primary-navigation="tab.dataDetail" has-relation-modal="true" has-ternary-navigation-btn="true"></wdd-table>
+                header-array-obj="{{ {array: vm.headerTable} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
+                path-primary-navigation="tab.dataDetail" has-relation-modal="true" has-ternary-navigation-btn="true"
+                pagination-bool="{{ {boolean: true} }}" dont-resize="true"></wdd-table>
         </div>
 
     </div>
