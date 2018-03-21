@@ -4,6 +4,7 @@ $header-data-detail: 40px;
 
 .data-detail-page {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     .page-title {
@@ -36,7 +37,7 @@ $header-data-detail: 40px;
         }
     }
     .details-container {
-        flex: 1;
+        // flex: 1;
         width: 100%;
         box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.4);
         border-radius: 5px;

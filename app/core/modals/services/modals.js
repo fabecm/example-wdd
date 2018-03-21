@@ -135,6 +135,7 @@ export class ModalService {
             template: RelationModalTemplate,
             controller: RelationsModalController,
             controllerAs: 'vm',
+            size: 'lg',
             backdrop: 'static',
             keyboard: false,
             scope: angular.extend(this.$rootScope, {

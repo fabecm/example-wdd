@@ -11,11 +11,13 @@
                         <i class="icon" ng-class="{'icon-down-arrow': !isFilterActive, 'icon-right-arrow': isFilterActive}"></i>
                     </button>
                 </div>
-                <div class="filter-row" ng-show="!isFilterActive">
+                <div class="filter-row" style="width: 100%;" ng-show="!isFilterActive">
                     <div class="filter-reduced-wrapper">
                         <label class="wdd-checkbox" for="{{checkbox.id}}" ng-repeat="checkbox in vm.checkboxFilters">
                             <input type="checkbox" class="checkbox-input" id="{{checkbox.id}}" ng-model="checkbox.enabled">
-                            {{ checkbox.label }}
+                            <div class="checkbox-label">
+                                {{ checkbox.label }}
+                            </div>
                         </label>
                     </div>
                 </div>
@@ -28,7 +30,10 @@
                 </div>
             </div>
 
-            <wdd-table reload-data="vm.reloadTableData" table-key="relationModal" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}"></wdd-table>
+            <wdd-table reload-data="vm.reloadTableData" table-key="relationModal"
+                header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
+                page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
+                path-primary-navigation="tab.dataDetail" has-relation-modal="true" has-ternary-navigation-btn="true"></wdd-table>
         </div>
 
     </div>
