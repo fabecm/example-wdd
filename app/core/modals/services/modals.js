@@ -128,6 +128,7 @@ export class ModalService {
                 isDraft: isDraft,
                 workspaceId: workspaceId
             }),
+            size: '90',
             resolve: {}
         });
 
@@ -147,6 +148,7 @@ export class ModalService {
                 termType: termType,
                 termName: termName
             }),
+            size: '90',
             resolve: {}
         });
 
