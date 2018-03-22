@@ -121,14 +121,13 @@ export class ModalService {
             controllerAs: 'vm',
             backdrop: 'static',
             windowClass: 'dataDetailWindow',
-            size: 'lg',
+            size: '90',
             keyboard: false,
             scope: angular.extend(this.$rootScope, {
                 id: id,
                 isDraft: isDraft,
                 workspaceId: workspaceId
             }),
-            size: '90',
             resolve: {}
         });
 
@@ -140,7 +139,7 @@ export class ModalService {
             template: RelationModalTemplate,
             controller: RelationsModalController,
             controllerAs: 'vm',
-            size: 'lg',
+            size: '90',
             backdrop: 'static',
             keyboard: false,
             scope: angular.extend(this.$rootScope, {
@@ -148,7 +147,6 @@ export class ModalService {
                 termType: termType,
                 termName: termName
             }),
-            size: '90',
             resolve: {}
         });
 
