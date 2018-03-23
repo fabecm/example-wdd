@@ -27,57 +27,74 @@ export class SearchController {
 
     headerTable = [{
         label: 'Workspace',
-        value: 'workspace'
+        value: 'workspace',
+        width: '100'
     }, {
         label: 'Data field',
-        value: 'data_field'
+        value: 'data_field',
+        width: '100'
     }, {
         label: 'Data table',
-        value: 'data_table'
+        value: 'data_table',
+        width: '90'
     }, {
         label: 'Data source',
-        value: 'data_source'
+        value: 'data_source',
+        width: '90'
     }, {
         label: 'Technical application',
-        value: 'tech_application'
+        value: 'tech_application',
+        width: '100'
     }, {
         label: 'System owner',
-        value: 'system_owner'
+        value: 'system_owner',
+        width: '85'
     }, {
         label: 'Program',
-        value: 'program'
+        value: 'program',
+        width: '100'
     }, {
         label: 'Technical Rule',
-        value: 'tech_rule'
+        value: 'tech_rule',
+        width: '85'
     }, {
         label: 'Business Rule',
-        value: 'business_rule'
+        value: 'business_rule',
+        width: '85'
     }, {
         label: 'Business Data',
-        value: 'business_data'
+        value: 'business_data',
+        width: '85'
     }, {
         label: 'Business Glossary',
-        value: 'business_glossary'
+        value: 'business_glossary',
+        width: '85'
     }, {
         label: 'Process Owner',
-        value: 'process_owner'
+        value: 'process_owner',
+        width: '85'
     }];
 
     headerEntityTable = [{
         label: 'Term Type',
-        value: 'term_type'
+        value: 'term_type',
+        width: '120'
     }, {
         label: 'Term Name',
-        value: 'term_name'
+        value: 'term_name',
+        width: '290'
     }, {
         label: 'Description',
-        value: 'description'
+        value: 'description',
+        width: '430'
     }, {
         label: 'Stato',
-        value: 'status'
+        value: 'status',
+        width: '95'
     }, {
         label: 'Ultima Modifica',
-        value: 'modified_date'
+        value: 'modified_date',
+        width: '80'
     }];
 
     constructor (DataService, DatasourceService, $timeout, WddCacheService, WDDAlert) {

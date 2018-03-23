@@ -157,7 +157,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                                     tableLength -= 1000;
                                 }
                             }
-                            scope.thLength = tableLength / scope.childCollspan();
+                            scope.thLength = (tableLength - scope.sumDefaultWidths()) / scope.numWithoutDefaultWidth();
                         });
                     }
                 }).catch((err) => {
@@ -165,6 +165,57 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     scope.isErrored = true;
                 });
             };
+
+            scope.sumDefaultWidths = () => {
+                let sum = 0;
+                scope.headerArray.forEach(function (element) {
+                    if ('width' in element) {
+                        sum += parseInt(element.width, 10);
+                    }
+                });
+                return sum;
+            };
+
+            scope.numWithoutDefaultWidth = () => {
+                let num = scope.childCollspan();
+                for (let i = 0; i < scope.headerArray.length; i++) {
+                    if (scope.checkColumnDefaultWidth(i)) {
+                        num--;
+                    }
+                }
+                return num;
+            };
+
+            scope.checkColumnDefaultWidth = (index, column) => {
+                // checks if there is a default width or a user specified width of the column
+                let localStorageColumn = window.localStorage.getItem($state.current.name + '.' + scope.tableKey + '.' + column);
+                if ((index !== undefined && scope.headerArray[index] !== undefined && 'width' in scope.headerArray[index]) || localStorageColumn !== null) {
+                    return true;
+                }
+                return false;
+            };
+
+            scope.getColumnWidth = (index, column) => {
+                let localStorageColumn = window.localStorage.getItem($state.current.name + '.' + scope.tableKey + '.' + column);
+                if (localStorageColumn !== null) {
+                    return localStorageColumn + 'px';
+                }
+                return scope.headerArray[index].width + 'px';
+            };
+
+            scope.setColumnWidth = (column, width) => {
+                let table = scope.tableKey;
+                let key = $state.current.name + '.' + table + '.' + column
+                let localStorageColumn = window.localStorage.getItem(key);
+                if (localStorageColumn !== null) {
+                    window.localStorage.removeItem(key)
+                }
+                window.localStorage.setItem(key, width);
+            };
+
+            scope.$on('angular-resizable.resizeEnd', function (event, args) {
+                scope.setColumnWidth(event.targetScope.$parent.item.value, args.width);
+            });
 
             scope.checkRowsSelection = () => {
                 if (scope.isChild) {
