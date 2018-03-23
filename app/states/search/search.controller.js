@@ -76,11 +76,11 @@ export class SearchController {
     }];
 
     headerEntityTable = [{
-        label: 'Term Type',
+        label: 'Tipo Termine',
         value: 'term_type',
         width: '120'
     }, {
-        label: 'Term Name',
+        label: 'Nome Entità',
         value: 'term_name',
         width: '290'
     }, {
@@ -90,11 +90,11 @@ export class SearchController {
     }, {
         label: 'Stato',
         value: 'status',
-        width: '95'
+        width: '80'
     }, {
         label: 'Ultima Modifica',
         value: 'modified_date',
-        width: '80'
+        width: '70'
     }];
 
     constructor (DataService, DatasourceService, $timeout, WddCacheService, WDDAlert) {
