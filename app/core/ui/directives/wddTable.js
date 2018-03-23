@@ -205,10 +205,10 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
             scope.setColumnWidth = (column, width) => {
                 let table = scope.tableKey;
-                let key = $state.current.name + '.' + table + '.' + column
+                let key = $state.current.name + '.' + table + '.' + column;
                 let localStorageColumn = window.localStorage.getItem(key);
                 if (localStorageColumn !== null) {
-                    window.localStorage.removeItem(key)
+                    window.localStorage.removeItem(key);
                 }
                 window.localStorage.setItem(key, width);
             };
@@ -484,6 +484,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     window.open(pathSas.join(''), '_blank');
                 } else if (row.action === 'showRelation') {
                     ModalService.openRelationsModal(scope.serviceResponse[row.key].id_field.id, scope.serviceResponse[row.key].term_type.id, scope.serviceResponse[row.key].term_name.label).then(() => {
+                        scope.relationModalOpen = true;
                         scope.reloadData();
                     });
                 }

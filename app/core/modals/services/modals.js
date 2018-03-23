@@ -46,6 +46,30 @@ export class ModalService {
         this.$uibModal = $uibModal;
         this.$rootScope = $rootScope;
         this.$http = $http;
+        this.initOpenModals();
+    }
+
+    initOpenModals () {
+        let modals = [
+            'Relations',
+            'CreateEntity',
+            'NewEntity',
+            'MDDataDetail',
+            'MassiveManagment',
+            'NewWorkspace',
+            'ModificationWorkspace',
+            'NewWorkspaceRequests',
+            'ProcessHistory',
+            'EntityHistory',
+            'ErrorAction',
+            'Confirmation',
+            'Action',
+            'Checkboxes'
+        ];
+        this.openModals = {};
+        for (let i = 0; i < modals.length; i++) {
+            this.openModals[modals[i]] = null;
+        }
     }
 
     createNewWorkspace (configuration) {
@@ -77,6 +101,8 @@ export class ModalService {
     }
 
     openCreateEntity (entityType, dataDetails, workspaceId, isDraft) {
+        let name = 'CreateEntity';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             template: CreateEntityTemplate,
             controller: CreateEntityController,
@@ -91,11 +117,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openNewEntity () {
+        let name = 'NewEntity';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             template: NewEntityTemplate,
             controller: NewEntityController,
@@ -110,11 +138,13 @@ export class ModalService {
             // }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openMDDataDetail (id, isDraft, workspaceId) {
+        let name = 'MDDataDetail';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             template: DataDetailTemplate,
             controller: DataDetailController,
@@ -130,11 +160,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openRelationsModal (termId, termType, termName) {
+        let name = 'Relations';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             template: RelationModalTemplate,
             controller: RelationsModalController,
@@ -149,11 +181,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openMassiveManagmentModal () {
+        let name = 'MassiveManagment';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -164,7 +198,7 @@ export class ModalService {
             keyboard: false,
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
@@ -195,6 +229,8 @@ export class ModalService {
     }
 
     openNewWorkspaceModal () {
+        let name = 'NewWorkspace';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -206,11 +242,13 @@ export class ModalService {
             size: 'md',
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openModificationWorkspace (workspaceId) {
+        let name = 'ModificationWorkspace';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -226,11 +264,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openNewWorkspaceRequests (workspaceId, termTechRule, isInitiativeCensus) {
+        let name = 'NewWorkspaceRequests';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -247,11 +287,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openProcessHistoryModal (termId) {
+        let name = 'ProcessHistory';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -266,11 +308,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openEntityHistoryModal (termDetail) {
+        let name = 'EntityHistory';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -285,11 +329,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openErrorActionModal (param, text) {
+        let name = 'ErrorAction';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -304,11 +350,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openConfirmationModal (param) {
+        let name = 'Confirmation';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -322,11 +370,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openActionModal (param) {
+        let name = 'Action';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -340,11 +390,13 @@ export class ModalService {
             }),
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
     openCheckboxesModal () {
+        let name = 'Checkboxes';
+        this.manageOpenModals(name);
         let modalInstance = this.$uibModal.open({
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -355,7 +407,7 @@ export class ModalService {
             keyboard: false,
             resolve: {}
         });
-
+        this.openModals[name] = modalInstance;
         return modalInstance.result;
     }
 
@@ -482,5 +534,11 @@ export class ModalService {
             body: 'Si desidera eliminare la bozza dell\'entità?'
         };
         return text;
+    }
+
+    manageOpenModals (modal, closeOlder = true) {
+        if (this.openModals[modal] !== null && closeOlder) {
+            this.openModals[modal].dismiss();
+        }
     }
 }
