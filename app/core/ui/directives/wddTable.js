@@ -186,8 +186,10 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 return num;
             };
 
-            scope.checkColumnDefaultWidth = (index) => {
-                if (index !== undefined && scope.headerArray[index] !== undefined && 'width' in scope.headerArray[index]) {
+            scope.checkColumnDefaultWidth = (index, column) => {
+                // checks if there is a default width or a user specified width of the column
+                let localStorageColumn = window.localStorage.getItem($state.current.name + '.' + scope.tableKey + '.' + column);
+                if ((index !== undefined && scope.headerArray[index] !== undefined && 'width' in scope.headerArray[index]) || localStorageColumn !== null) {
                     return true;
                 }
                 return false;
