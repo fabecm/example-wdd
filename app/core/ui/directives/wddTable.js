@@ -157,13 +157,44 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                                     tableLength -= 1000;
                                 }
                             }
-                            scope.thLength = tableLength / scope.childCollspan();
+                            scope.thLength = (tableLength - scope.sumDefaultWidths()) / scope.numWithoutDefaultWidth();
                         });
                     }
                 }).catch((err) => {
                     $log.error(err);
                     scope.isErrored = true;
                 });
+            };
+
+            scope.sumDefaultWidths = () => {
+                let sum = 0;
+                scope.headerArray.forEach(function (element) {
+                    if ('width' in element) {
+                        sum += parseInt(element.width, 10);
+                    }
+                });
+                return sum;
+            };
+
+            scope.numWithoutDefaultWidth = () => {
+                let num = scope.childCollspan();
+                for (let i = 0; i < scope.headerArray.length; i++) {
+                    if (scope.checkColumnDefaultWidth(i)) {
+                        num--;
+                    }
+                }
+                return num;
+            };
+
+            scope.checkColumnDefaultWidth = (index) => {
+                if (index !== undefined && scope.headerArray[index] !== undefined && 'width' in scope.headerArray[index]) {
+                    return true;
+                }
+                return false;
+            };
+
+            scope.getColumnWidth = (index) => {
+                return scope.headerArray[index].width + 'px';
             };
 
             scope.checkRowsSelection = () => {
