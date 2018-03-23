@@ -193,9 +193,27 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 return false;
             };
 
-            scope.getColumnWidth = (index) => {
+            scope.getColumnWidth = (index, column) => {
+                let localStorageColumn = window.localStorage.getItem($state.current.name + '.' + scope.tableKey + '.' + column);
+                if (localStorageColumn !== null) {
+                    return localStorageColumn + 'px';
+                }
                 return scope.headerArray[index].width + 'px';
             };
+
+            scope.setColumnWidth = (column, width) => {
+                let table = scope.tableKey;
+                let key = $state.current.name + '.' + table + '.' + column
+                let localStorageColumn = window.localStorage.getItem(key);
+                if (localStorageColumn !== null) {
+                    window.localStorage.removeItem(key)
+                }
+                window.localStorage.setItem(key, width);
+            };
+
+            scope.$on('angular-resizable.resizeEnd', function (event, args) {
+                scope.setColumnWidth(event.targetScope.$parent.item.value, args.width);
+            });
 
             scope.checkRowsSelection = () => {
                 if (scope.isChild) {

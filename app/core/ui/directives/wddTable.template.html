@@ -18,7 +18,7 @@
                         />
                     </div>
                 </th>
-                <th class="headerCentered" ng-style="{'width': (checkColumnDefaultWidth($index)) ? getColumnWidth($index) : thLength + 'px', 'min-width': '50px'}" ng-repeat="item in headerArray track by $index"
+                <th class="headerCentered" ng-style="{'width': (checkColumnDefaultWidth($index)) ? getColumnWidth($index, item.value) : thLength + 'px', 'min-width': '50px'}" ng-repeat="item in headerArray track by $index"
                     resizable r-directions="['right']">
                     {{item.label}}
                 </th>
