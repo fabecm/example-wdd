@@ -18,17 +18,12 @@ export function WddCell ($filter) {
             if (scope.header === 'business_rule' 
                 || scope.header === 'tech_rule' 
                 || scope.header === 'business_data' 
-                || scope.header === 'business_glossary' 
-                || scope.header === 'program') {
+                || scope.header === 'business_glossary' ) {
                 if (scope.parsedCell && scope.parsedCell.length && scope.parsedCell[0].label) {
                     scope.parsedCell = [{
                         icon: 'glyphicon glyphicon-ok'
                     }];
-                } else {
-                    scope.parsedCell = [{
-                        icon: 'glyphicon glyphicon-remove'
-                    }];
-                }
+                } 
                 return;
             }
 
