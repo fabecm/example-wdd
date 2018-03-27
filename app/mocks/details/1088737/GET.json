@@ -1,0 +1,1003 @@
+{
+    "array": [
+        {
+            "term": {
+                "termtype": "DATA_FIELD",
+                "name": "DD - DF - STATO_ATTRIBUTO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "termId": 1088737,
+                "draft": false,
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": true
+            },
+            "attributes": [
+                {
+                    "name": "Data Position",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "6",
+                    "is_required": false,
+                    "is_editable": true
+                },
+                {
+                    "name": "Data Length",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "4",
+                    "is_required": false,
+                    "is_editable": true
+                },
+                {
+                    "name": "Data Type",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "2",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Data Layout",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "5",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Field",
+                    "values": [
+                        {
+                            "value": "STATO_ATTRIBUTO_FORB",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "1",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Description",
+                    "values": [
+                        {
+                            "value": "STATO_ATTRIBUTO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                            "ftype": "MULTILINETEXT"
+                        }
+                    ],
+                    "ftype": "MULTILINETEXT",
+                    "position": "3",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Status",
+                    "values": [
+                        {
+                            "value": "Produzione",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Produzione"
+                        },
+                        {
+                            "label": "Modifica"
+                        },
+                        {
+                            "label": "In sospeso"
+                        },
+                        {
+                            "label": "In fase di revisione"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "9",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Master Data",
+                    "values": [
+                        {
+                            "value": "N",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "TRUE"
+                        },
+                        {
+                            "label": "FALSE"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "8",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Importance",
+                    "values": [
+                        {
+                            "value": "Molto basso",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Critico"
+                        },
+                        {
+                            "label": "Alto"
+                        },
+                        {
+                            "label": "Medio"
+                        },
+                        {
+                            "label": "Basso"
+                        },
+                        {
+                            "label": "Molto basso"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "10",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Full Description",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "VALUETEXT"
+                        }
+                    ],
+                    "ftype": "VALUETEXT",
+                    "position": "7",
+                    "is_required": false,
+                    "is_editable": true
+                }
+            ],
+            "status": {
+                "label": "incompleto",
+                "light": "incomplete"
+            }
+        },
+        {
+            "term": {
+                "termtype": "DATA_TABLE",
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": true
+            },
+            "status": {}
+        },
+        {
+            "term": {
+                "termtype": "DATA_SOURCE",
+                "name": "DD - DS - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "termId": 1078851,
+                "draft": false,
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": true
+            },
+            "attributes": [
+                {
+                    "name": "Group Legal Entities",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "MULTILINETEXT"
+                        }
+                    ],
+                    "ftype": "MULTILINETEXT",
+                    "position": "5",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Data Source",
+                    "values": [
+                        {
+                            "value": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "1",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Data Source Type",
+                    "values": [
+                        {
+                            "value": "Flow",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Database"
+                        },
+                        {
+                            "label": "Flow"
+                        },
+                        {
+                            "label": "Routine"
+                        },
+                        {
+                            "label": "Web Service"
+                        },
+                        {
+                            "label": "External File"
+                        },
+                        {
+                            "label": "Data Entry"
+                        },
+                        {
+                            "label": "Report"
+                        },
+                        {
+                            "label": "Other"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "2",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Description",
+                    "values": [
+                        {
+                            "value": "Flusso %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                            "ftype": "MULTILINETEXT"
+                        }
+                    ],
+                    "ftype": "MULTILINETEXT",
+                    "position": "3",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Status",
+                    "values": [
+                        {
+                            "value": "Produzione",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Produzione"
+                        },
+                        {
+                            "label": "Modifica"
+                        },
+                        {
+                            "label": "In sospeso"
+                        },
+                        {
+                            "label": "In fase di revisione"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "6",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Importance",
+                    "values": [
+                        {
+                            "value": "Molto basso",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Critico"
+                        },
+                        {
+                            "label": "Alto"
+                        },
+                        {
+                            "label": "Medio"
+                        },
+                        {
+                            "label": "Basso"
+                        },
+                        {
+                            "label": "Molto basso"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "7",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Full Description",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "VALUETEXT"
+                        }
+                    ],
+                    "ftype": "VALUETEXT",
+                    "position": "4",
+                    "is_required": false,
+                    "is_editable": true
+                }
+            ],
+            "status": {
+                "label": "incompleto",
+                "light": "incomplete"
+            }
+        },
+        {
+            "term": {
+                "termtype": "TECHNICAL_APPLICATION",
+                "name": "DD - TA - MOF",
+                "termId": 1079485,
+                "draft": false,
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": true
+            },
+            "attributes": [
+                {
+                    "name": "Application",
+                    "values": [
+                        {
+                            "value": "MOF",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "2",
+                    "is_required": true,
+                    "is_editable": false
+                },
+                {
+                    "name": "Status",
+                    "values": [
+                        {
+                            "value": "Produzione",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Produzione"
+                        },
+                        {
+                            "label": "Modifica"
+                        },
+                        {
+                            "label": "In sospeso"
+                        },
+                        {
+                            "label": "In fase di revisione"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "4",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Importance",
+                    "values": [
+                        {
+                            "value": "Molto basso",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Critico"
+                        },
+                        {
+                            "label": "Alto"
+                        },
+                        {
+                            "label": "Medio"
+                        },
+                        {
+                            "label": "Basso"
+                        },
+                        {
+                            "label": "Molto basso"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "5",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Full Description",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "VALUETEXT"
+                        }
+                    ],
+                    "ftype": "VALUETEXT",
+                    "position": "3",
+                    "is_required": false,
+                    "is_editable": true
+                },
+                {
+                    "name": "Description",
+                    "values": [
+                        {
+                            "value": "MOF",
+                            "ftype": "MULTILINETEXT"
+                        }
+                    ],
+                    "ftype": "MULTILINETEXT",
+                    "position": "1",
+                    "is_required": true,
+                    "is_editable": true
+                }
+            ],
+            "status": {
+                "label": "completo",
+                "light": "complete"
+            }
+        },
+        {
+            "term": {
+                "termtype": "TECHNICAL_RULE",
+                "name": "DD - TR - STATO_ATTRIBUTO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "termId": 1080707,
+                "draft": false,
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": true
+            },
+            "attributes": [
+                {
+                    "name": "Status",
+                    "values": [
+                        {
+                            "value": "Produzione",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Produzione"
+                        },
+                        {
+                            "label": "Modifica"
+                        },
+                        {
+                            "label": "In sospeso"
+                        },
+                        {
+                            "label": "In fase di revisione"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "4",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Description",
+                    "values": [
+                        {
+                            "value": "Regola tecnica estrazione dato STATO_ATTRIBUTO_FORB (codice dell&apos;attributo forborne sul rapporto)",
+                            "ftype": "MULTILINETEXT"
+                        }
+                    ],
+                    "ftype": "MULTILINETEXT",
+                    "position": "1",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Importance",
+                    "values": [
+                        {
+                            "value": "Molto basso",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Critico"
+                        },
+                        {
+                            "label": "Alto"
+                        },
+                        {
+                            "label": "Medio"
+                        },
+                        {
+                            "label": "Basso"
+                        },
+                        {
+                            "label": "Molto basso"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "5",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Rule",
+                    "values": [
+                        {
+                            "value": "Il programma BATCH_CFSGSRAP_STEP1_DATA_%%%.sh (%%% va sostituito con il codice della banca per la quale si sta eseguendo l&apos;estrazione, es: BATCH_CFSGSRAP_STEP1_DATA_LOM.sh) richiama la Stored Procedure Oracle SP_CFSGSRAP_STEP1_DATA_%%%. Questa Stored Procedure si occupa dell&apos;estrazione dei rapporti dalla tabella T_RAPPORTI_%%% e della generazione del flusso. Per ogni rapporto estratto, viene recuperato il valore del campo STATO_ATTRIBUTO_FB dalla tabella T_RAPPORTI_%%% attrivuendogli uno dei seguenti valori:  - se T_RAPPORTI_%%%.STATO_ATTRIBUTO_FB = 0 inserisco 0 nel flusso  - se T_RAPPORTI_%%%.STATO_ATTRIBUTO_FB = 3 inserisco 0 nel flusso  - se T_RAPPORTI_%%%.STATO_ATTRIBUTO_FB = 4 inserisco 0 nel flusso  - se T_RAPPORTI_%%%.STATO_ATTRIBUTO_FB = 5 inserisco 0 nel flusso  - se T_RAPPORTI_%%%.STATO_ATTRIBUTO_FB = 1 inserisco 1 nel flusso  - se T_RAPPORTI_%%%.STATO_ATTRIBUTO_FB = 2 inserisco 2 nel flusso.",
+                            "ftype": "VALUETEXT"
+                        }
+                    ],
+                    "ftype": "VALUETEXT",
+                    "position": "2",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Data Source field input",
+                    "domain_values": [],
+                    "ftype": "CHECKBOXLIST",
+                    "position": "5",
+                    "is_required": false,
+                    "is_editable": true
+                },
+                {
+                    "name": "Data Source field output",
+                    "domain_values": [
+                        {
+                            "label": "DD - DF - STATO_ATTRIBUTO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+                        }
+                    ],
+                    "ftype": "CHECKBOXLIST",
+                    "position": "6",
+                    "is_required": false,
+                    "is_editable": true
+                }
+            ],
+            "status": {
+                "label": "completo",
+                "light": "complete"
+            }
+        },
+        {
+            "term": {
+                "termtype": "BUSINESS_DATA",
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": false
+            },
+            "status": {}
+        },
+        {
+            "term": {
+                "termtype": "BUSINESS_GLOSSARY",
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": false
+            },
+            "status": {}
+        },
+        {
+            "term": {
+                "termtype": "BUSINESS_RULE",
+                "name": "DD - BR - STATO_ATTRIBUTO_FORB.MOF",
+                "termId": 1077783,
+                "draft": false,
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": false
+            },
+            "attributes": [
+                {
+                    "name": "Description",
+                    "values": [
+                        {
+                            "value": "Regola di business per il dato STATO_ATTRIBUTO_FORB (codice dell'attributo forborne sul rapporto) alimentato dal settoriale MOF",
+                            "ftype": "MULTILINETEXT"
+                        }
+                    ],
+                    "ftype": "MULTILINETEXT",
+                    "position": "1",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Status",
+                    "values": [
+                        {
+                            "value": "Produzione",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Produzione"
+                        },
+                        {
+                            "label": "Modifica"
+                        },
+                        {
+                            "label": "In sospeso"
+                        },
+                        {
+                            "label": "In fase di revisione"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "3",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Importance",
+                    "values": [
+                        {
+                            "value": "Molto basso",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Critico"
+                        },
+                        {
+                            "label": "Alto"
+                        },
+                        {
+                            "label": "Medio"
+                        },
+                        {
+                            "label": "Basso"
+                        },
+                        {
+                            "label": "Molto basso"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "4",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Rule",
+                    "values": [
+                        {
+                            "value": "Questo campo provvede alla segnalazione del dato forborne a Syges. Il dominio prevede i valori: 0 - rapporto non a forborne 1 - rapporto a forborne effettivo 2 - rapporto a forborne potenziale",
+                            "ftype": "VALUETEXT"
+                        }
+                    ],
+                    "ftype": "VALUETEXT",
+                    "position": "2",
+                    "is_required": true,
+                    "is_editable": true
+                }
+            ],
+            "status": {
+                "label": "completo",
+                "light": "complete"
+            }
+        },
+        {
+            "term": {
+                "termtype": "PROCESS_OWNER",
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": false
+            },
+            "status": {}
+        },
+        {
+            "term": {
+                "termtype": "SYSTEM_OWNER",
+                "name": "DD - SO - UBIS-LENDING & MONITORING APPLICATIONS",
+                "termId": 1075519,
+                "draft": false,
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": false
+            },
+            "attributes": [
+                {
+                    "name": "Status",
+                    "values": [
+                        {
+                            "value": "Produzione",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Produzione"
+                        },
+                        {
+                            "label": "Modifica"
+                        },
+                        {
+                            "label": "In sospeso"
+                        },
+                        {
+                            "label": "In fase di revisione"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "3",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "System Owner",
+                    "values": [
+                        {
+                            "value": "UBIS-LENDING & MONITORING APPLICATIONS",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "2",
+                    "is_required": true,
+                    "is_editable": false
+                },
+                {
+                    "name": "Importance",
+                    "values": [
+                        {
+                            "value": "Molto basso",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Critico"
+                        },
+                        {
+                            "label": "Alto"
+                        },
+                        {
+                            "label": "Medio"
+                        },
+                        {
+                            "label": "Basso"
+                        },
+                        {
+                            "label": "Molto basso"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "4",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Description",
+                    "values": [
+                        {
+                            "value": "UBIS-LENDING & MONITORING APPLICATIONS",
+                            "ftype": "MULTILINETEXT"
+                        }
+                    ],
+                    "ftype": "MULTILINETEXT",
+                    "position": "1",
+                    "is_required": true,
+                    "is_editable": true
+                }
+            ],
+            "status": {
+                "label": "completo",
+                "light": "complete"
+            }
+        },
+        {
+            "term": {
+                "termtype": "PROGRAM",
+                "name": "DD - PRG - SCRIPT - BATCH_CFSGSRAP_STEP1_DATA_%%%.SH",
+                "termId": 1079377,
+                "draft": false,
+                "creating": true,
+                "reading": true,
+                "updating": true,
+                "deleting": true
+            },
+            "attributes": [
+                {
+                    "name": "Process",
+                    "values": [
+                        {
+                            "value": "BATCH_CFSGSRAP_STEP1_DATA_%%%.sh",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "1",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Program",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "SINGLELINETEXT"
+                        }
+                    ],
+                    "ftype": "SINGLELINETEXT",
+                    "position": "2",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Importance",
+                    "values": [
+                        {
+                            "value": "Molto basso",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Critico"
+                        },
+                        {
+                            "label": "Alto"
+                        },
+                        {
+                            "label": "Medio"
+                        },
+                        {
+                            "label": "Basso"
+                        },
+                        {
+                            "label": "Molto basso"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "6",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Full Description",
+                    "values": [
+                        {
+                            "value": "",
+                            "ftype": "VALUETEXT"
+                        }
+                    ],
+                    "ftype": "VALUETEXT",
+                    "position": "4",
+                    "is_required": false,
+                    "is_editable": true
+                },
+                {
+                    "name": "Description",
+                    "values": [
+                        {
+                            "value": "Programma SCRIPT",
+                            "ftype": "MULTILINETEXT"
+                        }
+                    ],
+                    "ftype": "MULTILINETEXT",
+                    "position": "3",
+                    "is_required": true,
+                    "is_editable": true
+                },
+                {
+                    "name": "Status",
+                    "values": [
+                        {
+                            "value": "Produzione",
+                            "ftype": "SINGLESELECTLIST"
+                        }
+                    ],
+                    "domain_values": [
+                        {
+                            "label": "Produzione"
+                        },
+                        {
+                            "label": "Modifica"
+                        },
+                        {
+                            "label": "In sospeso"
+                        },
+                        {
+                            "label": "In fase di revisione"
+                        },
+                        {
+                            "label": "Non specificato"
+                        }
+                    ],
+                    "ftype": "SINGLESELECTLIST",
+                    "position": "5",
+                    "is_required": true,
+                    "is_editable": true
+                }
+            ],
+            "status": {
+                "label": "incompleto",
+                "light": "incomplete"
+            }
+        }
+    ]
+}

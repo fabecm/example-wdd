@@ -1,0 +1,25 @@
+{
+    "business_rule": {
+        "label": "DD - BR - DT_AGGIORNAMENTO.MOF",
+        "rule": "Questo campo provvede alla segnalazione della data di ultimo aggiornamento del rapporto a Syges. Il formato del campo è: yyyymmdd. Il campo è valorizzato con la data su cui è avvenuta l'ultima modifica al rapporto"
+    },
+    "data_field_in": [],
+    "tech_rules": {
+        "label": "DD - TR - DT_AGGIORNAMENTO - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+        "rule": "Il programma BATCH_CFSGSRAP_STEP1_DATA_%%%.sh (%%% va sostituito con il codice della banca per la quale si sta eseguendo l&apos;estrazione, es: BATCH_CFSGSRAP_STEP1_DATA_LOM.sh) richiama la Stored Procedure Oracle SP_CFSGSRAP_STEP1_DATA_%%%. Questa Stored Procedure si occupa dell&apos;estrazione dei rapporti dalla tabella T_RAPPORTI_%%% e della generazione del flusso. Per ogni rapporto estratto, viene recuperato il valore del campo UPD_TIMESTAMP dalla tabella T_RAPPORTI_%%% formattandolo nel seguente modo: YYYYMMDD.",
+        "id": "1079781",
+        "draft": false
+    },
+    "program": [
+        {
+            "label": "DD - PRG - NOPRG_BATCH_CFSGSRAP_STEP1_DATA_%%%.SH - BATCH_CFSGSRAP_STEP1_DATA_%%%.SH"
+        }
+    ],
+    "data_field_out": [
+        {
+            "label": "DT_AGGIORNAMENTO",
+            "id": "1088141",
+            "draft": false
+        }
+    ]
+}
