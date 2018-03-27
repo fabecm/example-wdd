@@ -1,3 +1,6 @@
+import ModelloDatiPdf from '../../public/Modello_dati.pdf';
+import { saveAs } from 'file-saver';
+
 export class DataLineageController {
 
     lineageBoxes = Array(9);
@@ -5,11 +8,12 @@ export class DataLineageController {
     // Default view: Data Lineage
     currentView = 0;
 
-    constructor (LineageService, $state, $stateParams) {
+    constructor (LineageService, $state, $stateParams, $http) {
         'ngInject';
         this.$state = $state;
         this.lineageService = LineageService;
         this.$stateParams = $stateParams;
+        this.$http = $http;
 
         // TODO per l'init recuperare il termId dai parametri dello state
         this.initLineage();
@@ -43,6 +47,8 @@ export class DataLineageController {
                     data: res.data.tech_hierarchy,
                     showType: true
                 };
+                this.lineageBoxes[1] = this.setColorClass(this.lineageBoxes[1]);
+                this.lineageBoxes[1] = this.setTooltip(this.lineageBoxes[1]);
             }
 
             if (res.data.tech_rules_in && res.data.tech_rules_in.length > 0) {
@@ -51,6 +57,8 @@ export class DataLineageController {
                     data: res.data.tech_rules_in,
                     operation: this.goToRuleState.bind(this)
                 };
+                this.lineageBoxes[3] = this.setColorClass(this.lineageBoxes[3]);
+                this.lineageBoxes[3] = this.setTooltip(this.lineageBoxes[3]);
             }
 
             this.lineageBoxes[4] = {
@@ -59,6 +67,8 @@ export class DataLineageController {
                 contentBold: true,
                 infoOperation: this.goToDataDetail.bind(this)
             };
+            this.lineageBoxes[4] = this.setColorClass(this.lineageBoxes[4]);
+            this.lineageBoxes[4] = this.setTooltip(this.lineageBoxes[4]);
 
             if (res.data.tech_rules_out && res.data.tech_rules_out.length > 0) {
                 this.lineageBoxes[5] = {
@@ -66,6 +76,8 @@ export class DataLineageController {
                     data: res.data.tech_rules_out,
                     operation: this.goToRuleState.bind(this)
                 };
+                this.lineageBoxes[5] = this.setColorClass(this.lineageBoxes[5]);
+                this.lineageBoxes[5] = this.setTooltip(this.lineageBoxes[5]);
             }
 
             if (res.data.other_relations && res.data.other_relations[0]) {
@@ -74,6 +86,8 @@ export class DataLineageController {
                     data: res.data.other_relations[0],
                     operation: null
                 };
+                this.lineageBoxes[7] = this.setColorClass(this.lineageBoxes[7]);
+                this.lineageBoxes[7] = this.setTooltip(this.lineageBoxes[7]);
             }
 
             if (res.data.other_relations && res.data.other_relations[1]) {
@@ -82,6 +96,8 @@ export class DataLineageController {
                     data: res.data.other_relations[1],
                     operation: null
                 };
+                this.lineageBoxes[6] = this.setColorClass(this.lineageBoxes[6]);
+                this.lineageBoxes[6] = this.setTooltip(this.lineageBoxes[6]);
             }
 
             if (res.data.other_relations && res.data.other_relations[2]) {
@@ -90,6 +106,8 @@ export class DataLineageController {
                     data: res.data.other_relations[2],
                     operation: null
                 };
+                this.lineageBoxes[8] = this.setColorClass(this.lineageBoxes[8]);
+                this.lineageBoxes[8] = this.setTooltip(this.lineageBoxes[8]);
             }
         });
     }
@@ -148,5 +166,109 @@ export class DataLineageController {
 
     goToDataDetail (termId, draft) {
         this.$state.go('tab.dataDetail', {id: termId, isDraft: draft, workspaceId: this.$stateParams.workspaceId});
+    }
+
+    setColorClass (object) {
+        switch (object.title) {
+            case 'Process Owner':
+            case 'Responsible User':
+            case 'System Owner':
+                object.colorClass = 'color-green';
+                break;
+            case 'Business Glossary':
+            case 'Business Data':
+            case 'Business Rule':
+                object.colorClass = 'color-orange';
+                break;
+            case 'Technical Application':
+            case 'Data Source':
+            case 'Data Table':
+            case 'Technical Hierarchy':
+            case 'Technical Rule':
+            case 'Data Field':
+                object.colorClass = 'color-blue';
+                break;
+            default:
+                object.colorClass = '';
+                break;
+        }
+        return object;
+    }
+
+    setTooltip(object) {
+        switch (object.title) {
+            case 'Process Owner':
+                object.tooltip = 'Utente responsabile del dato di business. Coincide con il c.d. Data Owner identificato dalla circolare 285 di Banca di Italia.';
+                break;
+            case 'Responsible User':
+                object.tooltip = 'Assume formalmente la responsabilità, in rappresentanza degli utenti e nei rapporti con i System Owner. Supporta i Process Owner mediante presidio di 1 livello dei dati trattati dalle procedure di propria responsabilità.';
+                break;
+            case 'System Owner':
+                object.tooltip = 'Capo Settore (UBI.S) collegato in organigramma alla Unità Operativa referente della componente applicazione.';
+                break;
+            case 'Business Glossary':
+                object.tooltip = 'Termine di business avente significato unico a livello di gruppo con il quale viene descritto il';
+                break;
+            case 'Business Data':
+                object.tooltip = 'Dato del Sistema Direzionale definito come "rilevante"';
+                break;
+            case 'Business Rule':
+                object.tooltip = 'Descrizione del requisito di business che viene implementato dalla relativa technical rule.';
+                break;
+            case 'Technical Application':
+                object.tooltip = 'Codice identificativo dell’applicazione secondo il catalogo interno UBIS. Indica un aggregato di una o più componenti architetturali (componenti applicative)';
+                break;
+            case 'Data Source':
+                object.tooltip = 'Nome dell’archivio che contiene i dati del sistema informativo (Database, Flusso, Routine, Report, Web Services, External File, Data Entries)';
+                break;
+            case 'Data Table':
+                object.tooltip = 'Nome della tabella (di un database) che contiene il dato';
+                break;
+            case 'Technical Hierarchy':
+                object.tooltip = '';
+                break;
+            case 'Technical Rule':
+                object.tooltip = 'Contiene la descrizione delle regole tecniche di creazione/ calcolo di uno specifico dato.';
+                break;
+            case 'Data Field':
+                object.tooltip = 'Dato elementare del sistema informativo.';
+                break;
+            case 'Program':
+                object.tooltip = 'Programmi e procedure tecniche che generano il Business Data';
+                break;
+            case 'Uente Richiedente':
+                object.tooltip = 'Utente di business che richiede il censimento informativo dei dati';
+                break;
+            default:
+                object.tooltip = '';
+                break;
+        }
+        return object;
+    }
+
+    getModelloDatiPdfByteArray () {
+        return this.$http({
+            method: 'GET',
+            url: ModelloDatiPdf,
+            responseType: 'arraybuffer'
+        });
+    }
+
+    downloadModelloDati () {
+        this.getModelloDatiPdfByteArray().then((res) => {
+            let data = res.data;
+            let contentType = 'application/pdf';
+            let urlCreator = window.URL || window.webkitURL || window.mozURL || window.msURL;
+
+            if (urlCreator) {
+                try {
+                    let file = new File([data], 'Modello_dati.pdf', { type: contentType });
+                    saveAs(file);
+                } catch (err) {
+                    let fileBlob = new Blob([data], { type: contentType });
+                    window.navigator.msSaveBlob(fileBlob, 'Modello_dati.pdf');
+                }
+            }
+        });
     }
 }
