@@ -1,0 +1,34 @@
+{
+    "tech_hierarchy": [
+        {
+            "label": "UBIS-LENDING & MONITORING APPLICATIONS",
+            "value": "SYSTEM_OWNER"
+        },
+        {
+            "label": "MOF",
+            "value": "TECH_APP"
+        },
+        {
+            "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+            "value": "DATA_SOURCE"
+        },
+        {
+            "label": ""
+        }
+    ],
+    "data_field": {
+        "label": "DT_AGGIORNAMENTO",
+        "id": "1088141",
+        "draft": false
+    },
+    "tech_rules_in": [
+        {
+            "label": "DD - TR - DT_AGGIORNAMENTO - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+            "id": "1079781",
+            "draft": false
+        }
+    ],
+    "tech_rules_out": [],
+    "other_relations": [],
+    "draft": false
+}
