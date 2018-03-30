@@ -171,39 +171,22 @@
               margin: 2px;
             }
 
-            .col-primary-navigation {
-              position: absolute;
-              top: 0px;
-              bottom: 0;
-              right: 0;
-              width: 30px;
+            .icon-row {
               display: flex;
-              align-items: center;
-              justify-content: center;
-              // background-color: #d7dfed;
+            }
+
+            .col-primary-navigation {
+              @extend %col-navigations;
+              order: 3;
             }
 
             .col-secondary-navigation {
-              position: absolute;
-              top: 0px;
-              bottom: 0;
-              right: 30px;
-              width: 30px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              // background-color: #ffffff;
+              @extend %col-navigations;
+              order: 2;
             }
             .col-ternary-navigation {
-              position: absolute;
-              top: 0px;
-              bottom: 0;
-              right: 60px;
-              width: 30px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              // background-color: #ffffff;
+              @extend %col-navigations;
+              order: 1;
             }
           }
         }
