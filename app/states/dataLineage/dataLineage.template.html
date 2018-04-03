@@ -3,22 +3,25 @@
         <i class="icon icon-left-arrow"></i>
     </button>
     <h2 class="title">Data Lineage</h2>
+    <button class="align-right wdd-button icon-only right-spacer auto-width" ng-click="vm.downloadModelloDati()">
+        <i class="icon icon-download"></i>
+            Modello Dati
+    </button>
 </div>
 <div class="data-lineage-page">
     <div class="square-container" wdd-spinner="[vm.getLineageFieldPromise.$$state, vm.getLineageRulePromise.$$state]">
 
-        <div class="square box-{{key}}" ng-class="{'hide-square': !box}" ng-repeat="(key, box) in vm.lineageBoxes track by $index">
+        <div class="square box-{{key}} {{box.colorClass}}" ng-class="{'hide-square': !box}" ng-repeat="(key, box) in vm.lineageBoxes track by $index">
             <div class="body">
                 <div class="body-child">
-                    <div class="title">
+                    <div class="title" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{box.tooltip}}" tooltip-enable="true">
                         <label>{{box.title}}</label>
                         <i ng-if="box.infoOperation" class="icon icon-workspace-details" ng-click="box.infoOperation(box.data.id, box.data.draft)"></i>
                     </div>
-                    <div ng-class="{'interactive': box.operation, 'content-bold': box.contentBold}" ng-if="box.data.label && !box.data.length"
-                        ng-click="box.operation(item.id, item.draft)">
+                    <div class="spacer" ng-class="{'interactive': box.operation, 'content-bold': box.contentBold}" ng-if="box.data.label && !box.data.length" ng-click="box.operation(item.id, item.draft)">
                         {{box.data.label}}
                     </div>
-                    <div ng-class="{'interactive': box.operation}" ng-if="!box.data.label && box.data.length && box.data[0]" ng-repeat="item in box.data track by $index"
+                    <div class="spacer" ng-class="{'interactive': box.operation}" ng-if="!box.data.label && box.data.length && box.data[0]" ng-repeat="item in box.data track by $index"
                         ng-click="box.operation(item.id, item.draft)">
     
                         <div ng-if="!box.showType" ng-class="{'content-bold': box.contentBold}">
@@ -40,18 +43,18 @@
                 </div>
             </div>
 
-            <div class="arrow-bottom"></div>
-            <div class="arrow-top"></div>
-            <div class="arrow-left"></div>
-            <div class="arrow-right"></div>
+            <div class="arrow-bottom" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
+            <div class="arrow-top" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
+            <div class="arrow-left" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
+            <div class="arrow-right" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
 
-            <div class="arrow-top-right"></div>
-            <div class="arrow-top-left"></div>
-            <div class="arrow-bottom-right"></div>
-            <div class="arrow-bottom-left"></div>
+            <div class="arrow-top-right" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
+            <div class="arrow-top-left" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
+            <div class="arrow-bottom-right" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
+            <div class="arrow-bottom-left" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
 
-            <div class="arrow-bottom-half"></div>
-            <div class="arrow-top-half"></div>
+            <div class="arrow-bottom-half" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
+            <div class="arrow-top-half" tooltip-placement="left" tooltip-class="tooltip-test" uib-tooltip="{{box.arrowTooltip}}" tooltip-enable="true"></div>
         </div>
 
     </div>
