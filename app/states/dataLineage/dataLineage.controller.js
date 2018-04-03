@@ -109,6 +109,7 @@ export class DataLineageController {
                 this.lineageBoxes[8] = this.setColorClass(this.lineageBoxes[8]);
                 this.lineageBoxes[8] = this.setTooltip(this.lineageBoxes[8]);
             }
+            this.getArrowTooltip();
         });
     }
 
@@ -124,6 +125,8 @@ export class DataLineageController {
                     hasDescription: true,
                     operation: null
                 };
+                this.lineageBoxes[1] = this.setColorClass(this.lineageBoxes[1]);
+                this.lineageBoxes[1] = this.setTooltip(this.lineageBoxes[1]);
             }
 
             if (res.data.data_field_in && res.data.data_field_in.length > 0) {
@@ -132,6 +135,8 @@ export class DataLineageController {
                     data: res.data.data_field_in,
                     operation: this.goToFieldState.bind(this)
                 };
+                this.lineageBoxes[3] = this.setColorClass(this.lineageBoxes[3]);
+                this.lineageBoxes[3] = this.setTooltip(this.lineageBoxes[3]);
             }
 
             this.lineageBoxes[4] = {
@@ -141,6 +146,8 @@ export class DataLineageController {
                 hasDescription: true,
                 infoOperation: this.goToDataDetail.bind(this)
             };
+            this.lineageBoxes[4] = this.setColorClass(this.lineageBoxes[4]);
+            this.lineageBoxes[4] = this.setTooltip(this.lineageBoxes[4]);
 
             if (res.data.data_field_out && res.data.data_field_out.length > 0) {
                 this.lineageBoxes[5] = {
@@ -148,6 +155,8 @@ export class DataLineageController {
                     data: res.data.data_field_out,
                     operation: this.goToFieldState.bind(this)
                 };
+                this.lineageBoxes[5] = this.setColorClass(this.lineageBoxes[5]);
+                this.lineageBoxes[5] = this.setTooltip(this.lineageBoxes[5]);
             }
 
             if (res.data.program && res.data.program.length > 0) {
@@ -156,7 +165,10 @@ export class DataLineageController {
                     data: res.data.program,
                     operation: null
                 };
+                this.lineageBoxes[7] = this.setColorClass(this.lineageBoxes[7]);
+                this.lineageBoxes[7] = this.setTooltip(this.lineageBoxes[7]);
             }
+            this.getArrowTooltip();
         });
     }
 
@@ -195,7 +207,7 @@ export class DataLineageController {
         return object;
     }
 
-    setTooltip(object) {
+    setTooltip (object) {
         switch (object.title) {
             case 'Process Owner':
                 object.tooltip = 'Utente responsabile del dato di business. Coincide con il c.d. Data Owner identificato dalla circolare 285 di Banca di Italia.';
@@ -236,7 +248,7 @@ export class DataLineageController {
             case 'Program':
                 object.tooltip = 'Programmi e procedure tecniche che generano il Business Data';
                 break;
-            case 'Uente Richiedente':
+            case 'Utente Richiedente':
                 object.tooltip = 'Utente di business che richiede il censimento informativo dei dati';
                 break;
             default:
@@ -270,5 +282,48 @@ export class DataLineageController {
                 }
             }
         });
+    }
+
+    getArrowTooltip () {
+        if (typeof this.lineageBoxes[1] !== undefined && this.lineageBoxes[1].title === 'Technical Hierarchy' 
+            && typeof this.lineageBoxes[4] !== undefined && this.lineageBoxes[4].title === 'Data Field') {
+            this.lineageBoxes[1].arrowTooltip = 'Gerarchia tecnica/Owner';
+        } 
+        if (typeof this.lineageBoxes[1] !== undefined && this.lineageBoxes[1].title === 'Business Rule'
+            && typeof this.lineageBoxes[4] !== undefined && this.lineageBoxes[4].title === 'Technical Rule') {
+            this.lineageBoxes[1].arrowTooltip = 'Implementata in';
+        } 
+        if (typeof this.lineageBoxes[3] !== undefined && this.lineageBoxes[3].title === 'Technical Rule'
+            && typeof this.lineageBoxes[4] !== undefined && this.lineageBoxes[4].title === 'Data Field') {
+            this.lineageBoxes[3].arrowTooltip = 'Produce';
+        }
+        if (typeof this.lineageBoxes[4] !== undefined && this.lineageBoxes[4].title === 'Technical Rule'
+            && typeof this.lineageBoxes[5] !== undefined && this.lineageBoxes[5].title === 'Data Field') {
+            this.lineageBoxes[5].arrowTooltip = 'Elabora';
+        }
+        if (typeof this.lineageBoxes[4] !== undefined && this.lineageBoxes[4].title === 'Technical Rule'
+            && typeof this.lineageBoxes[3] !== undefined && this.lineageBoxes[3].title === 'Data Field') {
+            this.lineageBoxes[3].arrowTooltip = 'Elabora';
+        }
+        if (typeof this.lineageBoxes[7] !== undefined && this.lineageBoxes[7].title === 'Business Data'
+            && typeof this.lineageBoxes[4] !== undefined && this.lineageBoxes[4].title === 'Data Field') {
+            this.lineageBoxes[7].arrowTooltip = 'Disponibile in';
+        }
+        if (typeof this.lineageBoxes[7] !== undefined && this.lineageBoxes[7].title === 'Business Data'
+            && typeof this.lineageBoxes[6] !== undefined) {
+            if (this.lineageBoxes[6].title === 'Business Glossary') {
+                this.lineageBoxes[6].arrowTooltip = 'Descritto da';
+            } else if (this.lineageBoxes[6].title === 'Process Owner') {
+                this.lineageBoxes[6].arrowTooltip = 'Fa capo a';
+            }
+        }
+        if (typeof this.lineageBoxes[7] !== undefined && this.lineageBoxes[7].title === 'Business Data'
+            && typeof this.lineageBoxes[8] !== undefined) {
+            if (this.lineageBoxes[8].title === 'Business Glossary') {
+                this.lineageBoxes[8].arrowTooltip = 'Descritto da';
+            } else if (this.lineageBoxes[8].title === 'Process Owner') {
+                this.lineageBoxes[8].arrowTooltip = 'Fa capo a';
+            }
+        }
     }
 }
