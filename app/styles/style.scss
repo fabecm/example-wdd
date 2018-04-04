@@ -51,7 +51,7 @@ i.icon.icon-disabled{
 }
 
 .dataDetailWindow{
-    .modal-dialog.modal-lg{
+    .modal-dialog.modal-lg, .modal-dialog.modal-90{
         height: 90%;
         .modal-content{
             height: 100%;
@@ -85,4 +85,27 @@ i.icon.icon-disabled{
     align-content: center;
     align-items: center;
     justify-content:center;
+}
+
+%input-select-arrow {
+    line-height: $custom-select-height;
+    cursor: pointer;
+    content: '\e806';
+    position: absolute;
+    font-size: 15px;
+    height: 30px;
+    top: 0;
+    width: 30px;
+    right: 5px;
+    color: #2a74de;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%col-navigations {
+    width: 30px;
+    align-items: center;
+    justify-content: center;
 }

@@ -57,25 +57,7 @@
     }
 
     i {
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-            /* IE10+ CSS styles go here */
-            margin-top: 6px;
-        }
-        line-height: $custom-select-height;
-        content: '\e806';
-        display: block;
-        position: absolute;
-        right: 5px;
-        width: 30px;
-        height: 30px;
-        font-size: 15px;
-        top: 0;
-        bottom: 0;
-        color: #2a74de;
-        pointer-events: none;
-        z-index: 1;
-        text-align: center;
-        line-height: 30px;
+       @extend %input-select-arrow;
     }
 
     &.select-child {
