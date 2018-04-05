@@ -1,5 +1,3 @@
-
-
 export class DataLineageController {
 
     lineageBoxes = Array(9);
