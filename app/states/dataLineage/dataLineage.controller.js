@@ -1,3 +1,5 @@
+
+
 export class DataLineageController {
 
     lineageBoxes = Array(9);
@@ -5,11 +7,12 @@ export class DataLineageController {
     // Default view: Data Lineage
     currentView = 0;
 
-    constructor (LineageService, $state, $stateParams) {
+    constructor (LineageService, $state, $stateParams, ModalService) {
         'ngInject';
         this.$state = $state;
         this.lineageService = LineageService;
         this.$stateParams = $stateParams;
+        this.modalService = ModalService;
 
         // TODO per l'init recuperare il termId dai parametri dello state
         this.initLineage();
@@ -147,6 +150,6 @@ export class DataLineageController {
     }
 
     goToDataDetail (termId, draft) {
-        this.$state.go('tab.dataDetail', {id: termId, isDraft: draft, workspaceId: this.$stateParams.workspaceId});
+        this.modalService.openMDDataDetail(termId, draft, this.$stateParams.workspaceId);
     }
 }
