@@ -5,7 +5,8 @@ export function WddCell ($filter) {
     return {
         scope: {
             cell: '=',
-            header: '='
+            header: '=',
+            navigationInPopover: '='
         },
         template: template,
         link: (scope) => {
@@ -14,16 +15,15 @@ export function WddCell ($filter) {
             } else {
                 scope.parsedCell = scope.cell;
             }
-
-            if (scope.header === 'business_rule' 
-                || scope.header === 'tech_rule' 
-                || scope.header === 'business_data' 
-                || scope.header === 'business_glossary' ) {
+            if (scope.header === 'business_rule'
+                || scope.header === 'tech_rule'
+                || scope.header === 'business_data'
+                || scope.header === 'business_glossary') {
                 if (scope.parsedCell && scope.parsedCell.length && scope.parsedCell[0].label) {
                     scope.parsedCell = [{
                         icon: 'glyphicon glyphicon-ok'
                     }];
-                } 
+                }
                 return;
             }
 

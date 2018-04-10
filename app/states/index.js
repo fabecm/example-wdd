@@ -16,7 +16,7 @@ import { stateConfig as DashboardUserRequestConfig } from './dashboardUserReques
 import { stateConfig as EntityCensusConfig } from './entityCensus/entityCensus.config';
 import { stateConfig as EntityApprovalRequestConfig } from './entityApprovalRequest/entityApprovalRequest.config';
 import { stateConfig as ErrorPageConfig } from './errorPage/errorPage.config';
-import { ModalService } from "../core/modals/services/modals";
+import { ModalService } from '../core/modals/services/modals';
 
 export default angular.module('wdd.states', [])
     .config(($stateProvider, $urlRouterProvider) => {

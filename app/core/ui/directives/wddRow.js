@@ -19,15 +19,17 @@ export function WddRow () {
             statusToDisabledCreation: '=',
             isFromChildTable: '=',
             isSas: '=',
-            checkRow: '&'
+            checkRow: '&',
+            navigationInPopover: '='
         },
         template: template,
         link: (scope) => {
+            scope.navigationInPopover = (scope.navigationInPopover !== 'true') ? false : true;
             if (scope.rowChecked || scope.rowCollapse) {
                 scope.action = true;
             }
 
-            if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreation) {
+            if (!scope.navigationInPopover && (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreation)) {
                 scope.hasIcon = true;
             }
 
