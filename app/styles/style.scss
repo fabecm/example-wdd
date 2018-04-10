@@ -87,20 +87,6 @@ i.icon.icon-disabled{
     justify-content:center;
 }
 
-.wdd-popover {
-    @extend %arrow_box;
-    position: absolute;
-    top: calc(100% + 10px);
-    left: calc(50% - 60px);
-    z-index: 1;
-    background-color: $label-color;
-    width: 120px;
-    border-radius: 5px;
-    .wdd-button {
-        display: inline-block;
-    }
-}
-
 %input-select-arrow {
     line-height: $custom-select-height;
     cursor: pointer;
@@ -149,5 +135,19 @@ i.icon.icon-disabled{
         border-bottom-color: $label-background-trace;
         border-width: 11px;
         margin-left: -11px;
+    }
+}
+
+.wdd-popover {
+    @extend %arrow_box;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: calc(50% - 60px);
+    z-index: 1;
+    background-color: $label-color;
+    width: 120px;
+    border-radius: 5px;
+    .wdd-button {
+        display: inline-block;
     }
 }
