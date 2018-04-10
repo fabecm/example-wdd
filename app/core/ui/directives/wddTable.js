@@ -410,7 +410,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     scope.reloadData();
                 }
             };
-            if (!scope.navigationInPopover && (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreationBtn || scope.hasRelationModal)) {
+            if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreationBtn || scope.hasRelationModal) {
                 scope.hasIcon = true;
             }
 
@@ -429,7 +429,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     numColl += 1;
                 }
 
-                if (scope.hasIcon) {
+                if (scope.hasIcon && !scope.navigationInPopover) {
                     numColl += 1;
                 }
 

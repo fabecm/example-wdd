@@ -22,7 +22,7 @@
                     resizable r-directions="['right']">
                     {{item.label}}
                 </th>
-                <th ng-if="hasIcon" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2, 'hasTreeIcon': iconNumber == 3}"></th>
+                <th ng-if="hasIcon && !navigationInPopover" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2, 'hasTreeIcon': iconNumber == 3}"></th>
                 <!-- <th ng-if="isChild" class="baseHeaderIconWidth"></th> -->
             </thead>
             <tbody>

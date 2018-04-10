@@ -6,10 +6,21 @@ export function WddCell ($filter) {
         scope: {
             cell: '=',
             header: '=',
-            navigationInPopover: '='
+            navigationInPopover: '=',
+            hasPrimaryNavigationBtn: '=',
+            hasSecondaryNavigationBtn: '=',
+            hasTernaryNavigationBtn: '=',
+            hasInfoBtn: '=',
+            actionFunction: '&',
+            hasCreation: '=',
+            hasRelationModal: '=',
+            isSas: '=',
+            rowData: '=',
+            rowKey: '='
         },
         template: template,
         link: (scope) => {
+            scope.visiblePopover = false;
             if (!scope.cell || (!scope.cell.length && scope.cell.length !== 0)) {
                 scope.parsedCell = [scope.cell];
             } else {
@@ -36,6 +47,10 @@ export function WddCell ($filter) {
                     return cell;
                 });
             }
+
+            scope.togglePopover = () => {
+                scope.visiblePopover = !scope.visiblePopover;
+            };
         }
     };
 }
