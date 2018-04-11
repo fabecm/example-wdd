@@ -45,7 +45,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             tableIsEmpty: '=?',
             hasRelationModal: '@?',
             dontResize: '@?',
-            navigationInPopover: '@'
+            navigationInPopover: '@',
+            allowedColumnsDataDetail: '=?'
         },
         template: template,
         link: (scope) => {
@@ -489,7 +490,16 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         `${field.id}`];
                     window.open(pathSas.join(''), '_blank');
                 } else if (row.action === 'showRelation') {
-                    ModalService.openRelationsModal(field.id, scope.serviceResponse[row.key].term_type.id, scope.serviceResponse[row.key].term_name.label).then(() => {
+                    let termId;
+                    let termLabel;
+                    if (row.cell) {
+                        termId = field.columnHeader;
+                        termLabel = scope.serviceResponse[row.key][field.columnHeader].term_name.label;
+                    } else {
+                        termId = scope.serviceResponse[row.key].term_type.id;
+                        termLabel = scope.serviceResponse[row.key].term_name.label;
+                    }
+                    ModalService.openRelationsModal(field.id, termId, termLabel).then(() => {
                         scope.relationModalOpen = true;
                         scope.reloadData();
                     });

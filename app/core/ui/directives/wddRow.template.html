@@ -16,7 +16,7 @@
 </td>
 <td wdd-cell ng-repeat="c in column track by $index" cell="rowData[c.value]" header="c.value" class="has-border" navigation-in-popover="navigationInPopover" row-data="rowData" is-sas="isSas" has-relation-modal="hasRelationModal" has-creation="hasCreation" action-function="actionFunction(rowSelected)" row-key="rowKey"
 has-info-btn="hasInfoBtn" has-ternary-navigation-btn="hasTernaryNavigationBtn" has-secondary-navigation-btn="hasSecondaryNavigationBtn"
-has-primary-navigation-btn="hasPrimaryNavigationBtn"></td>
+has-primary-navigation-btn="hasPrimaryNavigationBtn" allowed-columns-data-detail="allowedColumnsDataDetail"></td>
 
 <td table-icon-menu class="icon-container" ng-if="hasIcon && !navigationInPopover" ng-class="{'has-two-el': hasSecondaryNavigationBtn || hasRelationModal, 'has-tree-el': hasTernaryNavigationBtn}" row-data="rowData" is-sas="isSas" has-relation-modal="hasRelationModal" has-creation="hasCreation" action-function="actionFunction(rowSelected)" row-key="rowKey" has-info-btn="hasInfoBtn" has-ternary-navigation-btn="hasTernaryNavigationBtn" has-secondary-navigation-btn="hasSecondaryNavigationBtn" has-primary-navigation-btn="hasPrimaryNavigationBtn" navigation-in-popover="navigationInPopover"></td>
 

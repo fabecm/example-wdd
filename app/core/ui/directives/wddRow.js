@@ -20,7 +20,8 @@ export function WddRow () {
             isFromChildTable: '=',
             isSas: '=',
             checkRow: '&',
-            navigationInPopover: '='
+            navigationInPopover: '=',
+            allowedColumnsDataDetail: '=?'
         },
         template: template,
         link: (scope) => {

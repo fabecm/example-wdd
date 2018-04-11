@@ -15,7 +15,9 @@ export function TableIconMenu () {
             isSas: '=',
             rowData: '=',
             rowKey: '=',
-            cell: '='
+            cell: '=?',
+            columnHeader: '=?',
+            allowedColumnsDataDetail: '=?'
         },
         template: template,
         link: (scope) => {
@@ -35,6 +37,12 @@ export function TableIconMenu () {
                 scope.hasIcon = true;
             }
 
+            scope.isAllowedColumnDataDetail = true;
+            if (scope.navigationInPopover && scope.allowedColumnsDataDetail && scope.allowedColumnsDataDetail.indexOf(scope.columnHeader) === -1) {
+                scope.isAllowedColumnDataDetail = false;
+            }
+
+
             scope.doAction = (act) => {
                 let forRow = {
                     key: scope.rowKey,
@@ -42,6 +50,7 @@ export function TableIconMenu () {
                 };
                 if (scope.navigationInPopover) {
                     forRow.cell = scope.cell;
+                    forRow.columnHeader = scope.columnHeader;
                     scope.actionFunction({rowSelected: { rowSelected: { rowSelected: forRow } } });
                 } else {
                     scope.actionFunction({ rowSelected: { rowSelected: forRow } });
