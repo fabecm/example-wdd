@@ -443,12 +443,17 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 }
 
                 let fieldId;
+                let field = scope.serviceResponse[row.key].id_field;
+                
+                if (row.cell) {
+                    field = row.cell;
+                } 
                 if (scope.isChild) {
-                    fieldId = scope.serviceResponse[row.key].id_field;
+                    fieldId = field;
                 } else if (scope.serviceResponse[row.key].id_field) {
-                    fieldId = scope.serviceResponse[row.key].id_field.id;
+                    fieldId = field.id;
                 }
-
+                
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
@@ -463,28 +468,28 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     });
                 } else if (row.action === 'secondaryNavigation') {
                     $state.go(scope.pathSecondaryNavigation, {
-                        id: scope.serviceResponse[row.key].id_field.id,
+                        id: field.id,
                         type: 'F',
                         isDraft: scope.serviceResponse[row.key].draft,
                         workspaceId: workspaceId
                     });
                 } else if (row.action === 'info') {
-                    ModalService.openModificationWorkspace(scope.serviceResponse[row.key].workspace.id).then(() => {
+                    ModalService.openModificationWorkspace(workspaceId).then(() => {
                         scope.reloadData();
                     });
                 } else if (row.action === 'creation') {
-                    ModalService.openNewWorkspaceRequests(scope.serviceResponse[row.key].workspace.id).then(() => {
+                    ModalService.openNewWorkspaceRequests(workspaceId).then(() => {
                         scope.reloadData();
                     });
                 } else if (row.action === 'ternaryNavigation') {
                     let pathSas = [`${SessionService.endPointSas}`,
-                        `#subjectName=${encodeURI(scope.serviceResponse[row.key].id_field.label)}`,
+                        `#subjectName=${encodeURI(field.label)}`,
                         '&module=relationships&subjectType=6003&viewName=Governance&subjectID=',
                         `${SessionService.objectIdSas}`,
-                        `${scope.serviceResponse[row.key].id_field.id}`];
+                        `${field.id}`];
                     window.open(pathSas.join(''), '_blank');
                 } else if (row.action === 'showRelation') {
-                    ModalService.openRelationsModal(scope.serviceResponse[row.key].id_field.id, scope.serviceResponse[row.key].term_type.id, scope.serviceResponse[row.key].term_name.label).then(() => {
+                    ModalService.openRelationsModal(field.id, scope.serviceResponse[row.key].term_type.id, scope.serviceResponse[row.key].term_name.label).then(() => {
                         scope.relationModalOpen = true;
                         scope.reloadData();
                     });
