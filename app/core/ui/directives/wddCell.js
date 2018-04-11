@@ -32,7 +32,8 @@ export function WddCell ($filter) {
                 || scope.header === 'business_glossary') {
                 if (scope.parsedCell && scope.parsedCell.length && scope.parsedCell[0].label) {
                     scope.parsedCell = [{
-                        icon: 'glyphicon glyphicon-ok'
+                        icon: 'glyphicon glyphicon-ok',
+                        id: scope.cell.id
                     }];
                 }
             }

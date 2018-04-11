@@ -14,7 +14,8 @@ export function TableIconMenu () {
             hasRelationModal: '=',
             isSas: '=',
             rowData: '=',
-            rowKey: '='
+            rowKey: '=',
+            cell: '='
         },
         template: template,
         link: (scope) => {
@@ -40,6 +41,7 @@ export function TableIconMenu () {
                     action: act
                 };
                 if (scope.navigationInPopover) {
+                    forRow.cell = scope.cell;
                     scope.actionFunction({rowSelected: { rowSelected: { rowSelected: forRow } } });
                 } else {
                     scope.actionFunction({ rowSelected: { rowSelected: forRow } });
