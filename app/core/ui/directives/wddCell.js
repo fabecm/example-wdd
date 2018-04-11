@@ -16,7 +16,8 @@ export function WddCell ($filter) {
             hasRelationModal: '=',
             isSas: '=',
             rowData: '=',
-            rowKey: '='
+            rowKey: '=',
+            allowedColumnsDataDetail: '=?'
         },
         template: template,
         link: (scope) => {
