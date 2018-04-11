@@ -37,6 +37,10 @@ export function WddCell ($filter) {
                 }
             }
             
+            if (scope.header === 'workspace') {
+                scope.navigationInPopover = false;
+            }
+
             if (scope.parsedCell && scope.parsedCell.map) {
                 scope.parsedCell.map(cell => {
                     if (cell && cell.date) {
