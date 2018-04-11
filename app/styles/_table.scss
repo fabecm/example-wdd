@@ -143,6 +143,10 @@
             &.icon-centered {
               text-align: center;
             }
+
+            &.clickable {
+              cursor: pointer;
+            }
           }
 
           .wdd-button.icon-only.has-checkable-child {

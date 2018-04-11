@@ -35,9 +35,8 @@ export function WddCell ($filter) {
                         icon: 'glyphicon glyphicon-ok'
                     }];
                 }
-                return;
             }
-
+            
             if (scope.parsedCell && scope.parsedCell.map) {
                 scope.parsedCell.map(cell => {
                     if (cell && cell.date) {
