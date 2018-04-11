@@ -138,9 +138,14 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            position: relative;
 
             &.icon-centered {
               text-align: center;
+            }
+
+            &.clickable {
+              cursor: pointer;
             }
           }
 
@@ -173,6 +178,9 @@
 
             .icon-row {
               display: flex;
+              .icon-label {
+                display: none;
+              }
             }
 
             .col-primary-navigation {

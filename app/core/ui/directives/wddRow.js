@@ -19,7 +19,8 @@ export function WddRow () {
             statusToDisabledCreation: '=',
             isFromChildTable: '=',
             isSas: '=',
-            checkRow: '&'
+            checkRow: '&',
+            navigationInPopover: '='
         },
         template: template,
         link: (scope) => {
@@ -30,36 +31,6 @@ export function WddRow () {
             if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreation) {
                 scope.hasIcon = true;
             }
-
-            // $log.debug(scope.rowData);
-
-            scope.arrayAction = [
-                'collapse',
-                'checked',
-                'info',
-                'primaryNavigation',
-                'secondaryNavigation',
-                'creation',
-                'ternaryNavigation',
-                'showRelation'
-            ];
-            // scope.modelloModel = {};
-
-            scope.doAction = (act) => {
-                let forRow = {
-                    key: scope.rowKey,
-                    action: act
-                };
-
-                scope.actionFunction({rowSelected: forRow});
-            };
-
-            scope.hideCreation = () => {
-                if (scope.rowData.status.label === scope.statusToDisabledCreation) {
-                    return false;
-                }
-                return true;
-            };
 
             scope.checkData = () => {
                 scope.checkRow({

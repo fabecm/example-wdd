@@ -1,5 +1,10 @@
-<div class="table-cell" ng-class="{'icon-centered': cellValue.icon}" ng-repeat="cellValue in parsedCell track by $index"
-    tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{cellValue.label}}" tooltip-enable="false" show-tooltip>
-    {{cellValue.label}}
+<div class="table-cell" ng-class="{'icon-centered': cellValue.icon, 'clickable': navigationInPopover}" ng-repeat="cellValue in parsedCell track by $index"
+    tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{cellValue.label}}" tooltip-enable="false" show-tooltip ng-click="togglePopover()">
+     {{cellValue.label}}
     <i ng-class="cellValue.icon"></i>
+</div>
+
+<div ng-if="navigationInPopover && visiblePopover" table-icon-menu class="wdd-popover" row-data="rowData" is-sas="isSas" has-relation-modal="hasRelationModal"
+    has-creation="hasCreation" action-function="actionFunction(rowSelected)" row-key="rowKey" has-info-btn="hasInfoBtn" has-ternary-navigation-btn="hasTernaryNavigationBtn"
+    has-secondary-navigation-btn="hasSecondaryNavigationBtn" has-primary-navigation-btn="hasPrimaryNavigationBtn" navigation-in-popover="navigationInPopover">
 </div>

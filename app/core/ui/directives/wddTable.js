@@ -44,7 +44,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             textSpinner: '@?',
             tableIsEmpty: '=?',
             hasRelationModal: '@?',
-            dontResize: '@?'
+            dontResize: '@?',
+            navigationInPopover: '@'
         },
         template: template,
         link: (scope) => {
@@ -56,6 +57,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.filterApplied = {};
             scope.checkedElements = [];
             scope.cacheKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
+            scope.navigationInPopover = (scope.navigationInPopover !== 'true') ? false : true;
 
             scope.reloadData = (filter) => {
                 // $log.debug('filter', filter);
@@ -408,7 +410,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     scope.reloadData();
                 }
             };
-
             if (scope.hasPrimaryNavigationBtn || scope.hasSecondaryNavigationBtn || scope.hasInfoBtn || scope.hasCreationBtn || scope.hasRelationModal) {
                 scope.hasIcon = true;
             }
@@ -428,7 +429,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     numColl += 1;
                 }
 
-                if (scope.hasIcon) {
+                if (scope.hasIcon && !scope.navigationInPopover) {
                     numColl += 1;
                 }
 

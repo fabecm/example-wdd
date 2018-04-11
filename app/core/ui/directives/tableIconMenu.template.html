@@ -1,0 +1,55 @@
+<div class="icon-row">
+    <div ng-if="hasInfoBtn">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[2])" tooltip-placement="left" tooltip-class="tooltip-test"
+            uib-tooltip="Info" tooltip-enable="false" show-tooltip>
+            <i class="icon icon-info"></i>
+        </button>
+        <span>Info</span>
+    </div>
+    <div class="col-primary-navigation" ng-if="hasPrimaryNavigationBtn">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[3])" tooltip-placement="left" tooltip-class="tooltip-test"
+            uib-tooltip="Dettaglio Dato" tooltip-enable="false" show-tooltip>
+            <i class="icon icon-workspace-details"></i>
+        </button>
+        <span class="icon-label">Dettaglio Dato</span>
+    </div>
+    <div class="col-primary-navigation" ng-if="hasCreation">
+        <button ng-show="hideCreation()" class="wdd-button icon-only" ng-click="doAction(arrayAction[5])" tooltip-placement="left"
+            tooltip-class="tooltip-test" uib-tooltip="Inserisci Dato" tooltip-enable="false" show-tooltip>
+            <i class="icon icon-new"></i>
+        </button>
+        <span class="icon-label">Inserisci Dato</span>
+    </div>
+    <div class="col-secondary-navigation" ng-if="hasSecondaryNavigationBtn || hasRelationModal">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[4])" tooltip-placement="left" tooltip-class="tooltip-test"
+            uib-tooltip="Data Lineage" tooltip-enable="false" show-tooltip ng-if="!hasRelationModal && (!isSas || hasTernaryNavigationBtn)"
+            ng-disabled="rowData.draft">
+            <i class="icon icon-lineage"></i>
+        </button>
+        <span ng-if="!hasRelationModal && (!isSas || hasTernaryNavigationBtn)" class="icon-label">Data Lineage</span>
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[6])" tooltip-placement="left" tooltip-class="tooltip-test"
+            uib-tooltip="Lineage SAS" tooltip-enable="false" show-tooltip ng-if="!hasRelationModal && (!hasTernaryNavigationBtn && isSas)">
+            <i class="icon icon-lineage-sas"></i>
+        </button>
+        <span ng-if="!hasRelationModal && (!hasTernaryNavigationBtn && isSas)" class="icon-label">Lineage SAS</span>
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[7])" tooltip-placement="left" tooltip-class="tooltip-test"
+            uib-tooltip="Vista Relazioni" tooltip-enable="false" show-tooltip ng-if="hasRelationModal && hasTernaryNavigationBtn && !hasSecondaryNavigationBtn"
+            ng-disabled="rowData.draft">
+            <i class="icon glyphicon glyphicon-link"></i>
+        </button>
+        <span ng-if="hasRelationModal && hasTernaryNavigationBtn && !hasSecondaryNavigationBtn" class="icon-label">Vista Relazioni</span>
+    </div>
+    <div class="col-ternary-navigation" ng-if="hasTernaryNavigationBtn">
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[6])" tooltip-placement="left" tooltip-class="tooltip-test"
+            uib-tooltip="Lineage SAS" tooltip-enable="false" show-tooltip ng-if="hasTernaryNavigationBtn && isSas">
+            <i class="icon icon-lineage-sas"></i>
+        </button>
+        <span ng-if="hasTernaryNavigationBtn && isSas" class="icon-label">Lineage SAS</span>
+        <button class="wdd-button icon-only" ng-click="doAction(arrayAction[7])" tooltip-placement="left" tooltip-class="tooltip-test"
+            uib-tooltip="Vista Relazioni" tooltip-enable="false" show-tooltip ng-if="hasRelationModal && hasSecondaryNavigationBtn && hasTernaryNavigationBtn"
+            ng-disabled="rowData.draft">
+            <i class="icon icon-lineage"></i>
+        </button>
+        <span ng-if="hasRelationModal && hasSecondaryNavigationBtn && hasTernaryNavigationBtn" class="icon-label">Vista Relazioni</span>
+    </div>
+</div>

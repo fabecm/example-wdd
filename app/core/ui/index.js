@@ -22,7 +22,7 @@ import { WddAlert } from './services/alert';
 import { WddAlertMessage } from './directives/alertMessage';
 
 import { WddSpinner } from './directives/wddSpinner';
-
+import { TableIconMenu } from './directives/tableIconMenu';
 
 export default angular.module('wdd.core.ui', [])
     .directive('wbbSelect', WbbSelect)
@@ -43,4 +43,5 @@ export default angular.module('wdd.core.ui', [])
     .service('WDDAlert', WddAlert)
     .directive('wddAlert', WddAlertMessage)
     .directive('wddSpinner', WddSpinner)
+    .directive('tableIconMenu', TableIconMenu)
     .name;
