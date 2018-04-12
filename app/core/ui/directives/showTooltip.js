@@ -8,6 +8,9 @@ export function ShowTooltip () {
                 if (el.offsetWidth < el.scrollWidth) {
                     attrs.tooltipEnable = 'true';
                 }
+                if (attrs.showTooltip === 'false') {
+                    attrs.tooltipEnable = 'false';
+                }
             });
         }
     };
