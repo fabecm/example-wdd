@@ -21,7 +21,7 @@ export function WddRow () {
             isSas: '=',
             checkRow: '&',
             navigationInPopover: '=',
-            allowedColumnsDataDetail: '=?'
+            allowedColumnsDataLineage: '=?'
         },
         template: template,
         link: (scope) => {
