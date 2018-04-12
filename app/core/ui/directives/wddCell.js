@@ -33,10 +33,7 @@ export function WddCell($filter, $document, $timeout) {
                 || scope.header === 'business_data'
                 || scope.header === 'business_glossary') {
                 if (scope.parsedCell && scope.parsedCell.length && scope.parsedCell[0].label) {
-                    let modifiedCell = scope.parsedCell[0];
-                    delete modifiedCell.label;
-                    modifiedCell.icon = 'glyphicon glyphicon-ok';
-                    scope.parsedCell[0] = modifiedCell;
+                    scope.parsedCell[0].icon = 'glyphicon glyphicon-ok';
                 }
             }
             

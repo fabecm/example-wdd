@@ -1,6 +1,6 @@
 <div class="table-cell" ng-class="{'icon-centered': cellValue.icon, 'clickable': navigationInPopover}" ng-repeat="cellValue in parsedCell track by $index"
     ng-click="togglePopover()">
-    <div tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{cellValue.label}}" tooltip-enable="false" show-tooltip>{{cellValue.label}}</div>
+    <div ng-if="!cellValue.icon" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{cellValue.label}}" tooltip-enable="false" show-tooltip>{{cellValue.label}}</div>
     <i ng-class="cellValue.icon"></i>
     <div ng-if="navigationInPopover && visiblePopover" table-icon-menu class="wdd-popover" ng-class="{'on-top': rowKey > 5 }" row-data="rowData" is-sas="isSas"
         has-relation-modal="hasRelationModal" has-creation="hasCreation" action-function="actionFunction(rowSelected)" row-key="rowKey"
