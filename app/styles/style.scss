@@ -110,10 +110,18 @@ i.icon.icon-disabled{
     justify-content: center;
 }
 
-%arrow_box {
-	position: relative;
-	background: $label-color;
+.wdd-popover {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: calc(50% - 60px);
+    z-index: 1;
+    background-color: $label-color;
+    width: 120px;
     border: 1px solid $label-background-trace;
+    border-radius: 5px;
+    .wdd-button {
+        display: inline-block;
+    }
     &:after, &:before {
         bottom: 100%;
         left: 50%;
@@ -125,29 +133,29 @@ i.icon.icon-disabled{
         pointer-events: none;
     }
     &:after {
-        border-color: rgba(255, 255, 255, 0);
         border-bottom-color: $label-color;
         border-width: 10px;
         margin-left: -10px;
     }
     &:before {
-        border-color: rgba(194, 225, 245, 0);
         border-bottom-color: $label-background-trace;
         border-width: 11px;
         margin-left: -11px;
     }
-}
-
-.wdd-popover {
-    @extend %arrow_box;
-    position: absolute;
-    top: calc(100% + 10px);
-    left: calc(50% - 60px);
-    z-index: 1;
-    background-color: $label-color;
-    width: 120px;
-    border-radius: 5px;
-    .wdd-button {
-        display: inline-block;
+    &.on-top {
+        bottom: calc(100% + 10px);
+        top: auto;
+        &:after, &:before {
+            top: 100%;
+            bottom: auto;
+        }
+        &:after {
+            border-bottom-color: transparent;
+            border-top-color: $label-color;
+        }
+        &:before {
+            border-bottom-color: transparent;
+            border-top-color: $label-background-trace;
+        }
     }
 }
