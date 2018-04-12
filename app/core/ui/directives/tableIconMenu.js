@@ -17,7 +17,7 @@ export function TableIconMenu () {
             rowKey: '=',
             cell: '=?',
             columnHeader: '=?',
-            allowedColumnsDataDetail: '=?'
+            allowedColumnsDataLineage: '=?'
         },
         template: template,
         link: (scope) => {
@@ -37,9 +37,9 @@ export function TableIconMenu () {
                 scope.hasIcon = true;
             }
 
-            scope.isAllowedColumnDataDetail = true;
-            if (scope.navigationInPopover && scope.allowedColumnsDataDetail && scope.allowedColumnsDataDetail.indexOf(scope.columnHeader) === -1) {
-                scope.isAllowedColumnDataDetail = false;
+            scope.isAllowedColumnDataLineage = true;
+            if (scope.navigationInPopover && scope.allowedColumnsDataLineage.length > 0 && scope.allowedColumnsDataLineage.indexOf(scope.columnHeader) === -1) {
+                scope.isAllowedColumnDataLineage = false;
             }
 
 
@@ -50,7 +50,6 @@ export function TableIconMenu () {
                 };
                 if (scope.navigationInPopover) {
                     forRow.cell = scope.cell;
-                    forRow.columnHeader = scope.columnHeader;
                     scope.actionFunction({rowSelected: { rowSelected: { rowSelected: forRow } } });
                 } else {
                     scope.actionFunction({ rowSelected: { rowSelected: forRow } });

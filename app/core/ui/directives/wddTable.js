@@ -46,7 +46,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             hasRelationModal: '@?',
             dontResize: '@?',
             navigationInPopover: '@',
-            allowedColumnsDataDetail: '=?'
+            allowedColumnsDataLineage: '=?'
         },
         template: template,
         link: (scope) => {
@@ -468,12 +468,16 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         workspaceId: workspaceId
                     });
                 } else if (row.action === 'secondaryNavigation') {
-                    $state.go(scope.pathSecondaryNavigation, {
+                    let options = {
                         id: field.id,
                         type: 'F',
                         isDraft: scope.serviceResponse[row.key].draft,
                         workspaceId: workspaceId
-                    });
+                    }
+                    if (row.cell && row.cell.term_type.id === 'TECHNICAL_RULE') {
+                        options.type = 'R';
+                    }
+                    $state.go(scope.pathSecondaryNavigation, options);
                 } else if (row.action === 'info') {
                     ModalService.openModificationWorkspace(workspaceId).then(() => {
                         scope.reloadData();
@@ -490,16 +494,16 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         `${field.id}`];
                     window.open(pathSas.join(''), '_blank');
                 } else if (row.action === 'showRelation') {
-                    let termId;
-                    let termLabel;
+                    let termType;
+                    let termName;
                     if (row.cell) {
-                        termId = field.columnHeader;
-                        termLabel = scope.serviceResponse[row.key][field.columnHeader].term_name.label;
+                        termType = field.term_type.id;
+                        termName = field.term_name.label;
                     } else {
-                        termId = scope.serviceResponse[row.key].term_type.id;
-                        termLabel = scope.serviceResponse[row.key].term_name.label;
+                        termType = scope.serviceResponse[row.key].term_type.id;
+                        termName = scope.serviceResponse[row.key].term_name.label;
                     }
-                    ModalService.openRelationsModal(field.id, termId, termLabel).then(() => {
+                    ModalService.openRelationsModal(field.id, termType, termName).then(() => {
                         scope.relationModalOpen = true;
                         scope.reloadData();
                     });

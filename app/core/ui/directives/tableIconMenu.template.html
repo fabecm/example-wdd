@@ -6,7 +6,7 @@
         </button>
         <span>Info</span>
     </div>
-    <div class="col-primary-navigation" ng-if="hasPrimaryNavigationBtn && isAllowedColumnDataDetail">
+    <div class="col-primary-navigation" ng-if="hasPrimaryNavigationBtn">
         <button class="wdd-button icon-only" ng-click="doAction(arrayAction[3])" tooltip-placement="left" tooltip-class="tooltip-test"
             uib-tooltip="Dettaglio Dato" tooltip-enable="false" show-tooltip>
             <i class="icon icon-workspace-details"></i>
@@ -21,7 +21,7 @@
         <span class="icon-label" ng-click="doAction(arrayAction[5])">Inserisci Dato</span>
     </div>
     <div class="col-secondary-navigation" ng-if="hasSecondaryNavigationBtn || hasRelationModal">
-        <div ng-if="(!hasRelationModal || (hasRelationModal && navigationInPopover) ) && (!isSas || hasTernaryNavigationBtn)">
+        <div ng-if="(!hasRelationModal || (hasRelationModal && navigationInPopover) ) && (!isSas || hasTernaryNavigationBtn)  && isAllowedColumnDataLineage">
             <button class="wdd-button icon-only" ng-click="doAction(arrayAction[4])" tooltip-placement="left" tooltip-class="tooltip-test"
                 uib-tooltip="Data Lineage" tooltip-enable="false" show-tooltip 
                 ng-disabled="rowData.draft">
