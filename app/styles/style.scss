@@ -111,9 +111,7 @@ i.icon.icon-disabled{
 }
 
 .wdd-popover {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: calc(50% - 60px);
+    position: fixed;
     z-index: 1;
     background-color: $label-color;
     width: 120px;
@@ -143,8 +141,6 @@ i.icon.icon-disabled{
         margin-left: -11px;
     }
     &.on-top {
-        bottom: calc(100% + 10px);
-        top: auto;
         &:after, &:before {
             top: 100%;
             bottom: auto;
