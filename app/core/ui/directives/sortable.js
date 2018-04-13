@@ -16,24 +16,28 @@ export function Sortable() {
             let sortableType = attrs.sortableType;
             
             if (sortableColumns.indexOf(sortableHeaderId) !== -1) {
-                
-                element.on('click', function() {
+                $(element[0]).css('cursor', 'pointer');
+                element.on('click', function(event) {
+                    if (!element[0].isSameNode(event.target) && !$(event.target).hasClass('icon')) {
+                        return;
+                    }
                     sortableBy = sortableHeaderId;
                     scope.toggleOrder();
                     console.log(sortableBy);
                     console.log(sortableType);
+                    // chiamare il servizio per ricaricare la tabella passandogli l'ordinamento
                 });
                
                 if (sortableBy !== '' && sortableType !== '' && sortableBy === sortableHeaderId) {
                     if (sortableType === 'ASC') {
-                        $(element).append('<i class="icon icon-up-arrow"></i>');
+                        $(element).prepend('<i class="icon icon-up-arrow"></i>');
                     } else {
-                        $(element).append('<i class="icon icon-down-arrow"></i>');
+                        $(element).prepend('<i class="icon icon-down-arrow"></i>');
                     }
                     
                 } else {
                     // da migliorare in caso diano conferma: stile per metterlo all'inzio della cella
-                    $(element).append('<i class="icon icon-filter"></i>');
+                    $(element).prepend('<i class="icon icon-filter"></i>');
                 }
                 
 
