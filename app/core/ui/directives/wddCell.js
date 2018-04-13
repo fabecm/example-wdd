@@ -52,13 +52,13 @@ export function WddCell($filter, $document, $timeout) {
             }
 
             scope.togglePopover = () => {
-                let popoverHeight = 118;
                 let coords = element[0].getBoundingClientRect();
+                let windowHeight = window.innerHeight;
                 scope.coordLeft = coords.left + (coords.right-coords.left)/2 - 60;
                 scope.coordLeft += 'px'; 
                 scope.coordTop = coords.bottom + 10;
                 scope.coordTop += 'px'; 
-                scope.coordFlip = coords.top - 10 - popoverHeight;
+                scope.coordFlip = windowHeight - (coords.top - 10);
                 scope.coordFlip += 'px'; 
                 scope.visiblePopover = !scope.visiblePopover;
                 if (scope.visiblePopover) {
