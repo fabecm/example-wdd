@@ -52,19 +52,32 @@ export function WddCell($filter, $document, $timeout) {
             }
 
             scope.togglePopover = () => {
+                let coords = element[0].getBoundingClientRect();
+                let windowHeight = window.innerHeight;
+                scope.coordLeft = coords.left + (coords.right-coords.left)/2 - 60;
+                scope.coordLeft += 'px'; 
+                scope.coordTop = coords.bottom + 10;
+                scope.coordTop += 'px'; 
+                scope.coordFlip = windowHeight - (coords.top - 10);
+                scope.coordFlip += 'px'; 
                 scope.visiblePopover = !scope.visiblePopover;
                 if (scope.visiblePopover) {
                     $timeout(function() {
-                        scope.globalListener = $document.on('click', function (e) {
+                        scope.clickListener = $document.on('click', function (e) {
                             let tableCell = $(element).find('.table-cell')[0];
                             let target = ($(e.target).parents('div.table-cell').length === 0) ? e.target : $(e.target).parents('div.table-cell')[0];
                             if (tableCell !== target) {
                                 scope.$apply(function () {
                                     scope.visiblePopover = false;
-                                    scope.globalListener.off('click');
+                                    scope.clickListener.off('click');
                                 });
                             }
-                        })
+                        });
+                        document.addEventListener('scroll', function () {
+                            scope.$apply(function () {
+                                scope.visiblePopover = false;
+                            });
+                        }, true);
                     }, 100);
                 }
             };
