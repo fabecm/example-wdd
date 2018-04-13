@@ -46,7 +46,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             hasRelationModal: '@?',
             dontResize: '@?',
             navigationInPopover: '@',
-            allowedColumnsDataLineage: '=?'
+            allowedColumnsDataLineage: '=?',
+            sortableTable: '@?',
+            sortableTableType: '@'
         },
         template: template,
         link: (scope) => {
@@ -59,7 +61,27 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.checkedElements = [];
             scope.cacheKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
             scope.navigationInPopover = (scope.navigationInPopover !== 'true') ? false : true;
-
+            scope.sortableTable = (scope.sortableTable !== 'true') ? false : true;
+            scope.sortableColumns = {
+                data: ['workspace',
+                    'data_field',
+                    'data_table',
+                    'data_source',
+                    'tech_application',
+                    'system_owner',
+                    'status',
+                    'workspace_end_date'],
+                entity: ['term_type',
+                    'term_name',
+                    'description',
+                    'status',
+                    'modified_date'],
+                workspace: ['workspace',
+                    'description',
+                    'start_date',
+                    'end_date',
+                    'status']
+            };
             scope.reloadData = (filter) => {
                 // $log.debug('filter', filter);
                 if (filter && filter.filterSetted) {
@@ -445,16 +467,14 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
                 let fieldId;
                 let field = scope.serviceResponse[row.key].id_field;
-                
                 if (row.cell) {
                     field = row.cell;
-                } 
+                }
                 if (scope.isChild) {
                     fieldId = field;
                 } else if (scope.serviceResponse[row.key].id_field) {
                     fieldId = field.id;
                 }
-                
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
@@ -473,7 +493,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         type: 'F',
                         isDraft: scope.serviceResponse[row.key].draft,
                         workspaceId: workspaceId
-                    }
+                    };
                     if (row.cell && row.cell.term_type.id === 'TECHNICAL_RULE') {
                         options.type = 'R';
                     }

@@ -1,7 +1,7 @@
 import template from './wddCell.template.html';
 import $ from 'jquery';
 
-export function WddCell($filter, $document, $timeout) {
+export function WddCell ($filter, $document, $timeout) {
     'ngInject';
     return {
         scope: {
@@ -36,7 +36,6 @@ export function WddCell($filter, $document, $timeout) {
                     scope.parsedCell[0].icon = 'glyphicon glyphicon-ok';
                 }
             }
-            
             if (scope.header === 'workspace') {
                 scope.navigationInPopover = false;
             }
@@ -54,7 +53,7 @@ export function WddCell($filter, $document, $timeout) {
             scope.togglePopover = () => {
                 scope.visiblePopover = !scope.visiblePopover;
                 if (scope.visiblePopover) {
-                    $timeout(function() {
+                    $timeout(function () {
                         scope.globalListener = $document.on('click', function (e) {
                             let tableCell = $(element).find('.table-cell')[0];
                             let target = ($(e.target).parents('div.table-cell').length === 0) ? e.target : $(e.target).parents('div.table-cell')[0];
@@ -64,7 +63,7 @@ export function WddCell($filter, $document, $timeout) {
                                     scope.globalListener.off('click');
                                 });
                             }
-                        })
+                        });
                     }, 100);
                 }
             };

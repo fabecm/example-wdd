@@ -19,7 +19,7 @@
                     </div>
                 </th>
                 <th class="headerCentered" ng-style="{'width': (checkColumnDefaultWidth($index, item.value)) ? getColumnWidth($index, item.value) : thLength + 'px', 'min-width': '50px'}" ng-repeat="item in headerArray track by $index"
-                    resizable r-directions="['right']">
+                    resizable r-directions="['right']" sortable="{{sortableColumns[sortableTableType]}}" sortable-header-id="{{item.value}}" sortable-by="" sortable-type="">
                     {{item.label}}
                 </th>
                 <th ng-if="hasIcon && !navigationInPopover" class="baseHeaderIconWidth" ng-class="{'hasOneIcon': iconNumber == 1, 'hasTwoIcon': iconNumber == 2, 'hasTreeIcon': iconNumber == 3}"></th>
