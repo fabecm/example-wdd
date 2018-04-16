@@ -445,10 +445,15 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
 
                 let fieldId;
                 let field = scope.serviceResponse[row.key].id_field;
+                let isDraft = scope.serviceResponse[row.key].draft;
                 
                 if (row.cell) {
                     field = row.cell;
+                    if (typeof field.draft !== "undefined") {
+                        isDraft = field.draft;
+                    }
                 } 
+
                 if (scope.isChild) {
                     fieldId = field;
                 } else if (scope.serviceResponse[row.key].id_field) {
@@ -459,19 +464,19 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
                     if (scope.pathPrimaryNavigation === 'tab.dataDetail') {
-                        ModalService.openMDDataDetail(fieldId, scope.serviceResponse[row.key].draft, workspaceId);
+                        ModalService.openMDDataDetail(fieldId, isDraft, workspaceId);
                         return;
                     }
                     $state.go(scope.pathPrimaryNavigation, {
                         id: fieldId,
-                        isDraft: scope.serviceResponse[row.key].draft,
+                        isDraft: isDraft,
                         workspaceId: workspaceId
                     });
                 } else if (row.action === 'secondaryNavigation') {
                     let options = {
                         id: field.id,
                         type: 'F',
-                        isDraft: scope.serviceResponse[row.key].draft,
+                        isDraft: isDraft,
                         workspaceId: workspaceId
                     }
                     if (row.cell && row.cell.term_type.id === 'TECHNICAL_RULE') {
