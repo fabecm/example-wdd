@@ -33,6 +33,26 @@ export function WddRow () {
                 scope.hasIcon = true;
             }
 
+            scope.arrayAction = [
+                'collapse',
+                'checked',
+                'info',
+                'primaryNavigation',
+                'secondaryNavigation',
+                'creation',
+                'ternaryNavigation',
+                'showRelation'
+            ];
+
+            scope.doAction = (act) => {
+                let forRow = {
+                    key: scope.rowKey,
+                    action: act
+                };
+                scope.actionFunction({rowSelected: forRow });
+                
+            };
+
             scope.checkData = () => {
                 scope.checkRow({
                     data: scope.rowData

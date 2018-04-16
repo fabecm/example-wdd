@@ -1,5 +1,4 @@
 import template from './wddCell.template.html';
-import $ from 'jquery';
 
 export function WddCell($filter, $document, $timeout) {
     'ngInject';
@@ -51,7 +50,7 @@ export function WddCell($filter, $document, $timeout) {
                 });
             }
 
-            scope.togglePopover = () => {
+            scope.togglePopover = (index) => {
                 let coords = element[0].getBoundingClientRect();
                 let windowHeight = window.innerHeight;
                 scope.coordLeft = coords.left + (coords.right-coords.left)/2 - 60;
@@ -60,26 +59,28 @@ export function WddCell($filter, $document, $timeout) {
                 scope.coordTop += 'px'; 
                 scope.coordFlip = windowHeight - (coords.top - 10);
                 scope.coordFlip += 'px'; 
-                scope.visiblePopover = !scope.visiblePopover;
-                if (scope.visiblePopover) {
-                    $timeout(function() {
-                        scope.clickListener = $document.on('click', function (e) {
-                            let tableCell = $(element).find('.table-cell')[0];
-                            let target = ($(e.target).parents('div.table-cell').length === 0) ? e.target : $(e.target).parents('div.table-cell')[0];
-                            if (tableCell !== target) {
-                                scope.$apply(function () {
-                                    scope.visiblePopover = false;
-                                    scope.clickListener.off('click');
-                                });
-                            }
+                $timeout(function () {
+                    scope.clickListener = $document.on('click', function () {
+                        scope.$apply(function () {
+                            scope.visiblePopover = false;
+                            scope.clickListener.off('click');
                         });
-                        document.addEventListener('scroll', function () {
-                            scope.$apply(function () {
-                                scope.visiblePopover = false;
-                            });
-                        }, true);
-                    }, 100);
+                    });
+                    document.addEventListener('scroll', function () {
+                        scope.$apply(function () {
+                            scope.visiblePopover = false;
+                        });
+                    }, true);
+                    scope.visiblePopover = !scope.visiblePopover;
+                    scope.whatPopoverVisibile = index;
+                }, 100);
+            };
+
+            scope.checkPopover = (index) => {
+                if (parseInt(index, 10) === parseInt(scope.whatPopoverVisibile, 10)) {
+                    return true;
                 }
+                return false;
             };
         }
     };

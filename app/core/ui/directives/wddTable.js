@@ -66,7 +66,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     scope.filterApplied = filter.filterSetted;
                 }
 
-                if (filter && filter.filterSetted && filter.filterSetted.resetPage) {
+                if (filter && filter.filterSetted && (filter.filterSetted.resetPage || filter.filterSetted.term_id)) {
                     scope.currentPage = 1;
                 } else if (filter && filter.filterSetted && !filter.filterSetted.resetPage && WddCacheService.getCachedFilter(scope.cacheKey)) {
                     scope.currentPage = WddCacheService.getCachedFilter(scope.cacheKey).page;
