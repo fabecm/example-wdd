@@ -205,7 +205,7 @@ export class DataDetailController {
         this.deleteEntityDraftPromise.then(res => {
             if (res.data.result) {
                 if (detail.term.termtype === 'DATA_FIELD') {
-                    this.back();
+                    this.close();
                 } else {
                     this.initDataDetails();
                 }
