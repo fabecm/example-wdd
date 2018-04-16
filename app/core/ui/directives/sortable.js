@@ -14,18 +14,22 @@ export function Sortable() {
             let sortableHeaderId = attrs.sortableHeaderId;
             let sortableBy = attrs.sortableBy;
             let sortableType = attrs.sortableType;
+            let sortableFilter = JSON.parse(attrs.sortableFilter);
             
             if (sortableColumns.indexOf(sortableHeaderId) !== -1) {
                 $(element[0]).css('cursor', 'pointer');
                 element.on('click', function(event) {
+                    // to avoid sorting while clicking to change the column dimension
                     if (!element[0].isSameNode(event.target) && !$(event.target).hasClass('icon')) {
                         return;
                     }
                     sortableBy = sortableHeaderId;
                     scope.toggleOrder();
-                    console.log(sortableBy);
-                    console.log(sortableType);
-                    // chiamare il servizio per ricaricare la tabella passandogli l'ordinamento
+                    console.log(sortableFilter);
+                    sortableFilter.order_by = sortableBy;
+                    sortableFilter.order_type = sortableType;
+                    
+                    scope.reloadData({filterSetted: sortableFilter});
                 });
                
                 if (sortableBy !== '' && sortableType !== '' && sortableBy === sortableHeaderId) {
