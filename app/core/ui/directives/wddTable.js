@@ -449,7 +449,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 
                 if (row.cell) {
                     field = row.cell;
-                    if (typeof field.draft !== undefined) {
+                    if (typeof field.draft !== "undefined") {
                         isDraft = field.draft;
                     }
                 } 
