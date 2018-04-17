@@ -60,6 +60,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.filterApplied = {};
             scope.checkedElements = [];
             scope.cacheKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
+            scope.sortCacheKey = `sorting_${$state.$current.name.replace(/\./g, '_')}_${scope.tableKey}`;
             scope.navigationInPopover = (scope.navigationInPopover !== 'true') ? false : true;
             scope.sortableTable = (scope.sortableTable !== 'true') ? false : true;
             scope.sortableColumns = {
@@ -87,14 +88,16 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (filter && filter.filterSetted) {
                     scope.filterApplied = filter.filterSetted;
                 }
+                if (WddCacheService.getCachedFilter(scope.sortCacheKey)) {
+                    scope.filterApplied.order_by = WddCacheService.getCachedFilter(scope.sortCacheKey).order_by;
+                    scope.filterApplied.order_type = WddCacheService.getCachedFilter(scope.sortCacheKey).order_type;
+                }
 
                 if (filter && filter.filterSetted && (filter.filterSetted.resetPage || filter.filterSetted.term_id)) {
                     scope.currentPage = 1;
                 } else if (filter && filter.filterSetted && !filter.filterSetted.resetPage && WddCacheService.getCachedFilter(scope.cacheKey)) {
                     scope.currentPage = WddCacheService.getCachedFilter(scope.cacheKey).page;
                 }
-
-                WddCacheService.unCacheFilter('sorting_' + scope.tableKey);
 
                 const getTableDataPromise = TableService.getTableData(scope.tableKey, scope.filterApplied, scope.currentPage);
                 scope.promise = getTableDataPromise;

@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export function Sortable(WddCacheService) {
+export function Sortable(WddCacheService, $state) {
     'ngInject';
     return {
         restrict: 'A',
@@ -8,14 +8,14 @@ export function Sortable(WddCacheService) {
             if (attrs.sortable === '') {
                 if (scope.sortableTable && attrs.sortableTableKey) {
                     console.error('Hello Developer! Seems that you have tried to render a sortable table but you haven\'t provided the sortableTableType attribute to wddTable');
-                    console.error('Table: ' + attrs.sortableTableKey);
+                    console.error('Table: ' + attrs.sortableTableKey); 
                 }
                 return;
             }
             let sortableColumns = JSON.parse(attrs.sortable);
             let sortableHeaderId = attrs.sortableHeaderId;
             let sortableFilter = JSON.parse(attrs.sortableFilter);
-            let sortableKey = 'sorting_' + attrs.sortableTableKey;
+            let sortableKey = `sorting_${$state.$current.name.replace(/\./g, '_')}_${attrs.sortableTableKey}`;
             let savedSorting = WddCacheService.getCachedFilter(sortableKey);
             let sortableBy ;
             let sortableType;
@@ -52,8 +52,8 @@ export function Sortable(WddCacheService) {
                     scope.toggleOrder();
                     sortableFilter.order_by = sortableBy;
                     sortableFilter.order_type = sortableType;
-                    scope.reloadData({ filterSetted: sortableFilter });
-                    WddCacheService.cacheSorting(sortableKey, { order_by: sortableBy, order_type: sortableType});
+                    WddCacheService.cacheSorting(sortableKey, { order_by: sortableBy, order_type: sortableType });
+                    scope.reloadData();
                 });
             }
 
