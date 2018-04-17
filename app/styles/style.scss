@@ -158,3 +158,11 @@ i.icon.icon-disabled{
         text-align: left;
     }
 }
+
+.icon-sorting-position {
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+}

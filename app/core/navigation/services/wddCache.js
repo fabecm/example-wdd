@@ -10,6 +10,10 @@ export class WddCacheService {
         this.filterCached[key] = filterApplied;
     }
 
+    cacheSorting (key, sortingOrders) {
+        this.filterCached[key] = sortingOrders;
+    }
+
     cachePage (key, page) {
         if (!this.filterCached[key]) {
             this.filterCached[key] = {};

@@ -67,7 +67,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     'data_field',
                     'data_table',
                     'data_source',
-                    'tech_application',
+                    'technical_application',
                     'system_owner',
                     'status',
                     'workspace_end_date'],
@@ -93,6 +93,8 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 } else if (filter && filter.filterSetted && !filter.filterSetted.resetPage && WddCacheService.getCachedFilter(scope.cacheKey)) {
                     scope.currentPage = WddCacheService.getCachedFilter(scope.cacheKey).page;
                 }
+
+                WddCacheService.unCacheFilter('sorting_' + scope.tableKey);
 
                 const getTableDataPromise = TableService.getTableData(scope.tableKey, scope.filterApplied, scope.currentPage);
                 scope.promise = getTableDataPromise;

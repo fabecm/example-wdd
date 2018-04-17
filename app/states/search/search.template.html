@@ -23,7 +23,7 @@
         <div ng-show="vm.selectedTab == 1">
             <wdd-table reload-data="vm.reloadTableEntity" table-key="searchEntity" header-array-obj="{{ {array: vm.headerEntityTable} }}"
                 pagination-bool="{{ {boolean: vm.tablePagination} }}" page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true"
-                path-primary-navigation="tab.dataDetail" has-ternary-navigation-btn="true" has-relation-modal="true" is-to-sas="true" promise="vm.secondTable" text-spinner="true"></wdd-table>
+                path-primary-navigation="tab.dataDetail" has-ternary-navigation-btn="true" has-relation-modal="true" is-to-sas="true" promise="vm.secondTable" text-spinner="true" sortable-table="true" sortable-table-type="entity"></wdd-table>
         </div>
     </div>
 </div>

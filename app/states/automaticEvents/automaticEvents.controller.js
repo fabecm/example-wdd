@@ -32,7 +32,8 @@ export class AutomaticEventsController {
         value: 'data_source'
     }, {
         label: 'Technical Application',
-        value: 'tech_application'
+        value: 'tech_application',
+        termTypeId: 'technical_application'
     }, {
         label: 'Program',
         value: 'program'
