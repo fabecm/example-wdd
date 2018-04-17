@@ -1,8 +1,9 @@
-<div class="table-cell" ng-class="{'icon-centered': cellValue.icon, 'clickable': navigationInPopover}" ng-repeat="cellValue in parsedCell track by $index"
-    ng-click="togglePopover()">
-    <div ng-if="!cellValue.icon" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{cellValue.label}}" tooltip-enable="false" show-tooltip>{{cellValue.label}}</div>
-    <i ng-class="cellValue.icon"></i>
-    <div ng-if="navigationInPopover && visiblePopover" ng-style="{'left': coordLeft, 'top': rowKey <=5 ? coordTop : auto, 'bottom': rowKey>5 ? coordFlip : auto}" table-icon-menu class="wdd-popover" ng-class="{'on-top': rowKey > 5 }" row-data="rowData" is-sas="isSas"
+<div class="table-cell" ng-class="{'icon-centered': cellValue.icon, 'clickable': navigationInPopover}" ng-repeat="cellValue in parsedCell track by $index">
+    <div ng-click="togglePopover($index)">
+        <div ng-if="!cellValue.icon" tooltip-placement="top" tooltip-class="tooltip-test" uib-tooltip="{{cellValue.label}}" tooltip-enable="false" show-tooltip>{{cellValue.label}}</div>
+        <i ng-class="cellValue.icon"></i>
+    </div>
+    <div table-icon-menu ng-if="navigationInPopover && visiblePopover && checkPopover($index)" ng-style="{'left': coordLeft, 'top': rowKey <=5 ? coordTop : auto, 'bottom': rowKey>5 ? coordFlip : auto}" class="wdd-popover" ng-class="{'on-top': rowKey > 5 }" row-data="rowData" is-sas="isSas"
         has-relation-modal="hasRelationModal" has-creation="hasCreation" action-function="actionFunction(rowSelected)" row-key="rowKey"
         has-info-btn="hasInfoBtn" has-ternary-navigation-btn="hasTernaryNavigationBtn" has-secondary-navigation-btn="hasSecondaryNavigationBtn"
         has-primary-navigation-btn="hasPrimaryNavigationBtn" navigation-in-popover="navigationInPopover" cell="cellValue" column-header="header" allowed-columns-data-lineage="allowedColumnsDataLineage">
