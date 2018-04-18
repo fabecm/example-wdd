@@ -79,6 +79,25 @@ export class WddCacheService {
         this.filterCached[key] = undefined;
     }
 
+    unCacheSorting (filterKey = false, sortingKey = false) {
+        if (sortingKey) {
+            this.unCacheFilter(sortingKey);
+            return;
+        }
+        let filterPrefix = 'filter_';
+        let sortingPrefix = 'sorting_';
+        let tab = filterKey.substring(filterPrefix.length);
+        let partialSortingKey = new RegExp('^' + sortingPrefix + tab);
+        let filterKeys = Object.keys(this.filterCached);
+        let matchingKeys = filterKeys.filter(function (v) {
+            return partialSortingKey.test(v)
+        }); 
+        for (let i = 0; i < matchingKeys.length; i++) {
+            this.unCacheFilter(matchingKeys[i]);
+        }
+        return;
+    }
+
     clearAllCache () {
         this.filterCached = undefined;
         this.filterCached = {};

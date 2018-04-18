@@ -75,6 +75,7 @@ export function DashboardFilter ($log, $state, WddCacheService, WDDAlert) {
                 // scope.endDate = 'GG/MM/AAAA';
 
                 WddCacheService.unCacheFilter(scope.filterKey);
+                WddCacheService.unCacheSorting(scope.filterKey);
 
                 scope.setFilter();
 
