@@ -1,310 +1,1097 @@
 {
-    "page_count": 11,
-    "OutputArray": [{
-        "workspace": {},
-        "data_field": {
-            "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU04S.SOSPECT.C1A.SPED(0)"
-        },
-        "data_table": {},
-        "data_source": {
-            "label": "DD - DS - %%%.ARI.AMU04S.SOSPECT.C1A.SPED(0)"
-        },
-        "tech_application": {
-            "label": "DD - TA - ARI"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU04S.SOSPECT.C1A.SPED(0)"
-        },
-        "business_rule": {
-            "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
-        },
-        "business_data": {
-            "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
-        },
-        "business_glossary": {},
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }, {
-        "workspace": {},
-        "data_field": {
-            "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU05S.SOSPECT.C1B.SPED(0)"
-        },
-        "data_table": {},
-        "data_source": {
-            "label": "DD - DS - %%%.ARI.AMU05S.SOSPECT.C1B.SPED(0)"
-        },
-        "tech_application": {
-            "label": "DD - TA - ARI"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU05S.SOSPECT.C1B.SPED(0)"
-        },
-        "business_rule": {
-            "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
-        },
-        "business_data": {
-            "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
-        },
-        "business_glossary": {},
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }, {
-        "workspace": {},
-        "data_field": {
-            "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU06S.SOSPECT.C1C.SPED(0)"
-        },
-        "data_table": {},
-        "data_source": {
-            "label": "DD - DS - %%%.ARI.AMU06S.SOSPECT.C1C.SPED(0)"
-        },
-        "tech_application": {
-            "label": "DD - TA - ARI"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU06S.SOSPECT.C1C.SPED(0)"
-        },
-        "business_rule": {
-            "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
-        },
-        "business_data": {
-            "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
-        },
-        "business_glossary": {},
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }, {
-        "workspace": {},
-        "data_field": {
-            "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU07S.SOSPECT.C1D.SPED(0)"
-        },
-        "data_table": {},
-        "data_source": {
-            "label": "DD - DS - %%%.ARI.AMU07S.SOSPECT.C1D.SPED(0)"
-        },
-        "tech_application": {
-            "label": "DD - TA - ARI"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU07S.SOSPECT.C1D.SPED(0)"
-        },
-        "business_rule": {
-            "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
-        },
-        "business_data": {
-            "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
-        },
-        "business_glossary": {},
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }, {
-        "workspace": {},
-        "data_field": {
-            "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU11S.SOSPECT.C1F.SPED(0)"
-        },
-        "data_table": {},
-        "data_source": {
-            "label": "DD - DS - %%%.ARI.AMU11S.SOSPECT.C1F.SPED(0)"
-        },
-        "tech_application": {
-            "label": "DD - TA - ARI"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU11S.SOSPECT.C1F.SPED(0)"
-        },
-        "business_rule": {
-            "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
-        },
-        "business_data": {
-            "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
-        },
-        "business_glossary": {},
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }, {
-        "workspace": {},
-        "data_field": {
-            "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU15S.SOSPECT.A.SPED(0)"
-        },
-        "data_table": {},
-        "data_source": {
-            "label": "DD - DS - %%%.ARI.AMU15S.SOSPECT.A.SPED(0)"
-        },
-        "tech_application": {
-            "label": "DD - TA - ARI"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU15S.SOSPECT.A.SPED(0)"
-        },
-        "business_rule": {
-            "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
-        },
-        "business_data": {
-            "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
-        },
-        "business_glossary": {},
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }, {
-        "workspace": {},
-        "data_field": {
-            "label": "CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_06"
-        },
-        "data_table": {
-            "label": "DD - DT - PE_IN_06 - UBIRAT"
-        },
-        "data_source": {
-            "label": "DD - DS - UBIRAT"
-        },
-        "tech_application": {
-            "label": "DD - TA - SAS"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_06"
-        },
-        "business_rule": {
-            "label": "DD - BR - CRED_PASS_PERD_SA_1C_T1-T6.SAS"
-        },
-        "business_data": {
-            "label": "DD - BD - CRED_PASS_PERD_SA_1C_T1-T6"
-        },
-        "business_glossary": {
-            "label": "DD - BG - CREDITI PASSATI PERDITA MENO AZIENDA COINTESTATO 1"
-        },
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }, {
-        "workspace": {},
-        "data_field": {
-            "label": "CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_07"
-        },
-        "data_table": {
-            "label": "DD - DT - PE_IN_07 - UBIRAT"
-        },
-        "data_source": {
-            "label": "DD - DS - UBIRAT"
-        },
-        "tech_application": {
-            "label": "DD - TA - SAS"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_07"
-        },
-        "business_rule": {
-            "label": "DD - BR - CRED_PASS_PERD_SA_1C_T1-T6.SAS"
-        },
-        "business_data": {
-            "label": "DD - BD - CRED_PASS_PERD_SA_1C_T1-T6"
-        },
-        "business_glossary": {
-            "label": "DD - BG - CREDITI PASSATI PERDITA MENO AZIENDA COINTESTATO 1"
-        },
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }, {
-        "workspace": {},
-        "data_field": {
-            "label": "CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_08"
-        },
-        "data_table": {
-            "label": "DD - DT - PE_IN_08 - UBIRAT"
-        },
-        "data_source": {
-            "label": "DD - DS - UBIRAT"
-        },
-        "tech_application": {
-            "label": "DD - TA - SAS"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_08"
-        },
-        "business_rule": {
-            "label": "DD - BR - CRED_PASS_PERD_SA_1C_T1-T6.SAS"
-        },
-        "business_data": {
-            "label": "DD - BD - CRED_PASS_PERD_SA_1C_T1-T6"
-        },
-        "business_glossary": {
-            "label": "DD - BG - CREDITI PASSATI PERDITA MENO AZIENDA COINTESTATO 1"
-        },
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }, {
-        "workspace": {},
-        "data_field": {
-            "label": "CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_11"
-        },
-        "data_table": {
-            "label": "DD - DT - PE_IN_11 - UBIRAT"
-        },
-        "data_source": {
-            "label": "DD - DS - UBIRAT"
-        },
-        "tech_application": {
-            "label": "DD - TA - SAS"
-        },
-        "system_owner": {
-            "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
-        },
-        "tech_rule": {
-            "label": "DD - TR - CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_11"
-        },
-        "business_rule": {
-            "label": "DD - BR - CRED_PASS_PERD_SA_1C_T1-T6.SAS"
-        },
-        "business_data": {
-            "label": "DD - BD - CRED_PASS_PERD_SA_1C_T1-T6"
-        },
-        "business_glossary": {
-            "label": "DD - BG - CREDITI PASSATI PERDITA MENO AZIENDA COINTESTATO 1"
-        },
-        "process_owner": {
-            "label": "DD - PO - CRO"
-        },
-        "id_field": "1088737"
-    }]
+    "page_count": 3,
+    "OutputArray": [
+        {
+            "workspace": {
+                "label": "MANUTENZIONE",
+                "id": "441"
+            },
+            "data_field": {
+                "label": "I2-DT-INSERIMENTO-FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "D10301",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "I2-DT-INSERIMENTO-FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": true
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1078851",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "tech_application": {
+                "label": "MOF",
+                "id": "D10300",
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": true
+            },
+            "system_owner": {
+                "label": "UBIS-LENDING & MONITORING APPLICATIONS",
+                "id": "1075519",
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {
+                    "label": "UBIS-LENDING & MONITORING APPLICATIONS"
+                },
+                "draft": false
+            },
+            "program": [],
+            "tech_rule": {
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_rule": {
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "id": "D10301"
+            },
+            "draft": true,
+            "status": {
+                "label": "In approvazione da iniziativa"
+            }
+        },
+        {
+            "workspace": {
+                "label": "MANUTENZIONE",
+                "id": "441"
+            },
+            "data_field": {
+                "label": "STATO-ATTRIBUTO-FORBORNE - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "D10284",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "STATO-ATTRIBUTO-FORBORNE - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": true
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1078851",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "tech_application": {
+                "label": "MOF",
+                "id": "1079485",
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": false
+            },
+            "system_owner": {
+                "label": "UBIS-LENDING & MONITORING APPLICATIONS",
+                "id": "1075519",
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {
+                    "label": "UBIS-LENDING & MONITORING APPLICATIONS"
+                },
+                "draft": false
+            },
+            "program": [],
+            "tech_rule": {
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_rule": {
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "id": "D10284"
+            },
+            "draft": true,
+            "status": {
+                "label": "Bozza"
+            }
+        },
+        {
+            "workspace": {
+                "label": "MANUTENZIONE",
+                "id": "441"
+            },
+            "data_field": {
+                "label": "STATO_ATTRIBUTO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "D10295",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "STATO_ATTRIBUTO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": true
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "D10294",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": true
+            },
+            "tech_application": {
+                "label": "MOF",
+                "id": "1079485",
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": false
+            },
+            "system_owner": {
+                "label": "UBIS-LENDING & MONITORING APPLICATIONS",
+                "id": "1075519",
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {
+                    "label": "UBIS-LENDING & MONITORING APPLICATIONS"
+                },
+                "draft": false
+            },
+            "program": [],
+            "tech_rule": {
+                "label": "STATO_ATTRIBUTO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1080707",
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {
+                    "label": "STATO_ATTRIBUTO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "business_rule": {
+                "label": "STATO_ATTRIBUTO_FORB.MOF",
+                "id": "1077783",
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {
+                    "label": "STATO_ATTRIBUTO_FORB.MOF"
+                },
+                "draft": false
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "id": "D10295"
+            },
+            "draft": true,
+            "status": {
+                "label": "In approvazione da iniziativa"
+            }
+        },
+        {
+            "data_field": {
+                "label": "ABI",
+                "id": "1244813",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "ABI"
+                },
+                "draft": false
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1221330",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "tech_application": {
+                "label": "MOF",
+                "id": "1219126",
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": false
+            },
+            "system_owner": {
+                "label": "UBIS-LENDING & MONITORING APPLICATIONS",
+                "id": "1219073",
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {
+                    "label": "UBIS-LENDING & MONITORING APPLICATIONS"
+                },
+                "draft": false
+            },
+            "program": [],
+            "tech_rule": {
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_rule": {
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "label": "DD - DF - ABI",
+                "id": "1244813"
+            },
+            "draft": false
+        },
+        {
+            "data_field": {
+                "label": "CATEGORIA-RAPPORTO",
+                "id": "1245356",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "CATEGORIA-RAPPORTO"
+                },
+                "draft": false
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1221330",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "tech_application": {
+                "label": "MOF",
+                "id": "1219126",
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": false
+            },
+            "system_owner": {
+                "label": "UBIS-LENDING & MONITORING APPLICATIONS",
+                "id": "1219073",
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {
+                    "label": "UBIS-LENDING & MONITORING APPLICATIONS"
+                },
+                "draft": false
+            },
+            "program": [],
+            "tech_rule": {
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_rule": {
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "label": "DD - DF - CATEGORIA-RAPPORTO",
+                "id": "1245356"
+            },
+            "draft": false
+        },
+        {
+            "data_field": {
+                "label": "DT_AGGIORNAMENTO",
+                "id": "1244917",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "DT_AGGIORNAMENTO"
+                },
+                "draft": false
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1221330",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "tech_application": {
+                "label": "MOF",
+                "id": "1219126",
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": false
+            },
+            "system_owner": {
+                "label": "UBIS-LENDING & MONITORING APPLICATIONS",
+                "id": "1219073",
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {
+                    "label": "UBIS-LENDING & MONITORING APPLICATIONS"
+                },
+                "draft": false
+            },
+            "program": [
+                {
+                    "label": "NOPRG_BATCH_CFSGSRAP_STEP1_DATA_%%%.SH",
+                    "id": "1244192",
+                    "term_type": {
+                        "label": "PROGRAM",
+                        "id": "PROGRAM"
+                    },
+                    "term_name": {
+                        "label": "NOPRG_BATCH_CFSGSRAP_STEP1_DATA_%%%.SH"
+                    },
+                    "draft": false
+                }
+            ],
+            "tech_rule": {
+                "label": "DD - TR - DT_AGGIORNAMENTO - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1240135",
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {
+                    "label": "DD - TR - DT_AGGIORNAMENTO - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "business_rule": {
+                "label": "DD - BR - DT_AGGIORNAMENTO.MOF",
+                "id": "1235221",
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {
+                    "label": "DD - BR - DT_AGGIORNAMENTO.MOF"
+                },
+                "draft": false
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "label": "DD - DF - DT_AGGIORNAMENTO",
+                "id": "1244917"
+            },
+            "draft": false
+        },
+        {
+            "data_field": {
+                "label": "DT_INGRESSO_FB",
+                "id": "1223821",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "DT_INGRESSO_FB"
+                },
+                "draft": false
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "MOF",
+                "id": "1220911",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": false
+            },
+            "tech_application": {
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "system_owner": {
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "program": [],
+            "tech_rule": {
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_rule": {
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "label": "DD - DF - DT_INGRESSO_FB",
+                "id": "1223821"
+            },
+            "draft": false
+        },
+        {
+            "data_field": {
+                "label": "DT_INGRESSO_FB",
+                "id": "1223938",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "DT_INGRESSO_FB"
+                },
+                "draft": false
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "MOF",
+                "id": "1220911",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": false
+            },
+            "tech_application": {
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "system_owner": {
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "program": [],
+            "tech_rule": {
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_rule": {
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "label": "DD - DF - DT_INGRESSO_FB",
+                "id": "1223938"
+            },
+            "draft": false
+        },
+        {
+            "data_field": {
+                "label": "DT_INGRESSO_FORB",
+                "id": "1245416",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "DT_INGRESSO_FORB"
+                },
+                "draft": false
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1221330",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "tech_application": {
+                "label": "MOF",
+                "id": "1219126",
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": false
+            },
+            "system_owner": {
+                "label": "UBIS-LENDING & MONITORING APPLICATIONS",
+                "id": "1219073",
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {
+                    "label": "UBIS-LENDING & MONITORING APPLICATIONS"
+                },
+                "draft": false
+            },
+            "program": [
+                {
+                    "label": "NOPRG_BATCH_CFSGSRAP_STEP1_DATA_%%%.SH",
+                    "id": "1244192",
+                    "term_type": {
+                        "label": "PROGRAM",
+                        "id": "PROGRAM"
+                    },
+                    "term_name": {
+                        "label": "NOPRG_BATCH_CFSGSRAP_STEP1_DATA_%%%.SH"
+                    },
+                    "draft": false
+                }
+            ],
+            "tech_rule": {
+                "label": "DD - TR - DT_INGRESSO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1243421",
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {
+                    "label": "DD - TR - DT_INGRESSO_FORB - %%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "business_rule": {
+                "label": "DD - BR - DT_INGRESSO_FORB.MOF",
+                "id": "1234840",
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {
+                    "label": "DD - BR - DT_INGRESSO_FORB.MOF"
+                },
+                "draft": false
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "label": "DD - DF - DT_INGRESSO_FORB",
+                "id": "1245416"
+            },
+            "draft": false
+        },
+        {
+            "data_field": {
+                "label": "FILIALE",
+                "id": "1244839",
+                "term_type": {
+                    "label": "DATA FIELD",
+                    "id": "DATA_FIELD"
+                },
+                "term_name": {
+                    "label": "FILIALE"
+                },
+                "draft": false
+            },
+            "data_table": {
+                "term_type": {
+                    "label": "DATA TABLE",
+                    "id": "DATA_TABLE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "data_source": {
+                "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP",
+                "id": "1221330",
+                "term_type": {
+                    "label": "DATA SOURCE",
+                    "id": "DATA_SOURCE"
+                },
+                "term_name": {
+                    "label": "%%%.MOF.A0207S.SALVA.MOFSTRAP"
+                },
+                "draft": false
+            },
+            "tech_application": {
+                "label": "MOF",
+                "id": "1219126",
+                "term_type": {
+                    "label": "TECHNICAL APPLICATION",
+                    "id": "TECHNICAL_APPLICATION"
+                },
+                "term_name": {
+                    "label": "MOF"
+                },
+                "draft": false
+            },
+            "system_owner": {
+                "label": "UBIS-LENDING & MONITORING APPLICATIONS",
+                "id": "1219073",
+                "term_type": {
+                    "label": "SYSTEM OWNER",
+                    "id": "SYSTEM_OWNER"
+                },
+                "term_name": {
+                    "label": "UBIS-LENDING & MONITORING APPLICATIONS"
+                },
+                "draft": false
+            },
+            "program": [],
+            "tech_rule": {
+                "term_type": {
+                    "label": "TECHNICAL RULE",
+                    "id": "TECHNICAL_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_rule": {
+                "term_type": {
+                    "label": "BUSINESS RULE",
+                    "id": "BUSINESS_RULE"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_data": {
+                "term_type": {
+                    "label": "BUSINESS DATA",
+                    "id": "BUSINESS_DATA"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "business_glossary": {
+                "term_type": {
+                    "label": "BUSINESS GLOSSARY",
+                    "id": "BUSINESS_GLOSSARY"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "process_owner": {
+                "term_type": {
+                    "label": "PROCESS OWNER",
+                    "id": "PROCESS_OWNER"
+                },
+                "term_name": {},
+                "draft": true
+            },
+            "id_field": {
+                "label": "DD - DF - FILIALE",
+                "id": "1244839"
+            },
+            "draft": false
+        }
+    ]
 }
