@@ -39,7 +39,7 @@ export class SearchWorkspaceService {
             endDate = this.$filter('date')(filterApplied.endDate, 'yyyy-MM-dd');
         }
 
-        let pathQuery = new QueryParams({
+        let params = {
             pageNumber: pageNumber,
             pageLength: pageLength,
             workspace_id: filterApplied.workspaceSelected,
@@ -48,7 +48,14 @@ export class SearchWorkspaceService {
             endDate: endDate,
             status: filterApplied.status,
             type: filterApplied.type
-        }).getString();
+        };
+
+        if (filterApplied.order_by && filterApplied.order_type) {
+            params.order_by = filterApplied.order_by;
+            params.order_type = filterApplied.order_type;
+        }
+
+        let pathQuery = new QueryParams(params).getString();
 
         let path = `WDD/search/workspace${pathQuery}`;
 

@@ -1,6 +1,6 @@
 import template from './wddCell.template.html';
 
-export function WddCell($filter, $document, $timeout) {
+export function WddCell ($filter, $document, $timeout) {
     'ngInject';
     return {
         scope: {
@@ -35,7 +35,6 @@ export function WddCell($filter, $document, $timeout) {
                     scope.parsedCell[0].icon = 'glyphicon glyphicon-ok';
                 }
             }
-            
             if (scope.header === 'workspace') {
                 scope.navigationInPopover = false;
             }

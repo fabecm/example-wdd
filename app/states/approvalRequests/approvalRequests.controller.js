@@ -31,7 +31,8 @@ export class ApprovalRequestsController {
         value: 'data_table'
     }, {
         label: 'Technical Application',
-        value: 'tech_application'
+        value: 'tech_application',
+        termTypeId: 'technical_application'
     }, {
         label: 'System Owner',
         value: 'system_owner'

@@ -46,7 +46,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             hasRelationModal: '@?',
             dontResize: '@?',
             navigationInPopover: '@',
-            allowedColumnsDataLineage: '=?'
+            allowedColumnsDataLineage: '=?',
+            sortableTable: '@?',
+            sortableTableType: '@'
         },
         template: template,
         link: (scope) => {
@@ -58,12 +60,37 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.filterApplied = {};
             scope.checkedElements = [];
             scope.cacheKey = `filter_${$state.$current.name.replace(/\./g, '_')}`;
+            scope.sortCacheKey = `sorting_${$state.$current.name.replace(/\./g, '_')}_${scope.tableKey}`;
             scope.navigationInPopover = (scope.navigationInPopover !== 'true') ? false : true;
-
+            scope.sortableTable = (scope.sortableTable !== 'true') ? false : true;
+            scope.sortableColumns = {
+                data: ['workspace',
+                    'data_field',
+                    'data_table',
+                    'data_source',
+                    'technical_application',
+                    'system_owner',
+                    'status',
+                    'workspace_end_date'],
+                entity: ['term_type',
+                    'term_name',
+                    'description',
+                    'status',
+                    'modified_date'],
+                workspace: ['workspace',
+                    'description',
+                    'start_date',
+                    'end_date',
+                    'status']
+            };
             scope.reloadData = (filter) => {
                 // $log.debug('filter', filter);
                 if (filter && filter.filterSetted) {
                     scope.filterApplied = filter.filterSetted;
+                }
+                if (WddCacheService.getCachedFilter(scope.sortCacheKey)) {
+                    scope.filterApplied.order_by = WddCacheService.getCachedFilter(scope.sortCacheKey).order_by;
+                    scope.filterApplied.order_type = WddCacheService.getCachedFilter(scope.sortCacheKey).order_type;
                 }
 
                 if (filter && filter.filterSetted && (filter.filterSetted.resetPage || filter.filterSetted.term_id)) {
@@ -459,7 +486,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 } else if (scope.serviceResponse[row.key].id_field) {
                     fieldId = field.id;
                 }
-                
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
@@ -478,7 +504,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                         type: 'F',
                         isDraft: isDraft,
                         workspaceId: workspaceId
-                    }
+                    };
                     if (row.cell && row.cell.term_type.id === 'TECHNICAL_RULE') {
                         options.type = 'R';
                     }

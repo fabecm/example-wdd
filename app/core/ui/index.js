@@ -23,6 +23,7 @@ import { WddAlertMessage } from './directives/alertMessage';
 
 import { WddSpinner } from './directives/wddSpinner';
 import { TableIconMenu } from './directives/tableIconMenu';
+import { Sortable } from './directives/sortable';
 
 export default angular.module('wdd.core.ui', [])
     .directive('wbbSelect', WbbSelect)
@@ -44,4 +45,5 @@ export default angular.module('wdd.core.ui', [])
     .directive('wddAlert', WddAlertMessage)
     .directive('wddSpinner', WddSpinner)
     .directive('tableIconMenu', TableIconMenu)
+    .directive('sortable', Sortable)
     .name;

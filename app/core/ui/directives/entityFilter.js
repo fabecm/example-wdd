@@ -70,6 +70,7 @@ export function EntityFilter ($state, WddCacheService, WDDAlert) {
                 scope.statusSelected.value = -1;
 
                 WddCacheService.unCacheFilter(scope.filterKey);
+                WddCacheService.unCacheSorting(scope.filterKey);
 
                 scope.setFilter();
 
