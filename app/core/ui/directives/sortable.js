@@ -35,11 +35,7 @@ export function Sortable(WddCacheService, $state) {
                         }
                     }
                 }
-                // da migliorare in caso diano conferma: stile per metterlo all'inizio della cella
                 $(element).prepend(`<i class="icon icon-sorting-position ${sortingIcon} ${sortingUnused}"></i>`);
-                let coords = element[0].getBoundingClientRect();
-                let top = (coords.bottom - coords.top) / 2;
-                $('.icon-sorting-position').css('top', top + 'px');
                 $(element[0]).css('cursor', 'pointer');
                 element.on('click', function(event) {
                     // to avoid sorting while clicking to change the column dimension

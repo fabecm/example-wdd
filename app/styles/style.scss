@@ -160,7 +160,8 @@ i.icon.icon-disabled{
 }
 
 .icon-sorting-position {
-    position: absolute;
-    left: 3px;
-    font-size: 10px;
+    color: #f18423;
+    &.text-muted {
+        color: #777;
+    }
 }
