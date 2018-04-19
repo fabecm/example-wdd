@@ -24,7 +24,7 @@
         page-size-num="{{ {number: vm.tablePageSize} }}" expandable-bool="{{ {boolean: vm.tableExpandable} }}" is-checked-bool="{{ {boolean: true} }}"
         has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail" header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
         is-child-checked-bool="false" state-to-able-child-check="" has-secondary-label="Invia per approvazione" disabled-secondary-label-with-empty-response="true"
-        able-status-secondary-label="{{ vm.sendToApproveStatus }}" action-secondary-label="vm.sendToApprove(selectedItems)" sortable-table="true" sortable-table-type="entity"></wdd-table>
+        able-status-secondary-label="{{ vm.sendToApproveStatus }}" action-secondary-label="vm.sendToApprove(selectedItems)" sortable-table="true" sortable-table-type="entity" sortable-children-table-type="data"></wdd-table>
 
     <div class="action-holder">
         <button class="wdd-button" ng-click="vm.createNewEntity()">Nuova entità</button>

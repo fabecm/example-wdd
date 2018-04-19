@@ -28,7 +28,7 @@
         is-checked-bool="{{ {boolean: true} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail" header-array-expandable-obj="{{ {array: vm.headerTableExpandable} }}"
         is-child-checked-bool="false" state-to-able-child-check="" has-secondary-label="Approva" disabled-secondary-label-with-empty-response="true"
         able-status-secondary-label="{{ vm.approveStatus }}" action-secondary-label="vm.sendToApprove(selectedItems)" has-tertiary-label="Rifiuta"
-        able-status-tertiary-label="{{ vm.rejectStatus }}" disabled-tertiary-label-with-empty-response="true" action-tertiary-label="vm.reject(selectedItems)" sortable-table="true" sortable-table-type="entity"></wdd-table>
+        able-status-tertiary-label="{{ vm.rejectStatus }}" disabled-tertiary-label-with-empty-response="true" action-tertiary-label="vm.reject(selectedItems)" sortable-table="true" sortable-table-type="entity" sortable-children-table-type="entity"></wdd-table>
 
     <div class="action-holder">
         <button class="wdd-button" ng-click="vm.createNewEntity()">Nuova entità</button>

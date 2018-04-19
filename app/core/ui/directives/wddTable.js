@@ -48,7 +48,10 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             navigationInPopover: '@',
             allowedColumnsDataLineage: '=?',
             sortableTable: '@?',
-            sortableTableType: '@'
+            sortableTableType: '@',
+            sortableChildren: '@?',
+            sortableParentSelected: '@?',
+            sortableChildrenTableType: '@?'
         },
         template: template,
         link: (scope) => {
@@ -63,6 +66,10 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.sortCacheKey = `sorting_${$state.$current.name.replace(/\./g, '_')}_${scope.tableKey}`;
             scope.navigationInPopover = (scope.navigationInPopover !== 'true') ? false : true;
             scope.sortableTable = (scope.sortableTable !== 'true') ? false : true;
+            scope.sortableChildren = (scope.sortableChildren !== 'true') ? false : true;
+            if (!scope.sortableChildren) {
+                scope.sortableParentSelected = `sorting_${$state.$current.name.replace(/\./g, '_')}_${scope.tableKey}`;
+            }
             scope.sortableColumns = {
                 data: ['workspace',
                     'data_field',
@@ -83,6 +90,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     'end_date',
                     'status']
             };
+                
             scope.reloadData = (filter) => {
                 // $log.debug('filter', filter);
                 if (filter && filter.filterSetted) {
