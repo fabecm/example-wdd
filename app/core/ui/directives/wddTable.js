@@ -99,6 +99,9 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (WddCacheService.getCachedFilter(scope.sortCacheKey)) {
                     scope.filterApplied.order_by = WddCacheService.getCachedFilter(scope.sortCacheKey).order_by;
                     scope.filterApplied.order_type = WddCacheService.getCachedFilter(scope.sortCacheKey).order_type;
+                } else {
+                    delete scope.filterApplied.order_by;
+                    delete scope.filterApplied.order_type;
                 }
 
                 if (filter && filter.filterSetted && (filter.filterSetted.resetPage || filter.filterSetted.term_id)) {
