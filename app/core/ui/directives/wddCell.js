@@ -17,24 +17,33 @@ export function WddCell ($filter, $document, $timeout) {
             isSas: '=',
             rowData: '=',
             rowKey: '=',
-            allowedColumnsDataLineage: '=?'
+            allowedColumnsDataLineage: '=?',
+            tableKey: '='
         },
         template: template,
         link: (scope, element) => {
             scope.visiblePopover = false;
+            let checkColumns = {
+                searchPage: [
+                    'business_rule',
+                    'tech_rule',
+                    'business_data',
+                    'business_glossary'
+                ],
+                searchBusiness: [
+                    'business_rule'
+                ]
+            };
             if (!scope.cell || (!scope.cell.length && scope.cell.length !== 0)) {
                 scope.parsedCell = [scope.cell];
             } else {
                 scope.parsedCell = scope.cell;
             }
-            if (scope.header === 'business_rule'
-                || scope.header === 'tech_rule'
-                || scope.header === 'business_data'
-                || scope.header === 'business_glossary') {
+            if (checkColumns[scope.tableKey] && checkColumns[scope.tableKey].indexOf(scope.header) !== -1) {
                 if (scope.parsedCell && scope.parsedCell.length && scope.parsedCell[0].label) {
                     scope.parsedCell[0].icon = 'glyphicon glyphicon-ok';
                 }
-            }
+            }            
             if (scope.header === 'workspace') {
                 scope.navigationInPopover = false;
             }

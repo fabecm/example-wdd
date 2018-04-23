@@ -20,7 +20,7 @@ export class SearchController {
     reloadTableData = undefined;
 
     selectedTab = 0;
-    // 0 is Data, 1 is Entity
+    // 0 is Data, 1 is Entity, 2 is Business
 
     tablePagination = true;
     tablePageSize = 10;
@@ -98,6 +98,48 @@ export class SearchController {
         width: '70'
     }];
 
+    headerBusinessTable = [{
+        label: 'Business Data',
+        value: 'business_data',
+        width: '85'
+    }, {
+        label: 'Business Glossary',
+        value: 'business_glossary',
+        width: '85'
+    }, {
+        label: 'Process Owner',
+        value: 'process_owner',
+        width: '85'
+    }, {
+        label: 'Responsible User',
+        value: 'responsible_user',
+        width: '85'
+    }, {
+        label: 'Data field',
+        value: 'data_field',
+        width: '100'
+    }, {
+        label: 'Data table',
+        value: 'data_table',
+        width: '90'
+    }, {
+        label: 'Data source',
+        value: 'data_source',
+        width: '90'
+    }, {
+        label: 'Technical application',
+        value: 'tech_application',
+        width: '100'
+    }, {
+        label: 'System owner',
+        value: 'system_owner',
+        width: '85'
+    }, {
+        label: 'Business Rule',
+        value: 'business_rule',
+        width: '85'
+    }];
+
     constructor (DataService, DatasourceService, $timeout, WddCacheService, WDDAlert) {
         'ngInject';
         this.datasourceService = DatasourceService;
@@ -130,6 +172,11 @@ export class SearchController {
         } else if (this.selectedTab === 1) {
             this.wddCacheService.cacheSearchTab('filter_tab_search', 1);
             this.reloadTableEntity({
+                filterSetted: this.filterApplied
+            });
+        } else if (this.selectedTab === 2) {
+            this.wddCacheService.cacheSearchTab('filter_tab_search', 2);
+            this.reloadTableBusiness({
                 filterSetted: this.filterApplied
             });
         }
@@ -176,6 +223,11 @@ export class SearchController {
             } else if (this.selectedTab === 1) {
                 this.wddCacheService.cacheSearchTab('filter_tab_search', 1);
                 this.reloadTableEntity({
+                    filterSetted: param
+                });
+            } else if (this.selectedTab === 2) {
+                this.wddCacheService.cacheSearchTab('filter_tab_search', 2);
+                this.reloadTableBusiness({
                     filterSetted: param
                 });
             }

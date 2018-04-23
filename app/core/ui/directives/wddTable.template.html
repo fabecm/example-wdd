@@ -27,7 +27,7 @@
             </thead>
             <tbody>
 
-                <tr class="base-row" wdd-row ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
+                <tr class="base-row" wdd-row table-key="tableKey" ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
                     column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
                     has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
                     has-ternary-navigation-btn="ternaryNavigation" navigation-in-popover="navigationInPopover" has-creation="hasCreation" status-to-disabled-creation="statusToDisabledCreation"

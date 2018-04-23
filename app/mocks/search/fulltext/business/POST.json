@@ -1,0 +1,321 @@
+{
+    "page_count": 11,
+    "OutputArray": [
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU04S.SOSPECT.C1A.SPED(0)"
+            },
+            "data_table": {},
+            "data_source": {
+                "label": "DD - DS - %%%.ARI.AMU04S.SOSPECT.C1A.SPED(0)"
+            },
+            "tech_application": {
+                "label": "DD - TA - ARI"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU04S.SOSPECT.C1A.SPED(0)"
+            },
+            "business_rule": {
+                "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
+            },
+            "business_data": {
+                "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
+            },
+            "business_glossary": {},
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        },
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU05S.SOSPECT.C1B.SPED(0)"
+            },
+            "data_table": {},
+            "data_source": {
+                "label": "DD - DS - %%%.ARI.AMU05S.SOSPECT.C1B.SPED(0)"
+            },
+            "tech_application": {
+                "label": "DD - TA - ARI"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU05S.SOSPECT.C1B.SPED(0)"
+            },
+            "business_rule": {
+                "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
+            },
+            "business_data": {
+                "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
+            },
+            "business_glossary": {},
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        },
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU06S.SOSPECT.C1C.SPED(0)"
+            },
+            "data_table": {},
+            "data_source": {
+                "label": "DD - DS - %%%.ARI.AMU06S.SOSPECT.C1C.SPED(0)"
+            },
+            "tech_application": {
+                "label": "DD - TA - ARI"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU06S.SOSPECT.C1C.SPED(0)"
+            },
+            "business_rule": {
+                "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
+            },
+            "business_data": {
+                "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
+            },
+            "business_glossary": {},
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        },
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU07S.SOSPECT.C1D.SPED(0)"
+            },
+            "data_table": {},
+            "data_source": {
+                "label": "DD - DS - %%%.ARI.AMU07S.SOSPECT.C1D.SPED(0)"
+            },
+            "tech_application": {
+                "label": "DD - TA - ARI"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU07S.SOSPECT.C1D.SPED(0)"
+            },
+            "business_rule": {
+                "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
+            },
+            "business_data": {
+                "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
+            },
+            "business_glossary": {},
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        },
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU11S.SOSPECT.C1F.SPED(0)"
+            },
+            "data_table": {},
+            "data_source": {
+                "label": "DD - DS - %%%.ARI.AMU11S.SOSPECT.C1F.SPED(0)"
+            },
+            "tech_application": {
+                "label": "DD - TA - ARI"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU11S.SOSPECT.C1F.SPED(0)"
+            },
+            "business_rule": {
+                "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
+            },
+            "business_data": {
+                "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
+            },
+            "business_glossary": {},
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        },
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU15S.SOSPECT.A.SPED(0)"
+            },
+            "data_table": {},
+            "data_source": {
+                "label": "DD - DS - %%%.ARI.AMU15S.SOSPECT.A.SPED(0)"
+            },
+            "tech_application": {
+                "label": "DD - TA - ARI"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CODICE NDG INTESTAZIONE RAPPORTO - %%%.ARI.AMU15S.SOSPECT.A.SPED(0)"
+            },
+            "business_rule": {
+                "label": "DD - BR - CODICE NDG INTESTAZIONE RAPPORTO.ARI"
+            },
+            "business_data": {
+                "label": "DD - BD - CODICE NDG INTESTAZIONE RAPPORTO"
+            },
+            "business_glossary": {},
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        },
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_06"
+            },
+            "data_table": {
+                "label": "DD - DT - PE_IN_06 - UBIRAT"
+            },
+            "data_source": {
+                "label": "DD - DS - UBIRAT"
+            },
+            "tech_application": {
+                "label": "DD - TA - SAS"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_06"
+            },
+            "business_rule": {
+                "label": "DD - BR - CRED_PASS_PERD_SA_1C_T1-T6.SAS"
+            },
+            "business_data": {
+                "label": "DD - BD - CRED_PASS_PERD_SA_1C_T1-T6"
+            },
+            "business_glossary": {
+                "label": "DD - BG - CREDITI PASSATI PERDITA MENO AZIENDA COINTESTATO 1"
+            },
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        },
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_07"
+            },
+            "data_table": {
+                "label": "DD - DT - PE_IN_07 - UBIRAT"
+            },
+            "data_source": {
+                "label": "DD - DS - UBIRAT"
+            },
+            "tech_application": {
+                "label": "DD - TA - SAS"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_07"
+            },
+            "business_rule": {
+                "label": "DD - BR - CRED_PASS_PERD_SA_1C_T1-T6.SAS"
+            },
+            "business_data": {
+                "label": "DD - BD - CRED_PASS_PERD_SA_1C_T1-T6"
+            },
+            "business_glossary": {
+                "label": "DD - BG - CREDITI PASSATI PERDITA MENO AZIENDA COINTESTATO 1"
+            },
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        },
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_08"
+            },
+            "data_table": {
+                "label": "DD - DT - PE_IN_08 - UBIRAT"
+            },
+            "data_source": {
+                "label": "DD - DS - UBIRAT"
+            },
+            "tech_application": {
+                "label": "DD - TA - SAS"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_08"
+            },
+            "business_rule": {
+                "label": "DD - BR - CRED_PASS_PERD_SA_1C_T1-T6.SAS"
+            },
+            "business_data": {
+                "label": "DD - BD - CRED_PASS_PERD_SA_1C_T1-T6"
+            },
+            "business_glossary": {
+                "label": "DD - BG - CREDITI PASSATI PERDITA MENO AZIENDA COINTESTATO 1"
+            },
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        },
+        {
+            "workspace": {},
+            "data_field": {
+                "label": "CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_11"
+            },
+            "data_table": {
+                "label": "DD - DT - PE_IN_11 - UBIRAT"
+            },
+            "data_source": {
+                "label": "DD - DS - UBIRAT"
+            },
+            "tech_application": {
+                "label": "DD - TA - SAS"
+            },
+            "system_owner": {
+                "label": "DD - SO - UBIS-RISK & AML APPLICATIONS"
+            },
+            "tech_rule": {
+                "label": "DD - TR - CRED_PASS_PERD_SA_1C_T1-T6 - UBIRAT.PE_IN_11"
+            },
+            "business_rule": {
+                "label": "DD - BR - CRED_PASS_PERD_SA_1C_T1-T6.SAS"
+            },
+            "business_data": {
+                "label": "DD - BD - CRED_PASS_PERD_SA_1C_T1-T6"
+            },
+            "business_glossary": {
+                "label": "DD - BG - CREDITI PASSATI PERDITA MENO AZIENDA COINTESTATO 1"
+            },
+            "process_owner": {
+                "label": "DD - PO - CRO"
+            },
+            "id_field": "1088737"
+        }
+    ]
+}
