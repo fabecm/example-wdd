@@ -472,28 +472,55 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 return numColl;
             };
 
+            scope.getFieldDraft = (service, row) => {
+                if (typeof row.cell !== 'undefined' && typeof row.cell.draft !== 'undefined') {
+                    return row.cell.draft;
+                }
+                return service[row.key].draft;
+            };
+
+            scope.getFieldId = (service, row) => {
+                if (row.cell) {
+                    return row.cell.id;
+                } 
+                if (scope.isChild) {
+                    return service[row.key].id_field;
+                }
+                if (service[row.key].id_field) {
+                    return service[row.key].id_field.id;
+                }
+                return undefined;
+            };
+
+            scope.getFieldLabel = (service, row) => {
+                if (row.cell) {
+                    return row.cell.label;
+                }
+                return service[row.key].label; 
+            };
+
+            scope.getTermType = (service, row) => {
+                if (row.cell) {
+                    return row.cell.term_type.id;
+                }
+                return service[row.key].term_type.id; 
+            };
+
+            scope.getTermName = (service, row) => {
+                if (row.cell) {
+                    return row.cell.term_name.label;
+                }
+                return service[row.key].term_name.label; 
+            };
+
             scope.rowAction = (row) => {
                 let workspaceId;
                 if (scope.serviceResponse[row.key].workspace && scope.serviceResponse[row.key].workspace.id) {
                     workspaceId = scope.serviceResponse[row.key].workspace.id;
                 }
+                let isDraft = scope.getFieldDraft(scope.serviceResponse, row);
+                let fieldId = scope.getFieldId(scope.serviceResponse, row);
 
-                let fieldId;
-                let field = scope.serviceResponse[row.key].id_field;
-                let isDraft = scope.serviceResponse[row.key].draft;
-                
-                if (row.cell) {
-                    field = row.cell;
-                    if (typeof field.draft !== "undefined") {
-                        isDraft = field.draft;
-                    }
-                } 
-
-                if (scope.isChild) {
-                    fieldId = field;
-                } else if (scope.serviceResponse[row.key].id_field) {
-                    fieldId = field.id;
-                }
                 if (row.action === 'collapse') {
                     scope.serviceResponse[row.key].workspace.collapse = !scope.serviceResponse[row.key].workspace.collapse;
                 } else if (row.action === 'primaryNavigation') {
@@ -508,7 +535,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     });
                 } else if (row.action === 'secondaryNavigation') {
                     let options = {
-                        id: field.id,
+                        id: fieldId,
                         type: 'F',
                         isDraft: isDraft,
                         workspaceId: workspaceId
@@ -527,22 +554,16 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     });
                 } else if (row.action === 'ternaryNavigation') {
                     let pathSas = [`${SessionService.endPointSas}`,
-                        `#subjectName=${encodeURI(field.label)}`,
+                        `#subjectName=${encodeURI(scope.getFieldLabel(scope.serviceResponse, row))}`,
                         '&module=relationships&subjectType=6003&viewName=Governance&subjectID=',
                         `${SessionService.objectIdSas}`,
-                        `${field.id}`];
+                        `${fieldId}`];
                     window.open(pathSas.join(''), '_blank');
                 } else if (row.action === 'showRelation') {
-                    let termType;
-                    let termName;
-                    if (row.cell) {
-                        termType = field.term_type.id;
-                        termName = field.term_name.label;
-                    } else {
-                        termType = scope.serviceResponse[row.key].term_type.id;
-                        termName = scope.serviceResponse[row.key].term_name.label;
-                    }
-                    ModalService.openRelationsModal(field.id, termType, termName).then(() => {
+                    let termType = scope.getTermType(scope.serviceResponse, row);
+                    let termName = scope.getTermName(scope.serviceResponse, row);
+                    
+                    ModalService.openRelationsModal(fieldId, termType, termName).then(() => {
                         scope.relationModalOpen = true;
                         scope.reloadData();
                     });
