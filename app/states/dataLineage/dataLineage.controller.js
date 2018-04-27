@@ -8,12 +8,13 @@ export class DataLineageController {
     // Default view: Data Lineage
     currentView = 0;
 
-    constructor (LineageService, $state, $stateParams, ModalService) {
+    constructor (LineageService, $state, $stateParams, ModalService, $http) {
         'ngInject';
         this.$state = $state;
         this.lineageService = LineageService;
         this.$stateParams = $stateParams;
         this.modalService = ModalService;
+        this.$http = $http;
 
         // TODO per l'init recuperare il termId dai parametri dello state
         this.initLineage();

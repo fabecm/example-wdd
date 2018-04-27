@@ -82,22 +82,14 @@ module.exports = function(env) {
                     }
                 }]
             }, {
-                test: /\.(xlsx)($|\?)/,
+                test: /\.(xlsx|pdf)($|\?)/,
                 use: [{
                     loader: 'file-loader',
                     options: {
                         outputPath: 'public/'
                     }
                 }]
-                }, {
-                    test: /\.(pdf)($|\?)/,
-                    use: [{
-                        loader: 'file-loader',
-                        options: {
-                            outputPath: 'public/'
-                        }
-                    }]
-                }, {
+            }, {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: [{
