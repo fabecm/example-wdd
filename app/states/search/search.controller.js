@@ -129,7 +129,8 @@ export class SearchController {
     }, {
         label: 'Technical application',
         value: 'tech_application',
-        width: '100'
+        width: '100',
+        termTypeId: 'technical_application'
     }, {
         label: 'System owner',
         value: 'system_owner',

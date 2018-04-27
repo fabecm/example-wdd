@@ -21,13 +21,13 @@
         <span class="icon-label" ng-click="doAction(arrayAction[5])">Inserisci Dato</span>
     </div>
     <div class="col-secondary-navigation" ng-if="hasSecondaryNavigationBtn || hasRelationModal">
-        <div ng-if="(!hasRelationModal || (hasRelationModal && navigationInPopover) ) && (!isSas || hasTernaryNavigationBtn)  && isAllowedColumnDataLineage">
+        <div ng-if="(!hasRelationModal || (hasRelationModal && navigationInPopover) ) && (!isSas || hasTernaryNavigationBtn)  && isAllowedColumnDataLineage" ng-style="rowData.draft && {'cursor': 'default'}">
             <button class="wdd-button icon-only" ng-click="doAction(arrayAction[4])" tooltip-placement="left" tooltip-class="tooltip-test"
                 uib-tooltip="Data Lineage" tooltip-enable="false" show-tooltip="{{!navigationInPopover}}"
                 ng-disabled="rowData.draft">
                 <i class="icon icon-lineage"></i>
             </button>
-            <span class="icon-label" ng-click="doAction(arrayAction[4])">Data Lineage</span>
+            <span class="icon-label" ng-click="!rowData.draft && doAction(arrayAction[4])">Data Lineage</span>
         </div>
         <div ng-if="!hasRelationModal && (!hasTernaryNavigationBtn && isSas)">
             <button class="wdd-button icon-only" ng-click="doAction(arrayAction[6])" tooltip-placement="left" tooltip-class="tooltip-test"
@@ -36,13 +36,13 @@
             </button>
             <span class="icon-label" ng-click="doAction(arrayAction[6])">Lineage SAS</span>
         </div>
-        <div ng-if="hasRelationModal && hasTernaryNavigationBtn && (!hasSecondaryNavigationBtn || navigationInPopover)">
+        <div ng-if="hasRelationModal && hasTernaryNavigationBtn && (!hasSecondaryNavigationBtn || navigationInPopover)" ng-style="rowData.draft && {'cursor': 'default'}">
             <button class="wdd-button icon-only" ng-click="doAction(arrayAction[7])" tooltip-placement="left" tooltip-class="tooltip-test"
                 uib-tooltip="Vista Relazioni" tooltip-enable="false" show-tooltip="{{!navigationInPopover}}"
                 ng-disabled="rowData.draft">
                 <i class="icon glyphicon glyphicon-link"></i>
             </button>
-            <span class="icon-label" ng-click="doAction(arrayAction[7])">Vista Relazioni</span>
+            <span class="icon-label" ng-click="!rowData.draft && doAction(arrayAction[7])">Vista Relazioni</span>
         </div>
     </div>
     <div class="col-ternary-navigation" ng-if="hasTernaryNavigationBtn">
@@ -53,13 +53,13 @@
             </button>
             <span class="icon-label" ng-click="doAction(arrayAction[6])">Lineage SAS</span>
         </div>
-        <div ng-if="hasRelationModal && hasSecondaryNavigationBtn && hasTernaryNavigationBtn && !navigationInPopover">
+        <div ng-if="hasRelationModal && hasSecondaryNavigationBtn && hasTernaryNavigationBtn && !navigationInPopover" ng-style="rowData.draft && {'cursor': 'default'}">
             <button class="wdd-button icon-only" ng-click="doAction(arrayAction[7])" tooltip-placement="left" tooltip-class="tooltip-test"
                 uib-tooltip="Vista Relazioni" tooltip-enable="false" show-tooltip="{{!navigationInPopover}}"
                 ng-disabled="rowData.draft">
                 <i class="icon icon-lineage"></i>
             </button>
-            <span class="icon-label" ng-click="doAction(arrayAction[7])">Vista Relazioni</span>
+            <span class="icon-label" ng-click="!rowData.draft && doAction(arrayAction[7])">Vista Relazioni</span>
         </div>
     </div>
 </div>

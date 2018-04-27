@@ -21,13 +21,13 @@
             <wdd-table reload-data="vm.reloadTableData" table-key="searchPage" header-array-obj="{{ {array: vm.headerTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
                 page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail"
                 has-secondary-navigation-btn="true" path-secondary-navigation="tab.dataLineage" has-ternary-navigation-btn="true"
-                path-ternary-navigation="tab.dataLineage" navigation-in-popover="true" has-relation-modal="true" is-to-sas="true" promise="vm.firstTable" text-spinner="true" allowed-columns-data-lineage="['data_field', 'tech_rule']" sortable-table="true" sortable-table-type="data"></wdd-table>
+                path-ternary-navigation="tab.dataLineage" navigation-in-popover="true" has-relation-modal="true" is-to-sas="true" promise="vm.firstTable" text-spinner="true" allowed-columns-data-lineage="['data_field', 'tech_rule']" sortable-table="true" sortable-table-type="dataView"></wdd-table>
         </div>
         <div ng-show="vm.selectedTab == 2">
             <wdd-table reload-data="vm.reloadTableBusiness" table-key="searchBusiness" header-array-obj="{{ {array: vm.headerBusinessTable} }}" pagination-bool="{{ {boolean: vm.tablePagination} }}"
                 page-size-num="{{ {number: vm.tablePageSize} }}" has-primary-navigation-btn="true" path-primary-navigation="tab.dataDetail"
                 has-secondary-navigation-btn="true" path-secondary-navigation="tab.dataLineage" has-ternary-navigation-btn="true" path-ternary-navigation="tab.dataLineage"
-                navigation-in-popover="true" has-relation-modal="true" is-to-sas="true" promise="vm.thirdTable" text-spinner="true" allowed-columns-data-lineage="['data_field']" sortable-table="true" sortable-table-type="data"></wdd-table>
+                navigation-in-popover="true" has-relation-modal="true" is-to-sas="true" promise="vm.thirdTable" text-spinner="true" allowed-columns-data-lineage="['data_field']" sortable-table="true" sortable-table-type="business"></wdd-table>
         </div>
         <div ng-show="vm.selectedTab == 1">
             <wdd-table reload-data="vm.reloadTableEntity" table-key="searchEntity" header-array-obj="{{ {array: vm.headerEntityTable} }}"
