@@ -118,7 +118,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                     'end_date',
                     'status']
             };
-                
             scope.reloadData = (filter) => {
                 // $log.debug('filter', filter);
                 if (filter && filter.filterSetted) {
@@ -513,7 +512,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.getFieldId = (service, row) => {
                 if (row.cell) {
                     return row.cell.id;
-                } 
+                }
                 if (scope.isChild) {
                     return service[row.key].id_field;
                 }
@@ -527,21 +526,20 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (row.cell) {
                     return row.cell.label;
                 }
-                return service[row.key].label; 
+                return service[row.key].label;
             };
-
             scope.getTermType = (service, row) => {
                 if (row.cell) {
                     return row.cell.term_type.id;
                 }
-                return service[row.key].term_type.id; 
+                return service[row.key].term_type.id;
             };
 
             scope.getTermName = (service, row) => {
                 if (row.cell) {
                     return row.cell.term_name.label;
                 }
-                return service[row.key].term_name.label; 
+                return service[row.key].term_name.label;
             };
 
             scope.rowAction = (row) => {
@@ -593,7 +591,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 } else if (row.action === 'showRelation') {
                     let termType = scope.getTermType(scope.serviceResponse, row);
                     let termName = scope.getTermName(scope.serviceResponse, row);
-                    
+
                     ModalService.openRelationsModal(fieldId, termType, termName).then(() => {
                         scope.relationModalOpen = true;
                         scope.reloadData();

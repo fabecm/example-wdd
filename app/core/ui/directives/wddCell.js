@@ -43,7 +43,7 @@ export function WddCell ($filter, $document, $timeout) {
                 if (scope.parsedCell && scope.parsedCell.length && scope.parsedCell[0].label) {
                     scope.parsedCell[0].icon = 'glyphicon glyphicon-ok';
                 }
-            }            
+            }
             if (scope.header === 'workspace') {
                 scope.navigationInPopover = false;
             }
@@ -62,11 +62,11 @@ export function WddCell ($filter, $document, $timeout) {
                 let coords = element[0].getBoundingClientRect();
                 let windowHeight = window.innerHeight;
                 scope.coordLeft = coords.left + (coords.right-coords.left)/2 - 60;
-                scope.coordLeft += 'px'; 
+                scope.coordLeft += 'px';
                 scope.coordTop = coords.bottom + 10;
-                scope.coordTop += 'px'; 
+                scope.coordTop += 'px';
                 scope.coordFlip = windowHeight - (coords.top - 10);
-                scope.coordFlip += 'px'; 
+                scope.coordFlip += 'px';
                 $timeout(function () {
                     scope.clickListener = $document.on('click', function () {
                         scope.$apply(function () {

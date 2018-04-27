@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export function Sortable(WddCacheService, $state) {
+export function Sortable (WddCacheService, $state) {
     'ngInject';
     return {
         restrict: 'A',
@@ -8,7 +8,7 @@ export function Sortable(WddCacheService, $state) {
             if (attrs.sortable === '') {
                 if (scope.sortableTable && attrs.sortableTableKey && !scope.sortableChildren) {
                     console.error('Hello Developer! Seems that you have tried to render a sortable table but you haven\'t provided the sortableTableType attribute to wddTable');
-                    console.error('Table: ' + attrs.sortableTableKey); 
+                    console.error('Table: ' + attrs.sortableTableKey);
                 }
                 return;
             }
@@ -35,7 +35,6 @@ export function Sortable(WddCacheService, $state) {
                     sortableType = 'ASC';
                 }
             };
-            
             if (scope.sortableChildren) {
                 let parentSavedSorting = WddCacheService.getCachedFilter(scope.sortableParentSelected);
                 if (parentSavedSorting) {
@@ -45,7 +44,6 @@ export function Sortable(WddCacheService, $state) {
                     }
                 }
             }
-            
             if (!scope.sortableChildren && sortableColumns.indexOf(sortableHeaderId) !== -1) {
                 if (savedSorting) {
                     sortableBy = savedSorting.order_by;
@@ -63,7 +61,7 @@ export function Sortable(WddCacheService, $state) {
                         return;
                     }
                     if (sortableBy !== sortableHeaderId) {
-                        // reset the sort direction if there is not a previous sorting 
+                        // reset the sort direction if there is not a previous sorting
                         // or if there is a previous sorting on a different column.
                         sortableType = '';
                     }
@@ -74,5 +72,5 @@ export function Sortable(WddCacheService, $state) {
                 });
             }
         }
-    }
+    };
 }

@@ -51,7 +51,6 @@ export function WddRow () {
                     action: act
                 };
                 scope.actionFunction({rowSelected: forRow });
-                
             };
 
             scope.checkData = () => {

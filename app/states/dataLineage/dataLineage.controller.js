@@ -286,14 +286,14 @@ export class DataLineageController {
     }
 
     getArrowTooltip () {
-        if (typeof this.lineageBoxes[1] !== undefined && this.lineageBoxes[1].title === 'Technical Hierarchy' 
+        if (typeof this.lineageBoxes[1] !== undefined && this.lineageBoxes[1].title === 'Technical Hierarchy'
             && typeof this.lineageBoxes[4] !== undefined && this.lineageBoxes[4].title === 'Data Field') {
             this.lineageBoxes[1].arrowTooltip = 'Gerarchia tecnica/Owner';
-        } 
+        }
         if (typeof this.lineageBoxes[1] !== undefined && this.lineageBoxes[1].title === 'Business Rule'
             && typeof this.lineageBoxes[4] !== undefined && this.lineageBoxes[4].title === 'Technical Rule') {
             this.lineageBoxes[1].arrowTooltip = 'Implementata in';
-        } 
+        }
         if (typeof this.lineageBoxes[3] !== undefined && this.lineageBoxes[3].title === 'Technical Rule'
             && typeof this.lineageBoxes[4] !== undefined && this.lineageBoxes[4].title === 'Data Field') {
             this.lineageBoxes[3].arrowTooltip = 'Produce';

@@ -13,7 +13,7 @@ export class DataService {
         return this.$http.post(`WDD/search/fulltext/entity?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 
-    getBusinessData(pageNumber, pageLength, params = {}) {
+    getBusinessData (pageNumber, pageLength, params = {}) {
         return this.$http.post(`WDD/search/fulltext/business?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 
