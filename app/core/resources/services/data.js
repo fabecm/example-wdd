@@ -26,10 +26,6 @@ export class DataService {
     }
 
     getSystemOwnerEntityCensuses (pageNumber, pageLength, params = {}) {
-        if (params.order_by && params.order_type) {
-            params.inner_order_by = params.order_by;
-            params.inner_order_type = params.order_type;
-        }
         return this.$http.post(`WDD/search/systemowner/entityapproval?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 
@@ -42,10 +38,6 @@ export class DataService {
     }
 
     getDQEntityApprovalRequest (pageNumber, pageLength, params = {}) {
-        if (params.order_by && params.order_type) {
-            params.inner_order_by = params.order_by;
-            params.inner_order_type = params.order_type;
-        }
         return this.$http.post(`WDD/search/dataquality/entityapproval?pageNumber=${pageNumber}&pageLength=${pageLength}`, params);
     }
 

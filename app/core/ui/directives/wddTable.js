@@ -49,8 +49,7 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             allowedColumnsDataLineage: '=?',
             sortableTable: '@?',
             sortableTableType: '@',
-            sortableChildren: '@?',
-            sortableParentSelected: '@?',
+            sortableParentTableKey: '@?',
             sortableChildrenTableType: '@?'
         },
         template: template,
@@ -66,10 +65,6 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
             scope.sortCacheKey = `sorting_${$state.$current.name.replace(/\./g, '_')}_${scope.tableKey}`;
             scope.navigationInPopover = (scope.navigationInPopover !== 'true') ? false : true;
             scope.sortableTable = (scope.sortableTable !== 'true') ? false : true;
-            scope.sortableChildren = (scope.sortableChildren !== 'true') ? false : true;
-            if (!scope.sortableChildren) {
-                scope.sortableParentSelected = `sorting_${$state.$current.name.replace(/\./g, '_')}_${scope.tableKey}`;
-            }
             scope.sortableColumns = {
                 data: ['workspace',
                     'data_field',
@@ -126,9 +121,13 @@ export function WddTable ($log, $timeout, $state, ModalService, TableService, WD
                 if (WddCacheService.getCachedFilter(scope.sortCacheKey)) {
                     scope.filterApplied.order_by = WddCacheService.getCachedFilter(scope.sortCacheKey).order_by;
                     scope.filterApplied.order_type = WddCacheService.getCachedFilter(scope.sortCacheKey).order_type;
+                    scope.filterApplied.inner_order_by = WddCacheService.getCachedFilter(scope.sortCacheKey).inner_order_by;
+                    scope.filterApplied.inner_order_type = WddCacheService.getCachedFilter(scope.sortCacheKey).inner_order_type;
                 } else {
                     delete scope.filterApplied.order_by;
                     delete scope.filterApplied.order_type;
+                    delete scope.filterApplied.inner_order_by;
+                    delete scope.filterApplied.inner_order_type;
                 }
 
                 if (filter && filter.filterSetted && (filter.filterSetted.resetPage || filter.filterSetted.term_id)) {
