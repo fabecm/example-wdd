@@ -20,7 +20,8 @@ $squareBorder: 1px;
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
-        overflow: hidden;
+        // removed because the upper tooltip was cut by the overflow
+        //overflow: hidden;
         height: calc(100% - 25px);
 
         .spacer {

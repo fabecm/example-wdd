@@ -199,6 +199,7 @@ export class DataLineageController {
             case 'Technical Hierarchy':
             case 'Technical Rule':
             case 'Data Field':
+            case 'Program':
                 object.colorClass = 'color-blue';
                 break;
             default:
