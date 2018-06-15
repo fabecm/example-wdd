@@ -28,6 +28,13 @@ export class TableService {
                     });
                 });
 
+            case 'searchBusiness':
+                return this.dataService.getBusinessData(pageNumber, pageLength, filterApplied).then(res => {
+                    return ({
+                        dataTable: res.data.OutputArray,
+                        pages: res.data.page_count
+                    });
+                });
             case 'searchWorkspace':
                 return this.searchWorkspaceService.getWorkspace(pageNumber, pageLength, filterApplied).then(res => {
                     return ({

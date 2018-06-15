@@ -27,7 +27,7 @@
             </thead>
             <tbody>
 
-                <tr class="base-row" wdd-row ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
+                <tr class="base-row" wdd-row table-key="tableKey" ng-show="serviceResponse" ng-repeat-start="data in serviceResponse track by $index" row-data="data"
                     column="headerArray" action-function="rowAction(rowSelected)" row-key="$index" row-checked="isChecked" row-collapse="expandable"
                     has-info-btn="info" has-primary-navigation-btn="primaryNavigation" has-secondary-navigation-btn="secondaryNavigation"
                     has-ternary-navigation-btn="ternaryNavigation" navigation-in-popover="navigationInPopover" has-creation="hasCreation" status-to-disabled-creation="statusToDisabledCreation"
@@ -38,7 +38,7 @@
                         <wdd-table ng-if="data.data_fields" reload-data="vm.test" table-key="childTable" reload-data-form-child="reloadData()" service-response-obj="{{ {array: data.data_fields} }}"
                             header-array-obj="{{ {array: headerArrayExpandable} }}" pagination-bool="{{ {boolean: pagination} }}"
                             page-size-num="{{ {number: pageSize} }}" is-child="true" is-checked-bool="{{ {boolean: isChildChecked} }}"
-                            is-child-checked-bool="{{ {boolean: isChildChecked} }}" has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}" sortable-table="true" sortable-children="true" sortable-parent-selected="{{sortableParentSelected}}" sortable-table-type="{{sortableChildrenTableType}}"></wdd-table>
+                            is-child-checked-bool="{{ {boolean: isChildChecked} }}" has-primary-navigation-btn="true" path-primary-navigation="{{pathPrimaryNavigation}}" sortable-table="true" sortable-table-type="{{sortableChildrenTableType}}" sortable-parent-table-key="{{tableKey}}"></wdd-table>
                     </td>
                 </tr>
 

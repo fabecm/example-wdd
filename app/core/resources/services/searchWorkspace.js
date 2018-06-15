@@ -53,8 +53,10 @@ export class SearchWorkspaceService {
         if (filterApplied.order_by && filterApplied.order_type) {
             params.order_by = filterApplied.order_by;
             params.order_type = filterApplied.order_type;
-            params.inner_order_by = filterApplied.order_by;
-            params.inner_order_type = filterApplied.order_type;
+        }
+        if (filterApplied.inner_order_by && filterApplied.inner_order_type) {
+            params.inner_order_by = filterApplied.inner_order_by;
+            params.inner_order_type = filterApplied.inner_order_type;
         }
 
         let pathQuery = new QueryParams(params).getString();

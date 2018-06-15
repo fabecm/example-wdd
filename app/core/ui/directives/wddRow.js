@@ -21,7 +21,8 @@ export function WddRow () {
             isSas: '=',
             checkRow: '&',
             navigationInPopover: '=',
-            allowedColumnsDataLineage: '=?'
+            allowedColumnsDataLineage: '=?',
+            tableKey: '='
         },
         template: template,
         link: (scope) => {
@@ -50,7 +51,6 @@ export function WddRow () {
                     action: act
                 };
                 scope.actionFunction({rowSelected: forRow });
-                
             };
 
             scope.checkData = () => {

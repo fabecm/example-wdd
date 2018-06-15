@@ -90,8 +90,8 @@ export class WddCacheService {
         let partialSortingKey = new RegExp('^' + sortingPrefix + tab);
         let filterKeys = Object.keys(this.filterCached);
         let matchingKeys = filterKeys.filter(function (v) {
-            return partialSortingKey.test(v)
-        }); 
+            return partialSortingKey.test(v);
+        });
         for (let i = 0; i < matchingKeys.length; i++) {
             this.unCacheFilter(matchingKeys[i]);
         }
